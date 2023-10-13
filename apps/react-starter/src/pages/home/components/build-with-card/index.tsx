@@ -13,7 +13,7 @@ function BuildWithCard() {
     <ChartCard
       counter={32}
       icon="apps"
-      title="Apps build with iX"
+      title="Apps built with iX"
       data={[1, 5, 20, 70, 95]}
     ></ChartCard>
   );
