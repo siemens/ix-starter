@@ -1,0 +1,18 @@
+.Framework__Image {
+  width: 32px;
+  height: 32px;
+}
+
+.Framework__Card {
+  height: 8.5rem;
+  min-width: 13rem;
+}
+
+.Framework__Card__Content {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+}

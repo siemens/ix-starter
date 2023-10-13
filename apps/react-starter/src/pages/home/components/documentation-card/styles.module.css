@@ -1,0 +1,28 @@
+/*
+ * SPDX-FileCopyrightText: 2022 Siemens AG
+ *
+ * SPDX-License-Identifier: MIT
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.DocumentationCard {
+  cursor: pointer;
+}
+
+.Content {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+
+  width: 100%;
+  height: calc(100% + 2rem);
+}
+
+.QRCode {
+  width: 4.75rem;
+  height: 4.75rem;
+}
