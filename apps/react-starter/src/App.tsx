@@ -7,22 +7,33 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { IxBasicNavigation, IxMenu, IxMenuItem } from '@siemens/ix-react';
+import {
+  IxBasicNavigation,
+  IxMenu,
+  IxMenuAvatar,
+  IxMenuItem,
+} from '@siemens/ix-react';
 import { NavLink } from 'react-router-dom';
 import './App.css';
 import Content from './components/content';
 
 function App() {
   return (
-    <IxBasicNavigation applicationName="Showcase Application for React">
+    <IxBasicNavigation applicationName="Showcase App">
       <Logo />
       <IxMenu enableToggleTheme>
+        <IxMenuAvatar top="John" bottom="Doe"></IxMenuAvatar>
         <NavLink to="/">
           {({ isActive }) => <IxMenuItem active={isActive}>Home</IxMenuItem>}
         </NavLink>
         <NavLink to="/page1">
           {({ isActive }) => (
             <IxMenuItem active={isActive}>Components</IxMenuItem>
+          )}
+        </NavLink>
+        <NavLink to="/page2">
+          {({ isActive }) => (
+            <IxMenuItem active={isActive}>Data Sheet</IxMenuItem>
           )}
         </NavLink>
       </IxMenu>
@@ -66,7 +77,7 @@ function Logo() {
             transform="translate(99 28)"
             fill="none"
             stroke="var(--theme-app-header-logo--color)"
-            stroke-width="2"
+            strokeWidth="2"
           >
             <circle cx="6" cy="6" r="6" stroke="none"></circle>
             <circle cx="6" cy="6" r="5" fill="none"></circle>
@@ -77,7 +88,7 @@ function Logo() {
             transform="translate(85 28)"
             fill="none"
             stroke="var(--theme-app-header-logo--color)"
-            stroke-width="2"
+            strokeWidth="2"
           >
             <rect width="12" height="12" stroke="none"></rect>
             <rect x="1" y="1" width="10" height="10" fill="none"></rect>

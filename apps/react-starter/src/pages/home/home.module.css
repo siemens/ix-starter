@@ -11,6 +11,13 @@
   padding-bottom: 2rem;
 }
 
+.HomePage__Headline {
+  display: flex;
+  flex-direction: row;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+
 .ContentHeader {
   margin-right: 19rem;
 }
