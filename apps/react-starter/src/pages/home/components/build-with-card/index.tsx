@@ -11,9 +11,9 @@ import ChartCard from '../../../../components/chart-card';
 function BuildWithCard() {
   return (
     <ChartCard
-      counter={32}
-      icon="apps"
-      title="Apps built with iX"
+      counter={117}
+      icon="star"
+      title="Stars on GitHub"
       data={[1, 5, 20, 70, 95]}
     ></ChartCard>
   );

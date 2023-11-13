@@ -99,7 +99,11 @@ function ChartCard(
       <IxCardContent style={{ height: 'calc(100% + 2rem)' }}>
         <IxCardTitle>
           <div className={styles.ChartCardTitle}>
-            <IxIcon name={props.icon} size="32"></IxIcon>
+            <IxIcon
+              name={props.icon}
+              size="32"
+              class={styles.ChartChardTitle_Icon}
+            ></IxIcon>
             <IxTypography format="h4">{props.title}</IxTypography>
           </div>
         </IxCardTitle>

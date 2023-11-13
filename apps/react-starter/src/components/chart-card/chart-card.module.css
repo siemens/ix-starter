@@ -9,7 +9,6 @@
 .ChartCard {
   display: block;
   position: relative;
-  height: 100%;
   min-height: 16rem;
 }
 
@@ -20,6 +19,10 @@
 .ChartCard .ChartCardTitle {
   display: flex;
   flex-direction: column;
+}
+
+.ChartCard .ChartCardTitle .ChartChardTitle_Icon {
+  margin-bottom: 1rem;
 }
 
 .ChartCard .ChartCardCounter {
