@@ -41,7 +41,11 @@ function Card(
       <IxCardContent style={{ height: 'calc(100% + 2rem)' }}>
         <IxCardTitle>
           <div className={styles.CardTitle}>
-            <IxIcon name={props.icon} size="32"></IxIcon>
+            <IxIcon
+              name={props.icon}
+              size="32"
+              class={styles.CardTitle_Icon}
+            ></IxIcon>
             <IxTypography format="h3">{props.title}</IxTypography>
           </div>
         </IxCardTitle>

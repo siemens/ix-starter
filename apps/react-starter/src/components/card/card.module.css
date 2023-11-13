@@ -26,3 +26,7 @@
   display: flex;
   flex-direction: column;
 }
+
+.Card .CardTitle .CardTitle_Icon {
+  margin-bottom: 0.5rem;
+}

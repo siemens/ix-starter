@@ -30,7 +30,7 @@ import styles from './styles.module.css';
 function ComponentOverview() {
   return (
     <>
-      <PageHeader header="Hey! Checkout a little overview over our components" />
+      <PageHeader header="Component overview" />
       <IxLayoutGrid>
         <IxRow>
           <IxCol>

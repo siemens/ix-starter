@@ -17,7 +17,7 @@ import styles from './styles.module.css';
 function SupportedFrameworks() {
   return (
     <IxCardList
-      label="My activities"
+      label="Tech stack"
       listStyle={'scroll'}
       onShowAllClick={() =>
         window.open('https://ix.siemens.io/docs/installation/', '_blank')

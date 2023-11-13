@@ -16,6 +16,7 @@ import App from './App';
 import './index.css';
 import ComponentOverview from './pages/component-overview';
 import HomePage from './pages/home';
+import Example from './pages/example';
 
 const router = createHashRouter([
   {
@@ -29,6 +30,10 @@ const router = createHashRouter([
       {
         path: '/page1',
         element: <ComponentOverview />,
+      },
+      {
+        path: '/page2',
+        element: <Example />,
       },
     ],
   },

@@ -6,24 +6,36 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import { IxCardList, IxContentHeader } from '@siemens/ix-react';
+import { IxCardList, IxTypography } from '@siemens/ix-react';
 import BuildWithCard from './components/build-with-card';
-import ChartCardFramework from './components/chart-card-framework';
+import ReleasesCard from './components/release-card';
 import CommitmentCard from './components/commitment-card';
 import DocumentationCard from './components/documentation-card';
 import IconsCard from './components/icons-card';
 import SupportedFrameworks from './components/supported-frameworks';
 import styles from './home.module.css';
+
 function HomePage() {
   return (
     <>
-      <IxContentHeader
-        class={styles.ContentHeader}
-        headerTitle="Welcome visitors, today you have 21 insights on iX Design System!"
-      ></IxContentHeader>
+      <div>
+        <div className={styles.HomePage__Headline}>
+          <IxTypography format="h1">Siemens Industrial Experience</IxTypography>
+        </div>
+        <div className={styles.HomePage__Headline}>
+          <IxTypography format="display" color="weak">
+            Made for industrial experiences.
+          </IxTypography>
+        </div>
+        <div className={styles.HomePage__Headline}>
+          <IxTypography format="body-lg" color="weak">
+            Contribute. Build. Done.
+          </IxTypography>
+        </div>
+      </div>
       <div className={styles.HomePage}>
         <section className={styles.TopLineCards}>
-          <ChartCardFramework />
+          <ReleasesCard />
           <BuildWithCard />
           <CommitmentCard />
           <DocumentationCard />
