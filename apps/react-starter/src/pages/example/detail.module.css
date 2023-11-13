@@ -6,35 +6,21 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-
-.Example {
+.Please_Select {
   display: flex;
+  position: relative;
   flex-direction: column;
   height: 100%;
-  padding-bottom: 2rem;
-}
+  width: 100%;
 
-.IconTab {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.IconTab {
-  gap: 0.25rem
-}
-
-.Search {
-  display: flex;
   justify-content: center;
-  grid-gap: 0.625rem;
-  margin-bottom: 1rem;
+  align-items: center;
+
+  gap: 1rem;
 }
 
-.Layout {
-  height: 100%;
-}
-
-.Row, .Col {
-  height: 100%;
+.Detail {
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }

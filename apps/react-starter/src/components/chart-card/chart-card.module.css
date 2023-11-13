@@ -22,6 +22,10 @@
   flex-direction: column;
 }
 
+.ChartCard .ChartCardTitle .ChartChardTitle_Icon {
+  margin-bottom: 1rem;
+}
+
 .ChartCard .ChartCardCounter {
   display: block;
   position: absolute;
