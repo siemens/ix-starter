@@ -24,16 +24,24 @@ function App() {
       <IxMenu enableToggleTheme>
         <IxMenuAvatar top="John" bottom="Doe"></IxMenuAvatar>
         <NavLink to="/">
-          {({ isActive }) => <IxMenuItem active={isActive}>Home</IxMenuItem>}
+          {({ isActive }) => (
+            <IxMenuItem active={isActive} icon="home">
+              Home
+            </IxMenuItem>
+          )}
         </NavLink>
         <NavLink to="/page1">
           {({ isActive }) => (
-            <IxMenuItem active={isActive}>Components</IxMenuItem>
+            <IxMenuItem active={isActive} icon="applications">
+              Components
+            </IxMenuItem>
           )}
         </NavLink>
         <NavLink to="/page2">
           {({ isActive }) => (
-            <IxMenuItem active={isActive}>Data Sheet</IxMenuItem>
+            <IxMenuItem active={isActive} icon="table">
+              Data Sheet
+            </IxMenuItem>
           )}
         </NavLink>
       </IxMenu>
