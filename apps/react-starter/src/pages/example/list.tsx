@@ -13,12 +13,13 @@ import {
   IxSpinner,
   IxTypography,
 } from '@siemens/ix-react';
-import { useLayoutEffect, useState } from 'react';
+import { useCallback, useLayoutEffect, useState } from 'react';
 import { fetchDataSheet } from '../../utils/mock-api';
 import styles from './list.module.css';
 import { MockData } from './mock-data';
 
 export default function List(props: {
+  search: string;
   selected: MockData | null;
   onSelectionChange: (entry: MockData) => void;
 }) {
@@ -33,14 +34,32 @@ export default function List(props: {
     setData(result.data);
   };
 
+  /**
+   * Just an basic "full"-search
+   */
+  const searchArray = useCallback(() => {
+    if (props.search === '') {
+      return data;
+    }
+
+    const query = props.search.toLowerCase();
+
+    return data.filter((item) =>
+      Object.values(item).some(
+        (value) =>
+          typeof value === 'string' && value.toLowerCase().includes(query)
+      )
+    );
+  }, [props.search, data]);
+
   if (!data.length) {
     return <IxSpinner size="large" class={styles.Loading}></IxSpinner>;
   }
 
   return (
     <div className={styles.List}>
-      <IxEventList itemHeight={120}>
-        {data.map((item) => (
+      <IxEventList itemHeight={120} animated={false}>
+        {searchArray().map((item) => (
           <IxEventListItem
             key={item.id}
             color="color-success"

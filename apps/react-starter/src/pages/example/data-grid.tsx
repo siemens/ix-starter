@@ -45,6 +45,7 @@ const gridOptions = {
 } as GridOptions;
 
 export default function DateGrid(props: {
+  search: string;
   selected: MockData | null;
   onSelectionChange: (entry: MockData) => void;
 }) {
@@ -62,6 +63,7 @@ export default function DateGrid(props: {
 
       const result = await fetchDataSheet();
       setData(result.data);
+      api.setQuickFilter(props.search);
 
       api.hideOverlay();
     }
@@ -87,6 +89,15 @@ export default function DateGrid(props: {
       });
     }
   }, [data]);
+
+  useEffect(() => {
+    const api = gridRef.current?.api;
+    if (!api) {
+      return;
+    }
+
+    api.setQuickFilter(props.search);
+  }, [props.search]);
 
   return (
     <div

@@ -19,7 +19,7 @@ import {
 import PageHeader from '../../components/page-header';
 
 import styles from './styles.module.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import DataGrid from './data-grid';
 import List from './list';
 import { MockData } from './mock-data';
@@ -34,12 +34,35 @@ function IconTab(props: { name: string; icon: string }) {
   );
 }
 
-function Search(props: { onCollapse: () => void }) {
+function Search(props: {
+  onCollapse: () => void;
+  onSearch: (search: string) => void;
+}) {
+  const [search, setSearch] = useState('');
+
+  useEffect(() => {
+    props.onSearch(search);
+  }, [search]);
+
   return (
     <div className={styles.Search}>
       <IxInputGroup>
         <IxIcon name="filter" size="16" slot="input-start"></IxIcon>
-        <input />
+        <input
+          value={search}
+          onInput={(event) => {
+            setSearch(event.currentTarget.value);
+          }}
+        />
+        {search && (
+          <IxIconButton
+            icon="clear"
+            size="16"
+            ghost
+            slot="input-end"
+            onClick={() => setSearch('')}
+          />
+        )}
       </IxInputGroup>
       <IxIconButton
         icon="navigation-right"
@@ -50,6 +73,7 @@ function Search(props: { onCollapse: () => void }) {
 }
 
 export default () => {
+  const [search, setSearch] = useState('');
   const [selectedEntry, setSelectedEntry] = useState<MockData | null>(null);
   const [tab, setTab] = useState<'data-grid' | 'list'>('data-grid');
 
@@ -73,17 +97,19 @@ export default () => {
       <IxLayoutGrid className={styles.Layout}>
         <IxRow className={styles.Row}>
           <IxCol size={collapsed ? `12` : `7`} className={styles.Col}>
-            <Search onCollapse={onCollapse} />
+            <Search onCollapse={onCollapse} onSearch={setSearch} />
             {tab === 'data-grid' && (
               <DataGrid
                 selected={selectedEntry}
                 onSelectionChange={setSelectedEntry}
+                search={search}
               ></DataGrid>
             )}
             {tab === 'list' && (
               <List
                 selected={selectedEntry}
                 onSelectionChange={setSelectedEntry}
+                search={search}
               ></List>
             )}
           </IxCol>
