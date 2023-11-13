@@ -11,7 +11,17 @@ import { IxButton, IxIconButton, IxTypography } from '@siemens/ix-react';
 import { mixUp, revertMixUp } from '../../utils/mix-up-theme';
 import arrowImage from './../../assets/arrow.svg';
 import styles from './theme-roulette.module.css';
+import { useLocation } from 'react-router-dom';
+
+export function useThemeRoulette() {
+  const location = useLocation();
+
+  return location.pathname === '/';
+}
+
 function ThemeRoulette() {
+  const tryOutLabelVisible = useThemeRoulette();
+
   const onSwitchTheme = (theme: string) => {
     revertMixUp();
     themeSwitcher.setTheme(theme);
@@ -35,27 +45,17 @@ function ThemeRoulette() {
         icon="moon-filled"
         onClick={() => onSwitchTheme('theme-classic-dark')}
       />
-      {/* <IxIconButton
-        variant="primary"
-        oval
-        icon="sun"
-        onClick={() => onSwitchTheme('theme-brand-light')}
-      />
-      <IxIconButton
-        variant="primary"
-        oval
-        icon="moon"
-        onClick={() => onSwitchTheme('theme-brand-dark')}
-      /> */}
       <IxButton icon="refresh" onClick={onMixupThemeColors}>
         Mix up colors
       </IxButton>
-      <div className={styles.TryOut}>
-        <IxTypography format="display-xs" className={styles.TryOutText} bold>
-          Try a random color combination
-        </IxTypography>
-        <img src={arrowImage} className={styles.TryOutArrow}></img>
-      </div>
+      {tryOutLabelVisible && (
+        <div className={styles.TryOut}>
+          <IxTypography format="display-xs" className={styles.TryOutText} bold>
+            Try a random color combination
+          </IxTypography>
+          <img src={arrowImage} className={styles.TryOutArrow}></img>
+        </div>
+      )}
     </div>
   );
 }

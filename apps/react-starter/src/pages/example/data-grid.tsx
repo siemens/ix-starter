@@ -6,19 +6,13 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import { AgGridReact } from 'ag-grid-react'; // the AG Grid React Component
+import { AgGridReact } from 'ag-grid-react';
 
-import '@siemens/ix-aggrid/dist/ix-aggrid/ix-aggrid.css';
 import { GridOptions } from 'ag-grid-community';
-import 'ag-grid-community/styles/ag-grid.css'; // Core grid CSS, always needed
-import 'ag-grid-community/styles/ag-theme-alpine.css'; // Optional theme CSS
-import {
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from 'react';
+import 'ag-grid-community/styles/ag-grid.css';
+import 'ag-grid-community/styles/ag-theme-alpine.css';
+import '@siemens/ix-aggrid/dist/ix-aggrid/ix-aggrid.css';
+import { useEffect, useRef, useState } from 'react';
 import { MockData } from './mock-data';
 import { fetchDataSheet } from '../../utils/mock-api';
 

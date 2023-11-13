@@ -8,35 +8,34 @@
  */
 import { IxCardList, IxTypography } from '@siemens/ix-react';
 import BuildWithCard from './components/build-with-card';
-import ChartCardFramework from './components/chart-card-framework';
+import ReleasesCard from './components/release-card';
 import CommitmentCard from './components/commitment-card';
 import DocumentationCard from './components/documentation-card';
 import IconsCard from './components/icons-card';
 import SupportedFrameworks from './components/supported-frameworks';
 import styles from './home.module.css';
+
 function HomePage() {
   return (
     <>
       <div>
         <div className={styles.HomePage__Headline}>
-          <IxTypography format="display-xxl">
-            Siemens Industrial Experience
-          </IxTypography>
+          <IxTypography format="h1">Siemens Industrial Experience</IxTypography>
         </div>
         <div className={styles.HomePage__Headline}>
-          <IxTypography format="display-xl" color="weak">
+          <IxTypography format="display" color="weak">
             Made for industrial experiences.
           </IxTypography>
         </div>
         <div className={styles.HomePage__Headline}>
-          <IxTypography format="display" color="weak">
+          <IxTypography format="body-lg" color="weak">
             Contribute. Build. Done.
           </IxTypography>
         </div>
       </div>
       <div className={styles.HomePage}>
         <section className={styles.TopLineCards}>
-          <ChartCardFramework />
+          <ReleasesCard />
           <BuildWithCard />
           <CommitmentCard />
           <DocumentationCard />

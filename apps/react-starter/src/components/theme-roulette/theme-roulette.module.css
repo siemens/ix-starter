@@ -28,7 +28,7 @@
   display: flex;
   position: relative;
   margin-top: 1.5rem;
-  transform: rotate(-25deg);
+  transform: translateX(3rem) rotate(-25deg);
   color: var(--theme-color-primary);
 }
 
