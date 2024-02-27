@@ -6,7 +6,8 @@
 version: 2
 updates:
   - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/apps/react-starter" # Location of package manifests
+    versioning-strategy: auto
+    directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
     reviewers:
