@@ -1,6 +1,10 @@
 {
   "folders": [
     {
+      "name": "ix-react-showcase",
+      "path": "./apps/react-showcase"
+    },
+    {
       "name": "ix-react-starter",
       "path": "./apps/react-starter"
     },

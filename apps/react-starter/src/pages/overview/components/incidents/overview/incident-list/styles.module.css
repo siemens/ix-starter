@@ -6,13 +6,17 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-{
-  "compilerOptions": {
-    "composite": true,
-    "skipLibCheck": true,
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "allowSyntheticDefaultImports": true
-  },
-  "include": ["vite.config.ts"]
-}
+
+ .ListItemContainer {
+    display: flex;
+    width: 100%;
+
+    > div {
+      display: flex;
+      flex-grow: 1;
+    }
+
+    > div:last-child {
+      justify-content: flex-end;
+    }
+ }

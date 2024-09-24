@@ -6,13 +6,13 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-{
-  "compilerOptions": {
-    "composite": true,
-    "skipLibCheck": true,
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "allowSyntheticDefaultImports": true
-  },
-  "include": ["vite.config.ts"]
-}
+
+import { IxContentHeader } from "@siemens/ix-react";
+
+const AnalyticsPage = () => {
+    return (
+        <IxContentHeader headerTitle="Analytics"></IxContentHeader>
+    );
+};
+
+export default AnalyticsPage;
