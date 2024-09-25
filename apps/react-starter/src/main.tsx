@@ -4,10 +4,10 @@ import { createHashRouter, RouterProvider } from "react-router-dom";
 import { IxApplicationContext } from "@siemens/ix-react";
 import "./index.css";
 import "@siemens/ix/dist/siemens-ix/siemens-ix.css";
-import App from "./App.jsx";
+import App from "./App.tsx";
 import OverviewPage from "./pages/overview/index.tsx";
-import DevicesPage from "./pages/devices/index.jsx";
-import AnalyticsPage from "./pages/analytics/index.jsx";
+import DevicesPage from "./pages/devices/index.tsx";
+import AnalyticsPage from "./pages/analytics/index.tsx";
 
 const router = createHashRouter([
   {
