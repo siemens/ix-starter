@@ -1,0 +1,10 @@
+
+.FormGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.ItemFullWidth {
+  grid-column: 1 / 3;
+}

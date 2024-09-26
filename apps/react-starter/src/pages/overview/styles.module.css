@@ -7,14 +7,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
- .Content {
-    padding: 0.75rem 1rem 1rem 2rem;
- }
-
-.Overview {
-   margin-block-end: 1rem;
+.Content {
+  padding: 0.75rem 1rem 1rem 2rem;
 }
 
- ix-content-header {
-   margin-block-end: 1.5rem;
- }
+.Overview {
+  margin-block-end: 1rem;
+}
+
+ix-content-header {
+  margin-block-end: 1.5rem;
+}

@@ -14,14 +14,19 @@
     "@siemens/ix-echarts": "^2.3.0",
     "@siemens/ix-icons": "^2.0.0",
     "@siemens/ix-react": "^2.5.0",
+    "ag-grid-community": "^30.2.1",
+    "ag-grid-react": "^32.2.0",
     "echarts": "^5.5.1",
     "echarts-for-react": "^3.0.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.16.0"
+    "react-hook-form": "^7.53.0",
+    "react-router-dom": "^6.16.0",
+    "zustand": "5.0.0-rc.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
+    "@siemens/ix-aggrid": "^2.2.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",

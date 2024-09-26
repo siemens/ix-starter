@@ -11,10 +11,29 @@ export type MockData = {
   deviceName: string;
   vendor: string;
   description?: string;
-  status: string;
-  articleNumber?: string;
+  status: "Online" | "Offline" | "Maintenance" | "Error";
+  articleNumber?: string
   macAddress: string;
   ipAddress: string;
   firmwareVersion?: string;
   serialNumber?: string;
 };
+
+export type QuickActionsProps = {
+  devicesCount: number;
+  errorCount: number;
+  warningCount: number;
+  show: () => {}
+}
+
+export type OverviewProps = {
+  expanded: boolean;
+  setExpanded: (expanded: boolean) => void;
+  data: MockData
+}
+
+export type AlertCardProps = {
+  title: string;
+  value: number;
+  variant: string;
+}

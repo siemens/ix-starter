@@ -1,0 +1,45 @@
+/*
+ * SPDX-FileCopyrightText: 2024 Siemens AG
+ *
+ * SPDX-License-Identifier: MIT
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.AlertCardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  flex-wrap: nowrap;
+}
+
+.AlertCard {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: nowrap;
+
+  ix-typography {
+    font-size: 1rem;
+  }
+}
+
+.CardWarning {
+  width: 100%;
+  background: #FFD73233;
+
+  ix-icon {
+    color: var(--theme-color-warning);
+  }
+}
+
+.CardAlert {
+  width: 100%;
+  background: #FF264033;
+
+  ix-icon {
+    color: var(--theme-color-alarm);
+  }
+}
