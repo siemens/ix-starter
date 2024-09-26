@@ -30,10 +30,10 @@ const router = createHashRouter([
   },
 ]);
 
-createRoot(document.getElementById("root")).render(
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <IxApplicationContext>
       <RouterProvider router={router}></RouterProvider>
     </IxApplicationContext>
-  </StrictMode>
+  </StrictMode>,
 );

@@ -6,13 +6,14 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
+import type { MockData } from "../types";
 
 export const fetchDataSheet = async (): Promise<MockData[]> => {
-  const res = await fetch('/data.json');
+  const res = await fetch("/data.json");
   const text = await res.text();
 
   if (res.status !== 200) {
-    throw Error('Could not load data');
+    throw Error("Could not load data");
   }
 
   return JSON.parse(text);
