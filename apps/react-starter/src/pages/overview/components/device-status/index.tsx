@@ -9,11 +9,7 @@
 
 import styles from "./styles.module.css";
 
-import {
-  IxCard,
-  IxCardContent,
-  IxTypography,
-} from "@siemens/ix-react";
+import { IxCard, IxCardContent, IxTypography } from "@siemens/ix-react";
 import { getComputedCSSProperty } from "@siemens/ix-echarts";
 import ReactEcharts from "echarts-for-react";
 
@@ -43,10 +39,10 @@ function getOption() {
         name: "OS Share",
         type: "pie",
         color: [
-            getComputedCSSProperty("color-success"),
-            getComputedCSSProperty("color-alarm"),
-            getComputedCSSProperty("color-neutral"),
-            getComputedCSSProperty("color-critical"),
+          getComputedCSSProperty("color-success"),
+          getComputedCSSProperty("color-alarm"),
+          getComputedCSSProperty("color-neutral"),
+          getComputedCSSProperty("color-critical"),
         ],
         radius: ["60%", "90%"],
         label: {
@@ -74,7 +70,11 @@ function DeviceStatus() {
     <IxCard>
       <IxCardContent>
         <IxTypography format="h3">Device status</IxTypography>
-        <ReactEcharts className={styles.echarts} option={getOption()} />
+        <ReactEcharts
+          onChartReady={(echarts) => setTimeout(echarts.resize)}
+          className={styles.echarts}
+          option={getOption()}
+        />
       </IxCardContent>
     </IxCard>
   );

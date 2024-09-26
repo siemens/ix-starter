@@ -15,6 +15,11 @@ device-status {
   display: flex;
 }
 
+ix-card {
+  flex-grow: 1;
+}
+
 ix-card + ix-card {
+  flex-grow: 2;
   margin-inline-start: 1rem;
 }

@@ -112,7 +112,11 @@ function StatusHistory() {
     <IxCard>
       <IxCardContent>
         <IxTypography format="h3">Status history</IxTypography>
-        <ReactEcharts className={styles.echarts} option={getOption()} />
+        <ReactEcharts
+          onChartReady={(echarts) => setTimeout(echarts.resize)}
+          className={styles.echarts}
+          option={getOption()}
+        />
       </IxCardContent>
     </IxCard>
   );
