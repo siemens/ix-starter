@@ -1,10 +1,18 @@
-import './styles.module.css';
+/*
+ * SPDX-FileCopyrightText: 2024 Siemens AG
+ *
+ * SPDX-License-Identifier: MIT
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import {AgGridReact} from 'ag-grid-react';
-import { IxEmptyState } from "@siemens/ix-react";
+import {IxEmptyState} from "@siemens/ix-react";
 import CustomQuickActionsComp from "./custom-cell-renderet.tsx";
 import camelCaseToNormal from "../../../../util/util.ts";
-import {ColDef, RowClickedEvent} from "ag-grid-community";
-import {useOverviewPaneStore} from "../../../store/device-store.ts";
+import {CellClickedEvent, ColDef} from "ag-grid-community";
+import {useDataStore, useOverviewPaneStore} from "../../../store/device-store.ts";
 import {MockData} from "../../../../types";
 
 type AgGridTableProps = {
@@ -12,16 +20,21 @@ type AgGridTableProps = {
   searchTerm: string,
 }
 
-function AgGridTable({data, searchTerm} : AgGridTableProps) {
-   const {setExpanded, setSelectedData} = useOverviewPaneStore();
+function AgGridTable({data, searchTerm}: AgGridTableProps) {
+  const {setExpanded, setSelectedData} = useOverviewPaneStore();
+  const {editDevice} = useDataStore();
 
-  const onRowClicked = (event: RowClickedEvent) => {
+  const onRowClicked = (event: CellClickedEvent) => {
+    if (event.column.getColId() === 'quickActions') {
+      return;
+    }
+
     setSelectedData(event.data);
     setExpanded(true);
   };
 
   const getColumnDefs = () => {
-    if(data.length === 0) {
+    if (data.length === 0) {
       return [];
     }
     const keyNames = Object.keys(data[0]);
@@ -29,6 +42,7 @@ function AgGridTable({data, searchTerm} : AgGridTableProps) {
       return {
         field: key,
         headerName: camelCaseToNormal(key),
+        editable: true
       };
     });
 
@@ -40,7 +54,7 @@ function AgGridTable({data, searchTerm} : AgGridTableProps) {
 
     return columnDefs;
   };
-  
+
   return (
     data ? (
       <div style={{height: '100%', width: '100%'}}>
@@ -50,9 +64,11 @@ function AgGridTable({data, searchTerm} : AgGridTableProps) {
             ...getColumnDefs(),
             {cellEditor: true, cellEditorPopup: false}
           ]}
+          suppressRowTransform={true}
           rowData={data}
           className="ag-theme-alpine-dark ag-theme-ix"
-          onRowClicked={onRowClicked}
+          onCellClicked={onRowClicked}
+          onCellValueChanged={(e) => editDevice(e.data)}
         />
       </div>
     ) : (

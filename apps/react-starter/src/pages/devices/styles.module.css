@@ -11,6 +11,7 @@
   height: 100%;
   width: 100%;
   padding: 0.75rem 1rem 1rem 2rem;
+  overflow: hidden;
 }
 
 ix-content-header {

@@ -1,3 +1,12 @@
+/*
+ * SPDX-FileCopyrightText: 2024 Siemens AG
+ *
+ * SPDX-License-Identifier: MIT
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import styles from "./styles.module.css";
 import {
   IxPane,
@@ -17,7 +26,6 @@ const Overview = ({
   ...props
 }: OverviewProps) => {
   const {expanded, selectedData, setExpanded} = useOverviewPaneStore();
-  type MockDataKeys = keyof MockData;
 
   return (
     <IxPane
@@ -40,11 +48,11 @@ const Overview = ({
               {selectedData.deviceName}
             </IxTypography>
             <FirmwareCard />
-            {(Object.keys(selectedData) as MockDataKeys[]).map((key, index) => (
+            {(Object.keys(selectedData)).map((key, index) => (
               index !== 0 && <div key={index}>
                 <IxTypography format="body" textColor="soft">{camelCaseToNormal(key)}</IxTypography>
                 <IxTypography format="body" textColor="std">
-                  {selectedData[key]}
+                  {selectedData[key as keyof MockData]}
                 </IxTypography>
                 <IxDivider className={styles.Divider} />
               </div>

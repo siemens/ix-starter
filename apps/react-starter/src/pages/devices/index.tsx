@@ -12,21 +12,33 @@ import Overview from "./components/overview";
 
 import show from "./components/modal/index.tsx";
 import {useDataStore} from "../store/device-store.ts";
+import {MockData} from "../../types";
 
 const DevicesPage = () => {
   const {devices, fetch} = useDataStore();
   const [searchTerm, setSearchTerm] = useState('');
-
-  const [categories] = useState({
-    ID_1: {
-      label: 'Gender',
-      options: ['Male', 'Female'],
-    },
-  });
+  const [categories, setCategories] = useState({});
 
   useEffect(() => {
     fetch();
   }, []);
+
+  useEffect(() => {
+    if (devices.length > 0) {
+      const newCategories: { [key: string]: {} } = {};
+      const keys = Object.keys(devices[0]);
+
+      keys.forEach((key, index) => {
+        const uniqueValues = Array.from(new Set(devices.map(device => device[key as keyof MockData])));
+        newCategories[`ID_${index + 1}`] = {
+          label: key,
+          options: uniqueValues,
+        };
+      });
+
+      setCategories(newCategories);
+    }
+  }, [devices]);
 
 
   return (

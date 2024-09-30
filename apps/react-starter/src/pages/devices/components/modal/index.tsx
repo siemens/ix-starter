@@ -1,3 +1,12 @@
+/*
+ * SPDX-FileCopyrightText: 2024 Siemens AG
+ *
+ * SPDX-License-Identifier: MIT
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import {
   IxButton,
   IxModalContent,
@@ -8,10 +17,10 @@ import {
   showModal,
 } from '@siemens/ix-react';
 import {useRef, useEffect} from 'react';
-import styles from "../form/styles.module.css";
-import FormField from "../form/form-field.tsx";
+import styles from "./styles.module.css";
+import FormField from "./form-field";
 import {useForm} from "react-hook-form";
-import {useDataStore} from "../../../store/device-store.ts";
+import {useDataStore} from "../../../store/device-store";
 import {MockData} from "../../../../types";
 
 function AddDeviceModal() {
@@ -45,7 +54,6 @@ function AddDeviceModal() {
   }, [register]);
 
   const onSubmit = (data: MockData) => {
-    console.log('Form Data:', data);
     addDevice(data);
     close();
   };

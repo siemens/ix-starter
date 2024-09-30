@@ -8,6 +8,7 @@
  */
 
 export type MockData = {
+  id: string;
   deviceName: string;
   vendor: string;
   description?: string;
