@@ -10,6 +10,7 @@
 import { create } from "zustand";
 import { fetchDataSheet } from "../../util/mock-api.ts";
 import { MockData } from "../../types";
+import {LogicalFilterOperator} from "@siemens/ix";
 
 interface DataStoreState {
   devices: MockData[];
@@ -46,4 +47,23 @@ export const useOverviewPaneStore = create<OverviewPaneStore>((set) => ({
   selectedData: null,
   setExpanded: (expanded: boolean) => set({ expanded }),
   setSelectedData: (selectedData: MockData) => set({ selectedData }),
+}));
+
+
+interface Filter {
+  id: string;
+  value: string;
+  operator: LogicalFilterOperator;
+}
+
+interface FilterStore {
+  filter: Filter[];
+  setFilter: (filter: Filter[]) => void;
+  resetFilter: () => void;
+}
+
+export const useFilterStore = create<FilterStore>((set) => ({
+  filter: [],
+  setFilter: (filter: Filter[]) => set({ filter }),
+  resetFilter: () => set({ filter: [] }),
 }));

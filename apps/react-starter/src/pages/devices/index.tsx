@@ -11,12 +11,12 @@ import AgGridTable from "./components/ag-grid-table/ag-grid-table.tsx";
 import Overview from "./components/overview";
 
 import show from "./components/modal/index.tsx";
-import {useDataStore} from "../store/device-store.ts";
+import {useDataStore, useFilterStore} from "../store/device-store.ts";
 import {MockData} from "../../types";
 
 const DevicesPage = () => {
   const {devices, fetch} = useDataStore();
-  const [searchTerm, setSearchTerm] = useState('');
+  const {setFilter} = useFilterStore();
   const [categories, setCategories] = useState({});
 
   useEffect(() => {
@@ -28,9 +28,9 @@ const DevicesPage = () => {
       const newCategories: { [key: string]: {} } = {};
       const keys = Object.keys(devices[0]);
 
-      keys.forEach((key, index) => {
+      keys.forEach((key) => {
         const uniqueValues = Array.from(new Set(devices.map(device => device[key as keyof MockData])));
-        newCategories[`ID_${index + 1}`] = {
+        newCategories[key] = {
           label: key,
           options: uniqueValues,
         };
@@ -44,7 +44,7 @@ const DevicesPage = () => {
   return (
     <>
       <div style={{position: 'absolute', width: '100%', height: '100%'}}>
-        <Overview />
+        <Overview/>
         <IxPaneLayout variant="inline">
           <div slot="content" className={styles.Content}>
             <IxContentHeader headerTitle="Devices">
@@ -61,9 +61,9 @@ const DevicesPage = () => {
               suggestions={[]}
               onFilterChanged={(e) => {
                 if (e.detail.categories[0]) {
-                  setSearchTerm(e.detail.categories[0].value);
+                  setFilter(e.detail.categories);
                 } else {
-                  setSearchTerm('')
+                  setFilter([])
                 }
               }}
               categories={categories}
@@ -72,7 +72,6 @@ const DevicesPage = () => {
             ></IxCategoryFilter>
             <AgGridTable
               data={devices}
-              searchTerm={searchTerm}
             />
           </div>
           <IxPane heading="Quick actions" size="320px" expanded slot="right">

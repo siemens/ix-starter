@@ -7,21 +7,26 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import "./styles.module.css";
 import {AgGridReact} from 'ag-grid-react';
 import {IxEmptyState} from "@siemens/ix-react";
 import CustomQuickActionsComp from "./custom-cell-renderet.tsx";
 import camelCaseToNormal from "../../../../util/util.ts";
-import {CellClickedEvent, ColDef} from "ag-grid-community";
-import {useDataStore, useOverviewPaneStore} from "../../../store/device-store.ts";
+import {CellClickedEvent, ColDef, IRowNode} from "ag-grid-community";
+import {useDataStore, useFilterStore, useOverviewPaneStore} from "../../../store/device-store.ts";
 import {MockData} from "../../../../types";
+import {useCallback, useEffect, useRef, useState} from "react";
+import {LogicalFilterOperator} from "@siemens/ix";
 
 type AgGridTableProps = {
   data: MockData[],
-  searchTerm: string,
 }
 
-function AgGridTable({data, searchTerm}: AgGridTableProps) {
+function AgGridTable({data}: AgGridTableProps) {
+  const gridRef = useRef<AgGridReact<MockData>>(null);
   const {setExpanded, setSelectedData} = useOverviewPaneStore();
+  const {filter, resetFilter} = useFilterStore();
+  const [showEmptyState, setShowEmptyState] = useState(false);
   const {editDevice} = useDataStore();
 
   const onRowClicked = (event: CellClickedEvent) => {
@@ -38,13 +43,17 @@ function AgGridTable({data, searchTerm}: AgGridTableProps) {
       return [];
     }
     const keyNames = Object.keys(data[0]);
-    const columnDefs: ColDef[] = keyNames.map((key) => {
-      return {
-        field: key,
-        headerName: camelCaseToNormal(key),
-        editable: true
-      };
-    });
+    const columnDefs: ColDef[] = keyNames
+      .filter(key => key !== 'id')
+      .map((key) => {
+        return {
+          field: key,
+          headerName: camelCaseToNormal(key),
+          editable: true
+        };
+      });
+
+    columnDefs.pop()
 
     columnDefs.push({
       field: 'quickActions',
@@ -55,11 +64,39 @@ function AgGridTable({data, searchTerm}: AgGridTableProps) {
     return columnDefs;
   };
 
+  const isExternalFilterPresent = useCallback((): boolean => {
+    return true;
+  }, []);
+
+  function doesExternalFilterPass(node: IRowNode<MockData>): boolean {
+    if (filter.length) {
+      return filter.every(({ id, value, operator }) => {
+        switch (operator) {
+          case LogicalFilterOperator.EQUAL:
+            return node.data![id as keyof MockData] === value;
+          case LogicalFilterOperator.NOT_EQUAL:
+            return node.data![id as keyof MockData] !== value;
+          default:
+            return true;
+        }
+      });
+    }
+    return true;
+  }
+
+  useEffect(() => {
+    console.log(filter);
+    if (gridRef.current && gridRef.current.api) {
+      setShowEmptyState(gridRef.current.api.getDisplayedRowCount() === 0);
+    } else {
+      setShowEmptyState(false);
+    }
+  }, [filter]);
+
   return (
-    data ? (
-      <div style={{height: '100%', width: '100%'}}>
+    data && !showEmptyState ? (
         <AgGridReact
-          quickFilterText={searchTerm}
+          ref={gridRef}
           columnDefs={[
             ...getColumnDefs(),
             {cellEditor: true, cellEditorPopup: false}
@@ -69,18 +106,19 @@ function AgGridTable({data, searchTerm}: AgGridTableProps) {
           className="ag-theme-alpine-dark ag-theme-ix"
           onCellClicked={onRowClicked}
           onCellValueChanged={(e) => editDevice(e.data)}
+          isExternalFilterPresent={isExternalFilterPresent}
+          doesExternalFilterPass={(e) => doesExternalFilterPass(e as IRowNode<MockData>)}
         />
-      </div>
     ) : (
       <div
-        className="w-100 h-100 d-flex justify-content-center align-content-center">
-        <IxEmptyState
-          header="No devices found"
-          subHeader="Please remove search terms or add a new device"
-          icon="project"
-          action="Add device"
-          onActionClick={console.log}
-        ></IxEmptyState>
+        className="w-100 h-100 d-flex justify-content-center align-items-center">
+          <IxEmptyState
+            header="No devices found"
+            subHeader="Please remove search terms or add a new device"
+            icon="project"
+            action="Reset Filter"
+            onActionClick={() => resetFilter()}
+          ></IxEmptyState>
       </div>
     )
   );

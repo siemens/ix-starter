@@ -18,6 +18,15 @@ import { ICellRendererParams } from "ag-grid-community";
 import { useDataStore } from "../../../store/device-store.ts";
 import { RefObject } from "react";
 import { AgGridReact } from "ag-grid-react";
+import {
+  iconCopy,
+  iconCut,
+  iconDuplicate,
+  iconEyeCancelled,
+  iconPaste,
+  iconRename,
+  iconTrashcan
+} from "@siemens/ix-icons/icons";
 
 type CustomQuickActionsCompProps = ICellRendererParams & {
   gridRef: RefObject<AgGridReact>;
@@ -34,7 +43,7 @@ const CustomQuickActionsComp = (props: CustomQuickActionsCompProps) => {
   };
 
   return (
-    <IxRow className="d-flex justify-content-end">
+    <IxRow className="d-flex justify-content-end h-100 align-items-center">
       <IxIconButton icon="pen" color="color-primary" ghost onClick={startEditingFirstCell} />
       <IxIconButton
         icon="trashcan"
@@ -52,22 +61,22 @@ const CustomQuickActionsComp = (props: CustomQuickActionsCompProps) => {
       ></IxIconButton>
       <IxDropdown trigger={`device_${props.node.rowIndex}`}>
         <IxDropdownQuickActions>
-          <IxIconButton icon="cut" ghost></IxIconButton>
-          <IxIconButton icon="bulb" ghost></IxIconButton>
-          <IxIconButton
-            icon="trashcan"
-            ghost
-            onClick={() => {
-              deleteDevice(props.data);
-            }}
-          ></IxIconButton>
+          <IxIconButton icon={iconDuplicate} ghost></IxIconButton>
+          <IxIconButton icon={iconCut} ghost></IxIconButton>
+          <IxIconButton icon={iconCopy} ghost></IxIconButton>
+          <IxIconButton icon={iconPaste} ghost></IxIconButton>
         </IxDropdownQuickActions>
-
         <IxDivider></IxDivider>
-
-        <IxDropdownItem icon="star" label="Item 1"></IxDropdownItem>
-        <IxDropdownItem icon="document" label="Item 2"></IxDropdownItem>
-        <IxDropdownItem icon="bulb" label="Item 3"></IxDropdownItem>
+        <IxDropdownItem icon={iconRename} label="Rename"></IxDropdownItem>
+        <IxDropdownItem icon={iconEyeCancelled} label="Hide"></IxDropdownItem>
+        <IxDivider />
+        <IxDropdownItem
+          icon={iconTrashcan}
+          label="Delete"
+          onClick={() => {
+          deleteDevice(props.data);
+        }}>
+        </IxDropdownItem>
       </IxDropdown>
     </IxRow>
   );
