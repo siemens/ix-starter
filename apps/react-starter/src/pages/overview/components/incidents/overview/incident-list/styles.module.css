@@ -7,16 +7,16 @@
  * LICENSE file in the root directory of this source tree.
  */
 
- .ListItemContainer {
+.ListItemContainer {
+  display: flex;
+  width: 100%;
+
+  > div {
     display: flex;
-    width: 100%;
+    flex-grow: 1;
+  }
 
-    > div {
-      display: flex;
-      flex-grow: 1;
-    }
-
-    > div:last-child {
-      justify-content: flex-end;
-    }
- }
+  > div:last-child {
+    justify-content: flex-end;
+  }
+}

@@ -28,19 +28,15 @@ function IncidentList(props: { incidents: Incident[]; search: string }) {
 
     return props.incidents.filter((item) =>
       Object.values(item).some(
-        (value) =>
-          typeof value === "string" && value.toLowerCase().includes(query)
-      )
+        (value) => typeof value === "string" && value.toLowerCase().includes(query),
+      ),
     );
   }
 
   return (
     <IxEventList itemHeight={72} animated={false}>
       {searchArray().map((incident) => (
-        <IxEventListItem
-          key={incident.id}
-          itemColor={`color-${incident.color}`}
-        >
+        <IxEventListItem key={incident.id} itemColor={`color-${incident.color}`}>
           <div className={styles.ListItemContainer}>
             <div>
               <IxIcon name={incident.icon} />

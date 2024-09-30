@@ -37,13 +37,13 @@ function App() {
           )}
         </NavLink>
 
-        <NavLink to="/analytics">
+        {/* <NavLink to="/analytics">
           {({ isActive }) => (
             <IxMenuItem active={isActive} icon="piechart">
               Analytics
             </IxMenuItem>
           )}
-        </NavLink>
+        </NavLink> */}
 
         <IxMenuItem bottom icon="cogwheel">
           Settings

@@ -54,7 +54,7 @@ function Incidents() {
     <IxBlind label="Incidents">
       <div className={style.SearchAndFilter}>
         <IxInputGroup>
-          <input type="text" onInput={handleInput} />
+          <input type="text" aria-label="Filter devices" onInput={handleInput} />
           <span slot="input-start">
             <IxIcon name="search" color="color-primary" size="16"></IxIcon>
           </span>
