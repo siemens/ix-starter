@@ -3,11 +3,21 @@ import {AgGridReact} from 'ag-grid-react';
 import { IxEmptyState } from "@siemens/ix-react";
 import CustomQuickActionsComp from "./custom-cell-renderet.tsx";
 import camelCaseToNormal from "../../../../util/util.ts";
-import {ColDef} from "ag-grid-community";
-function AgGridTable({onRowClick, data, searchTerm}) {
+import {ColDef, RowClickedEvent} from "ag-grid-community";
+import {useOverviewPaneStore} from "../../../store/device-store.ts";
+import {MockData} from "../../../../types";
 
-  const onRowClicked = (event) => {
-    onRowClick(event.data);
+type AgGridTableProps = {
+  data: MockData[],
+  searchTerm: string,
+}
+
+function AgGridTable({data, searchTerm} : AgGridTableProps) {
+   const {setExpanded, setSelectedData} = useOverviewPaneStore();
+
+  const onRowClicked = (event: RowClickedEvent) => {
+    setSelectedData(event.data);
+    setExpanded(true);
   };
 
   const getColumnDefs = () => {
@@ -58,6 +68,6 @@ function AgGridTable({onRowClick, data, searchTerm}) {
       </div>
     )
   );
-};
+}
 
 export default AgGridTable;

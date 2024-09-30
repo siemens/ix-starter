@@ -3,8 +3,9 @@ import { useEffect } from "react";
 import styles from './styles.module.css';
 import FormField from "./form-field.tsx";
 import {IxSelect, IxSelectItem} from "@siemens/ix-react";
+import {MockData} from "../../../../types";
 
-const ModalForm = ({addDevice}) => {
+const ModalForm = () => {
   const { register, setValue } = useForm<MockData>({
     defaultValues: {
       deviceName: '',

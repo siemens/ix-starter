@@ -12,6 +12,7 @@ import styles from "../form/styles.module.css";
 import FormField from "../form/form-field.tsx";
 import {useForm} from "react-hook-form";
 import {useDataStore} from "../../../store/device-store.ts";
+import {MockData} from "../../../../types";
 
 function AddDeviceModal() {
   const {addDevice} = useDataStore();

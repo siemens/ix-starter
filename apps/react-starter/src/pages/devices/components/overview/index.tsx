@@ -1,14 +1,4 @@
-/*
- * SPDX-FileCopyrightText: 2024 Siemens AG
- *
- * SPDX-License-Identifier: MIT
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
 import styles from "./styles.module.css";
-
 import {
   IxPane,
   IxTypography,
@@ -17,14 +7,18 @@ import {
 } from "@siemens/ix-react";
 import FirmwareCard from "./firmware-card.tsx";
 import camelCaseToNormal from "../../../../util/util.ts";
-import {OverviewProps} from "../../../../types";
+import {MockData} from "../../../../types";
+import {useOverviewPaneStore} from "../../../store/device-store.ts";
+
+type OverviewProps = {
+}
 
 const Overview = ({
-  expanded,
-  setExpanded,
-  data,
   ...props
 }: OverviewProps) => {
+  const {expanded, selectedData, setExpanded} = useOverviewPaneStore();
+  type MockDataKeys = keyof MockData;
+
   return (
     <IxPane
       heading="Quick actions"
@@ -40,21 +34,27 @@ const Overview = ({
       {...props}
     >
       <div className={styles.Container}>
-        <div>
+        {selectedData ? (
+          <div>
+            <IxTypography className={styles.PaneTitle} format="h1">
+              {selectedData.deviceName}
+            </IxTypography>
+            <FirmwareCard />
+            {(Object.keys(selectedData) as MockDataKeys[]).map((key, index) => (
+              index !== 0 && <div key={index}>
+                <IxTypography format="body" textColor="soft">{camelCaseToNormal(key)}</IxTypography>
+                <IxTypography format="body" textColor="std">
+                  {selectedData[key]}
+                </IxTypography>
+                <IxDivider className={styles.Divider} />
+              </div>
+            ))}
+          </div>
+        ) : (
           <IxTypography className={styles.PaneTitle} format="h1">
-            {data.deviceName}
+            No device selected
           </IxTypography>
-          <FirmwareCard/>
-          {Object.keys(data).map((key, index) => (
-            index !== 0 && <div key={index}>
-              <IxTypography format="body" textColor="soft">{camelCaseToNormal(key)}</IxTypography>
-              <IxTypography format="body" textColor="std">
-                {data[key]}
-              </IxTypography>
-              <IxDivider className={styles.Divider}/>
-            </div>
-          ))}
-        </div>
+        )}
         <div className={styles.ButtonGroup}>
           <IxButton outline>Activate device</IxButton>
           <IxButton icon="open-external">

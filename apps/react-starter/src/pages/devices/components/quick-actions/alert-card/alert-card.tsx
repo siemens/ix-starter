@@ -15,7 +15,12 @@ import {
   IxTypography
 } from "@siemens/ix-react";
 import styles from "./styles.module.css";
-import {AlertCardProps} from "../../../../../types";
+
+type AlertCardProps = {
+  title: string;
+  value: number;
+  variant: string;
+}
 
 function AlertCard({title, value, variant}: AlertCardProps) {
 
