@@ -25,14 +25,14 @@ function AgGridTable() {
   const [showEmptyState, setShowEmptyState] = useState(false);
   const {devices, editDevice} = useDataStore();
 
-  const onRowClicked = (event: CellClickedEvent) => {
+  function onCellClick (event: CellClickedEvent<MockData, {}>) {
     if (event.column.getColId() === 'quickActions') {
       return;
     }
 
-    setSelectedData(event.data);
+    setSelectedData(event.data!);
     setExpanded(true);
-  };
+  }
 
   const getColumnDefs = () => {
     if (devices.length === 0) {
@@ -45,7 +45,7 @@ function AgGridTable() {
         return {
           field: key,
           headerName: camelCaseToNormal(key),
-          editable: true
+          editable: true,
         };
       });
 
@@ -103,7 +103,7 @@ function AgGridTable() {
           suppressRowTransform={true}
           rowData={devices}
           className="ag-theme-alpine-dark ag-theme-ix"
-          onCellClicked={onRowClicked}
+          onCellClicked={(e) => onCellClick(e)}
           onCellValueChanged={(e) => editDevice(e.data)}
           isExternalFilterPresent={isExternalFilterPresent}
           doesExternalFilterPass={(e) => doesExternalFilterPass(e as IRowNode<MockData>)}
