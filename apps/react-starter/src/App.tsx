@@ -11,10 +11,18 @@ import {
 } from "@siemens/ix-react";
 import * as echarts from "echarts/core";
 import { registerTheme } from '@siemens/ix-echarts';
+import {useDataStore} from "./pages/store/device-store.ts";
+import {useEffect} from "react";
 
 registerTheme(echarts);
 
 function App() {
+  const {fetch} = useDataStore();
+
+  useEffect(() => {
+    fetch();
+  }, []);
+
   return (
     <IxApplication>
       <IxApplicationHeader name="Siemens Industrial Experience">

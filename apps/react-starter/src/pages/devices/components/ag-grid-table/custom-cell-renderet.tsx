@@ -1,13 +1,22 @@
+/*
+ * SPDX-FileCopyrightText: 2024 Siemens AG
+ *
+ * SPDX-License-Identifier: MIT
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import {
   IxDivider,
   IxDropdown, IxDropdownItem,
   IxDropdownQuickActions,
   IxIconButton,
-  IxRow
+  IxRow, showModal, showToast
 } from "@siemens/ix-react";
 import { ICellRendererParams } from "ag-grid-community";
 import { useDataStore } from "../../../store/device-store.ts";
-import { RefObject } from "react";
+import {RefObject} from "react";
 import { AgGridReact } from "ag-grid-react";
 import {
   iconCopy,
@@ -15,16 +24,17 @@ import {
   iconDuplicate,
   iconEyeCancelled,
   iconPaste,
-  iconRename,
+  iconRename, iconSingleCheck,
   iconTrashcan
 } from "@siemens/ix-icons/icons";
+import DeleteModal from "./delete-modal.tsx";
 
 type CustomQuickActionsCompProps = ICellRendererParams & {
   gridRef: RefObject<AgGridReact>;
 };
 
 const CustomQuickActionsComp = (props: CustomQuickActionsCompProps) => {
-  const { deleteDevice, addDevice, editDevice, pasteDevice } = useDataStore();
+  const { deleteDevice, editDevice, pasteDevice } = useDataStore();
 
   const startEditingFirstCell = () => {
     props.api.startEditingCell({
@@ -36,7 +46,7 @@ const CustomQuickActionsComp = (props: CustomQuickActionsCompProps) => {
   const handleCopy = () => {
     const cellValue = JSON.stringify(props.data);
     navigator.clipboard.writeText(cellValue).then(() => {
-      console.log('Copied to clipboard:', cellValue);
+      showSuccessToast('Successfully copied device to clipboard!');
     }).catch(err => {
       console.error('Failed to copy:', err);
     });
@@ -45,6 +55,7 @@ const CustomQuickActionsComp = (props: CustomQuickActionsCompProps) => {
   const handleCut = () => {
     handleCopy();
     deleteDevice(props.data);
+    showSuccessToast('Device copied to clipboard!');
   }
 
   const handlePaste = () => {
@@ -52,7 +63,7 @@ const CustomQuickActionsComp = (props: CustomQuickActionsCompProps) => {
       try {
         const data = JSON.parse(text);
         pasteDevice(data, props.data.id);
-        console.log('Pasted from clipboard:', data);
+        showSuccessToast('Successfully pasted the device!');
       } catch (err) {
         console.error('Failed to parse clipboard data:', err);
       }
@@ -61,6 +72,25 @@ const CustomQuickActionsComp = (props: CustomQuickActionsCompProps) => {
     });
   };
 
+  const handleDelete = async () => {
+    const instance = await showModal({
+      content: <DeleteModal />,
+    });
+
+    instance.onClose.on((_) => {
+      deleteDevice(props.data);
+      showSuccessToast('Successfully deleted the device!');
+    });
+  }
+
+  function showSuccessToast(message: string) {
+    showToast({
+      message: message,
+      icon: iconSingleCheck,
+      iconColor: 'color-success',
+    });
+  }
+
   return (
     <IxRow className="d-flex justify-content-end h-100 align-items-center">
       <IxIconButton icon="pen" color="color-primary" ghost onClick={startEditingFirstCell} />
@@ -68,9 +98,7 @@ const CustomQuickActionsComp = (props: CustomQuickActionsCompProps) => {
         icon="trashcan"
         color="color-primary"
         ghost
-        onClick={() => {
-          deleteDevice(props.data);
-        }}
+        onClick={handleDelete}
       />
       <IxIconButton
         icon="context-menu"
@@ -80,7 +108,7 @@ const CustomQuickActionsComp = (props: CustomQuickActionsCompProps) => {
       ></IxIconButton>
       <IxDropdown trigger={`device_${props.node.rowIndex}`}>
         <IxDropdownQuickActions>
-          <IxIconButton icon={iconDuplicate} ghost onClick={() => addDevice(props.data)}></IxIconButton>
+          <IxIconButton icon={iconDuplicate} ghost onClick={() => pasteDevice(props.data, props.data.id)}></IxIconButton>
           <IxIconButton icon={iconCut} ghost onClick={handleCut}></IxIconButton>
           <IxIconButton icon={iconCopy} ghost onClick={handleCopy}></IxIconButton>
           <IxIconButton icon={iconPaste} ghost onClick={handlePaste}></IxIconButton>
@@ -101,9 +129,7 @@ const CustomQuickActionsComp = (props: CustomQuickActionsCompProps) => {
         <IxDropdownItem
           icon={iconTrashcan}
           label="Delete"
-          onClick={() => {
-            deleteDevice(props.data);
-          }}>
+          onClick={handleDelete}>
         </IxDropdownItem>
       </IxDropdown>
     </IxRow>

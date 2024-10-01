@@ -24,11 +24,11 @@ interface DataStoreState {
 export const useDataStore = create<DataStoreState>((set) => ({
   devices: [],
   addDevice: (device: MockData) => set((state) => {
-    const newDevice = { ...device, id: (state.devices.length + 1).toString() };
+    const newDevice = { ...device, id: (state.devices.length).toString() };
     return { devices: [...state.devices, newDevice] };
   }),
   pasteDevice: (device: MockData, position: number) => set((state) => {
-    const newDevice = { ...device, id: (state.devices.length + 1).toString() };
+    const newDevice = { ...device, id: (state.devices.length).toString() };
     const updatedDevices = [
       ...state.devices.slice(0, position),
       newDevice,

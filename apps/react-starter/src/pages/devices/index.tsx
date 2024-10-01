@@ -1,3 +1,12 @@
+/*
+ * SPDX-FileCopyrightText: 2024 Siemens AG
+ *
+ * SPDX-License-Identifier: MIT
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import {useEffect, useState} from 'react';
 import {
   IxButton,
@@ -15,13 +24,9 @@ import {useDataStore, useFilterStore} from "../store/device-store.ts";
 import {MockData} from "../../types";
 
 const DevicesPage = () => {
-  const {devices, fetch} = useDataStore();
+  const {devices} = useDataStore();
   const {setFilter} = useFilterStore();
   const [categories, setCategories] = useState({});
-
-  useEffect(() => {
-    fetch();
-  }, []);
 
   useEffect(() => {
     if (devices.length > 0) {
