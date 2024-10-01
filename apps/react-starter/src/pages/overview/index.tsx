@@ -19,7 +19,7 @@ const OverviewPage = () => {
       <IxPaneLayout variant="inline">
         <div slot="content" className={styles.Content}>
           <IxContentHeader headerTitle="Welcome to our demo app!"></IxContentHeader>
-          <Overview className={styles.Overview}></Overview>
+          <Overview></Overview>
           <Incidents></Incidents>
         </div>
         <IxPane heading="Quick actions" expanded slot="right">

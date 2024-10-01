@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import style from "./styles.module.css";
 
 import { IxBlind, IxIcon, IxButton, IxInputGroup } from "@siemens/ix-react";
@@ -15,7 +15,7 @@ import { Incident } from "./incident";
 import IncidentList from "./incident-list";
 
 function Incidents() {
-  const [incidents, setIncidents] = useState<Incident[]>([
+  const [incidents] = useState<Incident[]>([
     {
       id: 1,
       incidentName: "Update available",
@@ -38,7 +38,7 @@ function Incidents() {
   const [search, setSearch] = useState("");
   const [showList, setShowList] = useState(true);
 
-  const handleInput = (event) => {
+  const handleInput = (event: ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
   };
 
