@@ -8,7 +8,11 @@
       "outputs": [".next/**", "!.next/cache/**"]
     },
     "lint": {},
-    "dev": {
+    "test": {
+      "cache": false,
+      "persistent": true
+    },
+    "e2e": {
       "cache": false,
       "persistent": true
     }
