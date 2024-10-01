@@ -18,16 +18,12 @@ import {MockData} from "../../../../types";
 import {useCallback, useEffect, useRef, useState} from "react";
 import {LogicalFilterOperator} from "@siemens/ix";
 
-type AgGridTableProps = {
-  data: MockData[],
-}
-
-function AgGridTable({data}: AgGridTableProps) {
+function AgGridTable() {
   const gridRef = useRef<AgGridReact<MockData>>(null);
   const {setExpanded, setSelectedData} = useOverviewPaneStore();
   const {filter, resetFilter} = useFilterStore();
   const [showEmptyState, setShowEmptyState] = useState(false);
-  const {editDevice} = useDataStore();
+  const {devices, editDevice} = useDataStore();
 
   const onRowClicked = (event: CellClickedEvent) => {
     if (event.column.getColId() === 'quickActions') {
@@ -39,10 +35,10 @@ function AgGridTable({data}: AgGridTableProps) {
   };
 
   const getColumnDefs = () => {
-    if (data.length === 0) {
+    if (devices.length === 0) {
       return [];
     }
-    const keyNames = Object.keys(data[0]);
+    const keyNames = Object.keys(devices[0]);
     const columnDefs: ColDef[] = keyNames
       .filter(key => key !== 'id')
       .map((key) => {
@@ -69,6 +65,9 @@ function AgGridTable({data}: AgGridTableProps) {
   }, []);
 
   function doesExternalFilterPass(node: IRowNode<MockData>): boolean {
+    if (node.data?.hidden) {
+      return false;
+    }
     if (filter.length) {
       return filter.every(({ id, value, operator }) => {
         switch (operator) {
@@ -85,7 +84,6 @@ function AgGridTable({data}: AgGridTableProps) {
   }
 
   useEffect(() => {
-    console.log(filter);
     if (gridRef.current && gridRef.current.api) {
       setShowEmptyState(gridRef.current.api.getDisplayedRowCount() === 0);
     } else {
@@ -94,7 +92,8 @@ function AgGridTable({data}: AgGridTableProps) {
   }, [filter]);
 
   return (
-    data && !showEmptyState ? (
+    devices && !showEmptyState ? (
+      <div style={{ height: '40rem',}}>
         <AgGridReact
           ref={gridRef}
           columnDefs={[
@@ -102,13 +101,14 @@ function AgGridTable({data}: AgGridTableProps) {
             {cellEditor: true, cellEditorPopup: false}
           ]}
           suppressRowTransform={true}
-          rowData={data}
+          rowData={devices}
           className="ag-theme-alpine-dark ag-theme-ix"
           onCellClicked={onRowClicked}
           onCellValueChanged={(e) => editDevice(e.data)}
           isExternalFilterPresent={isExternalFilterPresent}
           doesExternalFilterPass={(e) => doesExternalFilterPass(e as IRowNode<MockData>)}
         />
+      </div>
     ) : (
       <div
         className="w-100 h-100 d-flex justify-content-center align-items-center">

@@ -40,7 +40,6 @@ const DevicesPage = () => {
     }
   }, [devices]);
 
-
   return (
     <>
       <div style={{position: 'absolute', width: '100%', height: '100%'}}>
@@ -58,7 +57,6 @@ const DevicesPage = () => {
             </IxContentHeader>
             <IxCategoryFilter
               placeholder="Filter by"
-              suggestions={[]}
               onFilterChanged={(e) => {
                 if (e.detail.categories[0]) {
                   setFilter(e.detail.categories);
@@ -70,9 +68,7 @@ const DevicesPage = () => {
               className="mb-4"
               repeatCategories={false}
             ></IxCategoryFilter>
-            <AgGridTable
-              data={devices}
-            />
+            <AgGridTable/>
           </div>
           <IxPane heading="Quick actions" size="320px" expanded slot="right">
             <QuickActions

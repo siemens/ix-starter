@@ -15,6 +15,7 @@ import {LogicalFilterOperator} from "@siemens/ix";
 interface DataStoreState {
   devices: MockData[];
   addDevice: (device: MockData) => void;
+  pasteDevice: (device: MockData, position: number) => void;
   deleteDevice: (device: MockData) => void;
   editDevice: (device: MockData) => void;
   fetch: () => Promise<void>;
@@ -22,7 +23,19 @@ interface DataStoreState {
 
 export const useDataStore = create<DataStoreState>((set) => ({
   devices: [],
-  addDevice: (device: MockData) => set((state) => ({ devices: [...state.devices, device] })),
+  addDevice: (device: MockData) => set((state) => {
+    const newDevice = { ...device, id: (state.devices.length + 1).toString() };
+    return { devices: [...state.devices, newDevice] };
+  }),
+  pasteDevice: (device: MockData, position: number) => set((state) => {
+    const newDevice = { ...device, id: (state.devices.length + 1).toString() };
+    const updatedDevices = [
+      ...state.devices.slice(0, position),
+      newDevice,
+      ...state.devices.slice(position)
+    ];
+    return { devices: updatedDevices };
+  }),
   deleteDevice: (device: MockData) => set((state) => ({ devices: state.devices.filter((d) => d.id !== device.id) })),
   editDevice: (device: MockData) => set((state) => ({ devices: state.devices.map((d) => d.id === device.id ? device : d) })),
   fetch: async () => {

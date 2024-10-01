@@ -1,12 +1,3 @@
-/*
- * SPDX-FileCopyrightText: 2024 Siemens AG
- *
- * SPDX-License-Identifier: MIT
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
 import {
   IxDivider,
   IxDropdown, IxDropdownItem,
@@ -33,13 +24,41 @@ type CustomQuickActionsCompProps = ICellRendererParams & {
 };
 
 const CustomQuickActionsComp = (props: CustomQuickActionsCompProps) => {
-  const { deleteDevice } = useDataStore();
+  const { deleteDevice, addDevice, editDevice, pasteDevice } = useDataStore();
 
   const startEditingFirstCell = () => {
     props.api.startEditingCell({
       rowIndex: props.node.rowIndex!,
       colKey: "deviceName"
     })
+  };
+
+  const handleCopy = () => {
+    const cellValue = JSON.stringify(props.data);
+    navigator.clipboard.writeText(cellValue).then(() => {
+      console.log('Copied to clipboard:', cellValue);
+    }).catch(err => {
+      console.error('Failed to copy:', err);
+    });
+  };
+
+  const handleCut = () => {
+    handleCopy();
+    deleteDevice(props.data);
+  }
+
+  const handlePaste = () => {
+    navigator.clipboard.readText().then((text) => {
+      try {
+        const data = JSON.parse(text);
+        pasteDevice(data, props.data.id);
+        console.log('Pasted from clipboard:', data);
+      } catch (err) {
+        console.error('Failed to parse clipboard data:', err);
+      }
+    }).catch(err => {
+      console.error('Failed to read from clipboard:', err);
+    });
   };
 
   return (
@@ -61,21 +80,30 @@ const CustomQuickActionsComp = (props: CustomQuickActionsCompProps) => {
       ></IxIconButton>
       <IxDropdown trigger={`device_${props.node.rowIndex}`}>
         <IxDropdownQuickActions>
-          <IxIconButton icon={iconDuplicate} ghost></IxIconButton>
-          <IxIconButton icon={iconCut} ghost></IxIconButton>
-          <IxIconButton icon={iconCopy} ghost></IxIconButton>
-          <IxIconButton icon={iconPaste} ghost></IxIconButton>
+          <IxIconButton icon={iconDuplicate} ghost onClick={() => addDevice(props.data)}></IxIconButton>
+          <IxIconButton icon={iconCut} ghost onClick={handleCut}></IxIconButton>
+          <IxIconButton icon={iconCopy} ghost onClick={handleCopy}></IxIconButton>
+          <IxIconButton icon={iconPaste} ghost onClick={handlePaste}></IxIconButton>
         </IxDropdownQuickActions>
         <IxDivider></IxDivider>
-        <IxDropdownItem icon={iconRename} label="Rename"></IxDropdownItem>
-        <IxDropdownItem icon={iconEyeCancelled} label="Hide"></IxDropdownItem>
+        <IxDropdownItem icon={iconRename} label="Rename" onClick={startEditingFirstCell}></IxDropdownItem>
+        <IxDropdownItem
+          icon={iconEyeCancelled}
+          label="Hide"
+          onClick={() => {
+            const updatedDevice = { ...props.data, hidden: !props.data.hidden };
+            editDevice(updatedDevice);
+            props.api.onFilterChanged();
+            console.log('Toggled hidden state for:', updatedDevice);
+          }}
+        />
         <IxDivider />
         <IxDropdownItem
           icon={iconTrashcan}
           label="Delete"
           onClick={() => {
-          deleteDevice(props.data);
-        }}>
+            deleteDevice(props.data);
+          }}>
         </IxDropdownItem>
       </IxDropdown>
     </IxRow>
