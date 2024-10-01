@@ -9,22 +9,27 @@
 
 import {
   IxDivider,
-  IxDropdown, IxDropdownItem,
+  IxDropdown,
+  IxDropdownItem,
   IxDropdownQuickActions,
   IxIconButton,
-  IxRow, showModal, showToast
+  IxRow,
+  showModal,
+  showToast,
 } from "@siemens/ix-react";
 import { ICellRendererParams } from "ag-grid-community";
 import { useDataStore } from "../../../store/device-store.ts";
-import {RefObject} from "react";
+import { RefObject } from "react";
 import { AgGridReact } from "ag-grid-react";
 import {
   iconCopy,
   iconCut,
   iconDuplicate,
-  iconPaste, iconPcTower,
-  iconRename, iconSingleCheck,
-  iconTrashcan
+  iconPaste,
+  iconPcTower,
+  iconRename,
+  iconSingleCheck,
+  iconTrashcan,
 } from "@siemens/ix-icons/icons";
 import DeleteModal from "./delete-modal.tsx";
 
@@ -38,37 +43,43 @@ const CustomQuickActionsComp = (props: CustomQuickActionsCompProps) => {
   const startEditingFirstCell = () => {
     props.api.startEditingCell({
       rowIndex: props.node.rowIndex!,
-      colKey: "deviceName"
-    })
+      colKey: "deviceName",
+    });
   };
 
   const handleCopy = () => {
     const cellValue = JSON.stringify(props.data);
-    navigator.clipboard.writeText(cellValue).then(() => {
-      showSuccessToast('Successfully copied device to clipboard!');
-    }).catch(err => {
-      console.error('Failed to copy:', err);
-    });
+    navigator.clipboard
+      .writeText(cellValue)
+      .then(() => {
+        showSuccessToast("Successfully copied device to clipboard!");
+      })
+      .catch((err) => {
+        console.error("Failed to copy:", err);
+      });
   };
 
   const handleCut = () => {
     handleCopy();
     deleteDevice(props.data);
-    showSuccessToast('Device copied to clipboard!');
-  }
+    showSuccessToast("Device copied to clipboard!");
+  };
 
   const handlePaste = () => {
-    navigator.clipboard.readText().then((text) => {
-      try {
-        const data = JSON.parse(text);
-        pasteDevice(data, props.data.id);
-        showSuccessToast('Successfully pasted the device!');
-      } catch (err) {
-        console.error('Failed to parse clipboard data:', err);
-      }
-    }).catch(err => {
-      console.error('Failed to read from clipboard:', err);
-    });
+    navigator.clipboard
+      .readText()
+      .then((text) => {
+        try {
+          const data = JSON.parse(text);
+          pasteDevice(data, props.data.id);
+          showSuccessToast("Successfully pasted the device!");
+        } catch (err) {
+          console.error("Failed to parse clipboard data:", err);
+        }
+      })
+      .catch((err) => {
+        console.error("Failed to read from clipboard:", err);
+      });
   };
 
   const handleDelete = async () => {
@@ -78,27 +89,22 @@ const CustomQuickActionsComp = (props: CustomQuickActionsCompProps) => {
 
     instance.onClose.on((_) => {
       deleteDevice(props.data);
-      showSuccessToast('Successfully deleted the device!');
+      showSuccessToast("Successfully deleted the device!");
     });
-  }
+  };
 
   function showSuccessToast(message: string) {
     showToast({
       message: message,
       icon: iconSingleCheck,
-      iconColor: 'color-success',
+      iconColor: "color-success",
     });
   }
 
   return (
     <IxRow className="d-flex justify-content-end h-100 align-items-center">
       <IxIconButton icon="pen" color="color-primary" ghost onClick={startEditingFirstCell} />
-      <IxIconButton
-        icon="trashcan"
-        color="color-primary"
-        ghost
-        onClick={handleDelete}
-      />
+      <IxIconButton icon="trashcan" color="color-primary" ghost onClick={handleDelete} />
       <IxIconButton
         icon="context-menu"
         color="color-primary"
@@ -107,29 +113,36 @@ const CustomQuickActionsComp = (props: CustomQuickActionsCompProps) => {
       ></IxIconButton>
       <IxDropdown trigger={`device_${props.node.rowIndex}`}>
         <IxDropdownQuickActions>
-          <IxIconButton icon={iconDuplicate} ghost onClick={() => pasteDevice(props.data, props.data.id)}></IxIconButton>
+          <IxIconButton
+            icon={iconDuplicate}
+            ghost
+            onClick={() => pasteDevice(props.data, props.data.id)}
+          ></IxIconButton>
           <IxIconButton icon={iconCut} ghost onClick={handleCut}></IxIconButton>
           <IxIconButton icon={iconCopy} ghost onClick={handleCopy}></IxIconButton>
           <IxIconButton icon={iconPaste} ghost onClick={handlePaste}></IxIconButton>
         </IxDropdownQuickActions>
         <IxDivider></IxDivider>
-        <IxDropdownItem icon={iconRename} label="Rename" onClick={startEditingFirstCell}></IxDropdownItem>
+        <IxDropdownItem
+          icon={iconRename}
+          label="Rename"
+          onClick={startEditingFirstCell}
+        ></IxDropdownItem>
         <IxDropdownItem
           icon={iconPcTower}
           label="Toggle Device"
           onClick={() => {
-            const updatedDevice = { ...props.data, status: props.data.status === 'Online' ? 'Offline' : 'Online'};
+            const updatedDevice = {
+              ...props.data,
+              status: props.data.status === "Online" ? "Offline" : "Online",
+            };
             editDevice(updatedDevice);
             props.api.onFilterChanged();
-            console.log('Toggled hidden state for:', updatedDevice);
+            console.log("Toggled hidden state for:", updatedDevice);
           }}
         />
         <IxDivider />
-        <IxDropdownItem
-          icon={iconTrashcan}
-          label="Delete"
-          onClick={handleDelete}>
-        </IxDropdownItem>
+        <IxDropdownItem icon={iconTrashcan} label="Delete" onClick={handleDelete}></IxDropdownItem>
       </IxDropdown>
     </IxRow>
   );

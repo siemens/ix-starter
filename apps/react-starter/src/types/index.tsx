@@ -13,7 +13,7 @@ export type MockData = {
   vendor: string;
   description?: string;
   status: "Online" | "Offline" | "Maintenance" | "Error";
-  articleNumber?: string
+  articleNumber?: string;
   macAddress: string;
   ipAddress: string;
   firmwareVersion?: string;

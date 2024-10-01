@@ -71,7 +71,9 @@ function Incidents() {
       </div>
       {showList ? (
         <IncidentList incidents={incidents} search={search}></IncidentList>
-      ) : <div>Todo CardView</div>}
+      ) : (
+        <div>Todo CardView</div>
+      )}
     </IxBlind>
   );
 }

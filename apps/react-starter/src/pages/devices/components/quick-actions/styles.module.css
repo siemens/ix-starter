@@ -19,7 +19,7 @@
 .DeviceCard {
   width: 100%;
   grid-column: 1 / -1;
-  height: 8.5rem
+  height: 8.5rem;
 }
 
 .DeviceCard ix-typography:last-of-type {

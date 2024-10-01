@@ -8,21 +8,14 @@
  */
 
 import styles from "./styles.module.css";
-import {
-  IxPane,
-  IxTypography,
-  IxButton,
-  IxDivider
-} from "@siemens/ix-react";
+import { IxPane, IxTypography, IxButton, IxDivider } from "@siemens/ix-react";
 import FirmwareCard from "./firmware-card.tsx";
 import camelCaseToNormal from "../../../../util/util.ts";
-import {MockData} from "../../../../types";
-import {useOverviewPaneStore} from "../../../store/device-store.ts";
+import { MockData } from "../../../../types";
+import { useOverviewPaneStore } from "../../../store/device-store.ts";
 
-const Overview = ({
-  ...props
-}) => {
-  const {expanded, selectedData, setExpanded} = useOverviewPaneStore();
+const Overview = ({ ...props }) => {
+  const { expanded, selectedData, setExpanded } = useOverviewPaneStore();
 
   return (
     <IxPane
@@ -45,15 +38,20 @@ const Overview = ({
               {selectedData.deviceName}
             </IxTypography>
             <FirmwareCard />
-            {(Object.keys(selectedData)).map((key, index) => (
-              index !== 0 && <div key={index}>
-                <IxTypography format="body" textColor="soft">{camelCaseToNormal(key)}</IxTypography>
-                <IxTypography format="body" textColor="std">
-                  {selectedData[key as keyof MockData]}
-                </IxTypography>
-                <IxDivider className={styles.Divider} />
-              </div>
-            ))}
+            {Object.keys(selectedData).map(
+              (key, index) =>
+                index !== 0 && (
+                  <div key={index}>
+                    <IxTypography format="body" textColor="soft">
+                      {camelCaseToNormal(key)}
+                    </IxTypography>
+                    <IxTypography format="body" textColor="std">
+                      {selectedData[key as keyof MockData]}
+                    </IxTypography>
+                    <IxDivider className={styles.Divider} />
+                  </div>
+                ),
+            )}
           </div>
         ) : (
           <IxTypography className={styles.PaneTitle} format="h1">
@@ -62,9 +60,7 @@ const Overview = ({
         )}
         <div className={styles.ButtonGroup}>
           <IxButton outline>Activate device</IxButton>
-          <IxButton icon="open-external">
-            See all details
-          </IxButton>
+          <IxButton icon="open-external">See all details</IxButton>
         </div>
       </div>
     </IxPane>

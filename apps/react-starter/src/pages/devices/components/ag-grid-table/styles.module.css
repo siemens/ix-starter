@@ -18,7 +18,7 @@ ix-empty-state {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  gap: .5rem;
+  gap: 0.5rem;
 }
 
 .DeviceName {

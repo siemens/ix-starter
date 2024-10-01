@@ -9,16 +9,12 @@
 
 import styles from "./styles.module.css";
 
-import {IxButton, IxMessageBar} from "@siemens/ix-react";
+import { IxButton, IxMessageBar } from "@siemens/ix-react";
 
 const FirmwareCard = () => {
   return (
     <div>
-      <IxMessageBar
-        className={styles.MessageBar}
-        type="warning"
-        dismissible={false}
-      >
+      <IxMessageBar className={styles.MessageBar} type="warning" dismissible={false}>
         <div className={styles.MessageBarContent}>
           Device firmware is outdated (v1.4 - 3.2)
           <IxButton className={styles.ButtonMargin} outline>

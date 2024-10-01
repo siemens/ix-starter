@@ -7,12 +7,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from "react";
 import {
   IxButton,
   IxCategoryFilter,
-  IxContentHeader, IxPane,
-  IxPaneLayout
+  IxContentHeader,
+  IxPane,
+  IxPaneLayout,
 } from "@siemens/ix-react";
 import styles from "./styles.module.css";
 import QuickActions from "./components/quick-actions";
@@ -20,26 +21,27 @@ import AgGridTable from "./components/ag-grid-table/ag-grid-table.tsx";
 import Overview from "./components/overview";
 
 import show from "./components/modal/index.tsx";
-import {useDataStore, useFilterStore} from "../store/device-store.ts";
-import {MockData} from "../../types";
+import { useDataStore, useFilterStore } from "../store/device-store.ts";
+import { MockData } from "../../types";
 
 const DevicesPage = () => {
-  const {devices} = useDataStore();
-  const {filter, setFilter} = useFilterStore();
+  const { devices } = useDataStore();
+  const { filter, setFilter } = useFilterStore();
   const [categories, setCategories] = useState({});
   const [expanded, setExpanded] = useState(true);
 
   useEffect(() => {
     if (devices.length > 0) {
-      const newCategories: Record<string, { label: string, options: (string | undefined)[]}> = {};
+      const newCategories: Record<string, { label: string; options: (string | undefined)[] }> = {};
       const keys = Object.keys(devices[0]);
 
       keys.forEach((key) => {
-        const uniqueValues = Array.from(new Set(devices.map(device => device[key as keyof MockData])));
+        const uniqueValues = Array.from(
+          new Set(devices.map((device) => device[key as keyof MockData])),
+        );
         newCategories[key] = {
           label: key,
-          options: uniqueValues
-          ,
+          options: uniqueValues,
         };
       });
 
@@ -66,16 +68,12 @@ const DevicesPage = () => {
 
   return (
     <>
-      <div style={{position: 'absolute', width: '100%', height: '100%'}}>
-        <Overview/>
+      <div style={{ position: "absolute", width: "100%", height: "100%" }}>
+        <Overview />
         <IxPaneLayout variant="inline">
           <div slot="content" className={styles.Content}>
             <IxContentHeader headerTitle="Devices">
-              <IxButton
-                icon="add-circle"
-                ghost
-                onClick={() => show()}
-              >
+              <IxButton icon="add-circle" ghost onClick={() => show()}>
                 Add device
               </IxButton>
             </IxContentHeader>
@@ -87,17 +85,23 @@ const DevicesPage = () => {
                   setFilter(newCategories.length > 0 ? newCategories : []);
                 }
               }}
-              filterState={{tokens: [], categories: filter}}
+              filterState={{ tokens: [], categories: filter }}
               categories={categories}
               className="mb-4"
               repeatCategories={false}
             ></IxCategoryFilter>
-            <AgGridTable/>
+            <AgGridTable />
           </div>
-          <IxPane heading="Quick actions" size="320px" slot="right" expanded={expanded} onExpandedChanged={(e) => {setExpanded(e.detail.expanded)}}>
-            <QuickActions
-              show={show}
-            ></QuickActions>
+          <IxPane
+            heading="Quick actions"
+            size="320px"
+            slot="right"
+            expanded={expanded}
+            onExpandedChanged={(e) => {
+              setExpanded(e.detail.expanded);
+            }}
+          >
+            <QuickActions show={show}></QuickActions>
           </IxPane>
         </IxPaneLayout>
       </div>

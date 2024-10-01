@@ -19,14 +19,7 @@ const seriesOnline = {
     color: getComputedCSSProperty("color-success"),
     opacity: 0.4,
   },
-  data: [
-    { value: 60 },
-    { value: 75 },
-    { value: 100 },
-    { value: 60 },
-    { value: 75 },
-    { value: 60 },
-  ],
+  data: [{ value: 60 }, { value: 75 }, { value: 100 }, { value: 60 }, { value: 75 }, { value: 60 }],
 };
 
 const seriesOffline = {

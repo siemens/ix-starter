@@ -10,7 +10,7 @@
 import { create } from "zustand";
 import { fetchDataSheet } from "../../util/mock-api.ts";
 import { MockData } from "../../types";
-import {LogicalFilterOperator} from "@siemens/ix";
+import { LogicalFilterOperator } from "@siemens/ix";
 
 interface DataStoreState {
   devices: MockData[];
@@ -23,21 +23,25 @@ interface DataStoreState {
 
 export const useDataStore = create<DataStoreState>((set) => ({
   devices: [],
-  addDevice: (device: MockData) => set((state) => {
-    const newDevice = { ...device, id: (state.devices.length).toString() };
-    return { devices: [...state.devices, newDevice] };
-  }),
-  pasteDevice: (device: MockData, position: number) => set((state) => {
-    const newDevice = { ...device, id: (state.devices.length).toString() };
-    const updatedDevices = [
-      ...state.devices.slice(0, position),
-      newDevice,
-      ...state.devices.slice(position)
-    ];
-    return { devices: updatedDevices };
-  }),
-  deleteDevice: (device: MockData) => set((state) => ({ devices: state.devices.filter((d) => d.id !== device.id) })),
-  editDevice: (device: MockData) => set((state) => ({ devices: state.devices.map((d) => d.id === device.id ? device : d) })),
+  addDevice: (device: MockData) =>
+    set((state) => {
+      const newDevice = { ...device, id: state.devices.length.toString() };
+      return { devices: [...state.devices, newDevice] };
+    }),
+  pasteDevice: (device: MockData, position: number) =>
+    set((state) => {
+      const newDevice = { ...device, id: state.devices.length.toString() };
+      const updatedDevices = [
+        ...state.devices.slice(0, position),
+        newDevice,
+        ...state.devices.slice(position),
+      ];
+      return { devices: updatedDevices };
+    }),
+  deleteDevice: (device: MockData) =>
+    set((state) => ({ devices: state.devices.filter((d) => d.id !== device.id) })),
+  editDevice: (device: MockData) =>
+    set((state) => ({ devices: state.devices.map((d) => (d.id === device.id ? device : d)) })),
   fetch: async () => {
     const response = await fetchDataSheet();
     const devicesWithId = response.map((device, index) => ({
@@ -61,7 +65,6 @@ export const useOverviewPaneStore = create<OverviewPaneStore>((set) => ({
   setExpanded: (expanded: boolean) => set({ expanded }),
   setSelectedData: (selectedData: MockData) => set({ selectedData }),
 }));
-
 
 interface Filter {
   id: string;

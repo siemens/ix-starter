@@ -11,41 +11,43 @@ import {
   IxButton,
   IxModalContent,
   IxModalFooter,
-  IxModalHeader, IxSelect, IxSelectItem,
+  IxModalHeader,
+  IxSelect,
+  IxSelectItem,
   Modal,
   ModalRef,
   showModal,
-} from '@siemens/ix-react';
-import {useRef, useEffect} from 'react';
+} from "@siemens/ix-react";
+import { useRef, useEffect } from "react";
 import styles from "./styles.module.css";
 import FormField from "./form-field";
-import {useForm} from "react-hook-form";
-import {useDataStore} from "../../../store/device-store";
-import {MockData} from "../../../../types";
+import { useForm } from "react-hook-form";
+import { useDataStore } from "../../../store/device-store";
+import { MockData } from "../../../../types";
 
 function AddDeviceModal() {
-  const {addDevice} = useDataStore();
+  const { addDevice } = useDataStore();
   const modalRef = useRef<ModalRef>(null);
   const formRef = useRef<HTMLFormElement>(null);
 
   const close = () => {
-    modalRef.current?.close('close payload!');
+    modalRef.current?.close("close payload!");
   };
   const dismiss = () => {
-    modalRef.current?.dismiss('dismiss payload');
+    modalRef.current?.dismiss("dismiss payload");
   };
 
   const { register, setValue, handleSubmit } = useForm<MockData>({
     defaultValues: {
-      deviceName: '',
-      vendor: '',
-      description: '',
-      status: 'Online',
-      articleNumber: '',
-      macAddress: '',
-      ipAddress: '',
-      firmwareVersion: '',
-      serialNumber: '',
+      deviceName: "",
+      vendor: "",
+      description: "",
+      status: "Online",
+      articleNumber: "",
+      macAddress: "",
+      ipAddress: "",
+      firmwareVersion: "",
+      serialNumber: "",
     },
   });
 
@@ -60,9 +62,7 @@ function AddDeviceModal() {
 
   return (
     <Modal ref={modalRef}>
-      <IxModalHeader onCloseClick={() => dismiss()}>
-        Add device
-      </IxModalHeader>
+      <IxModalHeader onCloseClick={() => dismiss()}>Add device</IxModalHeader>
 
       <IxModalContent>
         <form id="modalForm" ref={formRef} onSubmit={handleSubmit(onSubmit)} noValidate>
@@ -77,7 +77,7 @@ function AddDeviceModal() {
               <IxSelect
                 id="status"
                 value="online"
-                onValueChange={(e) => setValue("status", e.detail as MockData['status'])}
+                onValueChange={(e) => setValue("status", e.detail as MockData["status"])}
               >
                 <IxSelectItem label="Online" value="online" />
                 <IxSelectItem label="Offline" value="offline" />
@@ -96,10 +96,7 @@ function AddDeviceModal() {
         <IxButton outline onClick={() => dismiss()}>
           Cancel
         </IxButton>
-        <IxButton
-          type="button"
-          onClick={() => formRef.current?.requestSubmit()}
-        >
+        <IxButton type="button" onClick={() => formRef.current?.requestSubmit()}>
           OK
         </IxButton>
       </IxModalFooter>
@@ -109,7 +106,7 @@ function AddDeviceModal() {
 
 export default async function show() {
   await showModal({
-    size: '600',
+    size: "600",
     content: <AddDeviceModal />,
   });
 }

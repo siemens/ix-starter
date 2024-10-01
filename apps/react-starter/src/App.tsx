@@ -10,14 +10,14 @@ import {
   IxMenuItem,
 } from "@siemens/ix-react";
 import * as echarts from "echarts/core";
-import { registerTheme } from '@siemens/ix-echarts';
-import {useDataStore} from "./pages/store/device-store.ts";
-import {useEffect} from "react";
+import { registerTheme } from "@siemens/ix-echarts";
+import { useDataStore } from "./pages/store/device-store.ts";
+import { useEffect } from "react";
 
 registerTheme(echarts);
 
 function App() {
-  const {fetch} = useDataStore();
+  const { fetch } = useDataStore();
 
   useEffect(() => {
     fetch();

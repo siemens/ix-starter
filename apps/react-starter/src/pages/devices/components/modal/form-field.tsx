@@ -7,24 +7,20 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {UseFormRegister} from "react-hook-form";
-import {MockData} from "../../../../types";
+import { UseFormRegister } from "react-hook-form";
+import { MockData } from "../../../../types";
 
 type FormFieldProps = {
   id: string;
   label: string;
   register: UseFormRegister<MockData>;
-}
+};
 
 const FormField = ({ id, label, register }: FormFieldProps) => {
   return (
     <div>
       <label htmlFor={id}>{label}</label>
-      <input
-        type="text"
-        id={id}
-        {...register(id as keyof MockData)}
-      />
+      <input type="text" id={id} {...register(id as keyof MockData)} />
     </div>
   );
 };

@@ -10,7 +10,7 @@
 import { IxActionCard } from "@siemens/ix-react";
 
 function QuickActions() {
-  function handleAddDeviceClick () {};
+  function handleAddDeviceClick() {}
 
   return (
     <>
@@ -22,10 +22,7 @@ function QuickActions() {
       ></IxActionCard>
       <IxActionCard icon="list" heading="Add devices"></IxActionCard>
       <IxActionCard icon="piechart" heading="Analytics"></IxActionCard>
-      <IxActionCard
-        icon="maintenance"
-        heading="Schedule maintenance"
-      ></IxActionCard>
+      <IxActionCard icon="maintenance" heading="Schedule maintenance"></IxActionCard>
     </>
   );
 }

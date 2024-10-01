@@ -7,37 +7,37 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {useRef} from "react";
+import { useRef } from "react";
 import {
   IxButton,
   IxModalContent,
   IxModalFooter,
   IxModalHeader,
   Modal,
-  ModalRef
+  ModalRef,
 } from "@siemens/ix-react";
 
 export default function DeleteModal() {
   const modalRef = useRef<ModalRef>(null);
 
   const close = () => {
-    modalRef.current?.close({deleted: true});
+    modalRef.current?.close({ deleted: true });
   };
   const dismiss = () => {
-    modalRef.current?.dismiss({deleted: false});
+    modalRef.current?.dismiss({ deleted: false });
   };
 
   return (
     <Modal ref={modalRef}>
-      <IxModalHeader onCloseClick={() => dismiss()}>
-        Delete Device
-      </IxModalHeader>
+      <IxModalHeader onCloseClick={() => dismiss()}>Delete Device</IxModalHeader>
       <IxModalContent>Do you really want to delete the device?</IxModalContent>
       <IxModalFooter>
         <IxButton variant="secondary" outline onClick={() => dismiss()}>
           Cancel
         </IxButton>
-        <IxButton variant="danger" onClick={() => close()}>Delete</IxButton>
+        <IxButton variant="danger" onClick={() => close()}>
+          Delete
+        </IxButton>
       </IxModalFooter>
     </Modal>
   );
