@@ -54,7 +54,7 @@ function Incidents() {
     <IxBlind label="Incidents">
       <div className={style.SearchAndFilter}>
         <IxInputGroup>
-          <input type="text" aria-label="Filter devices" onInput={handleInput} />
+          <input type="text" aria-label="Filter devices" onChange={handleInput} />
           <span slot="input-start">
             <IxIcon name="search" color="color-primary" size="16"></IxIcon>
           </span>
@@ -69,9 +69,9 @@ function Incidents() {
           </IxButton>
         </div>
       </div>
-      {showList && (
+      {showList ? (
         <IncidentList incidents={incidents} search={search}></IncidentList>
-      )}
+      ) : <div>Todo CardView</div>}
     </IxBlind>
   );
 }

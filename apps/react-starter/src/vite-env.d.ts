@@ -7,3 +7,5 @@
  * LICENSE file in the root directory of this source tree.
  */
 /// <reference types="vite/client" />
+
+import '@testing-library/jest-dom/vitest';

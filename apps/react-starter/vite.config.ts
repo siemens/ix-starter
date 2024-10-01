@@ -10,7 +10,7 @@ export default defineConfig({
   test: {
     globals: true,
     environment: "happy-dom",
-    setupFiles: "./src/tests/setup.js",
+    setupFiles: "./setup.mjs",
     server: {
       deps: {
         inline: ["@siemens/ix-react", "@siemens/ix"],

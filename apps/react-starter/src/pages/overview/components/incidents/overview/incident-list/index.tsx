@@ -36,7 +36,7 @@ function IncidentList(props: { incidents: Incident[]; search: string }) {
   return (
     <IxEventList itemHeight={72} animated={false}>
       {searchArray().map((incident) => (
-        <IxEventListItem key={incident.id} itemColor={`color-${incident.color}`}>
+        <IxEventListItem key={incident.id} itemColor={`color-${incident.color}`} data-testid={`incident-item`}>
           <div className={styles.ListItemContainer}>
             <div>
               <IxIcon name={incident.icon} />
