@@ -8,21 +8,24 @@
  */
 
 import { IxActionCard } from "@siemens/ix-react";
+import { useTranslation } from "react-i18next";
 
 function QuickActions() {
-  function handleAddDeviceClick() {}
+  const { t } = useTranslation();
 
   return (
     <>
       <IxActionCard
         variant="filled"
         icon="add-circle"
-        heading="Add device"
-        onClick={handleAddDeviceClick}
+        heading={t("quick-actions.add-device")}
       ></IxActionCard>
-      <IxActionCard icon="list" heading="Add devices"></IxActionCard>
-      <IxActionCard icon="piechart" heading="Analytics"></IxActionCard>
-      <IxActionCard icon="maintenance" heading="Schedule maintenance"></IxActionCard>
+      <IxActionCard icon="list" heading={t("quick-actions.add-devices")}></IxActionCard>
+      <IxActionCard icon="piechart" heading={t("analytics")}></IxActionCard>
+      <IxActionCard
+        icon="maintenance"
+        heading={t("quick-actions.schedule-maintenance")}
+      ></IxActionCard>
     </>
   );
 }

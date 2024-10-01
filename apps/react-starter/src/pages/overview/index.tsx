@@ -12,21 +12,22 @@ import Overview from "./components/overview";
 import QuickActions from "./components/quick-actions";
 import styles from "./styles.module.css";
 import Incidents from "./components/incidents/overview";
+import { useTranslation } from "react-i18next";
 
 const OverviewPage = () => {
+  const { t } = useTranslation();
+
   return (
-    <>
-      <IxPaneLayout variant="inline">
-        <div slot="content" className={styles.Content}>
-          <IxContentHeader headerTitle="Welcome to our demo app!"></IxContentHeader>
-          <Overview></Overview>
-          <Incidents></Incidents>
-        </div>
-        <IxPane heading="Quick actions" expanded slot="right">
-          <QuickActions></QuickActions>
-        </IxPane>
-      </IxPaneLayout>
-    </>
+    <IxPaneLayout variant="inline">
+      <div slot="content" className={styles.Content}>
+        <IxContentHeader headerTitle={t("content-header")}></IxContentHeader>
+        <Overview></Overview>
+        <Incidents></Incidents>
+      </div>
+      <IxPane heading={t("quick-actions.title")} expanded slot="right">
+        <QuickActions></QuickActions>
+      </IxPane>
+    </IxPaneLayout>
   );
 };
 

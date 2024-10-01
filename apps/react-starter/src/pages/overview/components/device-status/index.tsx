@@ -12,6 +12,7 @@ import styles from "./styles.module.css";
 import { IxCard, IxCardContent, IxTypography } from "@siemens/ix-react";
 import { getComputedCSSProperty } from "@siemens/ix-echarts";
 import ReactEcharts from "echarts-for-react";
+import { useTranslation } from "react-i18next";
 
 const data = [
   { value: 72.17, name: "Online" },
@@ -66,10 +67,12 @@ function getOption() {
 }
 
 function DeviceStatus() {
+  const { t } = useTranslation();
+
   return (
     <IxCard>
       <IxCardContent>
-        <IxTypography format="h3">Device status</IxTypography>
+        <IxTypography format="h3">{t("device-status.title")}</IxTypography>
         <ReactEcharts
           onChartReady={(echarts) => setTimeout(echarts.resize)}
           className={styles.echarts}

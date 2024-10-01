@@ -1,0 +1,35 @@
+{
+  "analytics": "Analyse",
+  "cards": "Karten",
+  "content-header": "Willkommen in unserer Demo-App!",
+  "device-status": {
+    "title": "Gerätestatus"
+  },
+  "devices": "Geräte",
+  "incidents": {
+    "title": "Incidents",
+    "update-now": "Aktualisieren",
+    "incident-cards": {
+      "device": "Gerät",
+      "date": "Datum"
+    }
+  },
+  "language": {
+    "title": "Sprache",
+    "de": "Deutsch",
+    "en": "Englisch"
+  },
+  "list": "Liste",
+  "overview": "Übersicht",
+  "quick-actions": {
+    "title": "Quick Actions",
+    "add-device": "Gerät hinzufügen",
+    "add-devices": "Geräte hinzufügen",
+    "schedule-maintenance": "Warung planen"
+  },
+  "status-history": {
+    "title": "Statusverlauf"
+  },
+  "settings": "Einstellungen",
+  "toggle-theme": "Theme wechseln"
+}

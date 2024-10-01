@@ -17,8 +17,11 @@ import {
 } from "@siemens/ix-react";
 import { Incident } from "../incident";
 import styles from "./styles.module.css";
+import { useTranslation } from "react-i18next";
 
 function IncidentList(props: { incidents: Incident[]; search: string }) {
+  const { t } = useTranslation();
+
   function searchArray() {
     if (props.search === "") {
       return props.incidents;
@@ -58,7 +61,7 @@ function IncidentList(props: { incidents: Incident[]; search: string }) {
             <div>
               <IxIconButton icon="open-external" ghost></IxIconButton>
               <IxButton icon="cloud-success-filled" outline>
-                Update now
+                {t("incidents.update-now")}
               </IxButton>
             </div>
           </div>

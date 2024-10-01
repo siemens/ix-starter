@@ -1,0 +1,35 @@
+{
+  "analytics": "Analytics",
+  "cards": "Cards",
+  "content-header": "Weclome to our demo app!",
+  "device-status": {
+    "title": "Device Status"
+  },
+  "devices": "Devices",
+  "incidents": {
+    "title": "Incidents",
+    "update-now": "Update now",
+    "incident-cards": {
+      "device": "Device",
+      "date": "Date"
+    }
+  },
+  "language": {
+    "title": "Language",
+    "de": "German",
+    "en": "English"
+  },
+  "list": "List",
+  "overview": "Overview",
+  "quick-actions": {
+    "title": "Quick Actions",
+    "add-device": "Add device",
+    "add-devices": "Add devices",
+    "schedule-maintenance": "Schedule maintenance"
+  },
+  "status-history": {
+    "title": "Status History"
+  },
+  "settings": "Settings",
+  "toggle-theme": "Toggle theme"
+}

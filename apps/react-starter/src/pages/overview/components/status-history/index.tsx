@@ -12,6 +12,7 @@ import styles from "./styles.module.css";
 import { IxCard, IxCardContent, IxTypography } from "@siemens/ix-react";
 import { getComputedCSSProperty } from "@siemens/ix-echarts";
 import ReactEcharts from "echarts-for-react";
+import { useTranslation } from "react-i18next";
 const seriesOnline = {
   name: "Online",
   color: [getComputedCSSProperty("color-success")],
@@ -101,10 +102,12 @@ function getOption() {
 }
 
 function StatusHistory() {
+  const { t } = useTranslation();
+
   return (
     <IxCard>
       <IxCardContent>
-        <IxTypography format="h3">Status history</IxTypography>
+        <IxTypography format="h3">{t("status-history.title")}</IxTypography>
         <ReactEcharts
           onChartReady={(echarts) => setTimeout(echarts.resize)}
           className={styles.echarts}

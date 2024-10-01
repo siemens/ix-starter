@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { createHashRouter, RouterProvider } from "react-router-dom";
 import { IxApplicationContext } from "@siemens/ix-react";
 import "./index.css";
+import "./i18n";
 import "@siemens/ix/dist/siemens-ix/siemens-ix.css";
 import App from "./App.tsx";
 import OverviewPage from "./pages/overview/index.tsx";

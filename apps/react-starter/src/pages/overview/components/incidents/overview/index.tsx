@@ -13,8 +13,11 @@ import style from "./styles.module.css";
 import { IxBlind, IxIcon, IxButton, IxInputGroup } from "@siemens/ix-react";
 import { Incident } from "./incident";
 import IncidentList from "./incident-list";
+import { useTranslation } from "react-i18next";
 
 function Incidents() {
+  const { t } = useTranslation();
+
   const [incidents] = useState<Incident[]>([
     {
       id: 1,
@@ -62,18 +65,14 @@ function Incidents() {
 
         <div className="btn-group">
           <IxButton icon="card-layout" outline={showList} onClick={showCards}>
-            Cards
+            {t("cards")}
           </IxButton>
           <IxButton icon="list" outline={!showList} onClick={showListView}>
-            List
+            {t("list")}
           </IxButton>
         </div>
       </div>
-      {showList ? (
-        <IncidentList incidents={incidents} search={search}></IncidentList>
-      ) : (
-        <div>Todo CardView</div>
-      )}
+      {showList && <IncidentList incidents={incidents} search={search}></IncidentList>}
     </IxBlind>
   );
 }
