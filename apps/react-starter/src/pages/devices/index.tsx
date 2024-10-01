@@ -73,11 +73,12 @@ const DevicesPage = () => {
         <IxPaneLayout variant="inline">
           <div slot="content" className={styles.Content}>
             <IxContentHeader headerTitle="Devices">
-              <IxButton icon="add-circle" ghost onClick={() => show()}>
+              <IxButton aria-label="add new device" icon="add-circle" ghost onClick={() => show()}>
                 Add device
               </IxButton>
             </IxContentHeader>
             <IxCategoryFilter
+              aria-label="Filter by"
               placeholder="Filter by"
               onFilterChanged={(e) => {
                 const newCategories = e.detail.categories;

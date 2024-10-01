@@ -93,10 +93,14 @@ function AddDeviceModal() {
       </IxModalContent>
 
       <IxModalFooter>
-        <IxButton outline onClick={() => dismiss()}>
+        <IxButton aria-label="cancel" outline onClick={() => dismiss()}>
           Cancel
         </IxButton>
-        <IxButton type="button" onClick={() => formRef.current?.requestSubmit()}>
+        <IxButton
+          aria-label="create device"
+          type="button"
+          onClick={() => formRef.current?.requestSubmit()}
+        >
           OK
         </IxButton>
       </IxModalFooter>
