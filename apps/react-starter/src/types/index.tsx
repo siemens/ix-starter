@@ -18,5 +18,4 @@ export type MockData = {
   ipAddress: string;
   firmwareVersion?: string;
   serialNumber?: string;
-  hidden?: boolean;
 };

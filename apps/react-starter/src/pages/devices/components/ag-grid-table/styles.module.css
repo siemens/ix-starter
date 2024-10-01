@@ -10,3 +10,19 @@
 ix-empty-state {
   height: fit-content;
 }
+
+.DeviceRow {
+  height: 100%;
+  align-items: center;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: .5rem;
+}
+
+.DeviceName {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

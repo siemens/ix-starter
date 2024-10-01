@@ -19,17 +19,14 @@ import camelCaseToNormal from "../../../../util/util.ts";
 import {MockData} from "../../../../types";
 import {useOverviewPaneStore} from "../../../store/device-store.ts";
 
-type OverviewProps = {
-}
-
 const Overview = ({
   ...props
-}: OverviewProps) => {
+}) => {
   const {expanded, selectedData, setExpanded} = useOverviewPaneStore();
 
   return (
     <IxPane
-      heading="Quick actions"
+      heading="Device details"
       composition="right"
       size="320px"
       variant="floating"

@@ -25,25 +25,44 @@ import {MockData} from "../../types";
 
 const DevicesPage = () => {
   const {devices} = useDataStore();
-  const {setFilter} = useFilterStore();
+  const {filter, setFilter} = useFilterStore();
   const [categories, setCategories] = useState({});
+  const [expanded, setExpanded] = useState(true);
 
   useEffect(() => {
     if (devices.length > 0) {
-      const newCategories: { [key: string]: {} } = {};
+      const newCategories: Record<string, { label: string, options: (string | undefined)[]}> = {};
       const keys = Object.keys(devices[0]);
 
       keys.forEach((key) => {
         const uniqueValues = Array.from(new Set(devices.map(device => device[key as keyof MockData])));
         newCategories[key] = {
           label: key,
-          options: uniqueValues,
+          options: uniqueValues
+          ,
         };
       });
 
       setCategories(newCategories);
     }
   }, [devices]);
+
+  function deepEqual(obj1: any, obj2: any): boolean {
+    if (obj1 === obj2) return true;
+
+    const keys1 = Object.keys(obj1);
+    const keys2 = Object.keys(obj2);
+
+    if (keys1.length !== keys2.length) return false;
+
+    for (const key of keys1) {
+      if (!keys2.includes(key) || !deepEqual(obj1[key], obj2[key])) {
+        return false;
+      }
+    }
+
+    return true;
+  }
 
   return (
     <>
@@ -63,19 +82,19 @@ const DevicesPage = () => {
             <IxCategoryFilter
               placeholder="Filter by"
               onFilterChanged={(e) => {
-                if (e.detail.categories[0]) {
-                  setFilter(e.detail.categories);
-                } else {
-                  setFilter([])
+                const newCategories = e.detail.categories;
+                if (!deepEqual(filter, newCategories)) {
+                  setFilter(newCategories.length > 0 ? newCategories : []);
                 }
               }}
+              filterState={{tokens: [], categories: filter}}
               categories={categories}
               className="mb-4"
               repeatCategories={false}
             ></IxCategoryFilter>
             <AgGridTable/>
           </div>
-          <IxPane heading="Quick actions" size="320px" expanded slot="right">
+          <IxPane heading="Quick actions" size="320px" slot="right" expanded={expanded} onExpandedChanged={(e) => {setExpanded(e.detail.expanded)}}>
             <QuickActions
               show={show}
             ></QuickActions>

@@ -12,11 +12,12 @@ import {AgGridReact} from 'ag-grid-react';
 import {IxEmptyState} from "@siemens/ix-react";
 import CustomQuickActionsComp from "./custom-cell-renderet.tsx";
 import camelCaseToNormal from "../../../../util/util.ts";
-import {CellClickedEvent, ColDef, IRowNode} from "ag-grid-community";
+import {CellClickedEvent, ColDef, ColGroupDef, IRowNode} from "ag-grid-community";
 import {useDataStore, useFilterStore, useOverviewPaneStore} from "../../../store/device-store.ts";
 import {MockData} from "../../../../types";
 import {useCallback, useEffect, useRef, useState} from "react";
 import {LogicalFilterOperator} from "@siemens/ix";
+import CustomDeviceCellRenderer from "./device-cell-renderer.tsx";
 
 function AgGridTable() {
   const gridRef = useRef<AgGridReact<MockData>>(null);
@@ -25,7 +26,8 @@ function AgGridTable() {
   const [showEmptyState, setShowEmptyState] = useState(false);
   const {devices, editDevice} = useDataStore();
 
-  function onCellClick (event: CellClickedEvent<MockData, {}>) {
+  function onCellClick (event: CellClickedEvent<MockData, any>) {
+    console.log(event);
     if (event.column.getColId() === 'quickActions') {
       return;
     }
@@ -34,40 +36,49 @@ function AgGridTable() {
     setExpanded(true);
   }
 
-  const getColumnDefs = () => {
+  function createColumnDef(key: string, cellRenderer?: any) {
+    return {
+      field: key,
+      headerName: camelCaseToNormal(key),
+      editable: true,
+      ...(cellRenderer && { cellRenderer }),
+    };
+  }
+
+  function createColumnGroup(headerName: string, keys: string[]) {
+    return {
+      headerName,
+      children: keys.map((key, index) => ({
+        columnGroupShow: index === 0 ? 'close' : 'open',
+        field: key,
+        headerName: camelCaseToNormal(key),
+        editable: true,
+      })),
+    };
+  }
+
+  function getColumnDefs() {
     if (devices.length === 0) {
       return [];
     }
+
     const keyNames = Object.keys(devices[0]);
-    const columnDefs: ColDef[] = keyNames
-      .filter(key => key !== 'id')
-      .map((key) => {
-        return {
-          field: key,
-          headerName: camelCaseToNormal(key),
-          editable: true,
-        };
-      });
+    const lastFourKeys = keyNames.slice(-6);
+    const otherKeys = keyNames.slice(0, -6);
 
-    columnDefs.pop()
-
-    columnDefs.push({
-      field: 'quickActions',
-      headerName: '',
-      cellRenderer: CustomQuickActionsComp,
-    });
-
-    return columnDefs;
-  };
+    return [
+      createColumnDef(otherKeys[0], CustomDeviceCellRenderer),
+      ...otherKeys.slice(1).map((key) => createColumnDef(key)),
+      createColumnGroup('Detail Groups', lastFourKeys),
+      createColumnDef('quickActions', CustomQuickActionsComp),
+    ];
+  }
 
   const isExternalFilterPresent = useCallback((): boolean => {
     return true;
   }, []);
 
   function doesExternalFilterPass(node: IRowNode<MockData>): boolean {
-    if (node.data?.hidden) {
-      return false;
-    }
     if (filter.length) {
       return filter.every(({ id, value, operator }) => {
         switch (operator) {
@@ -96,10 +107,7 @@ function AgGridTable() {
       <div style={{ height: '40rem',}}>
         <AgGridReact
           ref={gridRef}
-          columnDefs={[
-            ...getColumnDefs(),
-            {cellEditor: true, cellEditorPopup: false}
-          ]}
+          columnDefs={getColumnDefs() as ColDef[] | ColGroupDef[]}
           suppressRowTransform={true}
           rowData={devices}
           className="ag-theme-alpine-dark ag-theme-ix"

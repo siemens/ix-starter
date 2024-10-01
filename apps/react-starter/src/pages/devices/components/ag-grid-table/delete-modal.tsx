@@ -35,9 +35,9 @@ export default function DeleteModal() {
       <IxModalContent>Do you really want to delete the device?</IxModalContent>
       <IxModalFooter>
         <IxButton variant="secondary" outline onClick={() => dismiss()}>
-          No
+          Cancel
         </IxButton>
-        <IxButton variant="danger" onClick={() => close()}>Yes</IxButton>
+        <IxButton variant="danger" onClick={() => close()}>Delete</IxButton>
       </IxModalFooter>
     </Modal>
   );

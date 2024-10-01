@@ -22,8 +22,7 @@ import {
   iconCopy,
   iconCut,
   iconDuplicate,
-  iconEyeCancelled,
-  iconPaste,
+  iconPaste, iconPcTower,
   iconRename, iconSingleCheck,
   iconTrashcan
 } from "@siemens/ix-icons/icons";
@@ -116,10 +115,10 @@ const CustomQuickActionsComp = (props: CustomQuickActionsCompProps) => {
         <IxDivider></IxDivider>
         <IxDropdownItem icon={iconRename} label="Rename" onClick={startEditingFirstCell}></IxDropdownItem>
         <IxDropdownItem
-          icon={iconEyeCancelled}
-          label="Hide"
+          icon={iconPcTower}
+          label="Toggle Device"
           onClick={() => {
-            const updatedDevice = { ...props.data, hidden: !props.data.hidden };
+            const updatedDevice = { ...props.data, status: props.data.status === 'Online' ? 'Offline' : 'Online'};
             editDevice(updatedDevice);
             props.api.onFilterChanged();
             console.log('Toggled hidden state for:', updatedDevice);
