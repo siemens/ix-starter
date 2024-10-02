@@ -32,6 +32,7 @@ jobs:
         run: pnpm build
         env:
           REACT_BASE: /ix-starter/react-starter/
+          VITE_THEME: 1
 
       - name: Deploy GitHub Pages 🚀
         uses: JamesIves/github-pages-deploy-action@v4

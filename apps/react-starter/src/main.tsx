@@ -11,17 +11,21 @@ import AnalyticsPage from "./pages/analytics/index.tsx";
 import "@siemens/ix/dist/siemens-ix/siemens-ix.css";
 
 function optionalTheme() {
-  const css = `${import.meta.env.BASE_URL}theme/dist/ix-brand-theme/ix-brand-theme.css`;
-  const link = document.createElement("link");
-  link.rel = "stylesheet";
-  link.href = css;
-  document.head.appendChild(link);
+  if (import.meta.env.VITE_THEME) {
+    const css = `${import.meta.env.BASE_URL}theme/dist/ix-brand-theme/ix-brand-theme.css`;
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = css;
+    document.head.appendChild(link);
 
-  const loader = `${import.meta.env.BASE_URL}theme/dist/esm/ix-brand-theme.js`;
-  const script = document.createElement("script");
-  script.src = loader;
-  script.type = "module";
-  document.head.appendChild(script);
+    const loader = `${import.meta.env.BASE_URL}theme/dist/esm/ix-brand-theme.js`;
+    const script = document.createElement("script");
+    script.src = loader;
+    script.type = "module";
+    document.head.appendChild(script);
+
+    document.body.classList.add("theme-brand-dark");
+  }
 }
 
 optionalTheme();
