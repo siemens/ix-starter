@@ -31,7 +31,8 @@ function App() {
 
   useEffect(() => {
     fetch();
-  }, []);
+  }, [fetch]);
+
   const supportedLanguages: Language[] = [
     { code: "en", name: "English" },
     { code: "de", name: "German" },

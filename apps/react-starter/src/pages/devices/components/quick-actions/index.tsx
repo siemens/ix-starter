@@ -16,7 +16,7 @@ import type { MockData } from "../../../../types";
 import { useDataStore } from "../../../store/device-store.ts";
 
 export type QuickActionsProps = {
-  show: () => {};
+  show: () => void;
 };
 
 function QuickActions({ show }: QuickActionsProps) {

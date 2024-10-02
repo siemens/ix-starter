@@ -87,7 +87,7 @@ const CustomQuickActionsComp = (props: CustomQuickActionsCompProps) => {
       content: <DeleteModal />,
     });
 
-    instance.onClose.on((_) => {
+    instance.onClose.on(() => {
       deleteDevice(props.data);
       showSuccessToast("Successfully deleted the device!");
     });
