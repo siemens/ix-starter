@@ -23,10 +23,16 @@ jobs:
 
       - uses: ./.github/workflows/actions/install
 
+      - name: Install optional theme
+        run: pnpm exec ix-theme-downloader
+        env:
+          CSC_TOKEN: ${{ secrets.CSC_TOKEN }}
+
       - name: Build React Starter
         run: pnpm build
         env:
           REACT_BASE: /ix-starter/react-starter/
+          VITE_THEME: 1
 
       - name: Deploy GitHub Pages 🚀
         uses: JamesIves/github-pages-deploy-action@v4

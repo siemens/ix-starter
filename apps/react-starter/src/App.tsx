@@ -15,9 +15,10 @@ import {
 } from "@siemens/ix-react";
 import * as echarts from "echarts/core";
 import { registerTheme } from "@siemens/ix-echarts";
-import { useDataStore } from "./pages/store/device-store.ts";
+import { useDataStore } from "./pages/store/device-store";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import Logo from "./Logo";
 
 registerTheme(echarts);
 
@@ -43,9 +44,14 @@ function App() {
   return (
     <IxApplication>
       <IxApplicationHeader name="Siemens Industrial Experience">
+        <Logo />
         <IxAvatar></IxAvatar>
       </IxApplicationHeader>
-      <IxMenu enableToggleTheme i18nToggleTheme={t("toggle-theme")} i18nSettings={t("settings.title")}>
+      <IxMenu
+        enableToggleTheme
+        i18nToggleTheme={t("toggle-theme")}
+        i18nSettings={t("settings.title")}
+      >
         <NavLink to="/">
           {({ isActive }: { isActive: boolean }) => (
             <IxMenuItem active={isActive} icon="home">
@@ -61,14 +67,6 @@ function App() {
             </IxMenuItem>
           )}
         </NavLink>
-
-        {/* <NavLink to="/analytics">
-          {({ isActive }) => (
-            <IxMenuItem active={isActive} icon="piechart">
-              Analytics
-            </IxMenuItem>
-          )}
-        </NavLink> */}
 
         <IxMenuSettings label={t("settings.title")}>
           <IxMenuSettingsItem label={t("settings.user-settings")}>
