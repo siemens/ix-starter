@@ -3,8 +3,6 @@ import react from "@vitejs/plugin-react";
 
 const base = process.env.REACT_BASE || "/";
 
-console.log("React starter base:", base);
-
 // https://vitejs.dev/config/
 export default defineConfig({
   base,
