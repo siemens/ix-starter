@@ -4,7 +4,7 @@ async function filterDevicePageByDeviceName(page: Page, deviceName: string) {
   const filter = page.getByLabel("Filter by");
   const filterInput = filter.locator("input");
 
-  await filterInput.fill("deviceName");
+  await filterInput.fill("Device name");
 
   const dropdown = filter.locator("ix-dropdown");
   await expect(dropdown.getByText("Categories")).toBeVisible();
@@ -13,7 +13,7 @@ async function filterDevicePageByDeviceName(page: Page, deviceName: string) {
   await page.keyboard.press("Enter");
 
   await expect(filter.locator("ix-dropdown").getByText("Categories")).not.toBeVisible();
-  await expect(filter.locator("ix-dropdown").getByText("deviceName")).toBeVisible();
+  await expect(filter.locator("ix-dropdown").getByText("Device name")).toBeVisible();
 
   await filterInput.fill(deviceName);
   await page.keyboard.press("Enter");
@@ -46,7 +46,7 @@ test("add a new device", async ({ page }) => {
 
   const newDeviceName = "My new device";
 
-  const addDeviceButton = page.getByLabel("add new device");
+  const addDeviceButton = page.getByLabel("add device");
   await addDeviceButton.click();
 
   const modal = page.locator("ix-modal");
@@ -54,7 +54,7 @@ test("add a new device", async ({ page }) => {
   const device = modal.getByLabel("Device Name");
   await device.fill(newDeviceName);
 
-  const okayButton = modal.getByLabel("create device");
+  const okayButton = modal.getByLabel("add device");
   await okayButton.click();
 
   await expect(modal).not.toBeVisible();
