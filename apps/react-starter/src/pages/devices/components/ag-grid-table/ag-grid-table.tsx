@@ -11,7 +11,6 @@ import "./styles.module.css";
 import { AgGridReact } from "ag-grid-react";
 import { IxEmptyState } from "@siemens/ix-react";
 import CustomQuickActionsComp from "./custom-cell-renderet.tsx";
-import camelCaseToNormal from "../../../../util/util.ts";
 import { CellClickedEvent, ColDef, ColGroupDef, IRowNode } from "ag-grid-community";
 import { useDataStore, useFilterStore, useOverviewPaneStore } from "../../../store/device-store.ts";
 import { MockData } from "../../../../types";
@@ -26,8 +25,7 @@ function AgGridTable() {
   const [showEmptyState, setShowEmptyState] = useState(false);
   const { devices, editDevice } = useDataStore();
 
-  function onCellClick(event: CellClickedEvent<MockData, any>) {
-    console.log(event);
+  function onCellClick(event: CellClickedEvent<MockData, string>) {
     if (event.column.getColId() === "quickActions") {
       return;
     }
@@ -36,42 +34,78 @@ function AgGridTable() {
     setExpanded(true);
   }
 
-  function createColumnDef(key: string, cellRenderer?: any) {
-    return {
-      field: key,
-      headerName: camelCaseToNormal(key),
-      editable: true,
-      ...(cellRenderer && { cellRenderer }),
-    };
-  }
-
-  function createColumnGroup(headerName: string, keys: string[]) {
-    return {
-      headerName,
-      children: keys.map((key, index) => ({
-        columnGroupShow: index === 0 ? "close" : "open",
-        field: key,
-        headerName: camelCaseToNormal(key),
-        editable: true,
-      })),
-    };
-  }
-
   function getColumnDefs() {
     if (devices.length === 0) {
       return [];
     }
 
-    const keyNames = Object.keys(devices[0]);
-    const lastFourKeys = keyNames.slice(-6);
-    const otherKeys = keyNames.slice(0, -6);
-
-    return [
-      createColumnDef(otherKeys[0], CustomDeviceCellRenderer),
-      ...otherKeys.slice(1).map((key) => createColumnDef(key)),
-      createColumnGroup("Detail Groups", lastFourKeys),
-      createColumnDef("quickActions", CustomQuickActionsComp),
+    const colDef = [
+      {
+        field: "deviceName",
+        headerName: "Device name",
+        editable: true,
+        flex: 2,
+        cellRenderer: CustomDeviceCellRenderer,
+      },
+      {
+        field: "vendor",
+        headerName: "Vendor",
+        editable: true,
+        flex: 1,
+      },
+      {
+        field: "description",
+        headerName: "Description",
+        editable: true,
+        flex: 1,
+      },
+      {
+        field: "status",
+        headerName: "Status",
+        editable: true,
+        flex: 1,
+      },
+      {
+        field: "articleNumber",
+        headerName: "Article number",
+        editable: true,
+        flex: 1,
+      },
+      {
+        field: "macAddress",
+        headerName: "MAC address",
+        editable: true,
+        flex: 1,
+      },
+      {
+        field: "ipAddress",
+        headerName: "IP address",
+        editable: true,
+        flex: 1,
+      },
+      {
+        field: "firmwareVersion",
+        headerName: "Firmware version",
+        editable: true,
+        flex: 1,
+      },
+      {
+        field: "serialNumber",
+        headerName: "Serial number",
+        editable: true,
+        flex: 1,
+      },
+      {
+        pinned: "right",
+        field: "quickActions",
+        headerName: "Quick actions",
+        editable: true,
+        flex: 1,
+        cellRenderer: CustomQuickActionsComp
+      },
     ];
+
+    return colDef;
   }
 
   const isExternalFilterPresent = useCallback((): boolean => {
@@ -103,7 +137,7 @@ function AgGridTable() {
   }, [filter]);
 
   return devices && !showEmptyState ? (
-    <div style={{ height: "40rem" }}>
+    <div className="flex-grow-1">
       <AgGridReact
         ref={gridRef}
         columnDefs={getColumnDefs() as ColDef[] | ColGroupDef[]}
@@ -117,7 +151,7 @@ function AgGridTable() {
       />
     </div>
   ) : (
-    <div className="w-100 h-100 d-flex justify-content-center align-items-center">
+    <div className="flex-grow-1 d-flex justify-content-center align-items-center">
       <IxEmptyState
         header="No devices found"
         subHeader="Please remove search terms or add a new device"
