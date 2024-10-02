@@ -25,6 +25,8 @@ jobs:
 
       - name: Build React Starter
         run: pnpm build
+        env:
+          REACT_BASE: /ix-starter/react-starter/
 
       - name: Deploy GitHub Pages 🚀
         uses: JamesIves/github-pages-deploy-action@v4
