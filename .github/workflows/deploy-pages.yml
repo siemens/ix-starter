@@ -1,0 +1,30 @@
+name: Deploy GitHub Page
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm_deployment:
+        description: "Please confirm deployment"
+        required: true
+        type: boolean
+
+concurrency: deploy-gh-pages-${{ github.ref }}
+
+jobs:
+  deploy-gh-pages:
+    if: ${{ inputs.confirm_deployment == true && github.repository == 'siemens/ix-starter' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - uses: ./.github/workflows/actions/turbo
+
+      - name: Build React Starter
+        run: pnpm build
+
+      - name: Deploy GitHub Pages 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: ./apps/react-starter/dist
+          target-folder: react-starter
