@@ -14,7 +14,8 @@ concurrency: deploy-gh-pages-${{ github.ref }}
 
 jobs:
   deploy-gh-pages:
-    if: ${{ inputs.confirm_deployment == true && github.repository == 'siemens/ix-starter' }}
+    # remove comment before merge to main
+    # if: ${{ inputs.confirm_deployment == true && github.repository == 'siemens/ix-starter' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
