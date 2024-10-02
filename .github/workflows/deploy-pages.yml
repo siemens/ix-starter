@@ -21,7 +21,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - uses: ./.github/workflows/actions/turbo
+      - uses: ./.github/workflows/actions/install
 
       - name: Build React Starter
         run: pnpm build
