@@ -21,7 +21,7 @@ test("filter for specific deviceName", async ({ page }) => {
   await filterDevicePageByDeviceName(page, "s71200");
 
   const aggrid = page.locator(".ag-root-wrapper");
-  const rows = aggrid.locator(".ag-row");
+  const rows = aggrid.locator(".ag-center-cols-container .ag-row");
 
   await expect(rows).toHaveCount(1, {
     // AG-Grid takes some time to filter the rows

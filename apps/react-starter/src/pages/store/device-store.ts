@@ -66,7 +66,7 @@ export const useOverviewPaneStore = create<OverviewPaneStore>((set) => ({
   setSelectedData: (selectedData: MockData) => set({ selectedData }),
 }));
 
-interface Filter {
+export interface Filter {
   id: string;
   value: string;
   operator: LogicalFilterOperator;
@@ -80,6 +80,14 @@ interface FilterStore {
 
 export const useFilterStore = create<FilterStore>((set) => ({
   filter: [],
-  setFilter: (filter: Filter[]) => set({ filter }),
+  setFilter: (filter: Filter[]) => {
+    set((state) => {
+      if (filter.length !== state.filter.length) {
+        return { filter };
+      }
+
+      return state;
+    });
+  },
   resetFilter: () => set({ filter: [] }),
 }));

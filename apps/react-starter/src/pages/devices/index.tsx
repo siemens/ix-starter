@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import {
   IxButton,
   IxCategoryFilter,
@@ -23,48 +23,64 @@ import Overview from "./components/overview";
 import show from "./components/modal/index.tsx";
 import { useDataStore, useFilterStore } from "../store/device-store.ts";
 import { MockData } from "../../types";
+import { FilterState } from "@siemens/ix";
 
-const DevicesPage = () => {
+type Categories = Record<
+  string,
+  {
+    label: string;
+    options: string[];
+  }
+>;
+
+function createUniqueValueArray(devices: MockData[], key: string) {
+  return Array.from(new Set(devices.map<string>((device) => device[key as keyof MockData] ?? "")));
+}
+
+const useCategories = () => {
   const { devices } = useDataStore();
-  const { filter, setFilter } = useFilterStore();
-  const [categories, setCategories] = useState({});
-  const [expanded, setExpanded] = useState(true);
+  const [categories, setCategories] = useState<Categories>({});
 
   useEffect(() => {
     if (devices.length > 0) {
-      const newCategories: Record<string, { label: string; options: (string | undefined)[] }> = {};
+      const newCategories: Categories = {};
       const keys = Object.keys(devices[0]);
-
       keys.forEach((key) => {
-        const uniqueValues = Array.from(
-          new Set(devices.map((device) => device[key as keyof MockData])),
-        );
+        const uniqueValues = createUniqueValueArray(devices, key);
         newCategories[key] = {
           label: key,
           options: uniqueValues,
         };
       });
-
       setCategories(newCategories);
     }
   }, [devices]);
 
-  function deepEqual(obj1: any, obj2: any): boolean {
-    if (obj1 === obj2) return true;
+  return categories;
+};
 
-    const keys1: string[] = Object.keys(obj1);
-    const keys2: string[] = Object.keys(obj2);
+function DeviceFilter() {
+  const { filter, setFilter } = useFilterStore();
+  const categories = useCategories();
+  const onFilterChanged = useCallback(
+    (event: CustomEvent<FilterState>) => setFilter(event.detail.categories),
+    [setFilter],
+  );
+  return (
+    <IxCategoryFilter
+      aria-label="Filter by"
+      placeholder="Filter by"
+      onFilterChanged={onFilterChanged}
+      filterState={{ tokens: [], categories: filter }}
+      categories={categories}
+      className="mb-4"
+      repeatCategories={false}
+    ></IxCategoryFilter>
+  );
+}
 
-    if (keys1.length !== keys2.length) return false;
-
-    for (const key of keys1) {
-      if (!keys2.includes(key) || !deepEqual(obj1[key], obj2[key])) {
-        return false;
-      }
-    }
-
-    return true;
-  }
+const DevicesPage = () => {
+  const [expanded, setExpanded] = useState(true);
 
   return (
     <>
@@ -77,20 +93,7 @@ const DevicesPage = () => {
                 Add device
               </IxButton>
             </IxContentHeader>
-            <IxCategoryFilter
-              aria-label="Filter by"
-              placeholder="Filter by"
-              onFilterChanged={(e) => {
-                const newCategories = e.detail.categories;
-                if (!deepEqual(filter, newCategories)) {
-                  setFilter(newCategories.length > 0 ? newCategories : []);
-                }
-              }}
-              filterState={{ tokens: [], categories: filter }}
-              categories={categories}
-              className="mb-4"
-              repeatCategories={false}
-            ></IxCategoryFilter>
+            <DeviceFilter />
             <AgGridTable />
           </div>
           <IxPane
