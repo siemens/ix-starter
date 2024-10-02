@@ -4,11 +4,27 @@ import { createHashRouter, RouterProvider } from "react-router-dom";
 import { IxApplicationContext } from "@siemens/ix-react";
 import "./index.css";
 import "./i18n";
-import "@siemens/ix/dist/siemens-ix/siemens-ix.css";
 import App from "./App.tsx";
 import OverviewPage from "./pages/overview/index.tsx";
 import DevicesPage from "./pages/devices/index.tsx";
 import AnalyticsPage from "./pages/analytics/index.tsx";
+import "@siemens/ix/dist/siemens-ix/siemens-ix.css";
+
+function optionalTheme() {
+  const css = `${import.meta.env.BASE_URL}theme/dist/ix-brand-theme/ix-brand-theme.css`;
+  const link = document.createElement("link");
+  link.rel = "stylesheet";
+  link.href = css;
+  document.head.appendChild(link);
+
+  const loader = `${import.meta.env.BASE_URL}theme/dist/esm/ix-brand-theme.js`;
+  const script = document.createElement("script");
+  script.src = loader;
+  script.type = "module";
+  document.head.appendChild(script);
+}
+
+optionalTheme();
 
 const router = createHashRouter([
   {

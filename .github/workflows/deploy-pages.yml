@@ -23,6 +23,11 @@ jobs:
 
       - uses: ./.github/workflows/actions/install
 
+      - name: Install optional theme
+        run: pnpm exec ix-theme-downloader
+        env:
+          CSC_TOKEN: ${{ secrets.CSC_TOKEN }}
+
       - name: Build React Starter
         run: pnpm build
         env:

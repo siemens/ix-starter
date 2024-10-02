@@ -11,7 +11,8 @@
   "devDependencies": {
     "eslint": "^8.48.0",
     "prettier": "^3.0.3",
-    "turbo": "latest"
+    "turbo": "latest",
+    "ix-theme-downloader": "workspace:*"
   },
   "packageManager": "pnpm@8.6.10",
   "name": "ix-starter"
