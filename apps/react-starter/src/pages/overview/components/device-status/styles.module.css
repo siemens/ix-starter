@@ -10,7 +10,6 @@
 .echarts {
   position: relative;
   width: 100%;
-  min-width: 24.75rem;
   height: 100%;
   padding-top: 1rem;
 }

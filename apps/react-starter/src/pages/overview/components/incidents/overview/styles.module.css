@@ -21,10 +21,6 @@ device-status {
   }
 }
 
-ix-card + ix-card {
-  margin-inline-start: 1rem;
-}
-
 ix-blind + ix-blind {
   margin-block-start: 1rem;
 }

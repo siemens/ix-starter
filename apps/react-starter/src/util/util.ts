@@ -1,5 +1,7 @@
 import {showToast} from "@siemens/ix-react";
 import {iconSingleCheck} from "@siemens/ix-icons/icons";
+import {MutableRefObject, useEffect} from "react";
+import EChartsReact from "echarts-for-react";
 
 export function toKebabCase(normalString: string): string {
   return normalString
@@ -16,4 +18,20 @@ export function showSuccessToast(message: string) {
     icon: iconSingleCheck,
     iconColor: "color-success",
   });
+}
+
+export function useResizeHandler(chartRef: MutableRefObject<EChartsReact | null>) {
+  useEffect(() => {
+    const handleResize = () => {
+      if (chartRef.current) {
+        chartRef.current.getEchartsInstance().resize();
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [chartRef]);
 }

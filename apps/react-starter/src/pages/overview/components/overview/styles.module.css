@@ -13,6 +13,11 @@ device-status {
 
 .CardContainer {
   display: flex;
+  gap: 1rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 }
 
 ix-card {
@@ -21,5 +26,4 @@ ix-card {
 
 ix-card + ix-card {
   flex-grow: 2;
-  margin-inline-start: 1rem;
 }
