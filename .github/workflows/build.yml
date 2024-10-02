@@ -2,9 +2,13 @@ name: CI
 
 on:
   push:
-    branches: ["main", "react-demo-app"]
+    branches: ["main", "react-demo-app"] # remove "react-demo-app" before merge to main
   pull_request:
     types: [opened, synchronize]
+
+concurrency:
+  group: pr-${{ github.head_ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -19,15 +23,32 @@ jobs:
       - name: Build
         run: pnpm build
 
+  lint:
+    name: Lint
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/workflows/actions/install
+
       - name: Lint
         run: pnpm lint
 
+  unit:
+    name: Unit
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/workflows/actions/install
       - name: Test
         run: pnpm test
 
   e2e:
     # Depend on build job to ensure the build is completed before running E2E tests
-    needs: [build]
+    # needs: [build]
     name: E2E
     timeout-minutes: 15
     runs-on: ubuntu-latest
