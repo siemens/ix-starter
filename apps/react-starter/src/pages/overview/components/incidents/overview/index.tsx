@@ -14,6 +14,7 @@ import { IxBlind, IxIcon, IxButton, IxInputGroup } from "@siemens/ix-react";
 import { Incident } from "./incident";
 import IncidentList from "./incident-list";
 import { useTranslation } from "react-i18next";
+import IncidentCards from "./incident-cards";
 
 function Incidents() {
   const { t } = useTranslation();
@@ -24,7 +25,7 @@ function Incidents() {
       incidentName: "Update available",
       icon: "alarm-bell",
       infoText: "v2.3 -> v2.5",
-      deviceName: "Device 1",
+      deviceName: "Device A",
       date: "2022-05-01",
       color: "alarm",
     },
@@ -33,7 +34,7 @@ function Incidents() {
       incidentName: "Update available",
       icon: "alarm-bell",
       infoText: "v2.3 -> v2.5",
-      deviceName: "Device 2",
+      deviceName: "Device B",
       date: "2022-05-01",
       color: "alarm",
     },
@@ -72,7 +73,11 @@ function Incidents() {
           </IxButton>
         </div>
       </div>
-      {showList && <IncidentList incidents={incidents} search={search}></IncidentList>}
+      {showList ? (
+        <IncidentList incidents={incidents} search={search}></IncidentList>
+      ) : (
+        <IncidentCards incidents={incidents} search={search}></IncidentCards>
+      )}
     </IxBlind>
   );
 }
