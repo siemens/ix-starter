@@ -14,12 +14,15 @@ import AlertCard from "./alert-card/alert-card.tsx";
 import { iconAddCircle } from "@siemens/ix-icons/icons";
 import type { MockData } from "../../../../types";
 import { useDataStore } from "../../../store/device-store.ts";
+import { useTranslation } from "react-i18next";
 
 export type QuickActionsProps = {
   show: () => void;
 };
 
 function QuickActions({ show }: QuickActionsProps) {
+  const { t } = useTranslation();
+
   const { devices } = useDataStore();
 
   function getDevicesCountByStatus(data: MockData[], status: MockData["status"]): number {
@@ -34,25 +37,25 @@ function QuickActions({ show }: QuickActionsProps) {
       <IxActionCard
         variant="primary"
         icon={iconAddCircle}
-        heading="Add device"
+        heading={t("device-quick-actions.add-device")}
         className="w-100"
         onClick={show}
       ></IxActionCard>
       <div className={styles.Container}>
         <IxCard variant="filled" className={styles.DeviceCard}>
           <IxCardContent>
-            <IxTypography bold>Devices</IxTypography>
+            <IxTypography bold>{t("device-quick-actions.devices")}</IxTypography>
             <IxTypography format="h1">{devices.length}</IxTypography>
           </IxCardContent>
         </IxCard>
         <div className={styles.AlertCards}>
           <AlertCard
-            title="Faulty"
+            title={t("device-quick-actions.faulty-devices")}
             value={getDevicesCountByStatus(devices, "Error")}
             variant="alarm"
           />
           <AlertCard
-            title="Warning"
+            title={t("device-quick-actions.warning-devices")}
             value={getDevicesCountByStatus(devices, "Maintenance")}
             variant="warning"
           />

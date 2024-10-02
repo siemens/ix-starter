@@ -16,8 +16,11 @@ import {
   Modal,
   ModalRef,
 } from "@siemens/ix-react";
+import { iconTrashcan } from "@siemens/ix-icons/icons";
+import { useTranslation } from "react-i18next";
 
 export default function DeleteModal() {
+  const { t } = useTranslation();
   const modalRef = useRef<ModalRef>(null);
 
   const close = () => {
@@ -29,14 +32,16 @@ export default function DeleteModal() {
 
   return (
     <Modal ref={modalRef}>
-      <IxModalHeader onCloseClick={() => dismiss()}>Delete Device</IxModalHeader>
-      <IxModalContent>Do you really want to delete the device?</IxModalContent>
+      <IxModalHeader onCloseClick={() => dismiss()} icon={iconTrashcan} iconColor="color-alarm">
+        {t("device-delete-modal.title")}
+      </IxModalHeader>
+      <IxModalContent> {t("device-delete-modal.content")}</IxModalContent>
       <IxModalFooter>
         <IxButton variant="secondary" outline onClick={() => dismiss()}>
-          Cancel
+          {t("device-delete-modal.dismiss")}
         </IxButton>
         <IxButton variant="danger" onClick={() => close()}>
-          Delete
+          {t("device-delete-modal.close")}
         </IxButton>
       </IxModalFooter>
     </Modal>

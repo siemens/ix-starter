@@ -18,12 +18,14 @@ import {
 import styles from "./styles.module.css";
 import QuickActions from "./components/quick-actions";
 import AgGridTable from "./components/ag-grid-table/ag-grid-table.tsx";
-import Overview from "./components/overview";
+import DeviceDetails from "./components/device-details";
 
 import show from "./components/modal/index.tsx";
 import { useDataStore, useFilterStore } from "../store/device-store.ts";
 import { MockData } from "../../types";
 import { FilterState } from "@siemens/ix";
+import { useTranslation } from "react-i18next";
+import { toKebabCase } from "../../util/util.ts";
 
 type Categories = Record<
   string,
@@ -38,6 +40,7 @@ function createUniqueValueArray(devices: MockData[], key: string) {
 }
 
 const useCategories = () => {
+  const { t } = useTranslation();
   const { devices } = useDataStore();
   const [categories, setCategories] = useState<Categories>({});
 
@@ -48,18 +51,19 @@ const useCategories = () => {
       keys.forEach((key) => {
         const uniqueValues = createUniqueValueArray(devices, key);
         newCategories[key] = {
-          label: key,
+          label: t(`device-details.${toKebabCase(key)}`),
           options: uniqueValues,
         };
       });
       setCategories(newCategories);
     }
-  }, [devices]);
+  }, [devices, t]);
 
   return categories;
 };
 
 function DeviceFilter() {
+  const { t } = useTranslation();
   const { filter, setFilter } = useFilterStore();
   const categories = useCategories();
   const onFilterChanged = useCallback(
@@ -68,8 +72,9 @@ function DeviceFilter() {
   );
   return (
     <IxCategoryFilter
-      aria-label="Filter by"
-      placeholder="Filter by"
+      aria-label={t("category-filter.placeholder")}
+      placeholder={t("category-filter.placeholder")}
+      labelCategories={t("category-filter.categories")}
       onFilterChanged={onFilterChanged}
       filterState={{ tokens: [], categories: filter }}
       categories={categories}
@@ -80,17 +85,18 @@ function DeviceFilter() {
 }
 
 const DevicesPage = () => {
+  const { t } = useTranslation();
   const [expanded, setExpanded] = useState(true);
 
   return (
     <>
       <div style={{ position: "absolute", width: "100%", height: "100%" }}>
-        <Overview />
+        <DeviceDetails />
         <IxPaneLayout variant="inline">
           <div slot="content" className={styles.Content}>
-            <IxContentHeader headerTitle="Devices">
-              <IxButton aria-label="add new device" icon="add-circle" ghost onClick={() => show()}>
-                Add device
+            <IxContentHeader headerTitle={t("devices")}>
+              <IxButton aria-label={t("device-quick-actions.add-device")} icon="add-circle" ghost onClick={() => show()}>
+                {t("device-quick-actions.add-device")}
               </IxButton>
             </IxContentHeader>
             <DeviceFilter />

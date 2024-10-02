@@ -45,7 +45,7 @@ function App() {
       <IxApplicationHeader name="Siemens Industrial Experience">
         <IxAvatar></IxAvatar>
       </IxApplicationHeader>
-      <IxMenu enableToggleTheme i18nToggleTheme={t("toggle-theme")} i18nSettings={t("settings")}>
+      <IxMenu enableToggleTheme i18nToggleTheme={t("toggle-theme")} i18nSettings={t("settings.title")}>
         <NavLink to="/">
           {({ isActive }: { isActive: boolean }) => (
             <IxMenuItem active={isActive} icon="home">
@@ -70,8 +70,8 @@ function App() {
           )}
         </NavLink> */}
 
-        <IxMenuSettings>
-          <IxMenuSettingsItem label="User settings">
+        <IxMenuSettings label={t("settings.title")}>
+          <IxMenuSettingsItem label={t("settings.user-settings")}>
             <span className="language-switch-label">{t("language.title")}:</span>
             <IxDropdownButton label={t(`language.${i18n.language}`)}>
               {supportedLanguages.map((lang) => (

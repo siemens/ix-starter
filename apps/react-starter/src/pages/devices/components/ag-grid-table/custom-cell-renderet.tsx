@@ -15,7 +15,6 @@ import {
   IxIconButton,
   IxRow,
   showModal,
-  showToast,
 } from "@siemens/ix-react";
 import { ICellRendererParams } from "ag-grid-community";
 import { useDataStore } from "../../../store/device-store.ts";
@@ -28,16 +27,18 @@ import {
   iconPaste,
   iconPcTower,
   iconRename,
-  iconSingleCheck,
   iconTrashcan,
 } from "@siemens/ix-icons/icons";
 import DeleteModal from "./delete-modal.tsx";
+import { useTranslation } from "react-i18next";
+import {showSuccessToast} from "../../../../util/util.ts";
 
 type CustomQuickActionsCompProps = ICellRendererParams & {
   gridRef: RefObject<AgGridReact>;
 };
 
 const CustomQuickActionsComp = (props: CustomQuickActionsCompProps) => {
+  const { t } = useTranslation();
   const { deleteDevice, editDevice, pasteDevice } = useDataStore();
 
   const startEditingFirstCell = () => {
@@ -52,7 +53,7 @@ const CustomQuickActionsComp = (props: CustomQuickActionsCompProps) => {
     navigator.clipboard
       .writeText(cellValue)
       .then(() => {
-        showSuccessToast("Successfully copied device to clipboard!");
+        showSuccessToast(t("dropdown-quick-actions.success-messages.copy"));
       })
       .catch((err) => {
         console.error("Failed to copy:", err);
@@ -62,7 +63,7 @@ const CustomQuickActionsComp = (props: CustomQuickActionsCompProps) => {
   const handleCut = () => {
     handleCopy();
     deleteDevice(props.data);
-    showSuccessToast("Device copied to clipboard!");
+    showSuccessToast(t("dropdown-quick-actions.success-messages.cut"));
   };
 
   const handlePaste = () => {
@@ -72,7 +73,7 @@ const CustomQuickActionsComp = (props: CustomQuickActionsCompProps) => {
         try {
           const data = JSON.parse(text);
           pasteDevice(data, props.data.id);
-          showSuccessToast("Successfully pasted the device!");
+          showSuccessToast(t("dropdown-quick-actions.success-messages.cpaste"));
         } catch (err) {
           console.error("Failed to parse clipboard data:", err);
         }
@@ -89,16 +90,13 @@ const CustomQuickActionsComp = (props: CustomQuickActionsCompProps) => {
 
     instance.onClose.on(() => {
       deleteDevice(props.data);
-      showSuccessToast("Successfully deleted the device!");
+      showSuccessToast(t("dropdown-quick-actions.success-messages.delete"));
     });
   };
 
-  function showSuccessToast(message: string) {
-    showToast({
-      message: message,
-      icon: iconSingleCheck,
-      iconColor: "color-success",
-    });
+  const handleDuplicate = () => {
+    pasteDevice(props.data, props.data.id);
+    showSuccessToast(t("dropdown-quick-actions.success-messages.duplicate"));
   }
 
   return (
@@ -116,7 +114,7 @@ const CustomQuickActionsComp = (props: CustomQuickActionsCompProps) => {
           <IxIconButton
             icon={iconDuplicate}
             ghost
-            onClick={() => pasteDevice(props.data, props.data.id)}
+            onClick={handleDuplicate}
           ></IxIconButton>
           <IxIconButton icon={iconCut} ghost onClick={handleCut}></IxIconButton>
           <IxIconButton icon={iconCopy} ghost onClick={handleCopy}></IxIconButton>
@@ -125,12 +123,16 @@ const CustomQuickActionsComp = (props: CustomQuickActionsCompProps) => {
         <IxDivider></IxDivider>
         <IxDropdownItem
           icon={iconRename}
-          label="Rename"
+          label={t("dropdown-quick-actions.rename")}
           onClick={startEditingFirstCell}
         ></IxDropdownItem>
         <IxDropdownItem
           icon={iconPcTower}
-          label="Toggle Device"
+          label={
+            props.data.status === "Online"
+              ? t("dropdown-quick-actions.off")
+              : t("dropdown-quick-actions.on")
+          }
           onClick={() => {
             const updatedDevice = {
               ...props.data,
@@ -142,7 +144,7 @@ const CustomQuickActionsComp = (props: CustomQuickActionsCompProps) => {
           }}
         />
         <IxDivider />
-        <IxDropdownItem icon={iconTrashcan} label="Delete" onClick={handleDelete}></IxDropdownItem>
+        <IxDropdownItem icon={iconTrashcan} label={t("dropdown-quick-actions.delete")} onClick={handleDelete}></IxDropdownItem>
       </IxDropdown>
     </IxRow>
   );

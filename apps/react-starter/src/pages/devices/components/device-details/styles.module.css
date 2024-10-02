@@ -13,12 +13,20 @@
   z-index: 10;
 }
 
+.PaneTitle {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
 .Container {
   height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow: hidden;
+  word-break: break-word;
 }
 
 .MessageBar {

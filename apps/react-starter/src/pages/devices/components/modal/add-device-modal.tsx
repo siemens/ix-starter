@@ -23,8 +23,11 @@ import FormField from "./form-field";
 import { useForm } from "react-hook-form";
 import { useDataStore } from "../../../store/device-store";
 import { MockData } from "../../../../types";
+import {useTranslation} from "react-i18next";
+import {showSuccessToast} from "../../../../util/util.ts";
 
 export default function AddDeviceModal() {
+  const { t } = useTranslation();
   const { addDevice } = useDataStore();
   const modalRef = useRef<ModalRef>(null);
   const formRef = useRef<HTMLFormElement>(null);
@@ -56,51 +59,55 @@ export default function AddDeviceModal() {
 
   const onSubmit = (data: MockData) => {
     addDevice(data);
+    showSuccessToast(t("device-add-modal.success"));
     close();
   };
 
   return (
     <Modal ref={modalRef}>
-      <IxModalHeader onCloseClick={() => dismiss()}>Add device</IxModalHeader>
+      <IxModalHeader onCloseClick={() => dismiss()}>{t("device-add-modal.title")}</IxModalHeader>
 
       <IxModalContent>
         <form id="modalForm" ref={formRef} onSubmit={handleSubmit(onSubmit)} noValidate>
           <div className={styles.FormGrid}>
-            <FormField id="deviceName" label="Device Name" register={register} />
-            <FormField id="vendor" label="Vendor" register={register} />
+            <FormField id="deviceName" label={t("device-details.device-name")} register={register} />
+            <FormField id="vendor" label={t("device-details.vendor")} register={register} />
             <div className={styles.ItemFullWidth}>
-              <FormField id="description" label="Description" register={register} />
+              <FormField id="description" label={t("device-details.description")} register={register} />
             </div>
             <div className="d-flex flex-column">
-              <label htmlFor="status">Status</label>
+              <label htmlFor="status">{t("device-details.status")}</label>
               <IxSelect
                 id="status"
-                value="online"
+                value="Online"
+                i18nSelectListHeader={t("device-add-modal.list-header")}
                 onValueChange={(e) => setValue("status", e.detail as MockData["status"])}
               >
-                <IxSelectItem label="Online" value="online" />
-                <IxSelectItem label="Offline" value="offline" />
+                <IxSelectItem label="Online" value="Online" />
+                <IxSelectItem label="Offline" value="Offline" />
+                <IxSelectItem label="Maintenance" value="Maintenance" />
+                <IxSelectItem label="Error" value="Error" />
               </IxSelect>
             </div>
-            <FormField id="articleNumber" label="Article Number" register={register} />
-            <FormField id="macAddress" label="MAC Address" register={register} />
-            <FormField id="ipAddress" label="IP Address" register={register} />
-            <FormField id="firmwareVersion" label="Firmware Version" register={register} />
-            <FormField id="serialNumber" label="Serial Number" register={register} />
+            <FormField id="articleNumber" label={t("device-details.article-number")} register={register} />
+            <FormField id="macAddress" label={t("device-details.mac-address")} register={register} />
+            <FormField id="ipAddress" label={t("device-details.ip-address")} register={register} />
+            <FormField id="firmwareVersion" label={t("device-details.firmware-version")} register={register} />
+            <FormField id="serialNumber" label={t("device-details.serial-number")} register={register} />
           </div>
         </form>
       </IxModalContent>
 
       <IxModalFooter>
-        <IxButton aria-label="cancel" outline onClick={() => dismiss()}>
-          Cancel
+        <IxButton aria-label={t("device-add-modal.dismiss")} outline onClick={() => dismiss()}>
+          {t("device-add-modal.dismiss")}
         </IxButton>
         <IxButton
-          aria-label="create device"
+          aria-label={t("device-add-modal.close")}
           type="button"
           onClick={() => formRef.current?.requestSubmit()}
         >
-          OK
+          {t("device-add-modal.close")}
         </IxButton>
       </IxModalFooter>
     </Modal>

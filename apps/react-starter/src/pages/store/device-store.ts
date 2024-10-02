@@ -30,7 +30,7 @@ export const useDataStore = create<DataStoreState>((set) => ({
     }),
   pasteDevice: (device: MockData, position: number) =>
     set((state) => {
-      const newDevice = { ...device, id: state.devices.length.toString() };
+      const newDevice = { ...device, id: position.toString() };
       const updatedDevices = [
         ...state.devices.slice(0, position),
         newDevice,

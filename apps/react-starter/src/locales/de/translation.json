@@ -6,8 +6,65 @@
     "title": "Gerätestatus"
   },
   "devices": "Geräte",
+  "add-device": "Gerät hinzufügen",
+  "device-quick-actions": {
+    "add-device": "Gerät hinzufügen",
+    "devices": "Geräte",
+    "faulty-devices": "Fehler",
+    "warning-devices": "Wartung"
+  },
+  "category-filter":  {
+    "placeholder": "Filtern nach",
+    "categories": "Kategorien"
+  },
+  "device-add-modal": {
+    "title": "Gerät hinzufügen",
+    "list-header": "Bitte wählen sie einen Status",
+    "close": "Gerät hinzufügen",
+    "dismiss": "Abbrechen",
+    "success": "Device erfolgreich hinzugefügt!"
+  },
+  "device-delete-modal": {
+    "title": "Gerät löschen?",
+    "content": "Wollen Sie das Gerät wirklich löschen?",
+    "close": "Gerät löschen",
+    "dismiss": "Abbrechen"
+  },
+  "dropdown-quick-actions": {
+    "rename": "Umbennen",
+    "on": "Einschalten",
+    "off": "Ausschalten",
+    "delete": "Löschen",
+    "success-messages" : {
+      "copy": "Gerät erfolgreich in die Zwischenablage kopiert!",
+      "delete": "Gerät erfolgreich entfernt!",
+      "duplicate": "Gerät erfolgreich dupliziert!",
+      "cut": "Gerät erfolgreich in die Zwischenablage übertragen!",
+      "paste": "Gerät erfolgreich eingefügt!"
+    }
+  },
+  "device-details-header": {
+    "title": "Geräteinformationen",
+    "firmware-card": "Gerätefirmware ist veraltet.",
+    "update": "Update"
+  },
+  "device-details-footer": {
+    "activate": "Gerät aktivieren",
+    "all-details": "Siehe alle Details"
+  },
+  "device-details":  {
+    "device-name": "Gerätename",
+    "vendor": "Hersteller",
+    "description": "Gerätetyp",
+    "status": "Status",
+    "article-number": "Artikelnummer",
+    "mac-address": "MAC Adresse",
+    "ip-address": "IP Adresse",
+    "firmware-version": "Firmware-Version",
+    "serial-number": "Serialnummer"
+  },
   "incidents": {
-    "title": "Incidents",
+    "title": "Zwischenfälle",
     "update-now": "Aktualisieren",
     "incident-cards": {
       "device": "Gerät",
@@ -30,6 +87,9 @@
   "status-history": {
     "title": "Statusverlauf"
   },
-  "settings": "Einstellungen",
+  "settings": {
+    "title": "Einstellungen",
+    "user-settings": "Benutzereinstellungen"
+  },
   "toggle-theme": "Theme wechseln"
 }

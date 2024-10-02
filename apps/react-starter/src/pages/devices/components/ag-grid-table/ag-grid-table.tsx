@@ -17,8 +17,10 @@ import { MockData } from "../../../../types";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { LogicalFilterOperator } from "@siemens/ix";
 import CustomDeviceCellRenderer from "./device-cell-renderer.tsx";
+import {useTranslation} from "react-i18next";
 
 function AgGridTable() {
+  const { t } = useTranslation()
   const gridRef = useRef<AgGridReact<MockData>>(null);
   const { setExpanded, setSelectedData } = useOverviewPaneStore();
   const { filter, resetFilter } = useFilterStore();
@@ -39,59 +41,35 @@ function AgGridTable() {
       return [];
     }
 
-    const colDef = [
+    return [
       {
         field: "deviceName",
-        headerName: "Device name",
+        headerName: `${t("device-details.device-name")}`,
         editable: true,
         flex: 2,
+      },
+      {
+        field: "status",
+        headerName: `${t("device-details.status")}`,
+        editable: true,
+        flex: 1,
         cellRenderer: CustomDeviceCellRenderer,
       },
       {
         field: "vendor",
-        headerName: "Vendor",
+        headerName: `${t("device-details.vendor")}`,
         editable: true,
         flex: 1,
       },
       {
         field: "description",
-        headerName: "Description",
-        editable: true,
-        flex: 1,
-      },
-      {
-        field: "status",
-        headerName: "Status",
-        editable: true,
-        flex: 1,
-      },
-      {
-        field: "articleNumber",
-        headerName: "Article number",
-        editable: true,
-        flex: 1,
-      },
-      {
-        field: "macAddress",
-        headerName: "MAC address",
+        headerName: `${t("device-details.description")}`,
         editable: true,
         flex: 1,
       },
       {
         field: "ipAddress",
-        headerName: "IP address",
-        editable: true,
-        flex: 1,
-      },
-      {
-        field: "firmwareVersion",
-        headerName: "Firmware version",
-        editable: true,
-        flex: 1,
-      },
-      {
-        field: "serialNumber",
-        headerName: "Serial number",
+        headerName: `${t("device-details.ip-address")}`,
         editable: true,
         flex: 1,
       },
@@ -104,8 +82,6 @@ function AgGridTable() {
         cellRenderer: CustomQuickActionsComp
       },
     ];
-
-    return colDef;
   }
 
   const isExternalFilterPresent = useCallback((): boolean => {

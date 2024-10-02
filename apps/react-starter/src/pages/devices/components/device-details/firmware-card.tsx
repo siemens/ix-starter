@@ -10,15 +10,18 @@
 import styles from "./styles.module.css";
 
 import { IxButton, IxMessageBar } from "@siemens/ix-react";
+import {useTranslation} from "react-i18next";
 
 const FirmwareCard = () => {
+  const  {t} = useTranslation();
+
   return (
     <div>
       <IxMessageBar className={styles.MessageBar} type="warning" dismissible={false}>
         <div className={styles.MessageBarContent}>
-          Device firmware is outdated (v1.4 - 3.2)
+          {t("device-details-header.firmware-card")}
           <IxButton className={styles.ButtonMargin} outline>
-            Update
+            {t("device-details-header.update")}
           </IxButton>
         </div>
       </IxMessageBar>

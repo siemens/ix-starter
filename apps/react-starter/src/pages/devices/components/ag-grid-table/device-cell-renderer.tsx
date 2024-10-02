@@ -12,7 +12,7 @@ import { IxIcon, IxRow, IxTypography } from "@siemens/ix-react";
 import { ICellRendererParams } from "ag-grid-community";
 import { RefObject } from "react";
 import { AgGridReact } from "ag-grid-react";
-import { iconAlarm, iconSingleCheck, iconWarning } from "@siemens/ix-icons/icons";
+import {iconAlarm, iconMaintenance, iconSingleCheck, iconWarning} from "@siemens/ix-icons/icons";
 
 type CustomDeviceCellRendererProps = ICellRendererParams & {
   gridRef: RefObject<AgGridReact>;
@@ -25,10 +25,12 @@ const CustomDeviceCellRenderer = (props: CustomDeviceCellRendererProps) => {
         <IxIcon name={iconSingleCheck} color="color-success" />
       ) : props.data.status === "Offline" ? (
         <IxIcon name={iconAlarm} color="color-alarm" />
+      ) : props.data.status === "Maintenance" ? (
+        <IxIcon name={iconMaintenance} color="color-warning" />
       ) : (
-        <IxIcon name={iconWarning} color="color-warning" />
+        <IxIcon name={iconWarning} color="color-alarm" />
       )}
-      <IxTypography className={styles.DeviceName}>{props.data.deviceName}</IxTypography>
+      <IxTypography className={styles.DeviceName}>{props.data.status}</IxTypography>
     </IxRow>
   );
 };
