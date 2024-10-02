@@ -5,8 +5,15 @@ async function filterDevicePageByDeviceName(page: Page, deviceName: string) {
   const filterInput = filter.locator("input");
 
   await filterInput.fill("deviceName");
+
+  const dropdown = filter.locator("ix-dropdown");
+  await expect(dropdown.getByText("Categories")).toBeVisible();
+
   await page.keyboard.press("Tab");
   await page.keyboard.press("Enter");
+
+  await expect(filter.locator("ix-dropdown").getByText("Categories")).not.toBeVisible();
+  await expect(filter.locator("ix-dropdown").getByText("deviceName")).toBeVisible();
 
   await filterInput.fill(deviceName);
   await page.keyboard.press("Enter");
@@ -18,10 +25,15 @@ async function filterDevicePageByDeviceName(page: Page, deviceName: string) {
 test("filter for specific deviceName", async ({ page }) => {
   await page.goto("http://localhost:5173/#/devices");
 
-  await filterDevicePageByDeviceName(page, "s71200");
-
   const aggrid = page.locator(".ag-root-wrapper");
   const rows = aggrid.locator(".ag-center-cols-container .ag-row");
+
+  await expect(rows).toHaveCount(22, {
+    // AG-Grid takes some time to filter the rows
+    timeout: 500,
+  });
+
+  await filterDevicePageByDeviceName(page, "s71200");
 
   await expect(rows).toHaveCount(1, {
     // AG-Grid takes some time to filter the rows

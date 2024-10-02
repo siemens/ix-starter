@@ -9,7 +9,7 @@
 import type { MockData } from "../types";
 
 export const fetchDataSheet = async (): Promise<MockData[]> => {
-  const res = await fetch(`${import.meta.env.BASE_URL}/data.json`);
+  const res = await fetch(`${import.meta.env.BASE_URL}data.json`);
   const text = await res.text();
 
   if (res.status !== 200) {
