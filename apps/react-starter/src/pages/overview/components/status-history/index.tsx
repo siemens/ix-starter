@@ -63,6 +63,12 @@ const seriesErrors = {
 
 function getOption() {
   return {
+    grid: {
+      top: 10,
+      bottom: 50,
+      left: 40,
+      right: 10,
+    },
     legend: {
       orient: "horizontal",
       icon: "rect",
@@ -74,31 +80,33 @@ function getOption() {
     },
     xAxis: {
       data: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+      boundaryGap: false, // Ensure the first label starts at the beginning
+      splitLine: {
+        show: true,
+        lineStyle: {
+          color: getComputedCSSProperty("color-weak-bdr"),
+        },
+      },
     },
-    yAxis: {},
+    yAxis: {
+      splitLine: {
+        show: true,
+        lineStyle: {
+          color: getComputedCSSProperty("color-weak-bdr"),
+        },
+      },
+    },
     series: [
       {
         type: "line",
-        label: {
-          show: false,
-          color: getComputedCSSProperty("color-neutral"),
-        },
         ...seriesOnline,
       },
       {
         type: "line",
-        label: {
-          show: false,
-          color: getComputedCSSProperty("color-neutral"),
-        },
         ...seriesErrors,
       },
       {
         type: "line",
-        label: {
-          show: false,
-          color: getComputedCSSProperty("color-neutral"),
-        },
         ...seriesOffline,
       },
     ],
@@ -112,7 +120,7 @@ function StatusHistory() {
   useResizeHandler(chartRef);
 
   return (
-    <IxCard className="w-100">
+    <IxCard>
       <IxCardContent>
         <IxTypography format="h3">{t("status-history.title")}</IxTypography>
         <ReactEcharts

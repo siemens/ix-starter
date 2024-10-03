@@ -7,6 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import styles from "./styles.module.css";
 import {
   IxDivider,
   IxDropdown,
@@ -14,6 +15,7 @@ import {
   IxDropdownQuickActions,
   IxIconButton,
   IxRow,
+  IxTooltip,
   showModal,
 } from "@siemens/ix-react";
 import { ICellRendererParams } from "ag-grid-community";
@@ -31,13 +33,13 @@ import {
 } from "@siemens/ix-icons/icons";
 import DeleteModal from "./delete-modal.tsx";
 import { useTranslation } from "react-i18next";
-import {showSuccessToast} from "../../../../util/util.ts";
+import { showSuccessToast } from "../../../../util/util.ts";
 
-type CustomQuickActionsCompProps = ICellRendererParams & {
+type QuickActionsCellRendererProps = ICellRendererParams & {
   gridRef: RefObject<AgGridReact>;
 };
 
-const CustomQuickActionsComp = (props: CustomQuickActionsCompProps) => {
+const QuickActionsCellRenderer = (props: QuickActionsCellRendererProps) => {
   const { t } = useTranslation();
   const { deleteDevice, editDevice, pasteDevice } = useDataStore();
 
@@ -97,25 +99,41 @@ const CustomQuickActionsComp = (props: CustomQuickActionsCompProps) => {
   const handleDuplicate = () => {
     pasteDevice(props.data, props.data.id);
     showSuccessToast(t("dropdown-quick-actions.success-messages.duplicate"));
-  }
+  };
 
   return (
-    <IxRow className="d-flex justify-content-end h-100 align-items-center">
-      <IxIconButton icon="pen" color="color-primary" ghost onClick={startEditingFirstCell} />
-      <IxIconButton icon="trashcan" color="color-primary" ghost onClick={handleDelete} />
+    <IxRow className={styles.IxRow}>
+      <IxIconButton
+        class={`edit-tooltip-${props.data.id}`}
+        aria-describedby={`tooltip-${props.data.id}`}
+        icon="pen"
+        variant="secondary"
+        ghost
+        onClick={startEditingFirstCell}
+      />
+      <IxTooltip id={`tooltip-${props.data.id}`} for={`.edit-tooltip-${props.data.id}`}>
+        {t("dropdown-quick-actions.rename")}
+      </IxTooltip>
+      <IxIconButton
+        class={`delete-tooltip-${props.data.id}`}
+        aria-describedby="delete-tooltip"
+        icon="trashcan"
+        variant="secondary"
+        ghost
+        onClick={handleDelete}
+      />
+      <IxTooltip id={props.data.id} for={`.delete-tooltip-${props.data.id}`}>
+        {t("dropdown-quick-actions.delete")}
+      </IxTooltip>
       <IxIconButton
         icon="context-menu"
-        color="color-primary"
+        variant="secondary"
         ghost
         id={`device_${props.node.rowIndex}`}
       ></IxIconButton>
       <IxDropdown trigger={`device_${props.node.rowIndex}`}>
         <IxDropdownQuickActions>
-          <IxIconButton
-            icon={iconDuplicate}
-            ghost
-            onClick={handleDuplicate}
-          ></IxIconButton>
+          <IxIconButton icon={iconDuplicate} ghost onClick={handleDuplicate}></IxIconButton>
           <IxIconButton icon={iconCut} ghost onClick={handleCut}></IxIconButton>
           <IxIconButton icon={iconCopy} ghost onClick={handleCopy}></IxIconButton>
           <IxIconButton icon={iconPaste} ghost onClick={handlePaste}></IxIconButton>
@@ -144,10 +162,14 @@ const CustomQuickActionsComp = (props: CustomQuickActionsCompProps) => {
           }}
         />
         <IxDivider />
-        <IxDropdownItem icon={iconTrashcan} label={t("dropdown-quick-actions.delete")} onClick={handleDelete}></IxDropdownItem>
+        <IxDropdownItem
+          icon={iconTrashcan}
+          label={t("dropdown-quick-actions.delete")}
+          onClick={handleDelete}
+        ></IxDropdownItem>
       </IxDropdown>
     </IxRow>
   );
 };
 
-export default CustomQuickActionsComp;
+export default QuickActionsCellRenderer;

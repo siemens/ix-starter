@@ -1,6 +1,6 @@
-import {showToast} from "@siemens/ix-react";
-import {iconSingleCheck} from "@siemens/ix-icons/icons";
-import {MutableRefObject, useEffect} from "react";
+import { showToast } from "@siemens/ix-react";
+import { iconSingleCheck } from "@siemens/ix-icons/icons";
+import { MutableRefObject, useEffect } from "react";
 import EChartsReact from "echarts-for-react";
 
 export function toKebabCase(normalString: string): string {

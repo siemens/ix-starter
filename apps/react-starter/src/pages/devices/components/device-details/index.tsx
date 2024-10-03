@@ -38,44 +38,58 @@ const DeviceDetails = ({ ...props }) => {
       <div className={styles.Container}>
         {selectedData ? (
           <div>
-            <IxTypography className={styles.PaneTitle} format="h1">
-              {selectedData.deviceName}
-            </IxTypography>
+            <IxTypography format="h1">{selectedData.deviceName}</IxTypography>
             <FirmwareCard />
-            {Object.keys(selectedData).slice(0, -1).map((key, index) => (
-              <div key={index}>
-                <IxTypography format="body" textColor="soft">
-                  {t(`device-details.${toKebabCase(key)}`)}
-                </IxTypography>
-                <IxTypography format="body" textColor="std">
-                  {selectedData[key as keyof MockData]}
-                </IxTypography>
-                <IxDivider className={styles.Divider} />
-              </div>
-            ))}
+            {Object.keys(selectedData)
+              .slice(1, -1)
+              .map((key, index) => (
+                <div key={index}>
+                  <IxTypography format="body" textColor="soft">
+                    {t(`device-details.${toKebabCase(key)}`)}
+                  </IxTypography>
+                  <IxTypography format="body" textColor="std">
+                    {selectedData[key as keyof MockData]}
+                  </IxTypography>
+                  <IxDivider className={styles.Divider} />
+                </div>
+              ))}
           </div>
         ) : (
           <IxTypography className={styles.PaneTitle} format="h1">
             No device selected
           </IxTypography>
         )}
-        {selectedData?.status !== "Online" && (
-          <div className={styles.ButtonGroup}>
-            <IxButton
-              outline
-              onClick={() => {
-                const updatedDevice = {
-                  ...selectedData!,
-                  status: (selectedData!.status = "Online"),
-                };
-                editDevice(updatedDevice as MockData);
-                props.api.onFilterChanged();
-              }}
-            >
-              {t("device-details-footer.activate")}
-            </IxButton>
-          </div>
-        )}
+
+        <div className={styles.ButtonGroup}>
+          <IxButton
+            outline
+            onClick={() => {
+              const updatedDevice = {
+                ...selectedData!,
+                status: (selectedData!.status = "Maintenance"),
+              };
+              editDevice(updatedDevice as MockData);
+              props.api.onFilterChanged();
+            }}
+          >
+            {t("device-details-footer.maintenance")}
+          </IxButton>
+          <IxButton
+            onClick={() => {
+              const updatedDevice = {
+                ...selectedData!,
+                status: (selectedData!.status =
+                  selectedData!.status === "Offline" ? "Online" : "Offline"),
+              };
+              editDevice(updatedDevice as MockData);
+              props.api.onFilterChanged();
+            }}
+          >
+            {selectedData?.status === "Offline"
+              ? t("device-details-footer.activate")
+              : t("device-details-footer.deactivate")}{" "}
+          </IxButton>
+        </div>
       </div>
     </IxPane>
   );

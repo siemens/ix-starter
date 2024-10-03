@@ -8,13 +8,7 @@
  */
 
 import { useCallback, useEffect, useState } from "react";
-import {
-  IxButton,
-  IxCategoryFilter,
-  IxContentHeader,
-  IxPane,
-  IxPaneLayout,
-} from "@siemens/ix-react";
+import { IxCategoryFilter, IxContentHeader, IxPane, IxPaneLayout } from "@siemens/ix-react";
 import styles from "./styles.module.css";
 import QuickActions from "./components/quick-actions";
 import AgGridTable from "./components/ag-grid-table/ag-grid-table.tsx";
@@ -94,11 +88,7 @@ const DevicesPage = () => {
         <DeviceDetails />
         <IxPaneLayout variant="inline">
           <div slot="content" className={styles.Content}>
-            <IxContentHeader headerTitle={t("devices")}>
-              <IxButton aria-label={t("device-quick-actions.add-device")} icon="add-circle" ghost onClick={() => show()}>
-                {t("device-quick-actions.add-device")}
-              </IxButton>
-            </IxContentHeader>
+            <IxContentHeader headerTitle={t("devices")} />
             <DeviceFilter />
             <AgGridTable />
           </div>

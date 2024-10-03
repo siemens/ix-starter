@@ -10,6 +10,7 @@
 import { IxCardList, IxPushCard } from "@siemens/ix-react";
 import { Incident } from "../incident";
 import { useTranslation } from "react-i18next";
+
 function IncidentCards(props: { incidents: Incident[]; search: string }) {
   const { t } = useTranslation();
 
@@ -22,26 +23,25 @@ function IncidentCards(props: { incidents: Incident[]; search: string }) {
 
     return props.incidents.filter((item) =>
       Object.values(item).some(
-        (value) =>
-          typeof value === "string" && value.toLowerCase().includes(query)
-      )
+        (value) => typeof value === "string" && value.toLowerCase().includes(query),
+      ),
     );
   }
 
   function hasUpdates() {
-    return searchArray().some(
-      (incident) => incident.incidentName === "Update available"
-    );
+    return searchArray().some((incident) => incident.incidentName === "Update available");
   }
 
   function updateCount() {
-    return searchArray().filter(
-      (incident) => incident.incidentName === "Update available"
-    ).length;
+    return searchArray().filter((incident) => incident.incidentName === "Update available").length;
+  }
+
+  for (const i in document.getElementsByTagName("ix-card-list")) {
+    console.log(i);
   }
 
   return (
-    <IxCardList hideShowAll>
+    <IxCardList hideShowAll className="m-0">
       {hasUpdates() && (
         <IxPushCard
           icon="refresh"
@@ -59,11 +59,11 @@ function IncidentCards(props: { incidents: Incident[]; search: string }) {
             </thead>
             <tbody>
               {searchArray().map((incident) => (
-              <tr key={incident.id}>
-                <th scope="row">{incident.id}</th>
-                <td>{incident.deviceName}</td>
-                <td>{incident.date}</td>
-              </tr>
+                <tr key={incident.id}>
+                  <th scope="row">{incident.id}</th>
+                  <td>{incident.deviceName}</td>
+                  <td>{incident.date}</td>
+                </tr>
               ))}
             </tbody>
           </table>

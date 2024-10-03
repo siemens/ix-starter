@@ -8,19 +8,21 @@
  */
 
 import "./styles.module.css";
+import "./styles.module.css";
 import { AgGridReact } from "ag-grid-react";
 import { IxEmptyState } from "@siemens/ix-react";
-import CustomQuickActionsComp from "./custom-cell-renderet.tsx";
+import QuickActionsCellRenderer from "./quick-actions-cell-renderet.tsx";
 import { CellClickedEvent, ColDef, ColGroupDef, IRowNode } from "ag-grid-community";
 import { useDataStore, useFilterStore, useOverviewPaneStore } from "../../../store/device-store.ts";
 import { MockData } from "../../../../types";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { LogicalFilterOperator } from "@siemens/ix";
 import CustomDeviceCellRenderer from "./device-cell-renderer.tsx";
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
+import DeviceNameCellRenderer from "./device-name-cell-renderer.tsx";
 
 function AgGridTable() {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
   const gridRef = useRef<AgGridReact<MockData>>(null);
   const { setExpanded, setSelectedData } = useOverviewPaneStore();
   const { filter, resetFilter } = useFilterStore();
@@ -47,12 +49,15 @@ function AgGridTable() {
         headerName: `${t("device-details.device-name")}`,
         editable: true,
         flex: 2,
+        minWidth: 150,
+        cellRenderer: DeviceNameCellRenderer,
       },
       {
         field: "status",
         headerName: `${t("device-details.status")}`,
         editable: true,
         flex: 1,
+        minWidth: 150,
         cellRenderer: CustomDeviceCellRenderer,
       },
       {
@@ -60,26 +65,28 @@ function AgGridTable() {
         headerName: `${t("device-details.vendor")}`,
         editable: true,
         flex: 1,
+        minWidth: 150,
       },
       {
         field: "description",
         headerName: `${t("device-details.description")}`,
         editable: true,
         flex: 1,
+        minWidth: 150,
       },
       {
         field: "ipAddress",
         headerName: `${t("device-details.ip-address")}`,
         editable: true,
         flex: 1,
+        minWidth: 150,
       },
       {
         pinned: "right",
         field: "quickActions",
         headerName: "Quick actions",
-        editable: true,
-        flex: 1,
-        cellRenderer: CustomQuickActionsComp
+        maxWidth: 150,
+        cellRenderer: QuickActionsCellRenderer,
       },
     ];
   }

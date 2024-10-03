@@ -19,6 +19,7 @@ import { useDataStore } from "./pages/store/device-store";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import Logo from "./Logo";
+import { iconLogOut, iconUserSettings } from "@siemens/ix-icons/icons";
 
 registerTheme(echarts);
 
@@ -45,7 +46,10 @@ function App() {
     <IxApplication>
       <IxApplicationHeader name="Siemens Industrial Experience">
         <Logo />
-        <IxAvatar></IxAvatar>
+        <IxAvatar username="Your user" extra="Administrator">
+          <IxDropdownItem icon={iconUserSettings} label="User Settings" />
+          <IxDropdownItem icon={iconLogOut} label="Logout" />
+        </IxAvatar>
       </IxApplicationHeader>
       <IxMenu
         enableToggleTheme

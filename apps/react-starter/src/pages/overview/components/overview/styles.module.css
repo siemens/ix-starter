@@ -21,9 +21,10 @@ device-status {
 }
 
 ix-card {
-  flex-grow: 1;
+  width: 100%;
+  flex: 1;
 }
 
 ix-card + ix-card {
-  flex-grow: 2;
+  flex: 2;
 }

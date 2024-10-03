@@ -13,7 +13,7 @@
     "faulty-devices": "Errors",
     "warning-devices": "Servicing"
   },
-  "category-filter":  {
+  "category-filter": {
     "placeholder": "Filter by",
     "categories": "Categories"
   },
@@ -50,9 +50,11 @@
   },
   "device-details-footer": {
     "activate": "Activate device",
+    "deactivate": "Deactivate device",
+    "maintenance": "Schedule maintenance",
     "all-details": "See  all details"
   },
-  "device-details":  {
+  "device-details": {
     "title": "Device information",
     "device-name": "Device name",
     "vendor": "Vendor",

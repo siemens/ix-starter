@@ -10,10 +10,10 @@
 import styles from "./styles.module.css";
 
 import { IxButton, IxMessageBar } from "@siemens/ix-react";
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 const FirmwareCard = () => {
-  const  {t} = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <div>

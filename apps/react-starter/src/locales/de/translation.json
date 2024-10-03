@@ -13,7 +13,7 @@
     "faulty-devices": "Fehler",
     "warning-devices": "Wartung"
   },
-  "category-filter":  {
+  "category-filter": {
     "placeholder": "Filtern nach",
     "categories": "Kategorien"
   },
@@ -35,7 +35,7 @@
     "on": "Einschalten",
     "off": "Ausschalten",
     "delete": "Löschen",
-    "success-messages" : {
+    "success-messages": {
       "copy": "Gerät erfolgreich in die Zwischenablage kopiert!",
       "delete": "Gerät erfolgreich entfernt!",
       "duplicate": "Gerät erfolgreich dupliziert!",
@@ -50,9 +50,11 @@
   },
   "device-details-footer": {
     "activate": "Gerät aktivieren",
+    "deactivate": "Gerät deaktivieren",
+    "maintenance": "Wartung planen",
     "all-details": "Siehe alle Details"
   },
-  "device-details":  {
+  "device-details": {
     "device-name": "Gerätename",
     "vendor": "Hersteller",
     "description": "Gerätetyp",

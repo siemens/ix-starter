@@ -55,7 +55,7 @@ function Incidents() {
   };
 
   return (
-    <IxBlind label={t("incidents.title")}>
+    <IxBlind label={t("incidents.title")} variant="outline">
       <div className={style.SearchAndFilter}>
         <IxInputGroup>
           <input type="text" aria-label="Filter devices" onChange={handleInput} />

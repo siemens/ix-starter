@@ -23,8 +23,8 @@ import FormField from "./form-field";
 import { useForm } from "react-hook-form";
 import { useDataStore } from "../../../store/device-store";
 import { MockData } from "../../../../types";
-import {useTranslation} from "react-i18next";
-import {showSuccessToast} from "../../../../util/util.ts";
+import { useTranslation } from "react-i18next";
+import { showSuccessToast } from "../../../../util/util.ts";
 
 export default function AddDeviceModal() {
   const { t } = useTranslation();
@@ -70,10 +70,18 @@ export default function AddDeviceModal() {
       <IxModalContent>
         <form id="modalForm" ref={formRef} onSubmit={handleSubmit(onSubmit)} noValidate>
           <div className={styles.FormGrid}>
-            <FormField id="deviceName" label={t("device-details.device-name")} register={register} />
+            <FormField
+              id="deviceName"
+              label={t("device-details.device-name")}
+              register={register}
+            />
             <FormField id="vendor" label={t("device-details.vendor")} register={register} />
             <div className={styles.ItemFullWidth}>
-              <FormField id="description" label={t("device-details.description")} register={register} />
+              <FormField
+                id="description"
+                label={t("device-details.description")}
+                register={register}
+              />
             </div>
             <div className="d-flex flex-column">
               <label htmlFor="status">{t("device-details.status")}</label>
@@ -89,11 +97,27 @@ export default function AddDeviceModal() {
                 <IxSelectItem label="Error" value="Error" />
               </IxSelect>
             </div>
-            <FormField id="articleNumber" label={t("device-details.article-number")} register={register} />
-            <FormField id="macAddress" label={t("device-details.mac-address")} register={register} />
+            <FormField
+              id="articleNumber"
+              label={t("device-details.article-number")}
+              register={register}
+            />
+            <FormField
+              id="macAddress"
+              label={t("device-details.mac-address")}
+              register={register}
+            />
             <FormField id="ipAddress" label={t("device-details.ip-address")} register={register} />
-            <FormField id="firmwareVersion" label={t("device-details.firmware-version")} register={register} />
-            <FormField id="serialNumber" label={t("device-details.serial-number")} register={register} />
+            <FormField
+              id="firmwareVersion"
+              label={t("device-details.firmware-version")}
+              register={register}
+            />
+            <FormField
+              id="serialNumber"
+              label={t("device-details.serial-number")}
+              register={register}
+            />
           </div>
         </form>
       </IxModalContent>
@@ -113,4 +137,3 @@ export default function AddDeviceModal() {
     </Modal>
   );
 }
-

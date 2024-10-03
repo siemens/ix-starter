@@ -13,12 +13,6 @@
   z-index: 10;
 }
 
-.PaneTitle {
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-
 .Container {
   height: 100%;
   width: 100%;
@@ -35,7 +29,7 @@
 
 .MessageBarContent {
   display: flex;
-  align-items: start;
+  align-items: center;
   justify-content: space-between;
 }
 

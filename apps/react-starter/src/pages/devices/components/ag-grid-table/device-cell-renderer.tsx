@@ -12,7 +12,7 @@ import { IxIcon, IxRow, IxTypography } from "@siemens/ix-react";
 import { ICellRendererParams } from "ag-grid-community";
 import { RefObject } from "react";
 import { AgGridReact } from "ag-grid-react";
-import {iconAlarm, iconMaintenance, iconSingleCheck, iconWarning} from "@siemens/ix-icons/icons";
+import { iconAlarm, iconMaintenance, iconSingleCheck, iconWarning } from "@siemens/ix-icons/icons";
 
 type CustomDeviceCellRendererProps = ICellRendererParams & {
   gridRef: RefObject<AgGridReact>;

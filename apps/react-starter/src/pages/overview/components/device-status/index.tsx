@@ -13,8 +13,8 @@ import { IxCard, IxCardContent, IxTypography } from "@siemens/ix-react";
 import { getComputedCSSProperty } from "@siemens/ix-echarts";
 import ReactEcharts from "echarts-for-react";
 import { useTranslation } from "react-i18next";
-import {useRef} from "react";
-import {useResizeHandler} from "../../../../util/util.ts";
+import { useRef } from "react";
+import { useResizeHandler } from "../../../../util/util.ts";
 import EChartsReact from "echarts-for-react";
 
 const data = [
@@ -33,6 +33,7 @@ function getOption() {
       orient: "horizontal",
       icon: "rect",
       bottom: "0",
+      left: "0",
       textStyle: {
         color: getComputedCSSProperty("color-std-text"),
       },
@@ -47,7 +48,9 @@ function getOption() {
           getComputedCSSProperty("color-neutral"),
           getComputedCSSProperty("color-critical"),
         ],
-        radius: ["50%", "70%"],
+        radius: ["50%", "90%"],
+        top: 0,
+        bottom: 60,
         label: {
           show: false,
           color: getComputedCSSProperty("color-neutral"),
@@ -75,7 +78,7 @@ function DeviceStatus() {
   useResizeHandler(chartRef);
 
   return (
-    <IxCard className="w-100">
+    <IxCard>
       <IxCardContent>
         <IxTypography format="h3">{t("device-status.title")}</IxTypography>
         <ReactEcharts

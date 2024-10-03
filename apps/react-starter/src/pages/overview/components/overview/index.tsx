@@ -12,13 +12,13 @@ import style from "./styles.module.css";
 import { IxBlind } from "@siemens/ix-react";
 import DeviceStatus from "../device-status";
 import StatusHistory from "../status-history";
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 function Overview() {
-  const {t} = useTranslation();
+  const { t } = useTranslation();
 
   return (
-    <IxBlind label={t("overview")}>
+    <IxBlind label={t("overview")} variant="outline">
       <div className={style.CardContainer}>
         <DeviceStatus></DeviceStatus>
         <StatusHistory></StatusHistory>
