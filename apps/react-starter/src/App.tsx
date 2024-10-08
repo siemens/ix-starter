@@ -1,12 +1,12 @@
 import "./App.css";
 
-import { NavLink, Outlet } from "react-router-dom";
+import { registerTheme } from "@siemens/ix-echarts";
+import { iconLogOut, iconUserSettings } from "@siemens/ix-icons/icons";
 import {
   IxApplication,
   IxApplicationHeader,
   IxAvatar,
   IxContent,
-  IxDropdownButton,
   IxDropdownItem,
   IxMenu,
   IxMenuItem,
@@ -14,41 +14,33 @@ import {
   IxMenuSettingsItem,
 } from "@siemens/ix-react";
 import * as echarts from "echarts/core";
-import { registerTheme } from "@siemens/ix-echarts";
-import { useDataStore } from "./pages/store/device-store";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { NavLink, Outlet } from "react-router-dom";
+import useShowDemoMessage from "./hooks/demoMessage";
 import Logo from "./Logo";
-import { iconLogOut, iconUserSettings } from "@siemens/ix-icons/icons";
+import { useDataStore } from "./pages/store/device-store";
+import UserSettings from "./pages/user-settings";
 
 registerTheme(echarts);
 
-interface Language {
-  code: string;
-  name: string;
-}
-
 function App() {
+  const showDemoMessage = useShowDemoMessage();
   const { fetch } = useDataStore();
 
   useEffect(() => {
     fetch();
   }, [fetch]);
 
-  const supportedLanguages: Language[] = [
-    { code: "en", name: "English" },
-    { code: "de", name: "German" },
-  ];
-
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <IxApplication>
       <IxApplicationHeader name="Siemens Industrial Experience">
         <Logo />
         <IxAvatar username="Your user" extra="Administrator">
-          <IxDropdownItem icon={iconUserSettings} label="User Settings" />
-          <IxDropdownItem icon={iconLogOut} label="Logout" />
+          <IxDropdownItem icon={iconUserSettings} label="User Settings" onClick={showDemoMessage} />
+          <IxDropdownItem icon={iconLogOut} label="Logout" onClick={showDemoMessage} />
         </IxAvatar>
       </IxApplicationHeader>
       <IxMenu
@@ -74,14 +66,7 @@ function App() {
 
         <IxMenuSettings label={t("settings.title")}>
           <IxMenuSettingsItem label={t("settings.user-settings")}>
-            <span className="language-switch-label">{t("language.title")}:</span>
-            <IxDropdownButton label={t(`language.${i18n.language}`)}>
-              {supportedLanguages.map((lang) => (
-                <IxDropdownItem key={lang.code} onClick={() => i18n.changeLanguage(lang.code)}>
-                  {t(lang.name)} ({t(lang.code)})
-                </IxDropdownItem>
-              ))}
-            </IxDropdownButton>
+            <UserSettings />
           </IxMenuSettingsItem>
         </IxMenuSettings>
       </IxMenu>

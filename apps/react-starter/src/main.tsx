@@ -1,13 +1,13 @@
+import { IxApplicationContext } from "@siemens/ix-react";
+import "@siemens/ix/dist/siemens-ix/siemens-ix.css";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createHashRouter, RouterProvider } from "react-router-dom";
-import { IxApplicationContext } from "@siemens/ix-react";
-import "./index.css";
-import "./i18n";
 import App from "./App.tsx";
-import OverviewPage from "./pages/overview/index.tsx";
+import "./i18n";
+import "./index.css";
 import DevicesPage from "./pages/devices/index.tsx";
-import "@siemens/ix/dist/siemens-ix/siemens-ix.css";
+import OverviewPage from "./pages/overview/index.tsx";
 
 function optionalTheme() {
   if (import.meta.env.VITE_THEME) {
