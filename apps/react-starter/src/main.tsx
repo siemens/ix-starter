@@ -7,7 +7,6 @@ import "./i18n";
 import App from "./App.tsx";
 import OverviewPage from "./pages/overview/index.tsx";
 import DevicesPage from "./pages/devices/index.tsx";
-import AnalyticsPage from "./pages/analytics/index.tsx";
 import "@siemens/ix/dist/siemens-ix/siemens-ix.css";
 
 function optionalTheme() {
@@ -42,10 +41,6 @@ const router = createHashRouter([
       {
         path: "/devices",
         element: <DevicesPage />,
-      },
-      {
-        path: "/analytics",
-        element: <AnalyticsPage />,
       },
     ],
   },
