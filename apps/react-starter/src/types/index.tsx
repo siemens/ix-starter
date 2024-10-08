@@ -7,12 +7,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export type MockData = {
+export type DeviceState = "Online" | "Offline" | "Maintenance" | "Error";
+
+export type Device = {
   id: string;
   deviceName: string;
   vendor: string;
   description?: string;
-  status: "Online" | "Offline" | "Maintenance" | "Error";
+  status: DeviceState;
   articleNumber?: string;
   macAddress: string;
   ipAddress: string;

@@ -12,7 +12,7 @@ import styles from "./styles.module.css";
 import { IxActionCard, IxCard, IxCardContent, IxTypography } from "@siemens/ix-react";
 import AlertCard from "./alert-card/alert-card.tsx";
 import { iconAddCircle } from "@siemens/ix-icons/icons";
-import type { MockData } from "../../../../types";
+import type { Device } from "../../../../types";
 import { useDataStore } from "../../../store/device-store.ts";
 import { useTranslation } from "react-i18next";
 
@@ -25,9 +25,9 @@ function QuickActions({ show }: QuickActionsProps) {
 
   const { devices } = useDataStore();
 
-  function getDevicesCountByStatus(data: MockData[], status: MockData["status"]): number {
+  function getDevicesCountByStatus(data: Device[], status: Device["status"]): number {
     if (data) {
-      return data!.filter((device: MockData) => device.status === status).length;
+      return data!.filter((device: Device) => device.status === status).length;
     }
     return 0;
   }

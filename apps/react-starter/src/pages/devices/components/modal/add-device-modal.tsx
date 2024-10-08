@@ -22,7 +22,7 @@ import styles from "./styles.module.css";
 import FormField from "./form-field";
 import { useForm } from "react-hook-form";
 import { useDataStore } from "../../../store/device-store";
-import { MockData } from "../../../../types";
+import { Device } from "../../../../types";
 import { useTranslation } from "react-i18next";
 import { showSuccessToast } from "../../../../util/util.ts";
 
@@ -39,7 +39,7 @@ export default function AddDeviceModal() {
     modalRef.current?.dismiss("dismiss payload");
   };
 
-  const { register, setValue, handleSubmit } = useForm<MockData>({
+  const { register, setValue, handleSubmit } = useForm<Device>({
     defaultValues: {
       deviceName: "",
       vendor: "",
@@ -57,7 +57,7 @@ export default function AddDeviceModal() {
     register("status");
   }, [register]);
 
-  const onSubmit = (data: MockData) => {
+  const onSubmit = (data: Device) => {
     addDevice(data);
     showSuccessToast(t("device-add-modal.success"));
     close();
@@ -89,7 +89,7 @@ export default function AddDeviceModal() {
                 id="status"
                 value="Online"
                 i18nSelectListHeader={t("device-add-modal.list-header")}
-                onValueChange={(e) => setValue("status", e.detail as MockData["status"])}
+                onValueChange={(e) => setValue("status", e.detail as Device["status"])}
               >
                 <IxSelectItem label="Online" value="Online" />
                 <IxSelectItem label="Offline" value="Offline" />

@@ -20,11 +20,13 @@ const OverviewPage = () => {
   return (
     <IxPaneLayout variant="inline">
       <div slot="content" className={styles.Content}>
-        <IxContentHeader headerTitle={t("content-header")}></IxContentHeader>
-        <Overview></Overview>
-        <Incidents></Incidents>
+        <IxContentHeader headerTitle={t("content-header")} slot="header"></IxContentHeader>
+        <section className={styles.List}>
+          <Overview></Overview>
+          <Incidents></Incidents>
+        </section>
       </div>
-      <IxPane heading={t("quick-actions.title")} expanded slot="right">
+      <IxPane heading={t("quick-actions.title")} slot="right">
         <QuickActions></QuickActions>
       </IxPane>
     </IxPaneLayout>

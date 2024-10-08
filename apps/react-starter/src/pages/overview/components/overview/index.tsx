@@ -9,21 +9,15 @@
 
 import style from "./styles.module.css";
 
-import { IxBlind } from "@siemens/ix-react";
-import DeviceStatus from "../device-status";
+import DeviceRange from "../device-range";
 import StatusHistory from "../status-history";
-import { useTranslation } from "react-i18next";
 
 function Overview() {
-  const { t } = useTranslation();
-
   return (
-    <IxBlind label={t("overview")} variant="outline">
-      <div className={style.CardContainer}>
-        <DeviceStatus></DeviceStatus>
-        <StatusHistory></StatusHistory>
-      </div>
-    </IxBlind>
+    <div className={style.CardContainer}>
+      <DeviceRange></DeviceRange>
+      <StatusHistory></StatusHistory>
+    </div>
   );
 }
 

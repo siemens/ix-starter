@@ -14,7 +14,7 @@ import { IxEmptyState } from "@siemens/ix-react";
 import QuickActionsCellRenderer from "./quick-actions-cell-renderet.tsx";
 import { CellClickedEvent, ColDef, ColGroupDef, IRowNode } from "ag-grid-community";
 import { useDataStore, useFilterStore, useOverviewPaneStore } from "../../../store/device-store.ts";
-import { MockData } from "../../../../types";
+import { Device } from "../../../../types";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { LogicalFilterOperator } from "@siemens/ix";
 import CustomDeviceCellRenderer from "./device-cell-renderer.tsx";
@@ -23,13 +23,13 @@ import DeviceNameCellRenderer from "./device-name-cell-renderer.tsx";
 
 function AgGridTable() {
   const { t } = useTranslation();
-  const gridRef = useRef<AgGridReact<MockData>>(null);
+  const gridRef = useRef<AgGridReact<Device>>(null);
   const { setExpanded, setSelectedData } = useOverviewPaneStore();
   const { filter, resetFilter } = useFilterStore();
   const [showEmptyState, setShowEmptyState] = useState(false);
   const { devices, editDevice } = useDataStore();
 
-  function onCellClick(event: CellClickedEvent<MockData, string>) {
+  function onCellClick(event: CellClickedEvent<Device, string>) {
     if (event.column.getColId() === "quickActions") {
       return;
     }
@@ -95,14 +95,14 @@ function AgGridTable() {
     return true;
   }, []);
 
-  function doesExternalFilterPass(node: IRowNode<MockData>): boolean {
+  function doesExternalFilterPass(node: IRowNode<Device>): boolean {
     if (filter.length) {
       return filter.every(({ id, value, operator }) => {
         switch (operator) {
           case LogicalFilterOperator.EQUAL:
-            return node.data![id as keyof MockData] === value;
+            return node.data![id as keyof Device] === value;
           case LogicalFilterOperator.NOT_EQUAL:
-            return node.data![id as keyof MockData] !== value;
+            return node.data![id as keyof Device] !== value;
           default:
             return true;
         }
@@ -130,7 +130,7 @@ function AgGridTable() {
         onCellClicked={(e) => onCellClick(e)}
         onCellValueChanged={(e) => editDevice(e.data)}
         isExternalFilterPresent={isExternalFilterPresent}
-        doesExternalFilterPass={(e) => doesExternalFilterPass(e as IRowNode<MockData>)}
+        doesExternalFilterPass={(e) => doesExternalFilterPass(e as IRowNode<Device>)}
       />
     </div>
   ) : (

@@ -13,27 +13,21 @@ import { IxCard, IxCardContent, IxTypography } from "@siemens/ix-react";
 import { getComputedCSSProperty } from "@siemens/ix-echarts";
 import ReactEcharts from "echarts-for-react";
 import { useTranslation } from "react-i18next";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useResizeHandler } from "../../../../util/util.ts";
 import EChartsReact from "echarts-for-react";
+import { useEChartsTheme } from "@/hooks/theme.ts";
+import { ECBasicOption } from "echarts/types/dist/shared";
 
 const seriesOnline = {
   name: "Online",
   color: [getComputedCSSProperty("color-success")],
-  areaStyle: {
-    color: getComputedCSSProperty("color-success"),
-    opacity: 0.4,
-  },
   data: [{ value: 60 }, { value: 75 }, { value: 100 }, { value: 60 }, { value: 75 }, { value: 60 }],
 };
 
 const seriesOffline = {
   name: "Offline",
   color: [getComputedCSSProperty("color-neutral")],
-  areaStyle: {
-    color: getComputedCSSProperty("color-neutral"),
-    opacity: 0.4,
-  },
   data: [
     { value: -30 },
     { value: -62 },
@@ -47,10 +41,6 @@ const seriesOffline = {
 const seriesErrors = {
   name: "Errors",
   color: getComputedCSSProperty("color-alarm"),
-  areaStyle: {
-    color: getComputedCSSProperty("color-alarm"),
-    opacity: 0.4,
-  },
   data: [
     { value: 0 },
     { value: 17 },
@@ -61,11 +51,11 @@ const seriesErrors = {
   ],
 };
 
-function getOption() {
+function getOption(): ECBasicOption {
   return {
     grid: {
       top: 10,
-      bottom: 50,
+      bottom: 85,
       left: 40,
       right: 10,
     },
@@ -73,27 +63,18 @@ function getOption() {
       orient: "horizontal",
       icon: "rect",
       left: "1",
-      bottom: "1",
-      textStyle: {
-        color: getComputedCSSProperty("color-std-text"),
-      },
+      bottom: -0,
     },
     xAxis: {
       data: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
       boundaryGap: false, // Ensure the first label starts at the beginning
       splitLine: {
         show: true,
-        lineStyle: {
-          color: getComputedCSSProperty("color-weak-bdr"),
-        },
       },
     },
     yAxis: {
       splitLine: {
         show: true,
-        lineStyle: {
-          color: getComputedCSSProperty("color-weak-bdr"),
-        },
       },
     },
     series: [
@@ -115,19 +96,23 @@ function getOption() {
 
 function StatusHistory() {
   const { t } = useTranslation();
+  const [option] = useState<ECBasicOption>(getOption());
   const chartRef = useRef<EChartsReact>(null);
-
+  const theme = useEChartsTheme();
   useResizeHandler(chartRef);
 
   return (
-    <IxCard>
+    <IxCard className={styles.StatusHistory}>
       <IxCardContent>
-        <IxTypography format="h3">{t("status-history.title")}</IxTypography>
+        <IxTypography format="label" bold>
+          {t("status-history.title")}
+        </IxTypography>
         <ReactEcharts
           ref={chartRef}
           onChartReady={(echarts) => setTimeout(echarts.resize)}
           className={styles.echarts}
-          option={getOption()}
+          option={option}
+          theme={theme}
         />
       </IxCardContent>
     </IxCard>

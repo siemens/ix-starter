@@ -94,5 +94,9 @@
     "title": "Settings",
     "user-settings": "User Settings"
   },
-  "toggle-theme": "Toggle theme"
+  "toggle-theme": "Toggle theme",
+  "search": "Search",
+  "demo-message": "This feature is currently unavailable in the demo version.",
+  "cancel": "Cancel",
+  "okay": "Okay"
 }

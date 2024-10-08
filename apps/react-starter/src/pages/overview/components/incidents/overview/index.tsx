@@ -10,14 +10,17 @@
 import { ChangeEvent, useState } from "react";
 import style from "./styles.module.css";
 
-import { IxBlind, IxIcon, IxButton, IxInputGroup } from "@siemens/ix-react";
+import { iconList, iconSearch } from "@siemens/ix-icons/icons";
+import { IxButton, IxIcon, IxInputGroup, IxTypography } from "@siemens/ix-react";
+import { useTranslation } from "react-i18next";
 import { Incident } from "./incident";
 import IncidentList from "./incident-list";
-import { useTranslation } from "react-i18next";
-import IncidentCards from "./incident-cards";
+import useShowDemoMessage from "@/hooks/demoMessage";
 
 function Incidents() {
   const { t } = useTranslation();
+
+  const showDemoMessage = useShowDemoMessage();
 
   const [incidents] = useState<Incident[]>([
     {
@@ -38,47 +41,49 @@ function Incidents() {
       date: "2022-05-01",
       color: "alarm",
     },
+    {
+      id: 3,
+      incidentName: "Update available",
+      icon: "alarm-bell",
+      infoText: "v2.3 -> v2.5",
+      deviceName: "Device B",
+      date: "2022-05-01",
+      color: "alarm",
+    },
   ]);
   const [search, setSearch] = useState("");
-  const [showList, setShowList] = useState(true);
 
   const handleInput = (event: ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
   };
 
-  const showCards = () => {
-    setShowList(false);
-  };
-
-  const showListView = () => {
-    setShowList(true);
-  };
-
   return (
-    <IxBlind label={t("incidents.title")} variant="outline">
+    <section className={style.Incidents}>
+      <IxTypography format="label" bold>
+        {t("incidents.title")}
+      </IxTypography>
       <div className={style.SearchAndFilter}>
         <IxInputGroup>
-          <input type="text" aria-label="Filter devices" onChange={handleInput} />
+          <input
+            placeholder={t("search")}
+            type="text"
+            aria-label="Filter devices"
+            onChange={handleInput}
+          />
           <span slot="input-start">
-            <IxIcon name="search" color="color-primary" size="16"></IxIcon>
+            <IxIcon name={iconSearch} color="color-primary" size="16"></IxIcon>
           </span>
         </IxInputGroup>
 
         <div className="btn-group">
-          <IxButton icon="card-layout" outline={showList} onClick={showCards}>
+          <IxButton icon="card-layout" outline onClick={showDemoMessage}>
             {t("cards")}
           </IxButton>
-          <IxButton icon="list" outline={!showList} onClick={showListView}>
-            {t("list")}
-          </IxButton>
+          <IxButton icon={iconList}>{t("list")}</IxButton>
         </div>
       </div>
-      {showList ? (
-        <IncidentList incidents={incidents} search={search}></IncidentList>
-      ) : (
-        <IncidentCards incidents={incidents} search={search}></IncidentCards>
-      )}
-    </IxBlind>
+      <IncidentList incidents={incidents} search={search}></IncidentList>
+    </section>
   );
 }
 

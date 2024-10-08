@@ -16,7 +16,7 @@ import DeviceDetails from "./components/device-details";
 
 import show from "./components/modal/index.tsx";
 import { useDataStore, useFilterStore } from "../store/device-store.ts";
-import { MockData } from "../../types";
+import { Device } from "../../types";
 import { FilterState } from "@siemens/ix";
 import { useTranslation } from "react-i18next";
 import { toKebabCase } from "../../util/util.ts";
@@ -29,8 +29,8 @@ type Categories = Record<
   }
 >;
 
-function createUniqueValueArray(devices: MockData[], key: string) {
-  return Array.from(new Set(devices.map<string>((device) => device[key as keyof MockData] ?? "")));
+function createUniqueValueArray(devices: Device[], key: string) {
+  return Array.from(new Set(devices.map<string>((device) => device[key as keyof Device] ?? "")));
 }
 
 const useCategories = () => {

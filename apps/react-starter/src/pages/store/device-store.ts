@@ -9,26 +9,26 @@
 
 import { create } from "zustand";
 import { fetchDataSheet } from "../../util/mock-api.ts";
-import { MockData } from "../../types";
+import { Device } from "../../types";
 import { LogicalFilterOperator } from "@siemens/ix";
 
 interface DataStoreState {
-  devices: MockData[];
-  addDevice: (device: MockData) => void;
-  pasteDevice: (device: MockData, position: number) => void;
-  deleteDevice: (device: MockData) => void;
-  editDevice: (device: MockData) => void;
+  devices: Device[];
+  addDevice: (device: Device) => void;
+  pasteDevice: (device: Device, position: number) => void;
+  deleteDevice: (device: Device) => void;
+  editDevice: (device: Device) => void;
   fetch: () => Promise<void>;
 }
 
 export const useDataStore = create<DataStoreState>((set) => ({
   devices: [],
-  addDevice: (device: MockData) =>
+  addDevice: (device: Device) =>
     set((state) => {
       const newDevice = { ...device, id: state.devices.length.toString() };
       return { devices: [...state.devices, newDevice] };
     }),
-  pasteDevice: (device: MockData, position: number) =>
+  pasteDevice: (device: Device, position: number) =>
     set((state) => {
       const newDevice = { ...device, id: position.toString() };
       const updatedDevices = [
@@ -38,9 +38,9 @@ export const useDataStore = create<DataStoreState>((set) => ({
       ];
       return { devices: updatedDevices };
     }),
-  deleteDevice: (device: MockData) =>
+  deleteDevice: (device: Device) =>
     set((state) => ({ devices: state.devices.filter((d) => d.id !== device.id) })),
-  editDevice: (device: MockData) =>
+  editDevice: (device: Device) =>
     set((state) => ({ devices: state.devices.map((d) => (d.id === device.id ? device : d)) })),
   fetch: async () => {
     const response = await fetchDataSheet();
@@ -54,16 +54,16 @@ export const useDataStore = create<DataStoreState>((set) => ({
 
 interface OverviewPaneStore {
   expanded: boolean;
-  selectedData: MockData | null;
+  selectedData: Device | null;
   setExpanded: (expanded: boolean) => void;
-  setSelectedData: (selectedData: MockData) => void;
+  setSelectedData: (selectedData: Device) => void;
 }
 
 export const useOverviewPaneStore = create<OverviewPaneStore>((set) => ({
   expanded: false,
   selectedData: null,
   setExpanded: (expanded: boolean) => set({ expanded }),
-  setSelectedData: (selectedData: MockData) => set({ selectedData }),
+  setSelectedData: (selectedData: Device) => set({ selectedData }),
 }));
 
 export interface Filter {

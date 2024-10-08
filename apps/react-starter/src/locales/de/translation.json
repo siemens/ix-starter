@@ -93,5 +93,9 @@
     "title": "Einstellungen",
     "user-settings": "Benutzereinstellungen"
   },
-  "toggle-theme": "Theme wechseln"
+  "toggle-theme": "Theme wechseln",
+  "search": "Suchen",
+  "demo-message": "Diese Funktion ist in der Demo-Version derzeit nicht verfügbar.",
+  "cancel": "Abbrechen",
+  "okay": "Okay"
 }

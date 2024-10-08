@@ -11,7 +11,7 @@ import styles from "./styles.module.css";
 import { IxPane, IxTypography, IxButton, IxDivider } from "@siemens/ix-react";
 import FirmwareCard from "./firmware-card.tsx";
 import { toKebabCase } from "../../../../util/util.ts";
-import { MockData } from "../../../../types";
+import { Device } from "../../../../types";
 import { useDataStore, useOverviewPaneStore } from "../../../store/device-store.ts";
 import { useTranslation } from "react-i18next";
 
@@ -48,7 +48,7 @@ const DeviceDetails = ({ ...props }) => {
                     {t(`device-details.${toKebabCase(key)}`)}
                   </IxTypography>
                   <IxTypography format="body" textColor="std">
-                    {selectedData[key as keyof MockData]}
+                    {selectedData[key as keyof Device]}
                   </IxTypography>
                   <IxDivider className={styles.Divider} />
                 </div>
@@ -68,7 +68,7 @@ const DeviceDetails = ({ ...props }) => {
                 ...selectedData!,
                 status: (selectedData!.status = "Maintenance"),
               };
-              editDevice(updatedDevice as MockData);
+              editDevice(updatedDevice as Device);
               props.api.onFilterChanged();
             }}
           >
@@ -81,7 +81,7 @@ const DeviceDetails = ({ ...props }) => {
                 status: (selectedData!.status =
                   selectedData!.status === "Offline" ? "Online" : "Offline"),
               };
-              editDevice(updatedDevice as MockData);
+              editDevice(updatedDevice as Device);
               props.api.onFilterChanged();
             }}
           >

@@ -15,6 +15,7 @@ function checkForAdditionalTheme() {
         return !src.includes("ix-brand-theme/node_modules");
       },
     });
+    console.log("Load additional theme");
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (e) {
     console.log("No additional theme found");
@@ -29,6 +30,12 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     mainFields: ["module"],
+    alias: [
+      {
+        find: "@",
+        replacement: path.resolve(__dirname, "src"),
+      },
+    ],
   },
   test: {
     globals: true,

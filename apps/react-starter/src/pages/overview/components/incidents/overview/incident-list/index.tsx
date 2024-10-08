@@ -9,19 +9,20 @@
 
 import {
   IxButton,
+  IxCol,
   IxEventList,
   IxEventListItem,
   IxIcon,
   IxIconButton,
+  IxLayoutGrid,
+  IxRow,
   IxTypography,
 } from "@siemens/ix-react";
 import { Incident } from "../incident";
 import styles from "./styles.module.css";
-import { useTranslation } from "react-i18next";
+import { iconOpenExternal } from "@siemens/ix-icons/icons";
 
 function IncidentList(props: { incidents: Incident[]; search: string }) {
-  const { t } = useTranslation();
-
   function searchArray() {
     if (props.search === "") {
       return props.incidents;
@@ -37,37 +38,65 @@ function IncidentList(props: { incidents: Incident[]; search: string }) {
   }
 
   return (
-    <IxEventList itemHeight={72} animated={false}>
-      {searchArray().map((incident) => (
-        <IxEventListItem
-          key={incident.id}
-          itemColor={`color-${incident.color}`}
-          data-testid={`incident-item`}
-        >
-          <div className={styles.ListItemContainer}>
-            <div>
-              <IxIcon name={incident.icon} />
-              <div>
-                <IxTypography>{incident.incidentName}</IxTypography>
-                <IxTypography color="soft">{incident.infoText}</IxTypography>
-              </div>
-            </div>
-            <div>
-              <IxTypography>{incident.deviceName}</IxTypography>
-            </div>
-            <div>
-              <IxTypography>{incident.date}</IxTypography>
-            </div>
-            <div>
-              <IxIconButton icon="open-external" ghost></IxIconButton>
-              <IxButton icon="cloud-success-filled" outline>
-                {t("incidents.update-now")}
-              </IxButton>
-            </div>
-          </div>
-        </IxEventListItem>
-      ))}
-    </IxEventList>
+    <section>
+      <IxLayoutGrid noMargin>
+        <IxRow className={styles.EventListHeaderOffset}>
+          <IxCol size="3">
+            <IxRow style={{ gap: "1rem" }}>
+              <IxTypography format="label" bold textColor="soft">
+                Type
+              </IxTypography>
+              <IxTypography format="label" bold textColor="soft">
+                Incident name
+              </IxTypography>
+            </IxRow>
+          </IxCol>
+          <IxCol size="3">
+            <IxTypography format="label" bold textColor="soft" className={styles.TitleOffsetDevice}>
+              Device
+            </IxTypography>
+          </IxCol>
+          <IxCol size="3">
+            <IxTypography format="label" bold textColor="soft" className={styles.TitleOffsetDate}>
+              Date
+            </IxTypography>
+          </IxCol>
+        </IxRow>
+      </IxLayoutGrid>
+      <IxEventList itemHeight={72} animated={false}>
+        {searchArray().map((incident) => (
+          <IxEventListItem
+            key={incident.id}
+            itemColor={`color-${incident.color}`}
+            data-testid={`incident-item`}
+          >
+            <IxLayoutGrid noMargin>
+              <IxRow>
+                <IxCol size="3">
+                  <IxRow style={{ gap: "1rem" }} className={styles.NoWrap}>
+                    <IxIcon name={incident.icon} size="24" />
+                    <IxTypography>{incident.incidentName}</IxTypography>
+                  </IxRow>
+                  <IxRow>
+                    <IxTypography className={styles.InfoText} textColor="soft">
+                      {incident.infoText}
+                    </IxTypography>
+                  </IxRow>
+                </IxCol>
+                <IxCol>{incident.deviceName}</IxCol>
+                <IxCol>{incident.date}</IxCol>
+                <IxCol className={styles.IncidentActions}>
+                  <IxIconButton variant="secondary" ghost icon={iconOpenExternal} />
+                  <IxButton outline color="primary">
+                    Update now
+                  </IxButton>
+                </IxCol>
+              </IxRow>
+            </IxLayoutGrid>
+          </IxEventListItem>
+        ))}
+      </IxEventList>
+    </section>
   );
 }
 
