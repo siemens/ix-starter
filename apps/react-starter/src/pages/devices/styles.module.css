@@ -1,41 +1,32 @@
 /*
  * SPDX-FileCopyrightText: 2024 Siemens AG
- * 
+ *
  * SPDX-License-Identifier: MIT
- * 
+ *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-
-.Content {
-  height: 100%;
-  width: 100%;
+.DeviceTable {
   display: flex;
+  position: relative;
   flex-direction: column;
-  padding: 0.75rem 1rem 1rem 2rem;
-  overflow: hidden;
+  height: 100%;
 }
 
-ix-content-header {
-  margin-block-end: 1.5rem;
+.DeviceFilter {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 2rem;
+  gap: 2rem;
 }
 
-ix-category-filter {
-  max-width: 460px !important;
-  width: 100%;
+.DeviceFilter .CategoryFilter {
+  width: 25%;
+  min-width: 28rem;
 }
 
-/*
-.device-card {
-  height: 7.5rem;
-  width: 13.375rem;
-  background-position: bottom;
-  background-repeat: no-repeat;
-  cursor: pointer;
+.DeviceFilter .QuickFilter {
+  display: flex;
+  position: relative;
+  gap: 0.5rem;
 }
-
-.device-card ix-typography:last-of-type {
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-}*/

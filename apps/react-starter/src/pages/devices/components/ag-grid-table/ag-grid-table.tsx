@@ -82,7 +82,6 @@ function AgGridTable() {
         minWidth: 150,
       },
       {
-        pinned: "right",
         field: "quickActions",
         headerName: "Quick actions",
         maxWidth: 150,
@@ -125,6 +124,8 @@ function AgGridTable() {
         ref={gridRef}
         columnDefs={getColumnDefs() as ColDef[] | ColGroupDef[]}
         suppressRowTransform={true}
+        suppressCellFocus={true}
+        rowSelection={"single"}
         rowData={devices}
         className="ag-theme-alpine-dark ag-theme-ix"
         onCellClicked={(e) => onCellClick(e)}

@@ -7,19 +7,38 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import styles from "./styles.module.css";
-import { IxPane, IxTypography, IxButton, IxDivider } from "@siemens/ix-react";
-import FirmwareCard from "./firmware-card.tsx";
-import { toKebabCase } from "../../../../util/util.ts";
-import { Device } from "../../../../types";
-import { useDataStore, useOverviewPaneStore } from "../../../store/device-store.ts";
+import { Device } from "@/types/index.tsx";
+import { toKebabCase } from "@/util/util.ts";
+import { IxButton, IxDivider, IxPane, IxTypography } from "@siemens/ix-react";
+import { useLayoutEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { useDataStore, useOverviewPaneStore } from "../../../store/device-store.ts";
+import FirmwareCard from "./firmware-card.tsx";
+import styles from "./styles.module.css";
 
 const DeviceDetails = ({ ...props }) => {
   const { editDevice } = useDataStore();
 
   const { t } = useTranslation();
   const { expanded, selectedData, setExpanded } = useOverviewPaneStore();
+
+  useLayoutEffect(() => {
+    const closeByEscape = (event: KeyboardEvent) => {
+      if (expanded === false) {
+        return;
+      }
+
+      if (event.key === "Escape") {
+        setExpanded(false);
+      }
+    };
+
+    document.addEventListener("keydown", closeByEscape);
+
+    return () => {
+      document.removeEventListener("keydown", closeByEscape);
+    };
+  }, [expanded, setExpanded]);
 
   return (
     <IxPane

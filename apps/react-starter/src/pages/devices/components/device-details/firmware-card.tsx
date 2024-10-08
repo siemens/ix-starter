@@ -7,12 +7,15 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import useShowDemoMessage from "@/hooks/demoMessage";
 import styles from "./styles.module.css";
 
 import { IxButton, IxMessageBar } from "@siemens/ix-react";
 import { useTranslation } from "react-i18next";
 
 const FirmwareCard = () => {
+  const showDemoMessage = useShowDemoMessage();
+
   const { t } = useTranslation();
 
   return (
@@ -20,7 +23,7 @@ const FirmwareCard = () => {
       <IxMessageBar className={styles.MessageBar} type="warning" dismissible={false}>
         <div className={styles.MessageBarContent}>
           {t("device-details-header.firmware-card")}
-          <IxButton className={styles.ButtonMargin} outline>
+          <IxButton className={styles.ButtonMargin} outline onClick={showDemoMessage}>
             {t("device-details-header.update")}
           </IxButton>
         </div>
