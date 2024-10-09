@@ -27,10 +27,19 @@
   padding-left: 1.125rem;
 }
 
-/* .TitleOffsetDevice {
-  margin-left: 0.9rem;
+.Desktop {
+  display: contents;
 }
 
-.TitleOffsetDate {
-  margin-left: 0.5rem;
-} */
+.Mobile {
+  display: none;
+}
+
+@media only screen and (max-width: 48em) {
+  .Desktop {
+    display: none;
+  }
+  .Mobile {
+    display: block;
+  }
+}

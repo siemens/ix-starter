@@ -12,11 +12,11 @@ import { toKebabCase } from "@/util/util.ts";
 import { IxButton, IxDivider, IxPane, IxTypography } from "@siemens/ix-react";
 import { useLayoutEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { useDataStore, useOverviewPaneStore } from "../../../store/device-store.ts";
+import { useDataStore, useOverviewPaneStore } from "../../../../store/device-store.ts";
 import FirmwareCard from "./firmware-card.tsx";
 import styles from "./styles.module.css";
 
-const DeviceDetails = ({ ...props }) => {
+const DeviceDetails = () => {
   const { editDevice } = useDataStore();
 
   const { t } = useTranslation();
@@ -52,7 +52,6 @@ const DeviceDetails = ({ ...props }) => {
         setExpanded(event.detail.expanded);
       }}
       className={styles.Pane}
-      {...props}
     >
       <div className={styles.Container}>
         {selectedData ? (
@@ -88,7 +87,6 @@ const DeviceDetails = ({ ...props }) => {
                 status: (selectedData!.status = "Maintenance"),
               };
               editDevice(updatedDevice as Device);
-              props.api.onFilterChanged();
             }}
           >
             {t("device-details-footer.maintenance")}
@@ -101,7 +99,6 @@ const DeviceDetails = ({ ...props }) => {
                   selectedData!.status === "Offline" ? "Online" : "Offline"),
               };
               editDevice(updatedDevice as Device);
-              props.api.onFilterChanged();
             }}
           >
             {selectedData?.status === "Offline"

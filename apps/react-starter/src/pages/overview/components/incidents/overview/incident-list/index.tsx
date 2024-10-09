@@ -20,28 +20,27 @@ import {
 } from "@siemens/ix-react";
 import { Incident } from "../incident";
 import styles from "./styles.module.css";
-import { iconOpenExternal } from "@siemens/ix-icons/icons";
+import { iconOpenExternal, iconUpload } from "@siemens/ix-icons/icons";
+import useShowDemoMessage from "@/hooks/demoMessage";
 
 function IncidentList(props: { incidents: Incident[]; search: string }) {
-  function searchArray() {
-    if (props.search === "") {
-      return props.incidents;
+  const showDemoMessage = useShowDemoMessage();
+  const searchFilter = (incident: Incident) => {
+    if (!props.search) {
+      return true;
     }
 
     const query = props.search.toLowerCase();
-
-    return props.incidents.filter((item) =>
-      Object.values(item).some(
-        (value) => typeof value === "string" && value.toLowerCase().includes(query),
-      ),
+    return Object.values(incident).some(
+      (value) => typeof value === "string" && value.toLowerCase().includes(query),
     );
-  }
+  };
 
   return (
     <section>
       <IxLayoutGrid noMargin>
         <IxRow className={styles.EventListHeaderOffset}>
-          <IxCol size="3">
+          <IxCol size="3" sizeSm="6">
             <IxRow style={{ gap: "1rem" }}>
               <IxTypography format="label" bold textColor="soft">
                 Type
@@ -51,12 +50,12 @@ function IncidentList(props: { incidents: Incident[]; search: string }) {
               </IxTypography>
             </IxRow>
           </IxCol>
-          <IxCol size="3">
+          <IxCol size="3" sizeSm="4">
             <IxTypography format="label" bold textColor="soft" className={styles.TitleOffsetDevice}>
               Device
             </IxTypography>
           </IxCol>
-          <IxCol size="3">
+          <IxCol size="3" className={styles.Desktop}>
             <IxTypography format="label" bold textColor="soft" className={styles.TitleOffsetDate}>
               Date
             </IxTypography>
@@ -64,7 +63,7 @@ function IncidentList(props: { incidents: Incident[]; search: string }) {
         </IxRow>
       </IxLayoutGrid>
       <IxEventList itemHeight={72} animated={false}>
-        {searchArray().map((incident) => (
+        {props.incidents.filter(searchFilter).map((incident) => (
           <IxEventListItem
             key={incident.id}
             itemColor={`color-${incident.color}`}
@@ -72,7 +71,7 @@ function IncidentList(props: { incidents: Incident[]; search: string }) {
           >
             <IxLayoutGrid noMargin>
               <IxRow>
-                <IxCol size="3">
+                <IxCol size="3" sizeSm="6">
                   <IxRow style={{ gap: "1rem" }} className={styles.NoWrap}>
                     <IxIcon name={incident.icon} size="24" />
                     <IxTypography>{incident.incidentName}</IxTypography>
@@ -83,13 +82,21 @@ function IncidentList(props: { incidents: Incident[]; search: string }) {
                     </IxTypography>
                   </IxRow>
                 </IxCol>
-                <IxCol>{incident.deviceName}</IxCol>
-                <IxCol>{incident.date}</IxCol>
-                <IxCol className={styles.IncidentActions}>
-                  <IxIconButton variant="secondary" ghost icon={iconOpenExternal} />
-                  <IxButton outline color="primary">
-                    Update now
-                  </IxButton>
+                <IxCol size="3" sizeSm="4">
+                  {incident.deviceName}
+                </IxCol>
+
+                <section className={styles.Desktop}>
+                  <IxCol>{incident.date}</IxCol>
+                  <IxCol className={styles.IncidentActions}>
+                    <IxIconButton variant="secondary" ghost icon={iconOpenExternal} />
+                    <IxButton outline color="primary" onClick={showDemoMessage}>
+                      Update now
+                    </IxButton>
+                  </IxCol>
+                </section>
+                <IxCol sizeSm="1" className={styles.Mobile}>
+                  <IxIconButton variant="primary" outline icon={iconUpload} />
                 </IxCol>
               </IxRow>
             </IxLayoutGrid>

@@ -76,6 +76,7 @@ function getOption(): ECBasicOption {
       splitLine: {
         show: true,
       },
+
     },
     series: [
       {

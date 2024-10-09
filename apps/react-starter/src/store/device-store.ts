@@ -8,8 +8,8 @@
  */
 
 import { create } from "zustand";
-import { fetchDataSheet } from "../../util/mock-api.ts";
-import { Device } from "../../types";
+import { fetchDataSheet } from "../util/mock-api.ts";
+import { Device } from "../types/index.tsx";
 import { LogicalFilterOperator } from "@siemens/ix";
 
 interface DataStoreState {

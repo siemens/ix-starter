@@ -19,7 +19,7 @@ import {
   showModal,
 } from "@siemens/ix-react";
 import { ICellRendererParams } from "ag-grid-community";
-import { useDataStore } from "../../../store/device-store.ts";
+import { useDataStore } from "../../../../store/device-store.ts";
 import { RefObject } from "react";
 import { AgGridReact } from "ag-grid-react";
 import {

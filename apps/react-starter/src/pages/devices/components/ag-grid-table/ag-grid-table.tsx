@@ -13,7 +13,7 @@ import { AgGridReact } from "ag-grid-react";
 import { IxEmptyState } from "@siemens/ix-react";
 import QuickActionsCellRenderer from "./quick-actions-cell-renderet.tsx";
 import { CellClickedEvent, ColDef, ColGroupDef, IRowNode } from "ag-grid-community";
-import { useDataStore, useFilterStore, useOverviewPaneStore } from "../../../store/device-store.ts";
+import { useDataStore, useFilterStore, useOverviewPaneStore } from "../../../../store/device-store.ts";
 import { Device } from "../../../../types";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { LogicalFilterOperator } from "@siemens/ix";

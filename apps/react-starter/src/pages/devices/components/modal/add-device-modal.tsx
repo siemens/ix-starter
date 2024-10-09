@@ -21,7 +21,7 @@ import { useRef, useEffect } from "react";
 import styles from "./styles.module.css";
 import FormField from "./form-field";
 import { useForm } from "react-hook-form";
-import { useDataStore } from "../../../store/device-store";
+import { useDataStore } from "../../../../store/device-store.ts";
 import { Device } from "../../../../types";
 import { useTranslation } from "react-i18next";
 import { showSuccessToast } from "../../../../util/util.ts";

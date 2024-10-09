@@ -19,7 +19,7 @@ import { useTranslation } from "react-i18next";
 import { NavLink, Outlet } from "react-router-dom";
 import useShowDemoMessage from "./hooks/demoMessage";
 import Logo from "./Logo";
-import { useDataStore } from "./pages/store/device-store";
+import { useDataStore } from "./store/device-store";
 import UserSettings from "./pages/user-settings";
 
 registerTheme(echarts);

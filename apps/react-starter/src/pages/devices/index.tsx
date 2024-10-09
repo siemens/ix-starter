@@ -20,12 +20,12 @@ import {
 import { IxButton, IxCategoryFilter, IxChip, IxContentHeader } from "@siemens/ix-react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useDataStore, useFilterStore } from "../store/device-store.ts";
+import { useDataStore, useFilterStore } from "../../store/device-store.ts";
 import AgGridTable from "./components/ag-grid-table/ag-grid-table.tsx";
 import DeviceDetails from "./components/device-details/index.tsx";
 import show from "./components/modal/index.tsx";
 import styles from "./styles.module.css";
-import { useDeviceStatus } from "../store/hooks/device.ts";
+import { useDeviceStatus } from "../../store/hooks/device.ts";
 
 type Categories = Record<
   string,

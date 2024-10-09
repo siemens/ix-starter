@@ -15,75 +15,73 @@ import { BarSeriesOption } from "echarts";
 import { EChartsCoreOption } from "echarts";
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Device } from "../../../../types/index.tsx";
-import { useDataStore } from "../../../store/device-store.ts";
 import ReactEcharts from "echarts-for-react";
 import { useResizeHandler } from "@/util/util.ts";
 import EChartsReact from "echarts-for-react";
 import { ECBasicOption } from "echarts/types/dist/shared";
+import { getComputedCSSProperty } from "@siemens/ix-echarts";
+import { Device, DeviceState } from "@/types";
+import { useDataStore } from "@/store/device-store";
 
 const reduceDevices = (devices: Device[]): BarSeriesOption[] => {
-  const onlineData: [number, string][] = [];
-  const offlineData: [number, string][] = [];
-  const maintenanceData: [number, string][] = [];
-  const errorData: [number, string][] = [];
+  const onlineData = new Map<string, number>();
+  const offlineData = new Map<string, number>();
+  const maintenanceData = new Map<string, number>();
+  const errorData = new Map<string, number>();
 
-  devices.forEach((device) => {
+  function fillData(device: Device, data: Map<string, number>, state: DeviceState) {
     const ipSegment = device.ipAddress.split(".")[0] + ".x";
 
-    const online = onlineData.find((data) => data[1] === ipSegment);
-    if (online) {
-      online[0]++;
-    } else {
-      onlineData.push([1, ipSegment]);
+    if (device.status !== state) {
+      return;
     }
 
-    const offline = offlineData.find((data) => data[1] === ipSegment);
-    if (offline) {
-      offline[0]++;
+    if (data.has(ipSegment)) {
+      data.set(ipSegment, data.get(ipSegment)! + 1);
     } else {
-      offlineData.push([1, ipSegment]);
+      data.set(ipSegment, 1);
     }
+  }
 
-    const maintenance = maintenanceData.find((data) => data[1] === ipSegment);
-    if (maintenance) {
-      maintenance[0]++;
-    } else {
-      maintenanceData.push([1, ipSegment]);
-    }
-
-    const error = errorData.find((data) => data[1] === ipSegment);
-    if (error) {
-      error[0]++;
-    } else {
-      errorData.push([1, ipSegment]);
-    }
+  devices.forEach((device) => {
+    fillData(device, onlineData, "Online");
+    fillData(device, maintenanceData, "Maintenance");
+    fillData(device, errorData, "Error");
+    fillData(device, offlineData, "Offline");
   });
+
+  function createSeries(data: Map<string, number>) {
+    return Array.from(data).map(([name, value]) => [value, name]);
+  }
 
   return [
     {
       name: "Online",
-      data: onlineData,
+      data: createSeries(onlineData),
       type: "bar",
       stack: "x",
+      color: getComputedCSSProperty("color-success"),
     },
     {
       name: "Maintenance",
-      data: maintenanceData,
+      data: createSeries(maintenanceData),
       type: "bar",
       stack: "x",
+      color: getComputedCSSProperty("color-warning"),
     },
     {
       name: "Error",
-      data: errorData,
+      data: createSeries(errorData),
       type: "bar",
       stack: "x",
+      color: getComputedCSSProperty("color-alarm"),
     },
     {
       name: "Offline",
-      data: offlineData,
+      data: createSeries(offlineData),
       type: "bar",
       stack: "x",
+      color: getComputedCSSProperty("color-neutral"),
     },
   ];
 };
@@ -131,7 +129,6 @@ function DeviceRange() {
 
     if (chart) {
       const data = reduceDevices(devices);
-
       const option = {
         ...getOption(),
         series: data,
