@@ -7,36 +7,26 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import "./styles.module.css";
-import "./styles.module.css";
-import { AgGridReact } from "ag-grid-react";
-import { IxEmptyState } from "@siemens/ix-react";
-import QuickActionsCellRenderer from "./quick-actions-cell-renderet.tsx";
-import { CellClickedEvent, ColDef, ColGroupDef, IRowNode } from "ag-grid-community";
-import { useDataStore, useFilterStore, useOverviewPaneStore } from "../../../../store/device-store.ts";
-import { Device } from "../../../../types";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useDataStore, useFilterStore, useOverviewPaneStore } from "@/store/device-store.ts";
+import { Device } from "@/types";
 import { LogicalFilterOperator } from "@siemens/ix";
-import CustomDeviceCellRenderer from "./device-cell-renderer.tsx";
+import { IxEmptyState } from "@siemens/ix-react";
+import { ColDef, ColGroupDef, GridApi, IRowNode, RowSelectedEvent } from "ag-grid-community";
+import { AgGridReact } from "ag-grid-react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import DeviceNameCellRenderer from "./device-name-cell-renderer.tsx";
+import CustomDeviceCellRenderer from "./device-cell-renderer.tsx";
+import QuickActionsCellRenderer from "./quick-actions-cell-renderer.tsx";
+import "./styles.module.css";
 
 function AgGridTable() {
   const { t } = useTranslation();
+  const [gridApi, setGridApi] = useState<GridApi | null>(null);
   const gridRef = useRef<AgGridReact<Device>>(null);
-  const { setExpanded, setSelectedData } = useOverviewPaneStore();
+  const { setExpanded, setSelectedDeviceId, selectedDataId } = useOverviewPaneStore();
   const { filter, resetFilter } = useFilterStore();
   const [showEmptyState, setShowEmptyState] = useState(false);
   const { devices, editDevice } = useDataStore();
-
-  function onCellClick(event: CellClickedEvent<Device, string>) {
-    if (event.column.getColId() === "quickActions") {
-      return;
-    }
-
-    setSelectedData(event.data!);
-    setExpanded(true);
-  }
 
   function getColumnDefs() {
     if (devices.length === 0) {
@@ -50,7 +40,6 @@ function AgGridTable() {
         editable: true,
         flex: 2,
         minWidth: 150,
-        cellRenderer: DeviceNameCellRenderer,
       },
       {
         field: "status",
@@ -118,31 +107,55 @@ function AgGridTable() {
     }
   }, [filter]);
 
-  return devices && !showEmptyState ? (
+  useEffect(() => {
+    if (gridApi) {
+      gridApi.forEachNode((node) => {
+        node.setSelected(selectedDataId === node.data.id);
+      });
+    }
+  }, [gridApi, selectedDataId, devices]);
+
+  const onRowSelected = useCallback(
+    (rowSelection: RowSelectedEvent) => {
+      const { event } = rowSelection;
+      if (event) {
+        setSelectedDeviceId(rowSelection.data.id);
+        setExpanded(true);
+      }
+    },
+    [setExpanded, setSelectedDeviceId],
+  );
+
+  if (showEmptyState) {
+    return (
+      <div className="flex-grow-1 d-flex justify-content-center align-items-center">
+        <IxEmptyState
+          header="No devices found"
+          subHeader="Please remove search terms or add a new device"
+          icon="project"
+          action="Reset Filter"
+          onActionClick={() => resetFilter()}
+        ></IxEmptyState>
+      </div>
+    );
+  }
+
+  return (
     <div className="flex-grow-1">
       <AgGridReact
         ref={gridRef}
+        onGridReady={(event) => setGridApi(event.api)}
         columnDefs={getColumnDefs() as ColDef[] | ColGroupDef[]}
         suppressRowTransform={true}
         suppressCellFocus={true}
         rowSelection={"single"}
         rowData={devices}
         className="ag-theme-alpine-dark ag-theme-ix"
-        onCellClicked={(e) => onCellClick(e)}
+        onRowSelected={onRowSelected}
         onCellValueChanged={(e) => editDevice(e.data)}
         isExternalFilterPresent={isExternalFilterPresent}
         doesExternalFilterPass={(e) => doesExternalFilterPass(e as IRowNode<Device>)}
       />
-    </div>
-  ) : (
-    <div className="flex-grow-1 d-flex justify-content-center align-items-center">
-      <IxEmptyState
-        header="No devices found"
-        subHeader="Please remove search terms or add a new device"
-        icon="project"
-        action="Reset Filter"
-        onActionClick={() => resetFilter()}
-      ></IxEmptyState>
     </div>
   );
 }

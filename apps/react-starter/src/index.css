@@ -13,3 +13,7 @@ body {
   width: 100vw;
   height: 100vh;
 }
+
+ix-content {
+  min-width: 20rem;
+}

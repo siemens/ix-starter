@@ -7,9 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { DeviceState } from "@/types";
-import { useMemo } from "react";
-import { useDataStore } from "../device-store";
+import { Device, DeviceState } from "@/types";
+import { useEffect, useMemo, useState } from "react";
+import { useDataStore, useOverviewPaneStore } from "../device-store";
 
 export const useDeviceStatus = () => {
   const { devices } = useDataStore();
@@ -30,4 +30,18 @@ export const useDeviceStatus = () => {
   }, [devices]);
 
   return deviceState;
+};
+
+export const useSelectedDevice = () => {
+  const { devices } = useDataStore();
+  const { selectedDataId } = useOverviewPaneStore();
+
+  const [device, setDevice] = useState<Device | null>(null);
+
+  useEffect(() => {
+    const selectedDevice = devices.find((device) => device.id === selectedDataId);
+    setDevice(selectedDevice ?? null);
+  }, [devices, selectedDataId]);
+
+  return device;
 };

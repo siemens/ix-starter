@@ -7,10 +7,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-device-status {
-  flex-grow: 1;
-}
-
 .SearchAndFilter {
   display: flex;
   gap: 1rem;
@@ -18,7 +14,6 @@ device-status {
 
   ix-input-group {
     max-width: 12.5rem;
-    margin-inline-end: 0.5rem;
   }
 }
 
@@ -26,8 +21,6 @@ device-status {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-}
-
-ix-blind + ix-blind {
-  margin-block-start: 1rem;
+  height: 100%;
+  overflow: hidden;
 }

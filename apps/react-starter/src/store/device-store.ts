@@ -54,16 +54,16 @@ export const useDataStore = create<DataStoreState>((set) => ({
 
 interface OverviewPaneStore {
   expanded: boolean;
-  selectedData: Device | null;
+  selectedDataId: string | null;
   setExpanded: (expanded: boolean) => void;
-  setSelectedData: (selectedData: Device) => void;
+  setSelectedDeviceId: (selectedDataId: string) => void;
 }
 
 export const useOverviewPaneStore = create<OverviewPaneStore>((set) => ({
   expanded: false,
-  selectedData: null,
+  selectedDataId: null,
   setExpanded: (expanded: boolean) => set({ expanded }),
-  setSelectedData: (selectedData: Device) => set({ selectedData }),
+  setSelectedDeviceId: (selectedDataId: string) => set({ selectedDataId }),
 }));
 
 export interface Filter {

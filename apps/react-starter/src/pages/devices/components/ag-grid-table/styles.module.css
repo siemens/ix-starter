@@ -29,20 +29,9 @@ ix-empty-state {
 
 .IxRow {
   display: flex;
-  justify-content: end;
+  justify-content: flex-start;
   height: 100%;
   align-items: center;
-}
-
-div[role="gridcell"][col-id="quickActions"]:not(ix-tooltip) {
-  &:hover {
-    opacity: 100%;
-  }
-}
-
-div[role="gridcell"][col-id="deviceName"] {
-  padding: 0;
-  border: 0;
 }
 
 .DeviceCell {
@@ -56,20 +45,4 @@ div[role="gridcell"][col-id="deviceName"] {
   min-width: 0.4rem;
   width: 0.4rem;
   height: 100%;
-}
-
-.online {
-  background-color: var(--theme-color-success);
-}
-
-.error {
-  background-color: var(--theme-color-alarm);
-}
-
-.maintenance {
-  background-color: var(--theme-color-warning);
-}
-
-.offline {
-  background-color: var(--theme-color-alarm);
 }

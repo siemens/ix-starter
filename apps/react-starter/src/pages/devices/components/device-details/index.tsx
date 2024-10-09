@@ -7,20 +7,25 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { useSelectedDevice } from "@/store/hooks/device.ts";
 import { Device } from "@/types/index.tsx";
 import { toKebabCase } from "@/util/util.ts";
 import { IxButton, IxDivider, IxPane, IxTypography } from "@siemens/ix-react";
-import { useLayoutEffect } from "react";
+import { useLayoutEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useDataStore, useOverviewPaneStore } from "../../../../store/device-store.ts";
-import FirmwareCard from "./firmware-card.tsx";
 import styles from "./styles.module.css";
+import { useDataStore, useOverviewPaneStore } from "@/store/device-store";
+
+const hideProperties = (key: string) => key !== "id";
 
 const DeviceDetails = () => {
   const { editDevice } = useDataStore();
-
+  const selectedDevice = useSelectedDevice();
+  const [performMaintenance, setPerformMaintenance] = useState(false);
   const { t } = useTranslation();
-  const { expanded, selectedData, setExpanded } = useOverviewPaneStore();
+  const { expanded, setExpanded } = useOverviewPaneStore();
+
+  const isInMaintenance = selectedDevice?.status === "Maintenance";
 
   useLayoutEffect(() => {
     const closeByEscape = (event: KeyboardEvent) => {
@@ -54,19 +59,20 @@ const DeviceDetails = () => {
       className={styles.Pane}
     >
       <div className={styles.Container}>
-        {selectedData ? (
+        {selectedDevice ? (
           <div>
-            <IxTypography format="h1">{selectedData.deviceName}</IxTypography>
-            <FirmwareCard />
-            {Object.keys(selectedData)
-              .slice(1, -1)
+            <IxTypography format="h1" className={styles.DeviceName}>
+              {selectedDevice.deviceName}
+            </IxTypography>
+            {Object.keys(selectedDevice)
+              .filter(hideProperties)
               .map((key, index) => (
                 <div key={index}>
                   <IxTypography format="body" textColor="soft">
                     {t(`device-details.${toKebabCase(key)}`)}
                   </IxTypography>
                   <IxTypography format="body" textColor="std">
-                    {selectedData[key as keyof Device]}
+                    {selectedDevice[key as keyof Device]}
                   </IxTypography>
                   <IxDivider className={styles.Divider} />
                 </div>
@@ -78,34 +84,27 @@ const DeviceDetails = () => {
           </IxTypography>
         )}
 
-        <div className={styles.ButtonGroup}>
-          <IxButton
-            outline
-            onClick={() => {
+        <IxButton
+          loading={performMaintenance}
+          outline
+          onClick={(event) => {
+            event.stopPropagation();
+            event.preventDefault();
+
+            setPerformMaintenance(true);
+            setTimeout(() => {
               const updatedDevice = {
-                ...selectedData!,
-                status: (selectedData!.status = "Maintenance"),
+                ...selectedDevice!,
+                status: isInMaintenance ? "Online" : "Maintenance",
               };
               editDevice(updatedDevice as Device);
-            }}
-          >
-            {t("device-details-footer.maintenance")}
-          </IxButton>
-          <IxButton
-            onClick={() => {
-              const updatedDevice = {
-                ...selectedData!,
-                status: (selectedData!.status =
-                  selectedData!.status === "Offline" ? "Online" : "Offline"),
-              };
-              editDevice(updatedDevice as Device);
-            }}
-          >
-            {selectedData?.status === "Offline"
-              ? t("device-details-footer.activate")
-              : t("device-details-footer.deactivate")}{" "}
-          </IxButton>
-        </div>
+              setPerformMaintenance(false);
+            }, 2000);
+          }}
+        >
+          {!isInMaintenance && t("device-details-footer.set-maintenance")}
+          {isInMaintenance && t("device-details-footer.end-maintenance")}
+        </IxButton>
       </div>
     </IxPane>
   );

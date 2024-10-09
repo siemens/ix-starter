@@ -15,18 +15,36 @@
 
 .DeviceFilter {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   margin-bottom: 2rem;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .DeviceFilter .CategoryFilter {
-  width: 25%;
-  min-width: 28rem;
+  min-width: 16rem;
+  flex-grow: 1;
 }
 
 .DeviceFilter .QuickFilter {
   display: flex;
-  position: relative;
+  flex-wrap: nowrap;
   gap: 0.5rem;
+  min-width: 38rem;
+}
+
+@media only screen and (max-width: 48em) {
+  .DeviceFilter {
+    flex-direction: column;
+  }
+
+  .DeviceFilter .CategoryFilter {
+    min-width: 0rem;
+    width: 100%;
+  }
+
+  .DeviceFilter .QuickFilter {
+    flex-wrap: wrap;
+    min-width: 0rem;
+  }
 }

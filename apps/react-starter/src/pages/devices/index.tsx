@@ -12,7 +12,7 @@ import { toKebabCase } from "@/util/util.ts";
 import { FilterState, LogicalFilterOperator } from "@siemens/ix";
 import {
   iconAddCircle,
-  iconAlarm,
+  iconError,
   iconInfo,
   iconMaintenanceWarning,
   iconSuccess,
@@ -21,11 +21,11 @@ import { IxButton, IxCategoryFilter, IxChip, IxContentHeader } from "@siemens/ix
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDataStore, useFilterStore } from "../../store/device-store.ts";
+import { useDeviceStatus } from "../../store/hooks/device.ts";
 import AgGridTable from "./components/ag-grid-table/ag-grid-table.tsx";
 import DeviceDetails from "./components/device-details/index.tsx";
 import show from "./components/modal/index.tsx";
 import styles from "./styles.module.css";
-import { useDeviceStatus } from "../../store/hooks/device.ts";
 
 type Categories = Record<
   string,
@@ -132,7 +132,7 @@ const QuickFilter = () => {
       </IxChip>
 
       <IxChip
-        icon={iconAlarm}
+        icon={iconError}
         variant="alarm"
         outline={activeQuickFilter !== "Error"}
         onClick={() => onFilterBy("Error")}

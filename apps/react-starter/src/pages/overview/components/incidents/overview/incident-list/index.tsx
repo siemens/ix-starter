@@ -6,7 +6,9 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-
+import useShowDemoMessage from "@/hooks/demoMessage";
+import { useMediaQuery } from "@/hooks/mediaQuery";
+import { iconOpenExternal, iconUpload } from "@siemens/ix-icons/icons";
 import {
   IxButton,
   IxCol,
@@ -18,13 +20,82 @@ import {
   IxRow,
   IxTypography,
 } from "@siemens/ix-react";
-import { Incident } from "../incident";
+import { type Incident } from "../incident";
 import styles from "./styles.module.css";
-import { iconOpenExternal, iconUpload } from "@siemens/ix-icons/icons";
-import useShowDemoMessage from "@/hooks/demoMessage";
+import { useTranslation } from "react-i18next";
+
+function DesktopItem({ incident }: { incident: Incident }) {
+  const { t } = useTranslation();
+  const showDemoMessage = useShowDemoMessage();
+
+  return (
+    <IxLayoutGrid noMargin>
+      <IxRow>
+        <IxCol size="3">
+          <IxRow style={{ gap: "1rem" }} className={styles.NoWrap}>
+            <IxIcon name={incident.icon} size="24" />
+            <IxTypography bold>{incident.incidentName}</IxTypography>
+          </IxRow>
+          <IxRow>
+            <IxTypography className={styles.InfoText} textColor="soft">
+              {incident.infoText}
+            </IxTypography>
+          </IxRow>
+        </IxCol>
+        <IxCol size="3">
+          <IxTypography bold>{incident.deviceName}</IxTypography>
+          <IxTypography textColor="soft">{incident.ipAddress}</IxTypography>
+        </IxCol>
+        <IxCol>
+          <IxTypography textColor="soft">{incident.date}</IxTypography>
+          <IxTypography textColor="soft">{incident.time}</IxTypography>
+        </IxCol>
+        <IxCol className={styles.IncidentActions}>
+          <IxIconButton variant="secondary" ghost icon={iconOpenExternal} />
+          <IxButton outline color="primary" onClick={showDemoMessage}>
+            {t("incidents.create-task")}
+          </IxButton>
+        </IxCol>
+      </IxRow>
+    </IxLayoutGrid>
+  );
+}
+
+function MobileItem({ incident }: { incident: Incident }) {
+  const showDemoMessage = useShowDemoMessage();
+  return (
+    <IxLayoutGrid noMargin>
+      <IxRow>
+        <IxCol size="6">
+          <IxRow style={{ gap: "1rem" }} className={styles.NoWrap}>
+            <IxIcon name={incident.icon} size="24" />
+            <IxTypography bold>{incident.incidentName}</IxTypography>
+          </IxRow>
+          <IxRow>
+            <IxTypography className={styles.InfoText} textColor="soft">
+              {incident.infoText}
+            </IxTypography>
+          </IxRow>
+        </IxCol>
+        <IxCol size="4">
+          <IxTypography bold>{incident.deviceName}</IxTypography>
+          <IxTypography textColor="soft">{incident.ipAddress}</IxTypography>
+        </IxCol>
+        <IxCol size="2">
+          <IxIconButton
+            variant="primary"
+            outline
+            icon={iconUpload}
+            onClick={showDemoMessage}
+          ></IxIconButton>
+        </IxCol>
+      </IxRow>
+    </IxLayoutGrid>
+  );
+}
 
 function IncidentList(props: { incidents: Incident[]; search: string }) {
-  const showDemoMessage = useShowDemoMessage();
+  const isMobile = useMediaQuery("(max-width: 48em)");
   const searchFilter = (incident: Incident) => {
     if (!props.search) {
       return true;
@@ -37,7 +108,7 @@ function IncidentList(props: { incidents: Incident[]; search: string }) {
   };
 
   return (
-    <section>
+    <section className={styles.IncidentList}>
       <IxLayoutGrid noMargin>
         <IxRow className={styles.EventListHeaderOffset}>
           <IxCol size="3" sizeSm="6">
@@ -62,44 +133,18 @@ function IncidentList(props: { incidents: Incident[]; search: string }) {
           </IxCol>
         </IxRow>
       </IxLayoutGrid>
-      <IxEventList itemHeight={72} animated={false}>
+      <IxEventList itemHeight={72} animated={false} className={styles.EventList}>
         {props.incidents.filter(searchFilter).map((incident) => (
           <IxEventListItem
             key={incident.id}
             itemColor={`color-${incident.color}`}
             data-testid={`incident-item`}
           >
-            <IxLayoutGrid noMargin>
-              <IxRow>
-                <IxCol size="3" sizeSm="6">
-                  <IxRow style={{ gap: "1rem" }} className={styles.NoWrap}>
-                    <IxIcon name={incident.icon} size="24" />
-                    <IxTypography>{incident.incidentName}</IxTypography>
-                  </IxRow>
-                  <IxRow>
-                    <IxTypography className={styles.InfoText} textColor="soft">
-                      {incident.infoText}
-                    </IxTypography>
-                  </IxRow>
-                </IxCol>
-                <IxCol size="3" sizeSm="4">
-                  {incident.deviceName}
-                </IxCol>
-
-                <section className={styles.Desktop}>
-                  <IxCol>{incident.date}</IxCol>
-                  <IxCol className={styles.IncidentActions}>
-                    <IxIconButton variant="secondary" ghost icon={iconOpenExternal} />
-                    <IxButton outline color="primary" onClick={showDemoMessage}>
-                      Update now
-                    </IxButton>
-                  </IxCol>
-                </section>
-                <IxCol sizeSm="1" className={styles.Mobile}>
-                  <IxIconButton variant="primary" outline icon={iconUpload} />
-                </IxCol>
-              </IxRow>
-            </IxLayoutGrid>
+            {isMobile ? (
+              <MobileItem incident={incident}></MobileItem>
+            ) : (
+              <DesktopItem incident={incident}></DesktopItem>
+            )}
           </IxEventListItem>
         ))}
       </IxEventList>

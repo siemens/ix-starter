@@ -1,9 +1,9 @@
 {
   "analytics": "Analytics",
   "cards": "Cards",
-  "content-header": "Weclome to our demo app!",
+  "content-header": "Hello iX user, welcome to our demo app!",
   "device-status": {
-    "title": "Device Status"
+    "title": "Device status"
   },
   "devices": "Devices",
   "add-device": "Add device",
@@ -36,11 +36,11 @@
     "off": "Turn off",
     "delete": "Delete",
     "success-messages": {
-      "copy": "Device successfully copied to clipboard!",
-      "delete": "Device successfully deleted!",
-      "duplicate": "Device successfully duplicated!",
-      "cut": "Device successfully cut to clipboard!",
-      "paste": "Device successfully pasted!"
+      "copy": "Device copied to clipboard",
+      "delete": "Device deleted",
+      "duplicate": "Device duplicated",
+      "cut": "Device cut to clipboard",
+      "paste": "Device pasted"
     }
   },
   "device-details-header": {
@@ -49,10 +49,8 @@
     "update": "Update"
   },
   "device-details-footer": {
-    "activate": "Activate device",
-    "deactivate": "Deactivate device",
-    "maintenance": "Schedule maintenance",
-    "all-details": "See  all details"
+    "set-maintenance": "Start maintenance",
+    "end-maintenance": "End maintenance"
   },
   "device-details": {
     "title": "Device information",
@@ -68,7 +66,7 @@
   },
   "incidents": {
     "title": "Incidents",
-    "update-now": "Update now",
+    "create-task": "Create task",
     "incident-cards": {
       "device": "Device",
       "date": "Date"
@@ -88,15 +86,15 @@
     "schedule-maintenance": "Schedule maintenance"
   },
   "status-history": {
-    "title": "Status History"
+    "title": "Status history"
   },
   "settings": {
     "title": "Settings",
-    "user-settings": "User Settings"
+    "user-settings": "User settings"
   },
   "toggle-theme": "Toggle theme",
   "search": "Search",
   "demo-message": "This feature is currently unavailable in the demo version.",
   "cancel": "Cancel",
-  "okay": "Okay"
+  "okay": "OK"
 }

@@ -51,6 +51,12 @@ const seriesErrors = {
   ],
 };
 
+const seriesMaintenance = {
+  name: "Maintenance",
+  color: getComputedCSSProperty("color-warning"),
+  data: [{ value: 0 }, { value: 2 }, { value: -90 }, { value: -85 }, { value: -3 }, { value: -1 }],
+};
+
 function getOption(): ECBasicOption {
   return {
     grid: {
@@ -76,12 +82,15 @@ function getOption(): ECBasicOption {
       splitLine: {
         show: true,
       },
-
     },
     series: [
       {
         type: "line",
         ...seriesOnline,
+      },
+      {
+        type: "line",
+        ...seriesMaintenance,
       },
       {
         type: "line",

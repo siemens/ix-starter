@@ -1,7 +1,7 @@
 {
   "analytics": "Analyse",
   "cards": "Karten",
-  "content-header": "Willkommen in unserer Demo-App!",
+  "content-header": "Hallo iX User, willkommen in unserer Demo-App!",
   "device-status": {
     "title": "Gerätestatus"
   },
@@ -49,10 +49,8 @@
     "update": "Update"
   },
   "device-details-footer": {
-    "activate": "Gerät aktivieren",
-    "deactivate": "Gerät deaktivieren",
-    "maintenance": "Wartung planen",
-    "all-details": "Siehe alle Details"
+    "set-maintenance": "Wartung starten",
+    "end-maintenance": "Wartung beenden"
   },
   "device-details": {
     "device-name": "Gerätename",
@@ -67,7 +65,7 @@
   },
   "incidents": {
     "title": "Zwischenfälle",
-    "update-now": "Aktualisieren",
+    "create-task": "Aufgabe erstellen",
     "incident-cards": {
       "device": "Gerät",
       "date": "Datum"
@@ -97,5 +95,5 @@
   "search": "Suchen",
   "demo-message": "Diese Funktion ist in der Demo-Version derzeit nicht verfügbar.",
   "cancel": "Abbrechen",
-  "okay": "Okay"
+  "okay": "OK"
 }
