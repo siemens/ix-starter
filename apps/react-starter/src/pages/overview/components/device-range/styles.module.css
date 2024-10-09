@@ -9,6 +9,8 @@
 
 .DeviceRange {
   height: 21rem;
+  min-height: 21rem;
+  max-height: 21rem;
 }
 
 .echarts {

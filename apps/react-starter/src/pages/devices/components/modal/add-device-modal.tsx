@@ -122,7 +122,7 @@ export default function AddDeviceModal() {
         </form>
       </IxModalContent>
 
-      <IxModalFooter>
+      <IxModalFooter className={styles.ModalFooter}>
         <IxButton aria-label={t("device-add-modal.dismiss")} outline onClick={() => dismiss()}>
           {t("device-add-modal.dismiss")}
         </IxButton>

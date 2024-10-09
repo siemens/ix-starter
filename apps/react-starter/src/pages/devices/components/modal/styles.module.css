@@ -16,3 +16,7 @@
 .ItemFullWidth {
   grid-column: 1 / 3;
 }
+
+.ModalFooter {
+  margin-top: 1rem;
+}

@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 import useShowDemoMessage from "@/hooks/demoMessage";
-import { useMediaQuery } from "@/hooks/mediaQuery";
+import { useIsMobileViewPort } from "@/hooks/mediaQuery";
 import { iconOpenExternal, iconUpload } from "@siemens/ix-icons/icons";
 import {
   IxButton,
@@ -20,9 +20,9 @@ import {
   IxRow,
   IxTypography,
 } from "@siemens/ix-react";
+import { useTranslation } from "react-i18next";
 import { type Incident } from "../incident";
 import styles from "./styles.module.css";
-import { useTranslation } from "react-i18next";
 
 function DesktopItem({ incident }: { incident: Incident }) {
   const { t } = useTranslation();
@@ -95,7 +95,7 @@ function MobileItem({ incident }: { incident: Incident }) {
 }
 
 function IncidentList(props: { incidents: Incident[]; search: string }) {
-  const isMobile = useMediaQuery("(max-width: 48em)");
+  const isMobile = useIsMobileViewPort();
   const searchFilter = (incident: Incident) => {
     if (!props.search) {
       return true;

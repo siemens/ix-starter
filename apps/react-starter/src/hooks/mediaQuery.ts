@@ -25,3 +25,5 @@ export function useMediaQuery(query: string) {
   }, [query]);
   return matches;
 }
+
+export const useIsMobileViewPort = () => useMediaQuery("(max-width: 48em)");

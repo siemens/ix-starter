@@ -39,7 +39,11 @@ function App() {
       <IxApplicationHeader name="Siemens Industrial Experience">
         <Logo />
         <IxAvatar username="Your user" extra="Administrator">
-          <IxDropdownItem icon={iconUserSettings} label="User Settings" onClick={showDemoMessage} />
+          <IxDropdownItem
+            icon={iconUserSettings}
+            label={t("settings.user-settings")}
+            onClick={showDemoMessage}
+          />
           <IxDropdownItem icon={iconLogOut} label="Logout" onClick={showDemoMessage} />
         </IxAvatar>
       </IxApplicationHeader>
