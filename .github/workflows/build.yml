@@ -59,8 +59,8 @@ jobs:
 
       - name: Install Playwright Browsers
         run: |
-          - cd ./apps/react-starter
-          - pnpm playwright install chromium --with-deps
+          cd ./apps/react-starter
+          pnpm playwright install chromium --with-deps
 
       - name: E2E
         run: pnpm e2e
