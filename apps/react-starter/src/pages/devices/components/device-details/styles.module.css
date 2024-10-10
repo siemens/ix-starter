@@ -22,7 +22,7 @@
   justify-content: space-between;
   overflow: hidden;
   word-break: break-word;
-  padding: 0 0.75rem;
+  padding: 0 0.75rem 1rem;
 }
 
 .MessageBar {
