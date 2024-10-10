@@ -16,7 +16,7 @@ test(`add filter input`, async () => {
   const input = screen.getByLabelText("Filter devices") as HTMLInputElement;
 
   expect(input).toBeInTheDocument();
-  await act(() => fireEvent.change(input, { target: { value: "Device A" } }));
+  await act(() => fireEvent.change(input, { target: { value: "robo1-net-sw17" } }));
 
   const items = screen.queryAllByTestId("incident-item");
   await waitFor(() => expect(items).toHaveLength(1));

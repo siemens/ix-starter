@@ -41,6 +41,7 @@ export default defineConfig({
     globals: true,
     environment: "happy-dom",
     setupFiles: "./setup.mjs",
+    exclude: ["**/node_modules/**", "**/public/**", "**/dist/**"],
     server: {
       deps: {
         inline: ["@siemens/ix-react", "@siemens/ix"],
