@@ -24,12 +24,21 @@ function ThemeButton(props: {
   onClick?: () => void;
 }) {
   return (
-    <div className={styles.ThemeButton}>
+    <div
+      className={styles.ThemeButton}
+      onClick={(event) => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        if (props.onClick) {
+          props.onClick();
+        }
+      }}
+    >
       <div
         className={clsx(styles.ThemeImagePreview, {
           [styles.Active]: props.active,
         })}
-        onClick={props.onClick}
       >
         <img draggable={false} src={props.image} alt="Siemens brand theme" />
       </div>
@@ -38,7 +47,9 @@ function ThemeButton(props: {
           type="radio"
           checked={props.active}
           id={props.name}
-          onChange={() => props.onClick?.()}
+          onChange={() => {
+            console.log("ThemeButton onChange", props.theme);
+          }}
         />
         <label htmlFor={props.name}>{props.name}</label>
       </div>
@@ -57,10 +68,8 @@ export default function UserSettings() {
   }, [currentTheme]);
 
   return (
-    <div>
-      <IxTypography className={styles.HeadlineMargin} format="h4">
-        Theme
-      </IxTypography>
+    <div className={styles.UserSettings}>
+      <IxTypography format="h4">Theme</IxTypography>
       <section className={styles.ThemeSelection}>
         <ThemeButton
           name="Siemens Brand"
@@ -77,28 +86,30 @@ export default function UserSettings() {
           onClick={() => setCurrentTheme("classic")}
         />
       </section>
-      <IxTypography className={styles.HeadlineMargin} format="h4">
-        {t("language.title")}
-      </IxTypography>
-      <section className={styles.LanguageSelection}>
-        <div>
-          <input
-            id="l_en"
-            type="radio"
-            checked={i18n.language === "en"}
-            onChange={() => i18n.changeLanguage("en")}
-          />
-          <label htmlFor="l_en">{t("language.en")}</label>
-        </div>
-        <div>
-          <input
-            id="l_de"
-            type="radio"
-            checked={i18n.language === "de"}
-            onChange={() => i18n.changeLanguage("de")}
-          />
-          <label htmlFor="l_de">{t("language.de")}</label>
-        </div>
+      <section>
+        <IxTypography className={styles.HeadlineLanguage} format="h4">
+          {t("language.title")}
+        </IxTypography>
+        <section className={styles.LanguageSelection}>
+          <div>
+            <input
+              id="l_en"
+              type="radio"
+              checked={i18n.language === "en"}
+              onChange={() => i18n.changeLanguage("en")}
+            />
+            <label htmlFor="l_en">{t("language.en")}</label>
+          </div>
+          <div>
+            <input
+              id="l_de"
+              type="radio"
+              checked={i18n.language === "de"}
+              onChange={() => i18n.changeLanguage("de")}
+            />
+            <label htmlFor="l_de">{t("language.de")}</label>
+          </div>
+        </section>
       </section>
     </div>
   );

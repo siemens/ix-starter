@@ -7,6 +7,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+.UserSettings {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
 .ThemeSelection {
   display: flex;
   flex-wrap: wrap;
@@ -32,10 +38,15 @@
   padding: 0.5rem;
   gap: 1rem;
   cursor: pointer;
+
+  width: 208px;
+  height: 160px;
 }
 
 .ThemeImagePreview img {
-  user-select: none;
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
 }
 
 .ThemeImagePreview.Active {
@@ -50,6 +61,6 @@
   gap: 0.5rem;
 }
 
-.HeadlineMargin {
-  margin-bottom: 1rem;
+.HeadlineLanguage {
+  margin-bottom: 0.75rem;
 }

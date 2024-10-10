@@ -90,7 +90,14 @@
   },
   "settings": {
     "title": "Settings",
-    "user-settings": "User settings"
+    "user-settings": "User settings",
+    "application-settings": "Application settings",
+    "notification": "Notification",
+    "toggle-on": "On",
+    "toggle-off": "Off",
+    "import-device": "Import device data",
+    "upload-text": "Drag files here or...",
+    "upload-button": "Browse files"
   },
   "toggle-theme": "Toggle theme",
   "search": "Search",

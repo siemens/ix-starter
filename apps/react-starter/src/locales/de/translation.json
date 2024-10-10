@@ -89,7 +89,14 @@
   },
   "settings": {
     "title": "Einstellungen",
-    "user-settings": "Benutzereinstellungen"
+    "user-settings": "Benutzereinstellungen",
+    "application-settings": "Anwendungseinstellungen",
+    "notification": "Benachrichtigung",
+    "toggle-on": "Eingeschaltet",
+    "toggle-off": "Ausgeschaltet",
+    "import-device": "Gerätedaten importieren",
+    "upload-text": "Dateien hierher ziehen oder...",
+    "upload-button": "Dateien auswählen"
   },
   "toggle-theme": "Theme wechseln",
   "search": "Suchen",
