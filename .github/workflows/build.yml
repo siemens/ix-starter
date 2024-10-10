@@ -58,7 +58,9 @@ jobs:
       - uses: ./.github/workflows/actions/install
 
       - name: Install Playwright Browsers
-        run: pnpm dlx playwright install chromium --with-deps
+        run: |
+          - cd ./apps/react-starter
+          - pnpm playwright install chromium --with-deps
 
       - name: E2E
         run: pnpm e2e
