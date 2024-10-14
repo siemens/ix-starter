@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: ["main", "react-demo-app"] # remove "react-demo-app" before merge to main
+    branches: ["main"] # remove "react-demo-app" before merge to main
   pull_request:
     types: [opened, synchronize]
 
