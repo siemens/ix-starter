@@ -15,6 +15,7 @@ import clsx from "clsx";
 import { useEffect, useState } from "react";
 import { themeSwitcher } from "@siemens/ix";
 import { useTranslation } from "react-i18next";
+import useShowDemoMessage from "@/hooks/demoMessage";
 
 function ThemeButton(props: {
   name: string;
@@ -58,14 +59,26 @@ function ThemeButton(props: {
 }
 
 export default function UserSettings() {
+  const showDemoMessage = useShowDemoMessage();
   const { t, i18n } = useTranslation();
-  const [currentTheme, setCurrentTheme] = useState<string>("brand");
+  const [currentTheme, setCurrentTheme] = useState<string>(
+    import.meta.env.VITE_THEME ? "brand" : "classic",
+  );
 
   useEffect(() => {
     const currentVariant = themeSwitcher.getCurrentTheme();
     const isDark = currentVariant.endsWith(themeSwitcher.suffixDark);
     themeSwitcher.setTheme(`theme-${currentTheme}-${isDark ? "dark" : "light"}`);
   }, [currentTheme]);
+
+  function changeTheme(theme: string) {
+    if (import.meta.env.VITE_THEME === undefined) {
+      showDemoMessage();
+      return;
+    }
+
+    setCurrentTheme(theme);
+  }
 
   return (
     <div className={styles.UserSettings}>
@@ -76,14 +89,14 @@ export default function UserSettings() {
           image={brand}
           active={currentTheme === "brand"}
           theme="brand"
-          onClick={() => setCurrentTheme("brand")}
+          onClick={() => changeTheme("brand")}
         />
         <ThemeButton
           name="Classic"
           image={classic}
           active={currentTheme === "classic"}
           theme="classic"
-          onClick={() => setCurrentTheme("classic")}
+          onClick={() => changeTheme("classic")}
         />
       </section>
       <section>
