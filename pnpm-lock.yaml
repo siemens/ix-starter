@@ -26,11 +26,14 @@ importers:
       '@siemens/ix':
         specifier: ^2.5.0
         version: 2.5.0(@popperjs/core@2.11.8)(@siemens/ix-icons@2.2.0)(bootstrap@5.2.3(@popperjs/core@2.11.8))
+      '@siemens/ix-aggrid':
+        specifier: ^2.2.0
+        version: 2.2.0(@popperjs/core@2.11.8)(@siemens/ix-icons@2.2.0)(ag-grid-community@32.2.1)(bootstrap@5.2.3(@popperjs/core@2.11.8))
       '@siemens/ix-echarts':
         specifier: ^2.3.0
         version: 2.3.0(echarts@5.5.1)
       '@siemens/ix-icons':
-        specifier: ^2.0.0
+        specifier: ^2.2.0
         version: 2.2.0
       '@siemens/ix-react':
         specifier: ^2.5.0
@@ -78,9 +81,6 @@ importers:
       '@playwright/test':
         specifier: ^1.47.2
         version: 1.47.2
-      '@siemens/ix-aggrid':
-        specifier: ^2.2.0
-        version: 2.2.0(@popperjs/core@2.11.8)(@siemens/ix-icons@2.2.0)(ag-grid-community@32.2.1)(bootstrap@5.2.3(@popperjs/core@2.11.8))
       '@testing-library/jest-dom':
         specifier: ^6.5.0
         version: 6.5.0

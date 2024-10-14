@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@siemens/ix": "^2.5.0",
-    "@siemens/ix-aggrid": "^2.5.0",
+    "@siemens/ix-aggrid": "^2.2.0",
     "@siemens/ix-echarts": "^2.3.0",
     "@siemens/ix-icons": "^2.2.0",
     "@siemens/ix-react": "^2.5.0",
