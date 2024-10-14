@@ -7,15 +7,12 @@ on:
         description: "Please confirm deployment"
         required: true
         type: boolean
-  push: # remove on.push before merge to main
-    branches: ["react-demo-app"]
 
 concurrency: deploy-gh-pages-${{ github.ref }}
 
 jobs:
   deploy-gh-pages:
-    # remove comment before merge to main
-    # if: ${{ inputs.confirm_deployment == true && github.repository == 'siemens/ix-starter' }}
+    if: ${{ inputs.confirm_deployment == true && github.repository == 'siemens/ix-starter' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

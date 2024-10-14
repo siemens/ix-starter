@@ -1,29 +1,25 @@
 {
   "folders": [
     {
-      "name": "ix-react-showcase",
-      "path": "./apps/react-showcase"
-    },
-    {
       "name": "ix-react-starter",
-      "path": "./apps/react-starter"
+      "path": "./apps/react-starter",
     },
     {
       "name": "root",
-      "path": "./"
-    }
+      "path": "./",
+    },
   ],
   "settings": {
     "psi-header.config": {
       "blankLinesAfter": 0,
-      "forceToTop": true
+      "forceToTop": true,
     },
     "psi-header.lang-config": [
       {
         "language": "vue",
         "begin": "<!--",
-        "end": "-->"
-      }
+        "end": "-->",
+      },
     ],
     "psi-header.templates": [
       {
@@ -34,16 +30,16 @@
           "SPDX-License-Identifier: MIT",
           "",
           "This source code is licensed under the MIT license found in the",
-          "LICENSE file in the root directory of this source tree."
-        ]
-      }
+          "LICENSE file in the root directory of this source tree.",
+        ],
+      },
     ],
     "psi-header.changes-tracking": {
       "isActive": true,
       "enforceHeader": false,
       "autoHeader": "autoSave",
       "language": "*",
-      "exclude": ["yaml", "md"]
-    }
-  }
+      "exclude": ["yaml", "md"],
+    },
+  },
 }
