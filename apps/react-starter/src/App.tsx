@@ -1,5 +1,3 @@
-import "./App.css";
-
 import { registerTheme } from "@siemens/ix-echarts";
 import { iconLogOut, iconUserSettings } from "@siemens/ix-icons/icons";
 import {

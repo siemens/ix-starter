@@ -28,6 +28,7 @@ jobs:
       - name: Build React Starter
         run: pnpm build
         env:
+          BRAND_URL: ${{ vars.BRAND_URL }}
           REACT_BASE: /ix-starter/react-starter/
           VITE_THEME: 1
 

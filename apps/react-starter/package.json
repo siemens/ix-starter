@@ -13,8 +13,9 @@
   },
   "dependencies": {
     "@siemens/ix": "^2.5.0",
+    "@siemens/ix-aggrid": "^2.5.0",
     "@siemens/ix-echarts": "^2.3.0",
-    "@siemens/ix-icons": "^2.0.0",
+    "@siemens/ix-icons": "^2.2.0",
     "@siemens/ix-react": "^2.5.0",
     "ag-grid-community": "32.2.1",
     "ag-grid-react": "32.2.1",
@@ -32,7 +33,6 @@
   "devDependencies": {
     "@eslint/js": "^9.9.0",
     "@playwright/test": "^1.47.2",
-    "@siemens/ix-aggrid": "^2.2.0",
     "@testing-library/jest-dom": "^6.5.0",
     "@testing-library/react": "^16.0.1",
     "@types/fs-extra": "^11.0.4",

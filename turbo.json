@@ -1,6 +1,6 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalEnv": ["CI", "REACT_BASE"],
+  "globalEnv": ["CI", "REACT_BASE", "BRAND_URL"],
   "globalDependencies": ["**/.env.*local"],
   "tasks": {
     "build": {

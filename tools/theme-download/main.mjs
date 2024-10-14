@@ -9,6 +9,7 @@ import * as tar from "tar";
 
 const version = "2.2.0-beta.0";
 const token = process.env.CSC_TOKEN;
+const pkgUrl = process.env.BRAND_URL;
 
 if (!process.env.CI) {
   console.error("This script should only be run in CI");
@@ -62,9 +63,6 @@ if (!fs.existsSync(__node_modules)) {
   process.exit(1);
 }
 
-await download(
-  `https://code.siemens.com/api/v4/projects/249177/packages/npm/@siemens/ix-brand-theme/-/@siemens/ix-brand-theme-${version}.tgz`,
-  __themeTgz,
-);
+await download(pkgUrl, __themeTgz);
 const unpackTheme = await unpack(__themeTgz);
 fs.moveSync(unpackTheme, path.join(__node_modules, "@siemens", "ix-brand-theme"));
