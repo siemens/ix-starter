@@ -1,0 +1,106 @@
+{
+  "analytics": "Analyse",
+  "cards": "Karten",
+  "content-header": "Hallo iX User, willkommen in unserer Demo-App!",
+  "device-status": {
+    "title": "Gerätestatus"
+  },
+  "devices": "Geräte",
+  "add-device": "Gerät hinzufügen",
+  "device-quick-actions": {
+    "add-device": "Gerät hinzufügen",
+    "devices": "Geräte",
+    "faulty-devices": "Fehler",
+    "warning-devices": "Wartung"
+  },
+  "category-filter": {
+    "placeholder": "Filtern nach",
+    "categories": "Kategorien"
+  },
+  "device-add-modal": {
+    "title": "Gerät hinzufügen",
+    "list-header": "Bitte wählen sie einen Status",
+    "close": "Gerät hinzufügen",
+    "dismiss": "Abbrechen",
+    "success": "Device erfolgreich hinzugefügt!"
+  },
+  "device-delete-modal": {
+    "title": "Gerät löschen?",
+    "content": "Wollen Sie das Gerät wirklich löschen?",
+    "close": "Gerät löschen",
+    "dismiss": "Abbrechen"
+  },
+  "dropdown-quick-actions": {
+    "rename": "Umbennen",
+    "on": "Einschalten",
+    "off": "Ausschalten",
+    "delete": "Löschen",
+    "success-messages": {
+      "copy": "Gerät erfolgreich in die Zwischenablage kopiert!",
+      "delete": "Gerät erfolgreich entfernt!",
+      "duplicate": "Gerät erfolgreich dupliziert!",
+      "cut": "Gerät erfolgreich in die Zwischenablage übertragen!",
+      "paste": "Gerät erfolgreich eingefügt!"
+    }
+  },
+  "device-details-header": {
+    "title": "Geräteinformationen",
+    "firmware-card": "Gerätefirmware ist veraltet.",
+    "update": "Update"
+  },
+  "device-details-footer": {
+    "set-maintenance": "Wartung starten",
+    "end-maintenance": "Wartung beenden"
+  },
+  "device-details": {
+    "device-name": "Gerätename",
+    "vendor": "Hersteller",
+    "description": "Gerätetyp",
+    "status": "Status",
+    "article-number": "Artikelnummer",
+    "mac-address": "MAC Adresse",
+    "ip-address": "IP Adresse",
+    "firmware-version": "Firmware-Version",
+    "serial-number": "Serialnummer"
+  },
+  "incidents": {
+    "title": "Zwischenfälle",
+    "create-task": "Aufgabe erstellen",
+    "incident-cards": {
+      "device": "Gerät",
+      "date": "Datum"
+    }
+  },
+  "language": {
+    "title": "Sprache",
+    "de": "Deutsch",
+    "en": "Englisch"
+  },
+  "list": "Liste",
+  "overview": "Übersicht",
+  "quick-actions": {
+    "title": "Quick Actions",
+    "add-device": "Gerät hinzufügen",
+    "add-devices": "Geräte hinzufügen",
+    "schedule-maintenance": "Warung planen"
+  },
+  "status-history": {
+    "title": "Statusverlauf"
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "user-settings": "Benutzereinstellungen",
+    "application-settings": "Anwendungseinstellungen",
+    "notification": "Benachrichtigungen",
+    "toggle-on": "Eingeschaltet",
+    "toggle-off": "Ausgeschaltet",
+    "import-device": "Gerätedaten importieren",
+    "upload-text": "Dateien hierher ziehen oder...",
+    "upload-button": "Dateien auswählen..."
+  },
+  "toggle-theme": "Theme wechseln",
+  "search": "Suchen",
+  "demo-message": "Diese Funktion ist in der Demo-Version derzeit nicht verfügbar.",
+  "cancel": "Abbrechen",
+  "okay": "OK"
+}

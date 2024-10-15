@@ -1,0 +1,51 @@
+/*
+ * SPDX-FileCopyrightText: 2024 Siemens AG
+ *
+ * SPDX-License-Identifier: MIT
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.Pane {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 10;
+}
+
+.Container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  word-break: break-word;
+  padding: 0 0.75rem 1rem;
+}
+
+.MessageBar {
+  margin-bottom: 0.25rem;
+}
+
+.MessageBarContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ButtonMargin {
+  margin-left: 0.75rem;
+}
+
+.Divider {
+  margin: 0.5rem 0;
+}
+
+.DeviceName {
+  margin-bottom: 2rem;
+  overflow: hidden;
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+}

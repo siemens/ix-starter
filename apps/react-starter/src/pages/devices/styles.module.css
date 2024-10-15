@@ -1,0 +1,50 @@
+/*
+ * SPDX-FileCopyrightText: 2024 Siemens AG
+ *
+ * SPDX-License-Identifier: MIT
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+.DeviceTable {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  height: 100%;
+}
+
+.DeviceFilter {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.DeviceFilter .CategoryFilter {
+  min-width: 16rem;
+  flex-grow: 1;
+}
+
+.DeviceFilter .QuickFilter {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  min-width: 38rem;
+}
+
+@media only screen and (max-width: 48em) {
+  .DeviceFilter {
+    flex-direction: column;
+  }
+
+  .DeviceFilter .CategoryFilter {
+    min-width: 0rem;
+    width: 100%;
+  }
+
+  .DeviceFilter .QuickFilter {
+    flex-wrap: wrap;
+    min-width: 0rem;
+  }
+}
