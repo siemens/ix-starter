@@ -1,13 +1,18 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "globalEnv": ["CI", "REACT_BASE", "BRAND_URL"],
   "globalDependencies": ["**/.env.*local"],
-  "pipeline": {
+  "tasks": {
     "build": {
       "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**"]
     },
     "lint": {},
-    "dev": {
+    "test": {
+      "cache": false,
+      "persistent": true
+    },
+    "e2e": {
       "cache": false,
       "persistent": true
     }

@@ -1,0 +1,107 @@
+{
+  "analytics": "Analytics",
+  "cards": "Cards",
+  "content-header": "Hello iX user, welcome to our demo app!",
+  "device-status": {
+    "title": "Device status"
+  },
+  "devices": "Devices",
+  "add-device": "Add device",
+  "device-quick-actions": {
+    "add-device": "Add device",
+    "devices": "Devices",
+    "faulty-devices": "Errors",
+    "warning-devices": "Servicing"
+  },
+  "category-filter": {
+    "placeholder": "Filter by",
+    "categories": "Categories"
+  },
+  "device-add-modal": {
+    "title": "Add device",
+    "list-header": "Please select a status",
+    "close": "Add device",
+    "dismiss": "Cancel",
+    "success": "Device successfully added!"
+  },
+  "device-delete-modal": {
+    "title": "Delete device?",
+    "content": "Do you really want to delete the device?",
+    "close": "Delete device",
+    "dismiss": "Cancel"
+  },
+  "dropdown-quick-actions": {
+    "rename": "Rename",
+    "on": "Turn on",
+    "off": "Turn off",
+    "delete": "Delete",
+    "success-messages": {
+      "copy": "Device copied to clipboard",
+      "delete": "Device deleted",
+      "duplicate": "Device duplicated",
+      "cut": "Device cut to clipboard",
+      "paste": "Device pasted"
+    }
+  },
+  "device-details-header": {
+    "title": "Device details",
+    "firmware-card": "Firmware is not up to date",
+    "update": "Update"
+  },
+  "device-details-footer": {
+    "set-maintenance": "Start maintenance",
+    "end-maintenance": "End maintenance"
+  },
+  "device-details": {
+    "title": "Device information",
+    "device-name": "Device name",
+    "vendor": "Vendor",
+    "description": "Device type",
+    "status": "Status",
+    "article-number": "Article number",
+    "mac-address": "MAC address",
+    "ip-address": "IP address",
+    "firmware-version": "Firmware version",
+    "serial-number": "Serial number"
+  },
+  "incidents": {
+    "title": "Incidents",
+    "create-task": "Create task",
+    "incident-cards": {
+      "device": "Device",
+      "date": "Date"
+    }
+  },
+  "language": {
+    "title": "Language",
+    "de": "German",
+    "en": "English"
+  },
+  "list": "List",
+  "overview": "Overview",
+  "quick-actions": {
+    "title": "Quick Actions",
+    "add-device": "Add device",
+    "add-devices": "Add devices",
+    "schedule-maintenance": "Schedule maintenance"
+  },
+  "status-history": {
+    "title": "Status history"
+  },
+  "settings": {
+    "title": "Settings",
+    "user-settings": "User settings",
+    "application-settings": "Application settings",
+    "notification": "Notifications",
+    "toggle-on": "On",
+    "toggle-off": "Off",
+    "import-device": "Import device data",
+    "upload-text": "Drag files here or...",
+    "upload-button": "Upload files..."
+  },
+  "toggle-theme": "Toggle theme",
+  "search": "Search",
+  "demo-message": "This feature is currently unavailable in the demo version.",
+  "cancel": "Cancel",
+  "okay": "OK"
+}

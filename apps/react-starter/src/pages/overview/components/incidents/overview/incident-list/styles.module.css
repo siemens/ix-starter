@@ -1,0 +1,45 @@
+/*
+ * SPDX-FileCopyrightText: 2024 Siemens AG
+ *
+ * SPDX-License-Identifier: MIT
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.NoWrap {
+  flex-wrap: nowrap;
+}
+
+.InfoText {
+  padding-left: 2.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.IncidentActions {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.IncidentList {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.EventList {
+  overflow: auto;
+  height: 100%;
+  position: relative;
+  display: block;
+}
+
+.EventListHeaderOffset {
+  padding-left: 1.125rem;
+}

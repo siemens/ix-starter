@@ -1,48 +1,55 @@
-/*
- * SPDX-FileCopyrightText: 2022 Siemens AG
- *
- * SPDX-License-Identifier: MIT
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
+import { IxApplicationContext } from "@siemens/ix-react";
+import "@siemens/ix/dist/siemens-ix/siemens-ix.css";
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { createHashRouter, RouterProvider } from "react-router-dom";
+import App from "./App.tsx";
+import "./i18n";
+import "./index.css";
+import DevicesPage from "./pages/devices/index.tsx";
+import OverviewPage from "./pages/overview/index.tsx";
 
-import { IxApplicationContext } from '@siemens/ix-react';
-import '@siemens/ix/dist/siemens-ix/siemens-ix.css';
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { createHashRouter, RouterProvider } from 'react-router-dom';
-import App from './App';
-import './index.css';
-import ComponentOverview from './pages/component-overview';
-import HomePage from './pages/home';
-import Example from './pages/example';
+function optionalTheme() {
+  if (import.meta.env.VITE_THEME) {
+    const css = `${import.meta.env.BASE_URL}theme/dist/ix-brand-theme/ix-brand-theme.css`;
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = css;
+    document.head.appendChild(link);
+
+    const loader = `${import.meta.env.BASE_URL}theme/dist/esm/ix-brand-theme.js`;
+    const script = document.createElement("script");
+    script.src = loader;
+    script.type = "module";
+    document.head.appendChild(script);
+
+    document.body.classList.add("theme-brand-dark");
+  }
+}
+
+optionalTheme();
 
 const router = createHashRouter([
   {
-    path: '/',
+    path: "/",
     element: <App />,
     children: [
       {
-        path: '/',
-        element: <HomePage />,
+        path: "/",
+        element: <OverviewPage />,
       },
       {
-        path: '/page1',
-        element: <ComponentOverview />,
-      },
-      {
-        path: '/page2',
-        element: <Example />,
+        path: "/devices",
+        element: <DevicesPage />,
       },
     ],
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
+createRoot(document.getElementById("root")!).render(
+  <StrictMode>
     <IxApplicationContext>
-      <RouterProvider router={router} />
+      <RouterProvider router={router}></RouterProvider>
     </IxApplicationContext>
-  </React.StrictMode>
+  </StrictMode>,
 );
