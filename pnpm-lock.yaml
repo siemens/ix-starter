@@ -121,8 +121,8 @@ importers:
         specifier: ^15.9.0
         version: 15.9.0
       happy-dom:
-        specifier: ^15.7.4
-        version: 15.7.4
+        specifier: ^15.10.1
+        version: 15.10.1
       prettier:
         specifier: ^3.3.3
         version: 3.3.3
@@ -140,7 +140,7 @@ importers:
         version: 5.4.10
       vitest:
         specifier: ^2.1.1
-        version: 2.1.1(happy-dom@15.7.4)
+        version: 2.1.1(happy-dom@15.10.1)
 
   tools/theme-download:
     dependencies:
@@ -2384,8 +2384,8 @@ packages:
     resolution: {integrity: sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==}
     dev: true
 
-  /happy-dom@15.7.4:
-    resolution: {integrity: sha512-r1vadDYGMtsHAAsqhDuk4IpPvr6N8MGKy5ntBo7tSdim+pWDxus2PNqOcOt8LuDZ4t3KJHE+gCuzupcx/GKnyQ==}
+  /happy-dom@15.10.1:
+    resolution: {integrity: sha512-FuGnj/qIB4QnBL6fWmD7Wnh6STxevLgOVWB6+nopDGgWG1+t9CXkNB2ldZ+iqwD2UKxD2D0SU8el8A6AX6Q1+g==}
     engines: {node: '>=18.0.0'}
     dependencies:
       entities: 4.5.0
@@ -3771,7 +3771,7 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vitest@2.1.1(happy-dom@15.7.4):
+  /vitest@2.1.1(happy-dom@15.10.1):
     resolution: {integrity: sha512-97We7/VC0e9X5zBVkvt7SGQMGrRtn3KtySFQG5fpaMlS+l62eeXRQO633AYhSTC3z7IMebnPPNjGXVGNRFlxBA==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -3805,7 +3805,7 @@ packages:
       '@vitest/utils': 2.1.1
       chai: 5.1.1
       debug: 4.3.7
-      happy-dom: 15.7.4
+      happy-dom: 15.10.1
       magic-string: 0.30.12
       pathe: 1.1.2
       std-env: 3.7.0
