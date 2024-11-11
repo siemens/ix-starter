@@ -54,8 +54,8 @@ importers:
         specifier: ^3.0.2
         version: 3.0.2(echarts@5.5.1)(react@18.3.1)
       i18next:
-        specifier: ^23.15.1
-        version: 23.15.1
+        specifier: ^23.16.5
+        version: 23.16.5
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -67,7 +67,7 @@ importers:
         version: 7.53.0(react@18.3.1)
       react-i18next:
         specifier: ^15.0.2
-        version: 15.0.2(i18next@23.15.1)(react-dom@18.3.1)(react@18.3.1)
+        version: 15.0.2(i18next@23.16.5)(react-dom@18.3.1)(react@18.3.1)
       react-router-dom:
         specifier: ^6.27.0
         version: 6.27.0(react-dom@18.3.1)(react@18.3.1)
@@ -2447,8 +2447,8 @@ packages:
     resolution: {integrity: sha512-1qAjO29EJW/mPyqY+9wFjruD2YWur1dPsPYmt9RvMX6P+8Cr2UmT75MCWjjK+1/4Jxc3sm/G3Kr8DzGgEDRG+Q==}
     dev: false
 
-  /i18next@23.15.1:
-    resolution: {integrity: sha512-wB4abZ3uK7EWodYisHl/asf8UYEhrI/vj/8aoSsrj/ZDxj4/UXPOa1KvFt1Fq5hkUHquNqwFlDprmjZ8iySgYA==}
+  /i18next@23.16.5:
+    resolution: {integrity: sha512-KTlhE3EP9x6pPTAW7dy0WKIhoCpfOGhRQlO+jttQLgzVaoOjWwBWramu7Pp0i+8wDNduuzXfe3kkVbzrKyrbTA==}
     dependencies:
       '@babel/runtime': 7.25.7
     dev: false
@@ -3094,7 +3094,7 @@ packages:
       react: 18.3.1
     dev: false
 
-  /react-i18next@15.0.2(i18next@23.15.1)(react-dom@18.3.1)(react@18.3.1):
+  /react-i18next@15.0.2(i18next@23.16.5)(react-dom@18.3.1)(react@18.3.1):
     resolution: {integrity: sha512-z0W3/RES9Idv3MmJUcf0mDNeeMOUXe+xoL0kPfQPbDoZHmni/XsIoq5zgT2MCFUiau283GuBUK578uD/mkAbLQ==}
     peerDependencies:
       i18next: '>= 23.2.3'
@@ -3109,7 +3109,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.25.7
       html-parse-stringify: 3.0.1
-      i18next: 23.15.1
+      i18next: 23.16.5
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
     dev: false
