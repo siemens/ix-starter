@@ -18,6 +18,7 @@ import { useTranslation } from "react-i18next";
 import CustomDeviceCellRenderer from "./device-cell-renderer.tsx";
 import QuickActionsCellRenderer from "./quick-actions-cell-renderer.tsx";
 import "./styles.module.css";
+import { iconProject } from "@siemens/ix-icons/icons";
 
 function AgGridTable() {
   const { t } = useTranslation();
@@ -132,7 +133,7 @@ function AgGridTable() {
         <IxEmptyState
           header="No devices found"
           subHeader="Please remove search terms or add a new device"
-          icon="project"
+          icon={iconProject}
           action="Reset Filter"
           onActionClick={() => resetFilter()}
         ></IxEmptyState>

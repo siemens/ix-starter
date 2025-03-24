@@ -30,6 +30,8 @@ import {
   iconPcTower,
   iconRename,
   iconTrashcan,
+  iconPen,
+  iconContextMenu,
 } from "@siemens/ix-icons/icons";
 import DeleteModal from "./delete-modal.tsx";
 import { useTranslation } from "react-i18next";
@@ -106,7 +108,7 @@ const QuickActionsCellRenderer = (props: QuickActionsCellRendererProps) => {
       <IxIconButton
         class={`edit-tooltip-${props.data.id}`}
         aria-describedby={`tooltip-${props.data.id}`}
-        icon="pen"
+        icon={iconPen}
         variant="secondary"
         ghost
         onClick={startEditingFirstCell}
@@ -117,7 +119,7 @@ const QuickActionsCellRenderer = (props: QuickActionsCellRendererProps) => {
       <IxIconButton
         class={`delete-tooltip-${props.data.id}`}
         aria-describedby="delete-tooltip"
-        icon="trashcan"
+        icon={iconTrashcan}
         variant="secondary"
         ghost
         onClick={handleDelete}
@@ -126,7 +128,7 @@ const QuickActionsCellRenderer = (props: QuickActionsCellRendererProps) => {
         {t("dropdown-quick-actions.delete")}
       </IxTooltip>
       <IxIconButton
-        icon="context-menu"
+        icon={iconContextMenu}
         variant="secondary"
         ghost
         id={`device_${props.node.rowIndex}`}

@@ -10,6 +10,7 @@
 import useShowDemoMessage from "@/hooks/demoMessage";
 import { IxActionCard } from "@siemens/ix-react";
 import { useTranslation } from "react-i18next";
+import { iconAddCircle, iconList, iconPiechart, iconMaintenance } from "@siemens/ix-icons/icons";
 
 function QuickActions() {
   const { t } = useTranslation();
@@ -20,22 +21,22 @@ function QuickActions() {
       <IxActionCard
         onClick={showDemoMessage}
         variant="filled"
-        icon="add-circle"
+        icon={iconAddCircle}
         heading={t("quick-actions.add-device")}
       ></IxActionCard>
       <IxActionCard
         onClick={showDemoMessage}
-        icon="list"
+        icon={iconList}
         heading={t("quick-actions.add-devices")}
       ></IxActionCard>
       <IxActionCard
         onClick={showDemoMessage}
-        icon="piechart"
+        icon={iconPiechart}
         heading={t("analytics")}
       ></IxActionCard>
       <IxActionCard
         onClick={showDemoMessage}
-        icon="maintenance"
+        icon={iconMaintenance}
         heading={t("quick-actions.schedule-maintenance")}
       ></IxActionCard>
     </>

@@ -10,7 +10,15 @@
 import { ChangeEvent, useState } from "react";
 import style from "./styles.module.css";
 
-import { iconList, iconSearch } from "@siemens/ix-icons/icons";
+import {
+  iconList,
+  iconSearch,
+  iconCardLayout,
+  iconCloudUpload,
+  iconMaintenanceWarning,
+  iconInfo,
+  iconError,
+} from "@siemens/ix-icons/icons";
 import { IxButton, IxIcon, IxInputGroup, IxTypography } from "@siemens/ix-react";
 import { useTranslation } from "react-i18next";
 import { Incident } from "./incident";
@@ -26,18 +34,18 @@ function Incidents() {
     {
       id: 1,
       incidentName: "Update available",
-      icon: "cloud-upload",
+      icon: iconCloudUpload,
       infoText: "v2.3 -> v2.5",
       deviceName: "robo1-net-sw17",
       ipAddress: "172.19.65.8",
       date: "2024-10-09",
       time: "08:51:21",
-      color: "info",
+      color: iconInfo,
     },
     {
       id: 2,
       incidentName: "Maintenance ended",
-      icon: "maintenance-warning",
+      icon: iconMaintenanceWarning,
       infoText: "Manually ended by user",
       deviceName: "agv-net-ap06",
       ipAddress: "172.19.62.12",
@@ -48,7 +56,7 @@ function Incidents() {
     {
       id: 3,
       incidentName: "Maintenance started",
-      icon: "maintenance-warning",
+      icon: iconMaintenanceWarning,
       infoText: "Manually started by user",
       deviceName: "agv-net-ap06",
       ipAddress: "172.19.62.12",
@@ -59,7 +67,7 @@ function Incidents() {
     {
       id: 4,
       incidentName: "Vendor changed",
-      icon: "info",
+      icon: iconInfo,
       infoText: "SIEMENS AG -> Siemens",
       deviceName: "01320ht01.x2p1",
       ipAddress: "10.160.16.6",
@@ -70,7 +78,7 @@ function Incidents() {
     {
       id: 5,
       incidentName: "Device name changed",
-      icon: "info",
+      icon: iconInfo,
       infoText: "NYC-Cisco-ASR9001 -> NYC-Cisco-ASR9001-Edge-Router",
       deviceName: "NYC-Cisco-ASR9001-Edge-Router",
       ipAddress: "192.168.17.51",
@@ -81,7 +89,7 @@ function Incidents() {
     {
       id: 6,
       incidentName: "Maintenance started",
-      icon: "maintenance-warning",
+      icon: iconMaintenanceWarning,
       infoText: "Status update from device",
       deviceName: "pd-rack-pnet200sp-01",
       ipAddress: "172.27.232.65",
@@ -92,7 +100,7 @@ function Incidents() {
     {
       id: 7,
       incidentName: "Device type changed",
-      icon: "info",
+      icon: iconInfo,
       infoText: "Level radar -> Sensor",
       deviceName: "tanklevel-sensor",
       ipAddress: "192.168.158.178",
@@ -103,7 +111,7 @@ function Incidents() {
     {
       id: 8,
       incidentName: "Maintenance started",
-      icon: "maintenance-warning",
+      icon: iconMaintenanceWarning,
       infoText: "Status update from device",
       deviceName: "pd-rackkm-cpu1712-08",
       ipAddress: "172.27.232.95",
@@ -114,7 +122,7 @@ function Incidents() {
     {
       id: 9,
       incidentName: "Error",
-      icon: "error",
+      icon: iconError,
       infoText: "Status update from device",
       deviceName: "heatexchanger-sensor",
       ipAddress: "192.168.145.189",
@@ -125,7 +133,7 @@ function Incidents() {
     {
       id: 10,
       incidentName: "Device offline",
-      icon: "info",
+      icon: iconInfo,
       infoText: "Status update from device",
       deviceName: "s71200",
       ipAddress: "192.168.74.1",
@@ -159,7 +167,7 @@ function Incidents() {
         </IxInputGroup>
 
         <div className="btn-group">
-          <IxButton icon="card-layout" outline onClick={showDemoMessage}>
+          <IxButton icon={iconCardLayout} outline onClick={showDemoMessage}>
             {t("cards")}
           </IxButton>
           <IxButton icon={iconList}>{t("list")}</IxButton>
