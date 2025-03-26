@@ -17,7 +17,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import CustomDeviceCellRenderer from "./device-cell-renderer.tsx";
 import QuickActionsCellRenderer from "./quick-actions-cell-renderer.tsx";
-import "./styles.module.css";
+import styles from "./styles.module.css";
 import { iconProject } from "@siemens/ix-icons/icons";
 
 function AgGridTable() {
@@ -129,7 +129,7 @@ function AgGridTable() {
 
   if (showEmptyState) {
     return (
-      <div className="flex-grow-1 d-flex justify-content-center align-items-center">
+      <div className={styles.EmptyStateWrapper}>
         <IxEmptyState
           header="No devices found"
           subHeader="Please remove search terms or add a new device"
@@ -142,7 +142,7 @@ function AgGridTable() {
   }
 
   return (
-    <div className="flex-grow-1">
+    <div className={styles.GridWrapper}>
       <AgGridReact
         ref={gridRef}
         onGridReady={(event) => setGridApi(event.api)}
