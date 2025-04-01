@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { ChangeEvent, useState } from "react";
+import { useState } from "react";
 import style from "./styles.module.css";
 
 import {
@@ -19,7 +19,7 @@ import {
   iconInfo,
   iconError,
 } from "@siemens/ix-icons/icons";
-import { IxButton, IxIcon, IxInputGroup, IxTypography } from "@siemens/ix-react";
+import { IxButton, IxIcon, IxTypography, IxInput } from "@siemens/ix-react";
 import { useTranslation } from "react-i18next";
 import { Incident } from "./incident";
 import IncidentList from "./incident-list";
@@ -144,8 +144,8 @@ function Incidents() {
   ]);
   const [search, setSearch] = useState("");
 
-  const handleInput = (event: ChangeEvent<HTMLInputElement>) => {
-    setSearch(event.target.value);
+  const handleInput = (event: CustomEvent<string>) => {
+    setSearch(event.detail);
   };
 
   return (
@@ -154,17 +154,9 @@ function Incidents() {
         {t("incidents.title")}
       </IxTypography>
       <div className={style.SearchAndFilter}>
-        <IxInputGroup>
-          <input
-            placeholder={t("search")}
-            type="text"
-            aria-label="Filter devices"
-            onChange={handleInput}
-          />
-          <span slot="input-start">
-            <IxIcon name={iconSearch} color="color-primary" size="16"></IxIcon>
-          </span>
-        </IxInputGroup>
+        <IxInput placeholder={t("search")} aria-label="Filter devices" type="text" onValueChange={handleInput}>
+          <IxIcon slot="start" name={iconSearch} color="color-primary" size="16"></IxIcon>
+        </IxInput>
 
         <div className="btn-group">
           <IxButton icon={iconCardLayout} outline onClick={showDemoMessage}>
