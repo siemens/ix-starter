@@ -106,7 +106,7 @@ const QuickActionsCellRenderer = (props: QuickActionsCellRendererProps) => {
   return (
     <IxRow className={styles.IxRow}>
       <IxIconButton
-        class={`edit-tooltip-${props.data.id}`}
+        className={`edit-tooltip-${props.data.id}`}
         aria-describedby={`tooltip-${props.data.id}`}
         icon={iconPen}
         variant="secondary"
@@ -117,7 +117,7 @@ const QuickActionsCellRenderer = (props: QuickActionsCellRendererProps) => {
         {t("dropdown-quick-actions.rename")}
       </IxTooltip>
       <IxIconButton
-        class={`delete-tooltip-${props.data.id}`}
+        className={`delete-tooltip-${props.data.id}`}
         aria-describedby="delete-tooltip"
         icon={iconTrashcan}
         variant="secondary"
