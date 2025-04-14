@@ -13,7 +13,7 @@ import IncidentsOverview from "./index";
 
 test(`add filter input`, async () => {
   const screen = render(<IncidentsOverview></IncidentsOverview>);
-  const input = screen.getByLabelText("Filter devices") as HTMLInputElement;
+  const input = screen.getByPlaceholderText("Search") as HTMLInputElement;
 
   expect(input).toBeInTheDocument();
   await act(() => fireEvent.change(input, { target: { value: "robo1-net-sw17" } }));
