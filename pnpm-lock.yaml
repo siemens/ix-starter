@@ -53,6 +53,9 @@ importers:
       echarts-for-react:
         specifier: ^3.0.2
         version: 3.0.2(echarts@5.5.1)(react@18.3.1)
+      element-internals-polyfill:
+        specifier: ^3.0.1
+        version: 3.0.1
       i18next:
         specifier: ^23.15.1
         version: 23.15.1
@@ -2176,6 +2179,10 @@ packages:
   /electron-to-chromium@1.5.122:
     resolution: {integrity: sha512-EML1wnwkY5MFh/xUnCvY8FrhUuKzdYhowuZExZOfwJo+Zu9OsNCI23Cgl5y7awy7HrUHSwB1Z8pZX5TI34lsUg==}
     dev: true
+
+  /element-internals-polyfill@3.0.1:
+    resolution: {integrity: sha512-gHt0mrRy/y7VIymHIcq1U/IZOci3Z8qUy/YyMBSoSIfMHqO4v6Sm6igGpoFeljroo0Q2wjkInUafB79M6WAocQ==}
+    dev: false
 
   /emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
