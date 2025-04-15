@@ -84,10 +84,10 @@ export default function AddDeviceModal() {
               />
             </div>
             <div className="d-flex flex-column">
-              <label htmlFor="status">{t("device-details.status")}</label>
               <IxSelect
                 id="status"
                 value="Online"
+                label={t("device-details.status")}
                 i18nSelectListHeader={t("device-add-modal.list-header")}
                 onValueChange={(e) => setValue("status", e.detail as Device["status"])}
               >

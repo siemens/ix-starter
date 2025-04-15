@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { IxTypography } from "@siemens/ix-react";
+import { IxRadio, IxRadioGroup, IxTypography } from "@siemens/ix-react";
 import brand from "./brand.png";
 import classic from "./classic.png";
 import styles from "./styles.module.css";
@@ -44,15 +44,14 @@ function ThemeButton(props: {
         <img draggable={false} src={props.image} alt="Siemens brand theme" />
       </div>
       <div>
-        <input
-          type="radio"
-          checked={props.active}
+        <IxRadio
           id={props.name}
-          onChange={() => {
-            console.log("ThemeButton onChange", props.theme);
+          checked={props.active}
+          onCheckedChange={() => {
+            console.log("ThemeButton onCheckedChange", props.theme);
           }}
-        />
-        <label htmlFor={props.name}>{props.name}</label>
+          label={props.name}
+        ></IxRadio>
       </div>
     </div>
   );
@@ -104,24 +103,20 @@ export default function UserSettings() {
           {t("language.title")}
         </IxTypography>
         <section className={styles.LanguageSelection}>
-          <div>
-            <input
+          <IxRadioGroup>
+            <IxRadio
               id="l_en"
-              type="radio"
               checked={i18n.language === "en"}
-              onChange={() => i18n.changeLanguage("en")}
-            />
-            <label htmlFor="l_en">{t("language.en")}</label>
-          </div>
-          <div>
-            <input
+              onCheckedChange={() => i18n.changeLanguage("en")}
+              label={t("language.en")}
+            ></IxRadio>
+            <IxRadio
               id="l_de"
-              type="radio"
               checked={i18n.language === "de"}
-              onChange={() => i18n.changeLanguage("de")}
-            />
-            <label htmlFor="l_de">{t("language.de")}</label>
-          </div>
+              onCheckedChange={() => i18n.changeLanguage("de")}
+              label={t("language.de")}
+            ></IxRadio>
+          </IxRadioGroup>
         </section>
       </section>
     </div>

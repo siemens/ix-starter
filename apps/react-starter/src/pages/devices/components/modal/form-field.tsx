@@ -9,6 +9,7 @@
 
 import { UseFormRegister } from "react-hook-form";
 import { Device } from "../../../../types";
+import { IxInput } from "@siemens/ix-react";
 
 type FormFieldProps = {
   id: string;
@@ -17,12 +18,7 @@ type FormFieldProps = {
 };
 
 const FormField = ({ id, label, register }: FormFieldProps) => {
-  return (
-    <div>
-      <label htmlFor={id}>{label}</label>
-      <input type="text" id={id} {...register(id as keyof Device)} />
-    </div>
-  );
+  return <IxInput id={id} label={label} {...register(id as keyof Device)}></IxInput>;
 };
 
 export default FormField;
