@@ -24,7 +24,6 @@
     "echarts-for-react": "^3.0.2",
     "element-internals-polyfill": "^3.0.1",
     "i18next": "^23.15.1",
-    "playwright": "^1.51.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.53.0",
@@ -34,7 +33,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
-    "@playwright/test": "^1.47.2",
+    "@playwright/test": "^1.51.1",
     "@testing-library/jest-dom": "^6.5.0",
     "@testing-library/react": "^16.0.1",
     "@types/fs-extra": "^11.0.4",

@@ -22,7 +22,7 @@ async function filterDevicePageByDeviceName(page: Page, deviceName: string) {
   await expect(categoryFilter.locator("ix-dropdown")).not.toBeVisible();
 }
 
-test("filter for specific deviceName", async ({ page }) => {
+test("filter for a deviceName", async ({ page }) => {
   await page.goto("http://localhost:5173/#/devices");
 
   const aggrid = page.locator(".ag-root-wrapper");
@@ -52,7 +52,7 @@ test("add a new device", async ({ page }) => {
   const modal = page.locator("ix-modal");
 
   const device = modal.getByLabel("Device Name");
-  await device.fill(newDeviceName);
+  await device.locator("input").fill(newDeviceName);
 
   const okayButton = modal.getByLabel("add device");
   await okayButton.click();

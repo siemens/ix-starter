@@ -9,6 +9,7 @@
 
 import {
   IxButton,
+  IxInput,
   IxModalContent,
   IxModalFooter,
   IxModalHeader,
@@ -19,7 +20,6 @@ import {
 } from "@siemens/ix-react";
 import { useRef, useEffect } from "react";
 import styles from "./styles.module.css";
-import FormField from "./form-field";
 import { useForm } from "react-hook-form";
 import { useDataStore } from "../../../../store/device-store.ts";
 import { Device } from "../../../../types";
@@ -70,17 +70,24 @@ export default function AddDeviceModal() {
       <IxModalContent>
         <form id="modalForm" ref={formRef} onSubmit={handleSubmit(onSubmit)} noValidate>
           <div className={styles.FormGrid}>
-            <FormField
+            <IxInput
               id="deviceName"
+              aria-label={t("device-details.device-name")}
               label={t("device-details.device-name")}
-              register={register}
+              {...register("deviceName")}
             />
-            <FormField id="vendor" label={t("device-details.vendor")} register={register} />
+            <IxInput
+              id="vendor"
+              label={t("device-details.vendor")}
+              aria-label={t("device-details.vendor")}
+              {...register("vendor")}
+            />
             <div className={styles.ItemFullWidth}>
-              <FormField
+              <IxInput
                 id="description"
                 label={t("device-details.description")}
-                register={register}
+                aria-label={t("device-details.description")}
+                {...register("description")}
               />
             </div>
             <div className="d-flex flex-column">
@@ -88,6 +95,7 @@ export default function AddDeviceModal() {
                 id="status"
                 value="Online"
                 label={t("device-details.status")}
+                aria-label={t("device-details.status")}
                 i18nSelectListHeader={t("device-add-modal.list-header")}
                 onValueChange={(e) => setValue("status", e.detail as Device["status"])}
               >
@@ -97,26 +105,35 @@ export default function AddDeviceModal() {
                 <IxSelectItem label="Error" value="Error" />
               </IxSelect>
             </div>
-            <FormField
+            <IxInput
               id="articleNumber"
               label={t("device-details.article-number")}
-              register={register}
+              aria-label={t("device-details.article-number")}
+              {...register("articleNumber")}
             />
-            <FormField
+            <IxInput
               id="macAddress"
               label={t("device-details.mac-address")}
-              register={register}
+              aria-label={t("device-details.mac-address")}
+              {...register("macAddress")}
             />
-            <FormField id="ipAddress" label={t("device-details.ip-address")} register={register} />
-            <FormField
+            <IxInput
+              id="ipAddress"
+              label={t("device-details.ip-address")}
+              aria-label={t("device-details.ip-address")}
+              {...register("ipAddress")}
+            />
+            <IxInput
               id="firmwareVersion"
               label={t("device-details.firmware-version")}
-              register={register}
+              aria-label={t("device-details.firmware-version")}
+              {...register("firmwareVersion")}
             />
-            <FormField
+            <IxInput
               id="serialNumber"
               label={t("device-details.serial-number")}
-              register={register}
+              aria-label={t("device-details.serial-number")}
+              {...register("serialNumber")}
             />
           </div>
         </form>
