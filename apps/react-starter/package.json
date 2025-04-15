@@ -12,11 +12,11 @@
     "e2e": "playwright test"
   },
   "dependencies": {
-    "@siemens/ix": "3.0.0-alpha.3",
-    "@siemens/ix-aggrid": "0.0.0-pr-1642-20250313082857",
-    "@siemens/ix-echarts": "0.0.0-pr-1642-20250313082857",
+    "@siemens/ix": "3.0.0-alpha.4",
+    "@siemens/ix-aggrid": "3.0.0-alpha.1",
+    "@siemens/ix-echarts": "3.0.0-alpha.1",
     "@siemens/ix-icons": "3.0.0-alpha.1",
-    "@siemens/ix-react": "3.0.0-alpha.3",
+    "@siemens/ix-react": "3.0.0-alpha.4",
     "ag-grid-community": "32.2.1",
     "ag-grid-react": "32.2.1",
     "clsx": "^2.1.1",
@@ -24,6 +24,7 @@
     "echarts-for-react": "^3.0.2",
     "element-internals-polyfill": "^3.0.1",
     "i18next": "^23.15.1",
+    "playwright": "^1.51.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.53.0",
@@ -39,7 +40,8 @@
     "@types/fs-extra": "^11.0.4",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react": "^4.3.1",
+    "@vitejs/plugin-react": "^4.4.0",
+    "@vitest/browser": "^3.1.1",
     "eslint": "^9.12.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-react": "^7.35.0",
@@ -47,12 +49,12 @@
     "eslint-plugin-react-refresh": "^0.4.14",
     "fs-extra": "^11.2.0",
     "globals": "^15.9.0",
-    "happy-dom": "^17.0.3",
     "prettier": "^3.3.3",
-    "shadow-dom-testing-library": "^1.11.3",
+    "shadow-dom-testing-library": "^1.12.0",
     "typescript": "^5.6.3",
     "typescript-eslint": "^8.0.1",
-    "vite": "^6.1.0",
-    "vitest": "^2.1.1"
+    "vite": "^6.2.6",
+    "vitest": "^3.1.1",
+    "vitest-browser-react": "^0.1.1"
   }
 }
