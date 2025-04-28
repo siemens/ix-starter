@@ -7,12 +7,12 @@ const base = process.env.REACT_BASE || "/";
 
 function checkForAdditionalTheme() {
   try {
-    const themePackage = import.meta.resolve("@siemens/ix-brand-theme");
+    const themePackage = import.meta.resolve("@siemens-ix/corporate-theme");
     const theme = path.join(themePackage.replace("file://", ""), "..", "..");
 
     fs.copySync(theme, path.join(__dirname, "public", "theme"), {
       filter: (src) => {
-        return !src.includes("ix-brand-theme/node_modules");
+        return !src.includes("corporate-theme-alternative/node_modules");
       },
     });
     console.log("Load additional theme");

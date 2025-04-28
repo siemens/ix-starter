@@ -24,20 +24,20 @@ importers:
   apps/react-starter:
     dependencies:
       '@siemens/ix':
-        specifier: 3.0.0-alpha.4
-        version: 3.0.0-alpha.4(@siemens/ix-icons@3.0.0-alpha.1)
+        specifier: 3.0.0
+        version: 3.0.0(@siemens/ix-icons@3.0.0)
       '@siemens/ix-aggrid':
-        specifier: 3.0.0-alpha.1
-        version: 3.0.0-alpha.1(@siemens/ix-icons@3.0.0-alpha.1)(ag-grid-community@32.2.1)
+        specifier: 3.0.0
+        version: 3.0.0(@siemens/ix-icons@3.0.0)(ag-grid-community@32.2.1)
       '@siemens/ix-echarts':
-        specifier: 3.0.0-alpha.1
-        version: 3.0.0-alpha.1(echarts@5.5.1)
+        specifier: 3.0.0
+        version: 3.0.0(echarts@5.5.1)
       '@siemens/ix-icons':
-        specifier: 3.0.0-alpha.1
-        version: 3.0.0-alpha.1
+        specifier: 3.0.0
+        version: 3.0.0
       '@siemens/ix-react':
-        specifier: 3.0.0-alpha.4
-        version: 3.0.0-alpha.4(@siemens/ix-icons@3.0.0-alpha.1)(@stencil/core@4.29.3)(@types/react@18.3.12)(react-dom@18.3.1)(react@18.3.1)
+        specifier: 3.0.0
+        version: 3.0.0(@siemens/ix-icons@3.0.0)(@stencil/core@4.29.3)(@types/react@18.3.12)(react-dom@18.3.1)(react@18.3.1)
       ag-grid-community:
         specifier: 32.2.1
         version: 32.2.1
@@ -1012,41 +1012,41 @@ packages:
     dev: true
     optional: true
 
-  /@siemens/ix-aggrid@3.0.0-alpha.1(@siemens/ix-icons@3.0.0-alpha.1)(ag-grid-community@32.2.1):
-    resolution: {integrity: sha512-+ngR3MOFkNmeqMVUseb3tyEC+HfktWRaQJJtTsezv3K02pt8qpNN4bhpckDizmYaYu6QJ2OJdQlEeDk/csuDbg==}
+  /@siemens/ix-aggrid@3.0.0(@siemens/ix-icons@3.0.0)(ag-grid-community@32.2.1):
+    resolution: {integrity: sha512-N98qe6ke2cDLoBoelLh0xc3vvVEmyvy5KujAXvRiMtGmXWZqbMl2CWnmRT/xNTstj3RF3YdRdMV+G9Mk1vCV9Q==}
     peerDependencies:
       ag-grid-community: ^28 || ^29 || ^30 || ^31 || ^32
     dependencies:
-      '@siemens/ix': 3.0.0-alpha.4(@siemens/ix-icons@3.0.0-alpha.1)
+      '@siemens/ix': 3.0.0(@siemens/ix-icons@3.0.0)
       ag-grid-community: 32.2.1
     transitivePeerDependencies:
       - '@siemens/ix-icons'
     dev: false
 
-  /@siemens/ix-echarts@3.0.0-alpha.1(echarts@5.5.1):
-    resolution: {integrity: sha512-mT/xVESqgc4tDrNDsMHMfdaEsjSANzftnrhSZZaiR0xZfH8JG16ncjgUNx/QKyfAuWm9gA1gIImeV+6Lau6a/Q==}
+  /@siemens/ix-echarts@3.0.0(echarts@5.5.1):
+    resolution: {integrity: sha512-N/L1Og+pwSYT6U2lKp5bRnZ+4CAx+mXl8kWmssCCf8OaEXdJg5ZSGCmqHjGFOZFZe5Ph8P5il+WvyeZkFyiJ2w==}
     peerDependencies:
       echarts: ^5.3.3
     dependencies:
       echarts: 5.5.1
     dev: false
 
-  /@siemens/ix-icons@3.0.0-alpha.1:
-    resolution: {integrity: sha512-aDY+nJdPKri4EeghrTzDsoyd+scucPK0htNfFlDhY6r+hDlkTj0m3CG91RsL8bsWINpGdrBdiMUZacGLi/GdqQ==}
+  /@siemens/ix-icons@3.0.0:
+    resolution: {integrity: sha512-eudP3wv/aUwfc/z7IRweRRPdpZTLew1fIhPfjkFSwZIoRMuzDt13zFoiyZ6taQvPpZgSgBJjUJXZJs714GRudw==}
     engines: {node: '>=18.x.x', pnpm: '>=9.x.x'}
     dependencies:
-      '@stencil/core': 4.28.2
+      '@stencil/core': 4.29.3
     dev: false
 
-  /@siemens/ix-react@3.0.0-alpha.4(@siemens/ix-icons@3.0.0-alpha.1)(@stencil/core@4.29.3)(@types/react@18.3.12)(react-dom@18.3.1)(react@18.3.1):
-    resolution: {integrity: sha512-NV45sQEyFHCsThzwog+EdaTJiq4gvlRsMKPXxu2k9GTVHFENh533SzpQvKKhtXl5FQy4Nz0RHWiCdlwCy7uTbw==}
+  /@siemens/ix-react@3.0.0(@siemens/ix-icons@3.0.0)(@stencil/core@4.29.3)(@types/react@18.3.12)(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-1oR9O8P9dSdgMlCPGSddx5/4Qu2qYVc5YFQ6qm3OTVVMCrt8JWUNfqHn/SRutMCrQe5y+N3DM/U0STtGQmlBng==}
     peerDependencies:
-      '@siemens/ix-icons': 3.0.0-alpha.1
+      '@siemens/ix-icons': ^3.0.0
       react: ^18 || ^19
       react-dom: ^18 || ^19
     dependencies:
-      '@siemens/ix': 3.0.0-alpha.4(@siemens/ix-icons@3.0.0-alpha.1)
-      '@siemens/ix-icons': 3.0.0-alpha.1
+      '@siemens/ix': 3.0.0(@siemens/ix-icons@3.0.0)
+      '@siemens/ix-icons': 3.0.0
       '@stencil/react-output-target': 1.0.2(@stencil/core@4.29.3)(@types/react@18.3.12)(react-dom@18.3.1)(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -1056,32 +1056,17 @@ packages:
       - '@types/react'
     dev: false
 
-  /@siemens/ix@3.0.0-alpha.4(@siemens/ix-icons@3.0.0-alpha.1):
-    resolution: {integrity: sha512-9V06szkZVtdmsnHIiz95w+mOx2wnK93HDEHe6XmJB21upZVgHsU9zU3oQWnpgIgJsstWe2Y/RknhPr+qp+h22Q==}
+  /@siemens/ix@3.0.0(@siemens/ix-icons@3.0.0):
+    resolution: {integrity: sha512-osVM3NYOxTuM6A3ncJpXrDLV1T+42JTTNmOfD+6tXWZo5n1zPEW7D77jBbKqGvatwgjBP/XGkNrCU0zIN92Zkg==}
     peerDependencies:
-      '@siemens/ix-icons': 3.0.0-alpha.1
+      '@siemens/ix-icons': ^3.0.0
     dependencies:
       '@floating-ui/dom': 1.6.13
-      '@siemens/ix-icons': 3.0.0-alpha.1
+      '@siemens/ix-icons': 3.0.0
       '@stencil/core': 4.29.3
       '@types/luxon': 3.4.2
       animejs: 3.2.2
       luxon: 3.5.0
-    dev: false
-
-  /@stencil/core@4.28.2:
-    resolution: {integrity: sha512-sHwBNionxzHfmjQ93ffaQOBNvd5HrSn8e5KSsiBBaODgC/g9squZoARYHHJ0VFfUpOXkEoZQ+ASixpUBafG9bA==}
-    engines: {node: '>=16.0.0', npm: '>=7.10.0'}
-    hasBin: true
-    optionalDependencies:
-      '@rollup/rollup-darwin-arm64': 4.34.9
-      '@rollup/rollup-darwin-x64': 4.34.9
-      '@rollup/rollup-linux-arm64-gnu': 4.34.9
-      '@rollup/rollup-linux-arm64-musl': 4.34.9
-      '@rollup/rollup-linux-x64-gnu': 4.34.9
-      '@rollup/rollup-linux-x64-musl': 4.34.9
-      '@rollup/rollup-win32-arm64-msvc': 4.34.9
-      '@rollup/rollup-win32-x64-msvc': 4.34.9
     dev: false
 
   /@stencil/core@4.29.3:
