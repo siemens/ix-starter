@@ -40,7 +40,7 @@ function Incidents() {
       ipAddress: "172.19.65.8",
       date: "2024-10-09",
       time: "08:51:21",
-      color: iconInfo,
+      color: "info",
     },
     {
       id: 2,
@@ -154,7 +154,12 @@ function Incidents() {
         {t("incidents.title")}
       </IxTypography>
       <div className={style.SearchAndFilter}>
-        <IxInput placeholder={t("search")} aria-label="Filter devices" type="text" onValueChange={handleInput}>
+        <IxInput
+          placeholder={t("search")}
+          aria-label="Filter devices"
+          type="text"
+          onValueChange={handleInput}
+        >
           <IxIcon slot="start" name={iconSearch} color="color-primary" size="16"></IxIcon>
         </IxInput>
 
