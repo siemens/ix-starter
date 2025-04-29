@@ -47,7 +47,8 @@ function ThemeButton(props: {
         <IxRadio
           id={props.name}
           checked={props.active}
-          onCheckedChange={() => {
+          onCheckedChange={(event) => {
+            event.preventDefault();
             console.log("ThemeButton onCheckedChange", props.theme);
           }}
           label={props.name}
