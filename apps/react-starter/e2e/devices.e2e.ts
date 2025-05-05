@@ -1,28 +1,28 @@
 import { test, expect, Page } from "@playwright/test";
 
 async function filterDevicePageByDeviceName(page: Page, deviceName: string) {
-  const filter = page.getByLabel("Filter by");
-  const filterInput = filter.locator("input");
+  const categoryFilter = page.locator("ix-category-filter");
+  const filterInput = categoryFilter.locator("input");
 
   await filterInput.fill("Device name");
 
-  const dropdown = filter.locator("ix-dropdown");
+  const dropdown = categoryFilter.locator("ix-dropdown");
   await expect(dropdown.getByText("Categories")).toBeVisible();
 
   await page.keyboard.press("Tab");
   await page.keyboard.press("Enter");
 
-  await expect(filter.locator("ix-dropdown").getByText("Categories")).not.toBeVisible();
-  await expect(filter.locator("ix-dropdown").getByText("Device name")).toBeVisible();
+  await expect(categoryFilter.locator("ix-dropdown").getByText("Categories")).not.toBeVisible();
+  await expect(categoryFilter.locator("ix-dropdown").getByText("Device name")).toBeVisible();
 
   await filterInput.fill(deviceName);
   await page.keyboard.press("Enter");
   await page.mouse.click(0, 0);
 
-  await expect(filter.locator("ix-dropdown")).not.toBeVisible();
+  await expect(categoryFilter.locator("ix-dropdown")).not.toBeVisible();
 }
 
-test("filter for specific deviceName", async ({ page }) => {
+test("filter for a deviceName", async ({ page }) => {
   await page.goto("http://localhost:5173/#/devices");
 
   const aggrid = page.locator(".ag-root-wrapper");
@@ -52,7 +52,7 @@ test("add a new device", async ({ page }) => {
   const modal = page.locator("ix-modal");
 
   const device = modal.getByLabel("Device Name");
-  await device.fill(newDeviceName);
+  await device.locator("input").fill(newDeviceName);
 
   const okayButton = modal.getByLabel("add device");
   await okayButton.click();

@@ -7,7 +7,6 @@ import path from "path";
 import zlib from "zlib";
 import * as tar from "tar";
 
-const version = "2.2.0-beta.0";
 const token = process.env.CSC_TOKEN;
 const pkgUrl = process.env.BRAND_URL;
 
@@ -65,4 +64,4 @@ if (!fs.existsSync(__node_modules)) {
 
 await download(pkgUrl, __themeTgz);
 const unpackTheme = await unpack(__themeTgz);
-fs.moveSync(unpackTheme, path.join(__node_modules, "@siemens", "ix-brand-theme"));
+fs.moveSync(unpackTheme, path.join(__node_modules, "@siemens-ix", "corporate-theme"));

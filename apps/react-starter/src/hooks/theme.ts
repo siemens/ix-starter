@@ -8,18 +8,13 @@
  */
 
 import { themeSwitcher } from "@siemens/ix";
-import { convertThemeName } from "@siemens/ix-echarts";
 import { useLayoutEffect, useState } from "react";
 
 export const useEChartsTheme = () => {
-  const [echartsTheme, setEchartsTheme] = useState(
-    convertThemeName(themeSwitcher.getCurrentTheme()),
-  );
+  const [echartsTheme, setEchartsTheme] = useState(themeSwitcher.getCurrentTheme());
 
   useLayoutEffect(() => {
-    const { dispose } = themeSwitcher.themeChanged.on((theme) =>
-      setEchartsTheme(convertThemeName(theme)),
-    );
+    const { dispose } = themeSwitcher.themeChanged.on((theme) => setEchartsTheme(theme));
     return dispose;
   }, []);
 

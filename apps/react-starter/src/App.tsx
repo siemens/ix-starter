@@ -1,5 +1,5 @@
 import { registerTheme } from "@siemens/ix-echarts";
-import { iconLogOut, iconUserSettings } from "@siemens/ix-icons/icons";
+import { iconLogOut, iconUserSettings, iconHome, iconProject } from "@siemens/ix-icons/icons";
 import {
   IxApplication,
   IxApplicationHeader,
@@ -55,7 +55,7 @@ function App() {
       >
         <NavLink to="/">
           {({ isActive }: { isActive: boolean }) => (
-            <IxMenuItem active={isActive} icon="home">
+            <IxMenuItem active={isActive} icon={iconHome}>
               {t("overview")}
             </IxMenuItem>
           )}
@@ -63,7 +63,7 @@ function App() {
 
         <NavLink to="/devices">
           {({ isActive }: { isActive: boolean }) => (
-            <IxMenuItem active={isActive} icon="project">
+            <IxMenuItem active={isActive} icon={iconProject}>
               {t("devices")}
             </IxMenuItem>
           )}
