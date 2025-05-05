@@ -11,13 +11,13 @@ import OverviewPage from "./pages/overview/index.tsx";
 
 function optionalTheme() {
   if (import.meta.env.VITE_THEME) {
-    const css = `${import.meta.env.BASE_URL}theme/dist/ix-brand-theme/ix-brand-theme.css`;
+    const css = `${import.meta.env.BASE_URL}theme/dist/css/brand-theme.css`;
     const link = document.createElement("link");
     link.rel = "stylesheet";
     link.href = css;
     document.head.appendChild(link);
 
-    const loader = `${import.meta.env.BASE_URL}theme/dist/esm/ix-brand-theme.js`;
+    const loader = `${import.meta.env.BASE_URL}theme/dist/index.js`;
     const script = document.createElement("script");
     script.src = loader;
     script.type = "module";

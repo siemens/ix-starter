@@ -4,7 +4,10 @@ on:
   push:
     branches: ["main"] # remove "react-demo-app" before merge to main
   pull_request:
-    types: [opened, synchronize]
+    types:
+      - opened
+      - reopened
+      - synchronize
 
 concurrency:
   group: pr-${{ github.head_ref }}
@@ -42,6 +45,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/workflows/actions/install
+      - name: Install Playwright Browsers
+        run: |
+          cd ./apps/react-starter
+          pnpm exec playwright install chromium --with-deps
       - name: Test
         run: pnpm test
 
