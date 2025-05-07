@@ -28,7 +28,7 @@ importers:
         version: 3.0.0(@siemens/ix-icons@3.0.0)
       '@siemens/ix-aggrid':
         specifier: 3.0.0
-        version: 3.0.0(@siemens/ix-icons@3.0.0)(ag-grid-community@32.2.1)
+        version: 3.0.0(@siemens/ix-icons@3.0.0)(ag-grid-community@33.2.4)
       '@siemens/ix-echarts':
         specifier: 3.0.0
         version: 3.0.0(echarts@5.5.1)
@@ -39,8 +39,8 @@ importers:
         specifier: 3.0.0
         version: 3.0.0(@siemens/ix-icons@3.0.0)(@stencil/core@4.31.0)(@types/react@18.3.12)(react-dom@18.3.1)(react@18.3.1)
       ag-grid-community:
-        specifier: 32.2.1
-        version: 32.2.1
+        specifier: 33.2.4
+        version: 33.2.4
       ag-grid-react:
         specifier: 32.2.1
         version: 32.2.1(react-dom@18.3.1)(react@18.3.1)
@@ -1020,13 +1020,13 @@ packages:
     dev: true
     optional: true
 
-  /@siemens/ix-aggrid@3.0.0(@siemens/ix-icons@3.0.0)(ag-grid-community@32.2.1):
+  /@siemens/ix-aggrid@3.0.0(@siemens/ix-icons@3.0.0)(ag-grid-community@33.2.4):
     resolution: {integrity: sha512-N98qe6ke2cDLoBoelLh0xc3vvVEmyvy5KujAXvRiMtGmXWZqbMl2CWnmRT/xNTstj3RF3YdRdMV+G9Mk1vCV9Q==}
     peerDependencies:
       ag-grid-community: ^28 || ^29 || ^30 || ^31 || ^32
     dependencies:
       '@siemens/ix': 3.0.0(@siemens/ix-icons@3.0.0)
-      ag-grid-community: 32.2.1
+      ag-grid-community: 33.2.4
     transitivePeerDependencies:
       - '@siemens/ix-icons'
     dev: false
@@ -1528,10 +1528,20 @@ packages:
     resolution: {integrity: sha512-PUqH1QtugpYLnlbMdeSZVf5PpT1XZVsP69qN1JXhetLtQpVC28zaj7ikwu9CMA9N9b+dBboA9QcjUQUJZVUokQ==}
     dev: false
 
+  /ag-charts-types@11.2.4:
+    resolution: {integrity: sha512-a1aQjtQ9ZH+J8BF3YcWAIHUt9ZLiL9IVZ8R5h7z2CkTNu2TPq5UlsCcF0/YZKc1M8CM0CdSNLSGQuWUwDNxAcA==}
+    dev: false
+
   /ag-grid-community@32.2.1:
     resolution: {integrity: sha512-mrnm1DnLI9Wd408mMwP+6p7lbTC3FYgzNIUPygBvNh3SzZnbzTEUJF/BTKXi+MARWtG5S0IMUYy4hqBiLbobaQ==}
     dependencies:
       ag-charts-types: 10.2.0
+    dev: false
+
+  /ag-grid-community@33.2.4:
+    resolution: {integrity: sha512-7XT1+wxmMlMVXB27BJOzlft9ATB0C5HOJcCGMc8dCO2W17JXbNknVEEDGTBKoSvA4Cei8sARrRDxmPgY8mWopQ==}
+    dependencies:
+      ag-charts-types: 11.2.4
     dev: false
 
   /ag-grid-react@32.2.1(react-dom@18.3.1)(react@18.3.1):
