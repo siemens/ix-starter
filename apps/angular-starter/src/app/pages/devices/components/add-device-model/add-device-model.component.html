@@ -1,0 +1,92 @@
+<ix-modal-header> {{ "add-device" | translate }}</ix-modal-header>
+
+<ix-modal-content>
+  <form class="" [formGroup]="addDeviceForm" (ngSubmit)="submitForm()">
+    <div class="form-grid">
+      <ix-input
+        label="*Device Name"
+        invalidText="Value is required"
+        formControlName="deviceName"
+      >
+      </ix-input>
+      <ix-input
+        label="*Vendor"
+        invalidText="Value is required"
+        formControlName="vendor"
+      >
+      </ix-input>
+      <div class="item-full-width">
+        <ix-input
+          class="item-full-width"
+          label="Description:"
+          invalidText="Value is required"
+          formControlName="description"
+        >
+        </ix-input>
+      </div>
+      <ix-select label="*Status" value="Online" formControlName="status">
+        <ix-select-item label="Online" value="Online"></ix-select-item>
+        <ix-select-item label="Offline" value="Offline"></ix-select-item>
+        <ix-select-item
+          label="Maintenance"
+          value="Maintenance"
+        ></ix-select-item>
+        <ix-select-item label="Error" value="Error"></ix-select-item>
+      </ix-select>
+
+      <ix-input
+        label="*IP Address:"
+        helperText="Write down your name"
+        invalidText="Value is required"
+        formControlName="ipAddress"
+      >
+      </ix-input>
+
+      <ix-input
+        label="*Article number:"
+        helperText="Article number"
+        invalidText="Value is required"
+        formControlName="articleNumber"
+      >
+      </ix-input>
+      <ix-input
+        label="*MAC address:"
+        helperText="Write down your name"
+        invalidText="Value is required"
+        formControlName="macAddress"
+      >
+      </ix-input>
+      <ix-input
+        label="Firmware version:"
+        helperText="Firmware version"
+        invalidText="Value is required"
+        formControlName="firmwareVersion"
+      >
+      </ix-input>
+      <ix-input
+        label="Serial number:"
+        helperText="Serial number"
+        invalidText="Value is required"
+        formControlName="serialNumber"
+      >
+      </ix-input>
+    </div>
+  </form>
+</ix-modal-content>
+<ix-modal-footer>
+  <ix-button
+    (click)="activeModal.dismiss('close')"
+    outline
+    class="dismiss-modal"
+  >
+    {{ "cancel" | translate }}
+  </ix-button>
+  <ix-button
+    autofocus
+    class="close-modal"
+    (click)="submitForm()"
+    [disabled]="!addDeviceForm.valid"
+  >
+    {{ "add-device" | translate }}
+  </ix-button>
+</ix-modal-footer>

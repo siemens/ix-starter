@@ -1,0 +1,19 @@
+.application-settings {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.headline {
+  margin-bottom: 0.75rem;
+}
+
+.upload {
+  width: fit-content;
+  width: 25rem;
+  max-width: 25rem;
+}
+
+ix-content {
+  min-width: 20rem;
+}

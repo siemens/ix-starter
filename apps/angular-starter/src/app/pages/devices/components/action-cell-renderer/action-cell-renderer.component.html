@@ -1,0 +1,103 @@
+<ix-row class="ix-row">
+  <ix-icon-button
+    dynamic-row-selector="edit-`${triggerId}`"
+    tooltip="Rename "
+    icon="pen"
+    variant="secondary"
+    ghost
+    (click)="onEdit($event)"
+  />
+  <ix-tooltip for="[dynamic-row-selector='edit-`${triggerId}`']">
+    {{ "dropdown-quick-actions.rename" | translate }}
+  </ix-tooltip>
+  <ix-icon-button
+    dynamic-row-selector="delete-`${triggerId}`"
+    icon="trashcan"
+    (click)="onDelete($event)"
+    variant="secondary"
+    ghost
+  />
+
+  <ix-tooltip for="[dynamic-row-selector='delete-`${triggerId}`']">
+    {{ "dropdown-quick-actions.delete" | translate }}
+  </ix-tooltip>
+
+  <ix-icon-button
+    icon="context-menu"
+    variant="secondary"
+    ghost
+    [id]="triggerId"
+    (click)="$event.stopPropagation()"
+  >
+  </ix-icon-button>
+
+  <ix-dropdown
+    #dropdownRef
+    class="dropdown overlay"
+    [trigger]="triggerId"
+    appendTo="body"
+    attachToBody="true"
+    container="body"
+  >
+    <ix-dropdown-quick-actions>
+      <ix-dropdown-button
+        dynamic-row-selector="duplicate-`${triggerId}`"
+        (click)="onDuplicate($event)"
+        icon="duplicate"
+        ghost
+      ></ix-dropdown-button>
+      <ix-tooltip for="[dynamic-row-selector='duplicate-`${triggerId}`']">
+        Duplicate
+      </ix-tooltip>
+      <ix-icon-button
+        (click)="cutRow($event)"
+        dynamic-row-selector="cut-`${triggerId}`"
+        icon="cut"
+        ghost
+      ></ix-icon-button>
+      <ix-tooltip for="[dynamic-row-selector='cut-`${triggerId}`']">
+        Cut
+      </ix-tooltip>
+      <ix-icon-button
+        (click)="copyRow($event)"
+        dynamic-row-selector="copy-`${triggerId}`"
+        icon="copy"
+        ghost
+      ></ix-icon-button>
+      <ix-tooltip for="[dynamic-row-selector='copy-`${triggerId}`']">
+        Copy
+      </ix-tooltip>
+      <ix-icon-button
+        (click)="pasteRow($event)"
+        dynamic-row-selector="paste-`${triggerId}`"
+        icon="paste"
+        [disabled]="!canPaste"
+        ghost
+      ></ix-icon-button>
+      <ix-tooltip for="[dynamic-row-selector='paste-`${triggerId}`']">
+        Paste
+      </ix-tooltip>
+    </ix-dropdown-quick-actions>
+    <ix-divider />
+    <ix-dropdown-item
+      (click)="onEdit($event)"
+      icon="rename"
+      label="{{ 'dropdown-quick-actions.rename' | translate }}"
+    ></ix-dropdown-item>
+    <ix-dropdown-item
+      icon="pcTower"
+      [label]="
+        (params.data.status === 'Online'
+          ? 'dropdown-quick-actions.off'
+          : 'dropdown-quick-actions.on'
+        ) | translate
+      "
+      (click)="changeStatus($event)"
+    ></ix-dropdown-item>
+    <ix-dropdown-item
+      (click)="onDelete($event)"
+      icon="trashcan"
+      label=" {{ 'dropdown-quick-actions.delete' | translate }}"
+    ></ix-dropdown-item>
+  </ix-dropdown>
+</ix-row>

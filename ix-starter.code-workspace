@@ -4,6 +4,10 @@
       "name": "ix-react-starter",
       "path": "./apps/react-starter",
     },
+	{
+      "name": "ix-angular-starter",
+      "path": "./apps/angular-starter",
+    },
     {
       "name": "root",
       "path": "./",
