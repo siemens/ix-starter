@@ -1,0 +1,95 @@
+<section class="incident-list">
+    <ix-layout-grid noMargin>
+      <ix-row class="event-list-header-offset">
+        <ix-col size="3" sizeSm="6">
+          <ix-row style="gap: 1rem;">
+            <ix-typography format="label" bold textColor="soft">
+              {{ "incidents.incident-cards.type" | translate }}
+            </ix-typography>
+            <ix-typography format="label" bold textColor="soft">
+              Incident name
+            </ix-typography>
+          </ix-row>
+        </ix-col>
+        <ix-col size="3" sizeSm="4">
+          <ix-typography
+            format="label"
+            bold
+            textColor="soft"
+            class="title-offset-device"
+          >
+            {{ "incidents.incident-cards.device" | translate }}
+          </ix-typography>
+        </ix-col>
+        <ix-col size="3" class="desktop">
+          <ix-typography
+            format="label"
+            bold
+            textColor="soft"
+            class="title-offset-date"
+          >
+            {{ "incidents.incident-cards.date" | translate }}
+          </ix-typography>
+        </ix-col>
+      </ix-row>
+    </ix-layout-grid>
+      <ix-event-list [itemHeight]="72" [animated]="false" class="event-list">
+        @for (incident of filteredIncidents; track incident.id) {
+            <ix-event-list-item
+          
+          [itemColor]="'color-' + incident.color"
+        >
+          <ix-layout-grid noMargin>
+            <ix-row>
+              <ix-col size="3">
+                <ix-row style="gap: 1rem" class="no-wrap">
+                  <ix-icon [name]="incident.icon" size="24"></ix-icon>
+                  <ix-typography bold>
+                    {{ incident.incidentName }}
+                  </ix-typography>
+                </ix-row>
+                <ix-row>
+                  <ix-typography class="info-text" textColor="soft">
+                    {{ incident.infoText }}
+                  </ix-typography>
+                </ix-row>
+              </ix-col>
+      
+              <ix-col size="3">
+                <ix-typography bold>
+                  {{ incident.deviceName }}
+                </ix-typography>
+                <ix-typography textColor="soft">
+                  {{ incident.ipAddress }}
+                </ix-typography>
+              </ix-col>
+      
+              <ix-col>
+                <ix-typography textColor="soft">
+                  {{ incident.date }}
+                </ix-typography>
+                <ix-typography textColor="soft">
+                  {{ incident.time }}
+                </ix-typography>
+              </ix-col>
+  
+              <ix-col class="incident-actions">
+                <ix-icon-button
+                  variant="secondary"
+                  ghost
+                  icon="open-external"
+                  (click)="usemodal()"
+                ></ix-icon-button>
+                <ix-button outline color="primary" (click)="usemodal()">
+                  {{ "incidents.create-task" | translate }}
+                </ix-button>
+              </ix-col>
+            </ix-row>
+          </ix-layout-grid>
+        </ix-event-list-item>
+          } @empty {
+            <div>No items found.</div>
+          }
+      </ix-event-list>
+      
+  </section>

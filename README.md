@@ -51,6 +51,12 @@ To develop all apps and packages, run the following command:
 pnpm dev --filter ix-react-starter
 ```
 
+
+#### Angular
+
+```
+pnpm dev  --filter ix-angular-starter
+
 ## Useful Links
 
 Learn more about the power of Turborepo:

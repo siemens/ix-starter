@@ -1,0 +1,47 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  overflow: hidden;
+  height: 100%;
+}
+
+.card-container {
+  display: flex;
+  gap: 1rem;
+
+  @media (max-width: 48em) {
+    flex-direction: column;
+  }
+}
+
+ix-card {
+  flex: 1;
+}
+
+ix-card + ix-card {
+  flex: 2;
+}
+
+app-incidents {
+  height: 100%;
+  overflow: auto;
+}
+
+.card-style {
+  height: 21rem;
+  min-height: 21rem;
+  max-height: 21rem;
+}
+device-range {
+  flex: 1;
+}
+status-history {
+  flex: 2;
+}
+
+@media only screen and (max-width: 48em) {
+  .list {
+    height: auto;
+  }
+}

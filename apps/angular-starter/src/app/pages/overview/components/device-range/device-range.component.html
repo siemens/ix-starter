@@ -1,0 +1,13 @@
+<ix-card class="device-range">
+  <ix-card-content>
+    <ix-typography bold>
+      {{ "device-status.title" | translate }}
+    </ix-typography>
+    <div
+      echarts
+      [options]="options"
+      [theme]="theme$ | async"
+      class="echarts"
+    ></div>
+  </ix-card-content>
+</ix-card>
