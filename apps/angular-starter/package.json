@@ -31,6 +31,8 @@
     "ag-grid-angular": "^32.0.2",
     "ag-grid-community": "^32.0.2",
     "ngx-echarts": "^18.0.0",
+    "echarts": "5.4.3",
+    "echarts-gl": "^2.0.9",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
