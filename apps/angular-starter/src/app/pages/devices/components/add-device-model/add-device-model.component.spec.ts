@@ -1,6 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { TranslateModule } from '@ngx-translate/core';
 import { AddDeviceModelComponent } from './add-device-model.component';
+import { IxActiveModal } from '@siemens/ix-angular/standalone';
+
+const mockIxActiveModal = {
+  close: jasmine.createSpy('close'),
+  dismiss: jasmine.createSpy('dismiss')
+  // Add any other methods your component uses
+};
 
 describe('AddDeviceModelComponent', () => {
   let component: AddDeviceModelComponent;
@@ -8,9 +15,12 @@ describe('AddDeviceModelComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AddDeviceModelComponent]
+      imports: [AddDeviceModelComponent, TranslateModule.forRoot()],
+      providers: [
+        { provide: IxActiveModal, useValue: mockIxActiveModal }
+      ]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(AddDeviceModelComponent);
     component = fixture.componentInstance;
@@ -20,4 +30,5 @@ describe('AddDeviceModelComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });

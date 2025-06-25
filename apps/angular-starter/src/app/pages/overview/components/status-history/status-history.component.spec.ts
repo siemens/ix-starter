@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { TranslateModule } from '@ngx-translate/core';
 import { StatusHistoryComponent } from './status-history.component';
 
 describe('StatusHistoryComponent', () => {
@@ -8,9 +8,9 @@ describe('StatusHistoryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [StatusHistoryComponent]
+      imports: [StatusHistoryComponent, TranslateModule.forRoot()]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(StatusHistoryComponent);
     component = fixture.componentInstance;

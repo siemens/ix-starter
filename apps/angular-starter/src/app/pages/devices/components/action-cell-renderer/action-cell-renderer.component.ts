@@ -161,6 +161,7 @@ export class ActionCellRendererComponent implements ICellRendererAngularComp {
       navigator.clipboard.writeText('');
       this.sharedService.canPasteSubject.next(false);
     } catch (error: any) {
+      console.error('Paste operation failed:', error);
       this.sharedService.showToast(
         this.translate.instant(
           'dropdown-quick-actions.success-messages.pasteErrorMsg',

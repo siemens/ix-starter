@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { TranslateModule } from '@ngx-translate/core';
 import { IncidentListComponent } from './incident-list.component';
 
 describe('IncidentListComponent', () => {
@@ -8,9 +8,9 @@ describe('IncidentListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [IncidentListComponent]
+      imports: [IncidentListComponent, TranslateModule.forRoot()]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(IncidentListComponent);
     component = fixture.componentInstance;

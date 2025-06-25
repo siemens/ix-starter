@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { TranslateModule } from '@ngx-translate/core';
 import { DeviceRangeComponent } from './device-range.component';
 
 describe('DeviceRangeComponent', () => {
@@ -8,9 +8,9 @@ describe('DeviceRangeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DeviceRangeComponent]
+      imports: [DeviceRangeComponent, TranslateModule.forRoot()],
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(DeviceRangeComponent);
     component = fixture.componentInstance;
