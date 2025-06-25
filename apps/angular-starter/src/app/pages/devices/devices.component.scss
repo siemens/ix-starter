@@ -1,0 +1,82 @@
+.device-table {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.device-filter {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.device-filter .category-filter {
+  min-width: 16rem;
+  flex-grow: 1;
+}
+
+.quick-filter {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  min-width: 38rem;
+}
+
+.device-name {
+  margin-bottom: 2rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.pane {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 10;
+}
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  word-break: break-word;
+  padding: 0 0.75rem 1rem;
+}
+
+.empty-state-wrapper {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-container {
+  width: 100%;
+  height: 70vh;
+}
+
+@media only screen and (max-width: 48em) {
+  .device-filter {
+    flex-direction: column;
+  }
+
+  .device-filter .category-filter {
+    min-width: 0rem;
+    width: 100%;
+  }
+
+  .device-filter .quick-filter {
+    flex-wrap: wrap;
+    min-width: 0rem;
+  }
+  .grid-container {
+    height: 59vh;
+  }
+}
