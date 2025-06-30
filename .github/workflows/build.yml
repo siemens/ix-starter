@@ -63,18 +63,38 @@ jobs:
       - uses: actions/checkout@v3
       - uses: ./.github/workflows/actions/install
 
-      - name: Install Playwright Browsers
+      # React E2E
+      - name: Install Playwright Browsers (React)
         run: |
           cd ./apps/react-starter
           pnpm playwright install chromium --with-deps
 
-      - name: E2E
-        run: pnpm e2e
+      - name: E2E (React)
+        run: pnpm --filter react-starter run e2e
 
-      - name: E2E Report
+      - name: E2E Report (React)
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v4
         with:
           name: react-playwright-report
           path: apps/react-starter/playwright-report/
+          retention-days: 1
+
+      # Angular E2E
+      - name: Install Playwright Browsers (Angular)
+        run: |
+          cd ./apps/angular-starter
+          pnpm playwright install chromium --with-deps
+
+      - name: E2E (Angular)
+        run: |
+          cd ./apps/angular-starter
+          pnpm e2e
+
+      - name: E2E Report (Angular)
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: angular-playwright-report
+          path: apps/angular-starter/playwright-report/
           retention-days: 1

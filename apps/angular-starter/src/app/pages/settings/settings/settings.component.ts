@@ -7,6 +7,8 @@ import {
 import { TranslateModule } from '@ngx-translate/core';
 import { useShowDemoMessage } from '../../../shared/utlis';
 import { SharedService } from '../../../shared/services/shared.service';
+import { environment } from '../../../../environments/environments';
+import { themeSwitcher } from '@siemens/ix';
 
 @Component({
   selector: 'app-settings',
@@ -17,10 +19,12 @@ import { SharedService } from '../../../shared/services/shared.service';
 export class SettingsComponent {
   selectedThemeVariant = 'theme-classic';
   currentLang: string = 'en';
-  isDevMode: boolean = true;
+  isProdMode: boolean = false;
   constructor(private readonly sharedService: SharedService) { }
 
   ngOnInit() {
+
+    this.isProdMode = environment.CORPORATE_THEME_ENABLED;
     this.sharedService.currentLang$.subscribe((lang) => {
       this.currentLang = lang;
     });
@@ -30,7 +34,18 @@ export class SettingsComponent {
     this.sharedService.setLanguage(lang);
   }
 
-  onThemeChange() {
-    useShowDemoMessage();
+  onThemeChange(selectedThemeVariant: string) {
+    if (environment.CORPORATE_THEME_ENABLED) {
+      let currenttheme = themeSwitcher.getCurrentTheme();
+      const newTheme = currenttheme.includes('light')
+        ? selectedThemeVariant + '-light'
+        : selectedThemeVariant + '-dark';
+      themeSwitcher.setTheme(newTheme);
+
+      this.selectedThemeVariant = selectedThemeVariant;
+    }
+    else {
+      useShowDemoMessage();
+    }
   }
 }

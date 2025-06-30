@@ -1,5 +1,7 @@
-@import "@siemens/ix/dist/siemens-ix/siemens-ix.css";
+// Import the corporate theme if present (copied to assets/theme by prebuild script)
+@use "assets/theme/theme.scss" as *;
 
+@import "@siemens/ix/dist/siemens-ix/siemens-ix.css";
 @import "ag-grid-community/styles/ag-grid.css";
 @import "ag-grid-community/styles/ag-theme-alpine.css";
 @import "@siemens/ix-aggrid/dist/ix-aggrid/ix-aggrid.css";

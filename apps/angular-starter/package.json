@@ -2,6 +2,7 @@
   "name": "ix-angular-starter",
   "version": "0.0.0",
   "scripts": {
+    "prebuild": "node scripts/copy-theme.js",
     "ng": "ng",
     "start": "ng serve",
     "dev": "ng serve",
