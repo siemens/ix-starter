@@ -27,13 +27,13 @@ jobs:
           BRAND_URL: ${{ vars.BRAND_URL }}
 
       - name: Build React Starter
-        run: pnpm build --filter react-starter
+        run: pnpm build --filter ix-react-starter
         env:
           REACT_BASE: /ix-starter/react-starter/
           VITE_THEME: 1
 
       - name: Build Angular Starter
-        run: pnpm --filter angular-starter run build -- --base-href /ix-starter/angular-starter//
+        run: pnpm --filter ix-angular-starter run build --base-href /ix-starter/angular-starter/
 
       - name: Deploy React App 🚀
         uses: JamesIves/github-pages-deploy-action@v4
@@ -44,5 +44,5 @@ jobs:
       - name: Deploy Angular App 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: ./apps/angular-starter/dist
+          folder: ./apps/angular-starter/dist/browser
           target-folder: angular-starter

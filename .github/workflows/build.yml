@@ -70,7 +70,7 @@ jobs:
           pnpm playwright install chromium --with-deps
 
       - name: E2E (React)
-        run: pnpm --filter react-starter run e2e
+        run: pnpm --filter ix-react-starter e2e
 
       - name: E2E Report (React)
         if: ${{ !cancelled() }}
@@ -87,9 +87,7 @@ jobs:
           pnpm playwright install chromium --with-deps
 
       - name: E2E (Angular)
-        run: |
-          cd ./apps/angular-starter
-          pnpm e2e
+        run: pnpm --filter ix-angular-starter e2e
 
       - name: E2E Report (Angular)
         if: ${{ !cancelled() }}
