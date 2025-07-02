@@ -24,7 +24,7 @@ export class SettingsComponent {
 
   ngOnInit() {
 
-    this.isProdMode = environment.CORPORATE_THEME_ENABLED;
+    this.isProdMode = environment.BRAND_THEME;
     this.sharedService.currentLang$.subscribe((lang) => {
       this.currentLang = lang;
     });
@@ -35,7 +35,7 @@ export class SettingsComponent {
   }
 
   onThemeChange(selectedThemeVariant: string) {
-    if (environment.CORPORATE_THEME_ENABLED) {
+    if (environment.BRAND_THEME) {
       let currenttheme = themeSwitcher.getCurrentTheme();
       const newTheme = currenttheme.includes('light')
         ? selectedThemeVariant + '-light'
