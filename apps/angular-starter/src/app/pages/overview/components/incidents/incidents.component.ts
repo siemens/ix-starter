@@ -1,4 +1,4 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IncidentListComponent } from './incident-list/incident-list.component';
 import {
@@ -36,7 +36,6 @@ import { INCIDENTS } from '../../../../../assets/mock-data/Incidents';
   ],
   templateUrl: './incidents.component.html',
   styleUrls: ['./incidents.component.scss'],
-  // schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class IncidentsComponent {
   searchText = '';

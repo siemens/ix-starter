@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastService, ToastType } from '@siemens/ix-angular';
 import { BehaviorSubject } from 'rxjs';
@@ -11,9 +11,10 @@ export class SharedService {
   currentLang = new BehaviorSubject<string>('en');
   currentLang$ = this.currentLang.asObservable();
 
+  private readonly toastService = inject(ToastService);
+  private readonly translate = inject(TranslateService);
+
   constructor(
-    private readonly toastService: ToastService,
-    private readonly translate: TranslateService
   ) {
     const savedLang = localStorage.getItem('selectedLang') || 'en';
     this.setLanguage(savedLang);

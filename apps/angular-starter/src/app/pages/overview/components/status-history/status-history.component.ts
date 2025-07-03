@@ -17,7 +17,7 @@ import { AsyncPipe } from '@angular/common';
 echarts.use([LineChart]);
 
 @Component({
-  selector: 'status-history',
+  selector: 'app-status-history',
   imports: [
     IxCard,
     IxCardContent,
@@ -109,9 +109,10 @@ export class StatusHistoryComponent implements OnInit {
     ],
   };
 
-  constructor() {}
-
   ngOnInit(): void {
+
+    const currenttheme = themeSwitcher.getCurrentTheme();
+    this.themeSubject.next(currenttheme);
     themeSwitcher.themeChanged.on((theme: string) => {
       this.themeSubject.next(theme);
     });

@@ -31,7 +31,7 @@ echarts.use([
 ]);
 
 @Component({
-  selector: 'device-range',
+  selector: 'app-device-range',
   standalone: true,
   imports: [
     IxCardContent,
@@ -51,13 +51,14 @@ export class DeviceRangeComponent implements OnInit {
   ipRanges: string[] = [];
   themeSubject = new BehaviorSubject<string>('theme-classic-dark');
   theme$ = this.themeSubject.asObservable();
-
-  constructor() {}
-
+  currenttheme = 'theme-classic-dark';
   ngOnInit(): void {
     this.devices = DEVICE_INFO;
     this.options = this.getChartOptions(this.reduceDevices(this.devices));
     registerTheme(echarts);
+
+    const currenttheme = themeSwitcher.getCurrentTheme();
+    this.themeSubject.next(currenttheme);
 
     themeSwitcher.themeChanged.on((theme: string) => {
       this.themeSubject.next(theme);

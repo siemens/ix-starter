@@ -1,13 +1,10 @@
 <ix-content>
-  <ix-content-header
-    headerTitle="{{ 'content-header' | translate }}"
-    slot="header"
-  >
+  <ix-content-header headerTitle="{{ 'content-header' | translate }}" slot="header">
   </ix-content-header>
   <section class="list">
     <div class="card-container">
-      <device-range />
-      <status-history />
+      <app-device-range />
+      <app-status-history />
     </div>
     <app-incidents />
   </section>

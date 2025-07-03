@@ -1,4 +1,4 @@
-import { Component, OnDestroy, ViewChild } from '@angular/core';
+import { Component, OnDestroy, ViewChild, OnInit, inject } from '@angular/core';
 import {
   IxButton,
   IxCategoryFilter,
@@ -55,19 +55,19 @@ import { SharedService } from '../../shared/services/shared.service';
   templateUrl: './devices.component.html',
   styleUrl: './devices.component.scss',
 })
-export class DevicesComponent implements OnDestroy {
+export class DevicesComponent implements OnDestroy, OnInit {
   @ViewChild('agGrid') agGrid!: AgGridAngular;
-  isStatusUpdateInProgress: boolean = false;
-  expanded: boolean = false;
+  isStatusUpdateInProgress = false;
+  expanded = false;
   selectedRow: any = {};
   selectedRowEntries: any = [];
-  filterText: string = '';
+  filterText = '';
   columnDefs: any[] = [];
   destroy$ = new Subject();
   rowData: DeviceData[] = DEVICE_DATA;
   statusCount: any = {};
-  canPaste: boolean = false;
-  isFilterRowEmpty: boolean = false;
+  canPaste = false;
+  isFilterRowEmpty = false;
 
   categories = {
     deviceName: {
@@ -101,10 +101,11 @@ export class DevicesComponent implements OnDestroy {
     categories: [],
   };
 
+  private readonly modalService = inject(ModalService);
+  private readonly sharedService = inject(SharedService);
+  private readonly translate = inject(TranslateService);
+
   constructor(
-    private readonly modalService: ModalService,
-    private readonly sharedService: SharedService,
-    private readonly translate: TranslateService,
   ) {
     this.setColumnDefs();
     addIcons({

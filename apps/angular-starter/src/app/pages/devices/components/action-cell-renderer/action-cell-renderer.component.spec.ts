@@ -27,14 +27,7 @@ describe('ActionCellRendererComponent', () => {
       api: {
         getColumnDefs: () => [{ field: 'name' }],
         getRowNode: () => ({ rowIndex: 0 }),
-        startEditingCell: () => { },
-        setFocusedCell: () => { },
-        refreshCells: () => { }
       },
-      onDelete: () => { },
-      onDuplicate: () => { },
-      onPaste: () => { },
-      onChangeStatus: () => { }
     };
     fixture.detectChanges();
 

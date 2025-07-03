@@ -41,7 +41,7 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class IncidentListComponent {
   @Input() incidents: any[] = [];
-  @Input() search: string = '';
+  @Input() search = '';
 
   constructor() {
     addIcons({

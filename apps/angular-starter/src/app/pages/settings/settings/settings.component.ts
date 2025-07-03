@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import {
   IxRadio,
   IxRadioGroup,
@@ -16,11 +16,11 @@ import { themeSwitcher } from '@siemens/ix';
   templateUrl: './settings.component.html',
   styleUrl: './settings.component.scss',
 })
-export class SettingsComponent {
+export class SettingsComponent implements OnInit {
   selectedThemeVariant = 'theme-classic';
-  currentLang: string = 'en';
-  isProdMode: boolean = false;
-  constructor(private readonly sharedService: SharedService) { }
+  currentLang = 'en';
+  isProdMode = false;
+  private readonly sharedService = inject(SharedService);
 
   ngOnInit() {
 
@@ -36,7 +36,7 @@ export class SettingsComponent {
 
   onThemeChange(selectedThemeVariant: string) {
     if (environment.BRAND_THEME) {
-      let currenttheme = themeSwitcher.getCurrentTheme();
+      const currenttheme = themeSwitcher.getCurrentTheme();
       const newTheme = currenttheme.includes('light')
         ? selectedThemeVariant + '-light'
         : selectedThemeVariant + '-dark';

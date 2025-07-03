@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, inject, ViewChild } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import {
   IxDivider,
@@ -48,12 +48,13 @@ export class ActionCellRendererComponent implements ICellRendererAngularComp {
   @ViewChild('dropdownRef') dropdown!: IxDropdown;
 
   params: any;
-  triggerId: string = '';
-  canPaste: boolean = false;
+  triggerId = '';
+  canPaste = false;
+
+  private readonly sharedService = inject(SharedService);
+  private readonly translate = inject(TranslateService);
 
   constructor(
-    private readonly sharedService: SharedService,
-    private readonly translate: TranslateService,
   ) {
     addIcons({
       iconPen,
@@ -77,6 +78,7 @@ export class ActionCellRendererComponent implements ICellRendererAngularComp {
   }
 
   refresh(params: any): boolean {
+    this.params = params;
     return false;
   }
 

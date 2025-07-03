@@ -20,5 +20,4 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrl: './overview.component.scss',
 })
 export class OverviewComponent {
-  constructor() {}
 }

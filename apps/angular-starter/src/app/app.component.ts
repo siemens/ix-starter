@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import {
   NavigationEnd,
   Router,
@@ -58,9 +58,9 @@ import { themeSwitcher } from '@siemens/ix';
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
-  activePage: string = 'overview';
-
-  constructor(private readonly router: Router) {
+  activePage = 'overview';
+  private readonly router = inject(Router);
+  constructor() {
     addIcons({
       iconStar,
       iconStarFilled,

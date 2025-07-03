@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, inject, Inject, OnInit } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -38,10 +38,9 @@ import {
   templateUrl: './add-device-model.component.html',
   styleUrl: './add-device-model.component.scss',
 })
-export class AddDeviceModelComponent {
+export class AddDeviceModelComponent implements OnInit {
   addDeviceForm!: FormGroup;
-
-  constructor(@Inject(IxActiveModal) readonly activeModal: IxActiveModal) {}
+  @Inject(IxActiveModal) readonly activeModal = inject(IxActiveModal);
 
   ngOnInit() {
     this.addDeviceForm = new FormGroup({
