@@ -49,8 +49,12 @@ jobs:
         run: |
           cd ./apps/react-starter
           pnpm exec playwright install chromium --with-deps
-      - name: Test
-        run: pnpm test
+
+      - name: Test (React)
+        run: pnpm --filter ix-react-starter test
+
+      - name: Test (Angular)
+        run: pnpm --filter ix-angular-starter test 
 
   e2e:
     # Depend on build job to ensure the build is completed before running E2E tests
