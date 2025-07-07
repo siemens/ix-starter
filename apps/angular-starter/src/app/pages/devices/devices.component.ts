@@ -300,12 +300,6 @@ export class DevicesComponent implements OnDestroy, OnInit {
   }
 
   onRowClicked(event: any) {
-    if (this.expanded) {
-      this.expanded = false;
-      this.selectedRow = null;
-      this.selectedRowEntries = null;
-      return;
-    }
     this.selectedRow = event.data;
     this.selectedRowEntries = Object.entries(this.selectedRow);
     this.selectedRowEntries.forEach((item: string[]) => {

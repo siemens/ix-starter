@@ -19,7 +19,7 @@ importers:
         version: 3.3.3
       turbo:
         specifier: latest
-        version: 2.5.3
+        version: 2.5.0
 
   apps/angular-starter:
     dependencies:
@@ -64,7 +64,7 @@ importers:
         version: 3.0.0(@siemens/ix-icons@3.0.0)
       '@siemens/ix-aggrid':
         specifier: ^3.0.0
-        version: 3.0.0(@siemens/ix-icons@3.0.0)(ag-grid-community@32.2.1)
+        version: 3.0.0(@siemens/ix-icons@3.0.0)(ag-grid-community@32.3.5)
       '@siemens/ix-angular':
         specifier: ^3.0.0
         version: 3.0.0(@angular/core@19.2.0)(@angular/forms@19.2.0)(@siemens/ix-icons@3.0.0)
@@ -75,11 +75,11 @@ importers:
         specifier: ^3.0.0
         version: 3.0.0
       ag-grid-angular:
-        specifier: ^32.0.2
-        version: 32.0.2(@angular/common@19.2.0)(@angular/core@19.2.0)(ag-grid-community@32.2.1)
+        specifier: ^32.3.5
+        version: 32.3.5(@angular/common@19.2.0)(@angular/core@19.2.0)(ag-grid-community@32.3.5)
       ag-grid-community:
-        specifier: ^32.0.2
-        version: 32.2.1
+        specifier: ^32.3.5
+        version: 32.3.5
       angular-eslint:
         specifier: ^20.1.1
         version: 20.1.1(eslint@9.12.0)(typescript-eslint@8.0.1)(typescript@5.7.2)
@@ -4007,6 +4007,17 @@ packages:
       - '@siemens/ix-icons'
     dev: false
 
+  /@siemens/ix-aggrid@3.0.0(@siemens/ix-icons@3.0.0)(ag-grid-community@32.3.5):
+    resolution: {integrity: sha512-N98qe6ke2cDLoBoelLh0xc3vvVEmyvy5KujAXvRiMtGmXWZqbMl2CWnmRT/xNTstj3RF3YdRdMV+G9Mk1vCV9Q==}
+    peerDependencies:
+      ag-grid-community: ^28 || ^29 || ^30 || ^31 || ^32
+    dependencies:
+      '@siemens/ix': 3.0.0(@siemens/ix-icons@3.0.0)
+      ag-grid-community: 32.3.5
+    transitivePeerDependencies:
+      - '@siemens/ix-icons'
+    dev: false
+
   /@siemens/ix-angular@3.0.0(@angular/core@19.2.0)(@angular/forms@19.2.0)(@siemens/ix-icons@3.0.0):
     resolution: {integrity: sha512-i58LzT1AcPzwIm9tEofbNpaQykM1tVUUSfu5ANS54Gn+cUb14TPK23kAo9YwzyAJ7C/69eQBJi66eQlfIH4oIA==}
     peerDependencies:
@@ -4990,23 +5001,29 @@ packages:
     resolution: {integrity: sha512-DtvV+IS4RlocGV2IcaQOe/eM6eBGGCvkLnwxGkDxKa8ddxivv90fwlfPxK0O5XnVectiKtWFfOw35Cm0k+4vMw==}
     dev: false
 
-  /ag-grid-angular@32.0.2(@angular/common@19.2.0)(@angular/core@19.2.0)(ag-grid-community@32.2.1):
-    resolution: {integrity: sha512-GU9m0hCgBK6DqrXJ2R8r1Vm+CutCUbgrEXtsQPWlQh9AipW9khvbMF0NzuAYpZrGnk8KI9E9+jhzWhT4ZWLOTw==}
+  /ag-grid-angular@32.3.5(@angular/common@19.2.0)(@angular/core@19.2.0)(ag-grid-community@32.3.5):
+    resolution: {integrity: sha512-FAglZxe1pl66TsTypUDabPItmcFSERVGFuQRjpH2tGy2IX+d85cDwShPmy7I6ENtx4Qx/aeh9nj8Ma/ByQYd9g==}
     peerDependencies:
       '@angular/common': '>= 16.0.0'
       '@angular/core': '>= 16.0.0'
-      ag-grid-community: 32.0.2
+      ag-grid-community: 32.3.5
     dependencies:
       '@angular/common': 19.2.0(@angular/core@19.2.0)(rxjs@7.8.0)
       '@angular/core': 19.2.0(rxjs@7.8.0)(zone.js@0.15.0)
-      ag-grid-community: 32.2.1
-      tslib: 2.3.0
+      ag-grid-community: 32.3.5
+      tslib: 2.8.1
     dev: false
 
   /ag-grid-community@32.2.1:
     resolution: {integrity: sha512-mrnm1DnLI9Wd408mMwP+6p7lbTC3FYgzNIUPygBvNh3SzZnbzTEUJF/BTKXi+MARWtG5S0IMUYy4hqBiLbobaQ==}
     dependencies:
       ag-charts-types: 10.2.0
+    dev: false
+
+  /ag-grid-community@32.3.5:
+    resolution: {integrity: sha512-iZXi6YXKc13jQgDfxaadZVJV9880qn/uj4Hxi638UH91c1Y/MiVmzBKzTyp+LJHR+s7Ek85L+K3AUkJ3LVcQIA==}
+    dependencies:
+      ag-charts-types: 10.3.5
     dev: false
 
   /ag-grid-react@32.2.1(react-dom@18.3.1)(react@18.3.1):
@@ -5063,10 +5080,6 @@ packages:
       fast-json-stable-stringify: 2.1.0
       json-schema-traverse: 0.4.1
       uri-js: 4.4.1
-<<<<<<< HEAD
-=======
-    dev: true
->>>>>>> 701bbd44dc3fa25fcfcbfb777a5a796cdb3fc33d
 
   /ajv@8.17.1:
     resolution: {integrity: sha512-B/gBuNg5SiMTrPkC+A2+cW0RszwxYmn6VYxB/inlBStS5nx6xHIt/ehKRhIMhqusl7a8LjQoZnjCs5vhwxOQ1g==}
@@ -5549,10 +5562,6 @@ packages:
   /callsites@3.1.0:
     resolution: {integrity: sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==}
     engines: {node: '>=6'}
-<<<<<<< HEAD
-=======
-    dev: true
->>>>>>> 701bbd44dc3fa25fcfcbfb777a5a796cdb3fc33d
 
   /caniuse-lite@1.0.30001706:
     resolution: {integrity: sha512-3ZczoTApMAZwPKYWmwVbQMFpXBDds3/0VciVoUwPUbldlYyVLmRVuRs/PcUZtHpbLRpzzDvrvnFuREsGt6lUug==}
@@ -10642,64 +10651,64 @@ packages:
       - supports-color
     dev: true
 
-  /turbo-darwin-64@2.5.3:
-    resolution: {integrity: sha512-YSItEVBUIvAGPUDpAB9etEmSqZI3T6BHrkBkeSErvICXn3dfqXUfeLx35LfptLDEbrzFUdwYFNmt8QXOwe9yaw==}
+  /turbo-darwin-64@2.5.0:
+    resolution: {integrity: sha512-fP1hhI9zY8hv0idym3hAaXdPi80TLovmGmgZFocVAykFtOxF+GlfIgM/l4iLAV9ObIO4SUXPVWHeBZQQ+Hpjag==}
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-darwin-arm64@2.5.3:
-    resolution: {integrity: sha512-5PefrwHd42UiZX7YA9m1LPW6x9YJBDErXmsegCkVp+GjmWrADfEOxpFrGQNonH3ZMj77WZB2PVE5Aw3gA+IOhg==}
+  /turbo-darwin-arm64@2.5.0:
+    resolution: {integrity: sha512-p9sYq7kXH7qeJwIQE86cOWv/xNqvow846l6c/qWc26Ib1ci5W7V0sI5thsrP3eH+VA0d+SHalTKg5SQXgNQBWA==}
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-linux-64@2.5.3:
-    resolution: {integrity: sha512-M9xigFgawn5ofTmRzvjjLj3Lqc05O8VHKuOlWNUlnHPUltFquyEeSkpQNkE/vpPdOR14AzxqHbhhxtfS4qvb1w==}
+  /turbo-linux-64@2.5.0:
+    resolution: {integrity: sha512-1iEln2GWiF3iPPPS1HQJT6ZCFXynJPd89gs9SkggH2EJsj3eRUSVMmMC8y6d7bBbhBFsiGGazwFIYrI12zs6uQ==}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-linux-arm64@2.5.3:
-    resolution: {integrity: sha512-auJRbYZ8SGJVqvzTikpg1bsRAsiI9Tk0/SDkA5Xgg0GdiHDH/BOzv1ZjDE2mjmlrO/obr19Dw+39OlMhwLffrw==}
+  /turbo-linux-arm64@2.5.0:
+    resolution: {integrity: sha512-bKBcbvuQHmsX116KcxHJuAcppiiBOfivOObh2O5aXNER6mce7YDDQJy00xQQNp1DhEfcSV2uOsvb3O3nN2cbcA==}
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-windows-64@2.5.3:
-    resolution: {integrity: sha512-arLQYohuHtIEKkmQSCU9vtrKUg+/1TTstWB9VYRSsz+khvg81eX6LYHtXJfH/dK7Ho6ck+JaEh5G+QrE1jEmCQ==}
+  /turbo-windows-64@2.5.0:
+    resolution: {integrity: sha512-9BCo8oQ7BO7J0K913Czbc3tw8QwLqn2nTe4E47k6aVYkM12ASTScweXPTuaPFP5iYXAT6z5Dsniw704Ixa5eGg==}
     cpu: [x64]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-windows-arm64@2.5.3:
-    resolution: {integrity: sha512-3JPn66HAynJ0gtr6H+hjY4VHpu1RPKcEwGATvGUTmLmYSYBQieVlnGDRMMoYN066YfyPqnNGCfhYbXfH92Cm0g==}
+  /turbo-windows-arm64@2.5.0:
+    resolution: {integrity: sha512-OUHCV+ueXa3UzfZ4co/ueIHgeq9B2K48pZwIxKSm5VaLVuv8M13MhM7unukW09g++dpdrrE1w4IOVgxKZ0/exg==}
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo@2.5.3:
-    resolution: {integrity: sha512-iHuaNcq5GZZnr3XDZNuu2LSyCzAOPwDuo5Qt+q64DfsTP1i3T2bKfxJhni2ZQxsvAoxRbuUK5QetJki4qc5aYA==}
+  /turbo@2.5.0:
+    resolution: {integrity: sha512-PvSRruOsitjy6qdqwIIyolv99+fEn57gP6gn4zhsHTEcCYgXPhv6BAxzAjleS8XKpo+Y582vTTA9nuqYDmbRuA==}
     hasBin: true
     optionalDependencies:
-      turbo-darwin-64: 2.5.3
-      turbo-darwin-arm64: 2.5.3
-      turbo-linux-64: 2.5.3
-      turbo-linux-arm64: 2.5.3
-      turbo-windows-64: 2.5.3
-      turbo-windows-arm64: 2.5.3
+      turbo-darwin-64: 2.5.0
+      turbo-darwin-arm64: 2.5.0
+      turbo-linux-64: 2.5.0
+      turbo-linux-arm64: 2.5.0
+      turbo-windows-64: 2.5.0
+      turbo-windows-arm64: 2.5.0
     dev: true
 
   /type-check@0.4.0:
