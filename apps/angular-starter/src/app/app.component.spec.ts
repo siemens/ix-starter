@@ -2,7 +2,7 @@
 import { AppComponent } from './app.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { fakeAsync, tick, TestBed } from '@angular/core/testing';
-import { Router, NavigationEnd, provideRouter } from '@angular/router';
+import { NavigationEnd, provideRouter, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 
 describe('AppComponent', () => {
@@ -21,15 +21,15 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
   describe('AppComponent additional logic', () => {
-    let routerMock: any;
+    let fixture: any;
     let component: AppComponent;
+    let router: Router;
+
 
     beforeEach(() => {
-      routerMock = {
-        url: '/overview',
-        events: new Subject(),
-      };
-      component = new AppComponent(routerMock as Router);
+      fixture = TestBed.createComponent(AppComponent);
+      component = fixture.componentInstance;
+      router = TestBed.inject(Router);
     });
 
     it('should set activePage to "overview" if url contains "overview"', () => {
@@ -43,14 +43,16 @@ describe('AppComponent', () => {
     });
 
     it('should call setActivePageFromUrl on ngOnInit with initial url', () => {
-      const spy = spyOn<any>(component, 'setActivePageFromUrl');
+      const spy = spyOn(AppComponent.prototype as any, 'setActivePageFromUrl');
+      const fixture = TestBed.createComponent(AppComponent);
+      const component = fixture.componentInstance;
       component.ngOnInit();
-      expect(spy).toHaveBeenCalledWith('/overview');
+      expect(spy).toHaveBeenCalledWith('/');
     });
 
     it('should update activePage on NavigationEnd event', fakeAsync(() => {
       component.ngOnInit();
-      routerMock.events.next(new NavigationEnd(1, '/devices', '/devices'));
+      (router.events as Subject<any>).next(new NavigationEnd(1, '/devices', '/devices'));
       tick();
       expect(component.activePage).toBe('devices');
     }));
