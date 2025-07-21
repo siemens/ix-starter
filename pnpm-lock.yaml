@@ -19,7 +19,7 @@ importers:
         version: 3.3.3
       turbo:
         specifier: latest
-        version: 2.5.3
+        version: 2.5.5
 
   apps/react-starter:
     dependencies:
@@ -28,7 +28,7 @@ importers:
         version: 3.0.0(@siemens/ix-icons@3.0.0)
       '@siemens/ix-aggrid':
         specifier: 3.0.0
-        version: 3.0.0(@siemens/ix-icons@3.0.0)(ag-grid-community@32.2.1)
+        version: 3.0.0(@siemens/ix-icons@3.0.0)(ag-grid-community@34.0.2)
       '@siemens/ix-echarts':
         specifier: 3.0.0
         version: 3.0.0(echarts@5.5.1)
@@ -37,10 +37,10 @@ importers:
         version: 3.0.0
       '@siemens/ix-react':
         specifier: 3.0.0
-        version: 3.0.0(@siemens/ix-icons@3.0.0)(@stencil/core@4.31.0)(@types/react@18.3.12)(react-dom@18.3.1)(react@18.3.1)
+        version: 3.0.0(@siemens/ix-icons@3.0.0)(@stencil/core@4.36.1)(@types/react@18.3.12)(react-dom@18.3.1)(react@18.3.1)
       ag-grid-community:
-        specifier: 32.2.1
-        version: 32.2.1
+        specifier: 34.0.2
+        version: 34.0.2
       ag-grid-react:
         specifier: 32.2.1
         version: 32.2.1(react-dom@18.3.1)(react@18.3.1)
@@ -1020,13 +1020,13 @@ packages:
     dev: true
     optional: true
 
-  /@siemens/ix-aggrid@3.0.0(@siemens/ix-icons@3.0.0)(ag-grid-community@32.2.1):
+  /@siemens/ix-aggrid@3.0.0(@siemens/ix-icons@3.0.0)(ag-grid-community@34.0.2):
     resolution: {integrity: sha512-N98qe6ke2cDLoBoelLh0xc3vvVEmyvy5KujAXvRiMtGmXWZqbMl2CWnmRT/xNTstj3RF3YdRdMV+G9Mk1vCV9Q==}
     peerDependencies:
       ag-grid-community: ^28 || ^29 || ^30 || ^31 || ^32
     dependencies:
       '@siemens/ix': 3.0.0(@siemens/ix-icons@3.0.0)
-      ag-grid-community: 32.2.1
+      ag-grid-community: 34.0.2
     transitivePeerDependencies:
       - '@siemens/ix-icons'
     dev: false
@@ -1046,7 +1046,7 @@ packages:
       '@stencil/core': 4.29.3
     dev: false
 
-  /@siemens/ix-react@3.0.0(@siemens/ix-icons@3.0.0)(@stencil/core@4.31.0)(@types/react@18.3.12)(react-dom@18.3.1)(react@18.3.1):
+  /@siemens/ix-react@3.0.0(@siemens/ix-icons@3.0.0)(@stencil/core@4.36.1)(@types/react@18.3.12)(react-dom@18.3.1)(react@18.3.1):
     resolution: {integrity: sha512-1oR9O8P9dSdgMlCPGSddx5/4Qu2qYVc5YFQ6qm3OTVVMCrt8JWUNfqHn/SRutMCrQe5y+N3DM/U0STtGQmlBng==}
     peerDependencies:
       '@siemens/ix-icons': ^3.0.0
@@ -1055,7 +1055,7 @@ packages:
     dependencies:
       '@siemens/ix': 3.0.0(@siemens/ix-icons@3.0.0)
       '@siemens/ix-icons': 3.0.0
-      '@stencil/react-output-target': 1.0.2(@stencil/core@4.31.0)(@types/react@18.3.12)(react-dom@18.3.1)(react@18.3.1)
+      '@stencil/react-output-target': 1.0.2(@stencil/core@4.36.1)(@types/react@18.3.12)(react-dom@18.3.1)(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       tslib: 2.3.0
@@ -1092,8 +1092,8 @@ packages:
       '@rollup/rollup-win32-x64-msvc': 4.34.9
     dev: false
 
-  /@stencil/core@4.31.0:
-    resolution: {integrity: sha512-Ei9MFJ6LPD9BMFs+klkHylbVOOYhG10Jv4bvoFf3GMH15kA41rSYkEdr4DiX84ZdErQE2qtFV/2SUyWoXh0AhA==}
+  /@stencil/core@4.36.1:
+    resolution: {integrity: sha512-LRZN1c4X+9/7kR+zG74SrcZ6XxKlilDTkDXajw3ioeDdVlJEvW5wU8Wn3BcAAnk7fjrgLZVN7ickgeuG7u0AKg==}
     engines: {node: '>=16.0.0', npm: '>=7.10.0'}
     hasBin: true
     optionalDependencies:
@@ -1107,7 +1107,7 @@ packages:
       '@rollup/rollup-win32-x64-msvc': 4.34.9
     dev: false
 
-  /@stencil/react-output-target@1.0.2(@stencil/core@4.31.0)(@types/react@18.3.12)(react-dom@18.3.1)(react@18.3.1):
+  /@stencil/react-output-target@1.0.2(@stencil/core@4.36.1)(@types/react@18.3.12)(react-dom@18.3.1)(react@18.3.1):
     resolution: {integrity: sha512-9IcYOP5aQLZxtEIumXyQ3qWyzvU3/wohoxwFfd9uTsvn3tO+O0FOg6A00+XiCwRpB9tENGMHHvqTQ1BjWpDUbQ==}
     peerDependencies:
       '@stencil/core': '>=3 || >= 4.0.0-beta.0 || >= 4.0.0'
@@ -1115,7 +1115,7 @@ packages:
       react-dom: ^18 || ^19
     dependencies:
       '@lit/react': 1.0.7(@types/react@18.3.12)
-      '@stencil/core': 4.31.0
+      '@stencil/core': 4.36.1
       html-react-parser: 5.2.2(@types/react@18.3.12)(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -1528,10 +1528,20 @@ packages:
     resolution: {integrity: sha512-PUqH1QtugpYLnlbMdeSZVf5PpT1XZVsP69qN1JXhetLtQpVC28zaj7ikwu9CMA9N9b+dBboA9QcjUQUJZVUokQ==}
     dev: false
 
+  /ag-charts-types@12.0.2:
+    resolution: {integrity: sha512-AWM1Y+XW+9VMmV3AbzdVEnreh/I2C9Pmqpc2iLmtId3Xbvmv7O56DqnuDb9EXjK5uPxmyUerTP+utL13UGcztw==}
+    dev: false
+
   /ag-grid-community@32.2.1:
     resolution: {integrity: sha512-mrnm1DnLI9Wd408mMwP+6p7lbTC3FYgzNIUPygBvNh3SzZnbzTEUJF/BTKXi+MARWtG5S0IMUYy4hqBiLbobaQ==}
     dependencies:
       ag-charts-types: 10.2.0
+    dev: false
+
+  /ag-grid-community@34.0.2:
+    resolution: {integrity: sha512-hVJp5vrmwHRB10YjfSOVni5YJkO/v+asLjT72S4YnIFSx8lAgyPmByNJgtojk1aJ5h6Up93jTEmGDJeuKiWWLA==}
+    dependencies:
+      ag-charts-types: 12.0.2
     dev: false
 
   /ag-grid-react@32.2.1(react-dom@18.3.1)(react@18.3.1):
@@ -3946,64 +3956,64 @@ packages:
     resolution: {integrity: sha512-N82ooyxVNm6h1riLCoyS9e3fuJ3AMG2zIZs2Gd1ATcSFjSA23Q0fzjjZeh0jbJvWVDZ0cJT8yaNNaaXHzueNjg==}
     dev: false
 
-  /turbo-darwin-64@2.5.3:
-    resolution: {integrity: sha512-YSItEVBUIvAGPUDpAB9etEmSqZI3T6BHrkBkeSErvICXn3dfqXUfeLx35LfptLDEbrzFUdwYFNmt8QXOwe9yaw==}
+  /turbo-darwin-64@2.5.5:
+    resolution: {integrity: sha512-RYnTz49u4F5tDD2SUwwtlynABNBAfbyT2uU/brJcyh5k6lDLyNfYKdKmqd3K2ls4AaiALWrFKVSBsiVwhdFNzQ==}
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-darwin-arm64@2.5.3:
-    resolution: {integrity: sha512-5PefrwHd42UiZX7YA9m1LPW6x9YJBDErXmsegCkVp+GjmWrADfEOxpFrGQNonH3ZMj77WZB2PVE5Aw3gA+IOhg==}
+  /turbo-darwin-arm64@2.5.5:
+    resolution: {integrity: sha512-Tk+ZeSNdBobZiMw9aFypQt0DlLsWSFWu1ymqsAdJLuPoAH05qCfYtRxE1pJuYHcJB5pqI+/HOxtJoQ40726Btw==}
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-linux-64@2.5.3:
-    resolution: {integrity: sha512-M9xigFgawn5ofTmRzvjjLj3Lqc05O8VHKuOlWNUlnHPUltFquyEeSkpQNkE/vpPdOR14AzxqHbhhxtfS4qvb1w==}
+  /turbo-linux-64@2.5.5:
+    resolution: {integrity: sha512-2/XvMGykD7VgsvWesZZYIIVXMlgBcQy+ZAryjugoTcvJv8TZzSU/B1nShcA7IAjZ0q7OsZ45uP2cOb8EgKT30w==}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-linux-arm64@2.5.3:
-    resolution: {integrity: sha512-auJRbYZ8SGJVqvzTikpg1bsRAsiI9Tk0/SDkA5Xgg0GdiHDH/BOzv1ZjDE2mjmlrO/obr19Dw+39OlMhwLffrw==}
+  /turbo-linux-arm64@2.5.5:
+    resolution: {integrity: sha512-DW+8CjCjybu0d7TFm9dovTTVg1VRnlkZ1rceO4zqsaLrit3DgHnN4to4uwyuf9s2V/BwS3IYcRy+HG9BL596Iw==}
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-windows-64@2.5.3:
-    resolution: {integrity: sha512-arLQYohuHtIEKkmQSCU9vtrKUg+/1TTstWB9VYRSsz+khvg81eX6LYHtXJfH/dK7Ho6ck+JaEh5G+QrE1jEmCQ==}
+  /turbo-windows-64@2.5.5:
+    resolution: {integrity: sha512-q5p1BOy8ChtSZfULuF1BhFMYIx6bevXu4fJ+TE/hyNfyHJIfjl90Z6jWdqAlyaFLmn99X/uw+7d6T/Y/dr5JwQ==}
     cpu: [x64]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-windows-arm64@2.5.3:
-    resolution: {integrity: sha512-3JPn66HAynJ0gtr6H+hjY4VHpu1RPKcEwGATvGUTmLmYSYBQieVlnGDRMMoYN066YfyPqnNGCfhYbXfH92Cm0g==}
+  /turbo-windows-arm64@2.5.5:
+    resolution: {integrity: sha512-AXbF1KmpHUq3PKQwddMGoKMYhHsy5t1YBQO8HZ04HLMR0rWv9adYlQ8kaeQJTko1Ay1anOBFTqaxfVOOsu7+1Q==}
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo@2.5.3:
-    resolution: {integrity: sha512-iHuaNcq5GZZnr3XDZNuu2LSyCzAOPwDuo5Qt+q64DfsTP1i3T2bKfxJhni2ZQxsvAoxRbuUK5QetJki4qc5aYA==}
+  /turbo@2.5.5:
+    resolution: {integrity: sha512-eZ7wI6KjtT1eBqCnh2JPXWNUAxtoxxfi6VdBdZFvil0ychCOTxbm7YLRBi1JSt7U3c+u3CLxpoPxLdvr/Npr3A==}
     hasBin: true
     optionalDependencies:
-      turbo-darwin-64: 2.5.3
-      turbo-darwin-arm64: 2.5.3
-      turbo-linux-64: 2.5.3
-      turbo-linux-arm64: 2.5.3
-      turbo-windows-64: 2.5.3
-      turbo-windows-arm64: 2.5.3
+      turbo-darwin-64: 2.5.5
+      turbo-darwin-arm64: 2.5.5
+      turbo-linux-64: 2.5.5
+      turbo-linux-arm64: 2.5.5
+      turbo-windows-64: 2.5.5
+      turbo-windows-arm64: 2.5.5
     dev: true
 
   /type-check@0.4.0:
