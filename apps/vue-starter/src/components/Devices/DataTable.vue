@@ -1,11 +1,6 @@
-/*
- * SPDX-FileCopyrightText: 2024 Siemens AG
- *
- * SPDX-License-Identifier: MIT
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
+/* * SPDX-FileCopyrightText: 2024 Siemens AG * * SPDX-License-Identifier: MIT * * This source code
+is licensed under the MIT license found in the * LICENSE file in the root directory of this source
+tree. */
 
 <script setup lang="ts">
 import { iconProject } from "@siemens/ix-icons/icons";
@@ -178,6 +173,7 @@ const onGridReady = (params: any) => {
 
 const onCellClicked = (event: any) => {
   emit("cell-clicked", { expanded: true, data: event.data });
+  event.api.refreshCells({ rowNodes: [event.node] });
 };
 
 const refreshData = () => {
@@ -211,15 +207,31 @@ defineExpose({ categories, deviceState, refreshData, gridApi });
 
 <template>
   <div class="ag-grid-container">
-    <AgGridVue @grid-ready="onGridReady" @cell-clicked="onCellClicked" class="ag-theme-alpine-dark ag-theme-ix"
-      style="width: 100%; height: 100%" :columnDefs="columnDefs" :rowData="rowData" :rowHeight="42"
-      :frameworkComponents="{ QuickActions }" :suppressRowTransform="true" :suppressCellFocus="true" :animateRows="true"
-      :suppressAnimationFrame="false" :isExternalFilterPresent="isExternalFilterPresent"
-      :doesExternalFilterPass="doesExternalFilterPass" rowSelection="single" />
+    <AgGridVue
+      @grid-ready="onGridReady"
+      @cell-clicked="onCellClicked"
+      class="ag-theme-alpine-dark ag-theme-ix"
+      style="width: 100%; height: 100%"
+      :columnDefs="columnDefs"
+      :rowData="rowData"
+      :rowHeight="42"
+      :frameworkComponents="{ QuickActions }"
+      :suppressRowTransform="true"
+      :suppressCellFocus="true"
+      :animateRows="true"
+      :suppressAnimationFrame="false"
+      :isExternalFilterPresent="isExternalFilterPresent"
+      :doesExternalFilterPass="doesExternalFilterPass"
+      rowSelection="single"
+    />
 
     <div v-if="showEmptyState" class="empty-state">
-      <IxEmptyState :header="t('device-quick-actions.devices')" :sub-header="t('category-filter.placeholder')"
-        :icon="iconProject" :action="t('cancel')" />
+      <IxEmptyState
+        :header="t('device-quick-actions.devices')"
+        :sub-header="t('category-filter.placeholder')"
+        :icon="iconProject"
+        :action="t('cancel')"
+      />
     </div>
   </div>
 </template>
