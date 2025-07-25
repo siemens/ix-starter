@@ -8,21 +8,14 @@ import { useI18n } from "vue-i18n";
 import DataTableInstance from "./DataTable.vue";
 import AddDevicesModal from "./AddDevicesModal.vue";
 import { showModal } from "@/helpers/modal";
-import {
-  IxTypography,
-  IxButton,
-  IxChip,
-  IxCategoryFilter,
-  IxContentHeader,
-  IxEmptyState,
-} from "@siemens/ix-vue";
-import { iconProject } from "@siemens/ix-icons/icons";
+import { IxButton, IxChip, IxCategoryFilter, IxContentHeader, IxEmptyState } from "@siemens/ix-vue";
 import {
   iconAddCircle,
   iconSuccess,
   iconMaintenanceWarning,
   iconError,
   iconInfo,
+  iconProject,
 } from "@siemens/ix-icons/icons";
 import { FilterState, LogicalFilterOperator } from "@siemens/ix";
 import { useDeviceStore } from "@/store/deviceStore";
