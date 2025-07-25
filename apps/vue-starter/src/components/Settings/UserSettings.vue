@@ -1,92 +1,74 @@
-/*
- * SPDX-FileCopyrightText: 2024 Siemens AG
- *
- * SPDX-License-Identifier: MIT
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
 <script setup lang="ts">
 import { ref, computed, onMounted } from "vue";
 import { useI18n } from "vue-i18n";
 import { themeSwitcher } from "@siemens/ix";
 import { IxTypography, IxRadio, IxRadioGroup } from "@siemens/ix-vue";
 import { useShowDemoMessage } from "../../helpers/demoMessage";
-
 import brand from "../../assets/images/brand.png";
 import classic from "../../assets/images/classic.png";
 import styles from "./styles.module.css";
 
-const { t, locale } = useI18n({ useScope: 'global' });
+const { t, locale } = useI18n({ useScope: "global" });
 const showDemoMessage = useShowDemoMessage();
 
-type Theme = "brand" | "classic";
-type Language = "en" | "de";
-
 const themes = [
-  { name: "Siemens Brand", value: "brand" as Theme, image: brand },
-  { name: "Classic", value: "classic" as Theme, image: classic },
-] as const;
+  { name: "Siemens Brand", value: "brand", image: brand },
+  { name: "Classic", value: "classic", image: classic },
+];
 
-function getThemeName(): Theme {
-  const currentVariant = themeSwitcher.getCurrentTheme();
-  const themeParts = currentVariant.split('-');
-  return (themeParts[1] as Theme) || "brand";
-}
+const isBrandThemeAvailable = !!import.meta.env.VITE_THEME;
+const savedTheme = localStorage.getItem("theme") as "brand" | "classic";
+const defaultTheme = isBrandThemeAvailable && savedTheme === "brand" ? "brand" : "classic";
+const currentTheme = ref(savedTheme || defaultTheme);
 
-const currentTheme = ref<Theme>(getThemeName());
-
-const currentLanguage = computed<Language>({
-  get: () => locale.value as Language,
-  set: (lang: Language) => {
+const currentLanguage = computed({
+  get: () => locale.value as "en" | "de",
+  set: (lang: "en" | "de") => {
     locale.value = lang;
     localStorage.setItem("language", lang);
-  }
+  },
 });
 
 onMounted(() => {
-  const savedLanguage = localStorage.getItem("language") as Language;
-  if (savedLanguage && (savedLanguage === "en" || savedLanguage === "de")) {
+  document.body.className = getThemeFullName();
+  const savedLanguage = localStorage.getItem("language") as "en" | "de";
+  if (savedLanguage === "en" || savedLanguage === "de") {
     currentLanguage.value = savedLanguage;
   }
 });
 
-function changeLanguage(language: Language) {
+function changeLanguage(language: "en" | "de") {
   currentLanguage.value = language;
 }
 
 function getThemeFullName(): string {
   const currentVariant = themeSwitcher.getCurrentTheme();
-  const themeParts = currentVariant.split('-');
+  const themeParts = currentVariant.split("-");
   themeParts[1] = currentTheme.value;
-  return themeParts.join('-');
+  return themeParts.join("-");
 }
 
-function changeTheme(theme: Theme) {
+function changeTheme(theme: "brand" | "classic") {
+  if (theme === "brand" && !isBrandThemeAvailable) {
+    showDemoMessage();
+    return;
+  }
   currentTheme.value = theme;
+  localStorage.setItem("theme", theme);
   document.body.className = getThemeFullName();
 }
-
-function handleThemeClick(event: Event, theme: Theme) {
-  event.preventDefault();
-  event.stopPropagation();
-  changeTheme(theme);
-}
 </script>
-
 <template>
   <div :class="styles.UserSettings">
     <IxTypography format="h4">{{ t("theme.title", "Theme") }}</IxTypography>
     <section :class="styles.ThemeSelection">
-      <div v-for="theme in themes" :key="theme.value" :class="styles.ThemeButton"
-        @click="(event) => handleThemeClick(event, theme.value)">
+      <div v-for="theme in themes" :key="theme.value" :class="styles.ThemeButton">
         <div :class="[styles.ThemeImagePreview, { [styles.Active]: currentTheme === theme.value }]">
           <img :src="theme.image" :alt="`${theme.name} theme`" draggable="false" />
         </div>
         <div>
           <IxRadio :id="theme.value" :checked="currentTheme === theme.value"
-            @checkedChange="() => changeTheme(theme.value)" :label="theme.name" />
+            @checkedChange="() => changeTheme(theme.value as 'brand' | 'classic')" :label="theme.name" />
         </div>
       </div>
     </section>

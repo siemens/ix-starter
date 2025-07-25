@@ -32,14 +32,6 @@ import { showDemoModal } from "./helpers/modal";
 const router = useRouter();
 const route = useRoute();
 
-function optionalTheme() {
-  document.body.classList.add("theme-brand-dark");
-}
-
-onMounted(() => {
-  optionalTheme();
-});
-
 const { t } = useI18n();
 
 const handleDemoModal = () => {

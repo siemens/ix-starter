@@ -14,12 +14,7 @@ import { IxCard, IxCardContent, IxTypography } from "@siemens/ix-vue";
 import { registerTheme, getComputedCSSProperty } from "@siemens/ix-echarts";
 import VueECharts from "vue-echarts";
 import * as echarts from "echarts/core";
-import {
-  TooltipComponent,
-  LegendComponent,
-  GridComponent,
-  MarkLineComponent,
-} from "echarts/components";
+import { TooltipComponent, LegendComponent, GridComponent, MarkLineComponent } from "echarts/components";
 import { LineChart } from "echarts/charts";
 import { CanvasRenderer } from "echarts/renderers";
 import { type EChartsOption } from "echarts";
@@ -28,7 +23,6 @@ import { useChart } from "../../composables/useChart";
 import { CHART_CONSTANTS, getStatusHistoryData } from "../../composables/chartConfig";
 
 registerTheme(echarts);
-
 echarts.use([
   TooltipComponent,
   LegendComponent,
@@ -41,19 +35,15 @@ echarts.use([
 const { t } = useI18n();
 const chartRef = ref();
 const theme = ref(themeSwitcher.getCurrentTheme());
-
 const chartData = getStatusHistoryData();
 
 const chartOption = computed((): EChartsOption => {
-  theme.value;
-
   const series = Object.values(chartData.series).map(seriesData => ({
     type: "line" as const,
     name: seriesData.name,
     color: getComputedCSSProperty(seriesData.colorKey),
     data: seriesData.data,
   }));
-
   return {
     grid: CHART_CONSTANTS.GRID.STATUS_HISTORY,
     legend: {
@@ -74,20 +64,22 @@ const chartOption = computed((): EChartsOption => {
   };
 });
 
-const initializeChart = async () => { };
-
 useChart({
   chartRef,
-  initializeChart,
+  initializeChart: async () => {},
   optionRef: chartOption
 });
 
 const themeChangeHandler = (newTheme: string) => {
+  const root = document.documentElement;
+  Array.from(root.classList)
+    .filter(cls => cls.startsWith("theme-"))
+    .forEach(cls => root.classList.remove(cls));
+  root.classList.add(newTheme);
   theme.value = newTheme;
 };
 
 themeSwitcher.themeChanged.on(themeChangeHandler);
-
 onUnmounted(() => {
   themeSwitcher.themeChanged.off(themeChangeHandler);
 });
