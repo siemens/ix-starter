@@ -26,13 +26,6 @@
   min-width: 38rem;
 }
 
-.device-name {
-  margin-bottom: 2rem;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
 .pane {
   position: absolute;
   right: 0;
@@ -59,7 +52,7 @@
 
 .grid-container {
   width: 100%;
-  height: 70vh;
+  height: 76vh;
 }
 
 @media only screen and (max-width: 48em) {

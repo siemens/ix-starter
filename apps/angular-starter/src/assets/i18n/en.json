@@ -64,7 +64,7 @@
     "ip-address": "IP address",
     "firmware-version": "Firmware version",
     "serial-number": "Serial number",
-    "quick-actions": "Quick Actions"
+    "quick-actions": "Quick actions"
   },
   "incidents": {
     "title": "Incidents",

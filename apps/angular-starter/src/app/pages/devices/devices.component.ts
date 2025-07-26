@@ -20,6 +20,7 @@ import {
   iconProject,
   iconSuccess,
   iconTrashcan,
+  iconWarning,
 } from '@siemens/ix-icons/icons';
 import { ActionCellRendererComponent } from './components/action-cell-renderer/action-cell-renderer.component';
 import { AgGridAngular } from 'ag-grid-angular';
@@ -33,6 +34,7 @@ import { DEVICE_DATA } from '../../../assets/mock-data/device';
 import { convertToTitleCase } from '../../shared/utlis';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedService } from '../../shared/services/shared.service';
+import { DeviceCellRendererComponent } from './components/device-cell-renderer/device-cell-renderer.component';
 
 @Component({
   selector: 'app-devices',
@@ -117,6 +119,7 @@ export class DevicesComponent implements OnDestroy, OnInit {
       iconPen,
       iconTrashcan,
       iconProject,
+      iconWarning
     });
   }
 
@@ -174,7 +177,7 @@ export class DevicesComponent implements OnDestroy, OnInit {
         minWidth: 150,
         flex: 1,
         filter: true,
-        cellRenderer: this.statusCellRenderer,
+        cellRenderer: DeviceCellRendererComponent
       },
       {
         field: 'vendor',
@@ -217,31 +220,8 @@ export class DevicesComponent implements OnDestroy, OnInit {
     ];
   }
 
-  statusCellRenderer(params: any) {
-    let icon = '';
-    switch (params.value) {
-      case 'Online':
-        icon =
-          ' <span><ix-icon name="success" style=" vertical-align: middle; padding-right:2px" color="color-success" color="color-success" /></span> ';
-        break;
-      case 'Offline':
-        icon =
-          '<span :5px><ix-icon name="info" style=" vertical-align: middle; padding-right:2px"  /></span> ';
-        break;
-      case 'Maintenance':
-        icon =
-          '<span><ix-icon name="maintenanceWarning"   style=" vertical-align: middle; padding-right:2px" color="color-warning"  /></span>';
-        break;
-      default:
-        icon =
-          '<span><ix-icon name="error" style=" vertical-align: middle; padding-right:2px" color="color-alarm" /></span>';
-    }
-
-    return `${icon} ${params.value}`;
-  }
-
   async onDelete(rowOrgIndex: number) {
-    const confirmationResponse = await showMessage.question(
+    const confirmationResponse = await showMessage.warning(
       'Delete device?',
       'Do you really want to delete the device?',
       'Delete device',
@@ -251,7 +231,7 @@ export class DevicesComponent implements OnDestroy, OnInit {
     );
 
     confirmationResponse.once((result) => {
-      if (result.payload === 'delete') {
+      if (result?.payload === 'delete') {
         this.rowData.splice(rowOrgIndex, 1);
         this.rowData = [...this.rowData];
         this.updateStatusCount();
