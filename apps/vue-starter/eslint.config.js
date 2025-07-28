@@ -14,6 +14,7 @@ export default [
       '*.config.cjs',
       '*.config.mjs',
       'vitest.config.ts',
+      '**/*.d.ts',
     ],
     languageOptions: {
       parser: tsParser,
