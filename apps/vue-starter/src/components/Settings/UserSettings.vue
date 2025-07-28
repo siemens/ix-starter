@@ -1,3 +1,12 @@
+/*
+* SPDX-FileCopyrightText: 2024 Siemens AG
+*
+* SPDX-License-Identifier: MIT
+*
+* This source code is licensed under the MIT license found in the
+* LICENSE file in the root directory of this source tree.
+*/
+
 <script setup lang="ts">
 import { ref, computed, onMounted } from "vue";
 import { useI18n } from "vue-i18n";
@@ -48,27 +57,32 @@ function getThemeFullName(): string {
   return themeParts.join("-");
 }
 
-function changeTheme(theme: "brand" | "classic") {
-  if (theme === "brand" && !isBrandThemeAvailable) {
+function onThemeClick(theme: 'brand' | 'classic') {
+  if (!isBrandThemeAvailable) {
     showDemoMessage();
     return;
   }
-  currentTheme.value = theme;
-  localStorage.setItem("theme", theme);
-  document.body.className = getThemeFullName();
+
+  if (currentTheme.value !== theme) {
+    currentTheme.value = theme;
+    localStorage.setItem('theme', theme);
+    document.body.className = getThemeFullName();
+  }
 }
+
 </script>
 <template>
   <div :class="styles.UserSettings">
     <IxTypography format="h4">{{ t("theme.title", "Theme") }}</IxTypography>
     <section :class="styles.ThemeSelection">
-      <div v-for="theme in themes" :key="theme.value" :class="styles.ThemeButton">
+      <div v-for="theme in themes" :key="theme.value" :class="styles.ThemeButton"
+        @click.prevent.stop="onThemeClick(theme.value as 'brand' | 'classic')">
         <div :class="[styles.ThemeImagePreview, { [styles.Active]: currentTheme === theme.value }]">
           <img :src="theme.image" :alt="`${theme.name} theme`" draggable="false" />
         </div>
+
         <div>
-          <IxRadio :id="theme.value" :checked="currentTheme === theme.value"
-            @checkedChange="() => changeTheme(theme.value as 'brand' | 'classic')" :label="theme.name" />
+          <IxRadio :id="theme.value" :checked="currentTheme === theme.value" :label="theme.name" />
         </div>
       </div>
     </section>

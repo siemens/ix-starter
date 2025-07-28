@@ -24,7 +24,7 @@ const { t } = useI18n();
 
       <IxTypography format="h4" class="HeadlineSettings">{{ t("settings.import-device") }}</IxTypography>
       <div class="file-upload-area">
-        <IxUpload :select-file-text="t('settings.upload-text')" :i18n-upload-file="t('settings.upload-button')" />
+        <IxUpload :select-file-text="t('settings.upload-text')" :i-1-8n-upload-file="t('settings.upload-button')" />
       </div>
     </section>
   </section>
