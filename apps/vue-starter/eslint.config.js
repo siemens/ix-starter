@@ -1,6 +1,7 @@
 import vue from 'eslint-plugin-vue';
 import tseslint from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
+import vueParser from 'vue-eslint-parser';
 
 export default [
   // Type-aware linting for Vue SFCs
@@ -17,7 +18,7 @@ export default [
       '**/*.d.ts',
     ],
     languageOptions: {
-      parser: require.resolve('vue-eslint-parser'),
+      parser: vueParser,
       parserOptions: {
         parser: {
           ts: tsParser,
