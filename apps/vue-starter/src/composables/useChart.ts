@@ -7,9 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { ref, onMounted, onUnmounted, watch, nextTick, type Ref, type ComputedRef } from "vue";
+import { ref, onMounted, onUnmounted, watch, nextTick, type Ref } from "vue";
 
-import type { EChartsOption } from 'echarts';
 import { useIsMobileViewPort } from "./useMediaQuery";
 
 interface ChartInstance {
