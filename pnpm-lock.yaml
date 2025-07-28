@@ -29,9 +29,6 @@ importers:
       '@siemens/ix-aggrid':
         specifier: 3.0.0
         version: 3.0.0(@siemens/ix-icons@3.0.0)(ag-grid-community@32.2.1)
-      '@siemens/ix-brand-theme':
-        specifier: ^2.3.0
-        version: 2.3.0(@stencil/core@4.31.0)
       '@siemens/ix-echarts':
         specifier: 3.0.0
         version: 3.0.0(echarts@5.5.1)
@@ -159,9 +156,6 @@ importers:
       '@siemens/ix-aggrid':
         specifier: 3.0.1
         version: 3.0.1(@siemens/ix-icons@3.1.1)(ag-grid-community@32.2.1)
-      '@siemens/ix-brand-theme':
-        specifier: ^2.3.0
-        version: 2.3.0(@stencil/core@4.31.0)
       '@siemens/ix-echarts':
         specifier: 3.0.0
         version: 3.0.0(echarts@5.5.1)
@@ -170,7 +164,7 @@ importers:
         version: 3.1.1
       '@siemens/ix-vue':
         specifier: 3.1.0
-        version: 3.1.0(@siemens/ix-icons@3.1.1)(@stencil/core@4.31.0)(vue-router@4.5.0)(vue@3.2.45)
+        version: 3.1.0(@siemens/ix-icons@3.1.1)(vue-router@4.5.0)(vue@3.2.45)
       '@vue/runtime-dom':
         specifier: 3.2.45
         version: 3.2.45
@@ -1544,14 +1538,6 @@ packages:
       - '@siemens/ix-icons'
     dev: false
 
-  /@siemens/ix-brand-theme@2.3.0(@stencil/core@4.31.0):
-    resolution: {integrity: sha512-Hxe1e4QNJeDUEofm9OZQxuVJjIUjsRiLtlYddI+N+7NdlpXcQcbSmBzkeqOchQNw2mLDhAC3P5SLYd8txO+nxg==, tarball: https://captain.rtf.siemens.net/artifactory/api/npm/siemens-npm/@siemens/ix-brand-theme/-/@siemens/ix-brand-theme-2.3.0.tgz}
-    peerDependencies:
-      '@stencil/core': ^4.29.2
-    dependencies:
-      '@stencil/core': 4.31.0
-    dev: false
-
   /@siemens/ix-echarts@3.0.0(echarts@5.5.1):
     resolution: {integrity: sha512-N/L1Og+pwSYT6U2lKp5bRnZ+4CAx+mXl8kWmssCCf8OaEXdJg5ZSGCmqHjGFOZFZe5Ph8P5il+WvyeZkFyiJ2w==}
     peerDependencies:
@@ -1590,7 +1576,7 @@ packages:
       - '@types/react'
     dev: false
 
-  /@siemens/ix-vue@3.1.0(@siemens/ix-icons@3.1.1)(@stencil/core@4.31.0)(vue-router@4.5.0)(vue@3.2.45):
+  /@siemens/ix-vue@3.1.0(@siemens/ix-icons@3.1.1)(vue-router@4.5.0)(vue@3.2.45):
     resolution: {integrity: sha512-JmA2xbudtnYSkvxHK91uXy3uWArhzjrlF99YeeqjHY90URm+zAa6gF8U6K4cdprinw4TlplYkP/jVFXjsRQmlg==}
     peerDependencies:
       '@siemens/ix-icons': ^3.0.0
@@ -1598,7 +1584,7 @@ packages:
     dependencies:
       '@siemens/ix': 3.1.0(@siemens/ix-icons@3.1.1)
       '@siemens/ix-icons': 3.1.1
-      '@stencil/vue-output-target': 0.10.8(@stencil/core@4.31.0)(vue-router@4.5.0)(vue@3.2.45)
+      '@stencil/vue-output-target': 0.10.8(vue-router@4.5.0)(vue@3.2.45)
       vue: 3.2.45
     transitivePeerDependencies:
       - '@stencil/core'
@@ -1664,7 +1650,7 @@ packages:
       - '@types/react'
     dev: false
 
-  /@stencil/vue-output-target@0.10.8(@stencil/core@4.31.0)(vue-router@4.5.0)(vue@3.2.45):
+  /@stencil/vue-output-target@0.10.8(vue-router@4.5.0)(vue@3.2.45):
     resolution: {integrity: sha512-/a20LG29xqy/lxBqo6zc1LbyS20GW9xghypZ7vYdo5fQB8jHClAQDkn+c8aykQlre5TtHiODgvr/rRDUrQKwyg==}
     peerDependencies:
       '@stencil/core': '>=2.0.0 || >=3 || >= 4.0.0-beta.0 || >= 4.0.0'
@@ -1676,7 +1662,6 @@ packages:
       vue-router:
         optional: true
     dependencies:
-      '@stencil/core': 4.31.0
       vue: 3.2.45
       vue-router: 4.5.0(vue@3.2.45)
     dev: false
