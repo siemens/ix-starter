@@ -29,7 +29,7 @@ import {
 } from '@siemens/ix-icons/icons';
 import { useShowDemoMessage } from './shared/utlis';
 import { SettingsComponent } from './pages/settings/settings/settings.component';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { filter } from 'rxjs';
 import { themeSwitcher } from '@siemens/ix';
 
@@ -59,7 +59,9 @@ import { themeSwitcher } from '@siemens/ix';
 })
 export class AppComponent implements OnInit {
   activePage = 'overview';
+  activeSettingsTab = 'user-settings'; // Track active settings tab
   private readonly router = inject(Router);
+  private readonly translateService = inject(TranslateService);
   constructor() {
     addIcons({
       iconStar,
@@ -80,6 +82,9 @@ export class AppComponent implements OnInit {
       .subscribe((event: NavigationEnd) => {
         this.setActivePageFromUrl(event.url);
       });
+
+    // Ensure the first tab is active by default
+    this.activeSettingsTab = 'user-settings';
   }
 
   private setActivePageFromUrl(url: string) {
@@ -92,5 +97,18 @@ export class AppComponent implements OnInit {
 
   openModal() {
     useShowDemoMessage();
+  }
+
+  setActiveSettingsTab(event: any) {
+    const selectedLabel = event.detail;
+
+    const userSettingsLabel = this.translateService.instant('settings.user-settings');
+    const appSettingsLabel = this.translateService.instant('settings.application-settings');
+
+    if (selectedLabel === userSettingsLabel) {
+      this.activeSettingsTab = 'user-settings';
+    } else if (selectedLabel === appSettingsLabel) {
+      this.activeSettingsTab = 'application-settings';
+    }
   }
 }

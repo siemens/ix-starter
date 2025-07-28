@@ -1,24 +1,23 @@
 <ix-row class="ix-row">
   <ix-icon-button
-    dynamic-row-selector="edit-`${triggerId}`"
-    tooltip="Rename "
+    [id]="'edit-btn-' + triggerId"
     icon="pen"
     variant="secondary"
     ghost
     (click)="onEdit($event)"
   />
-  <ix-tooltip for="[dynamic-row-selector='edit-`${triggerId}`']">
+  <ix-tooltip [for]="'#edit-btn-' + triggerId">
     {{ "dropdown-quick-actions.rename" | translate }}
   </ix-tooltip>
   <ix-icon-button
-    dynamic-row-selector="delete-`${triggerId}`"
+    [id]="'delete-btn-' + triggerId"
     icon="trashcan"
     (click)="onDelete($event)"
     variant="secondary"
     ghost
   />
 
-  <ix-tooltip for="[dynamic-row-selector='delete-`${triggerId}`']">
+  <ix-tooltip [for]="'#delete-btn-' + triggerId">
     {{ "dropdown-quick-actions.delete" | translate }}
   </ix-tooltip>
 
@@ -41,42 +40,34 @@
   >
     <ix-dropdown-quick-actions>
       <ix-dropdown-button
-        dynamic-row-selector="duplicate-`${triggerId}`"
+        [id]="'duplicate-btn-' + triggerId"
         (click)="onDuplicate($event)"
         icon="duplicate"
         ghost
       ></ix-dropdown-button>
-      <ix-tooltip for="[dynamic-row-selector='duplicate-`${triggerId}`']">
-        Duplicate
-      </ix-tooltip>
+      <ix-tooltip [for]="'#duplicate-btn-' + triggerId"> Duplicate </ix-tooltip>
       <ix-icon-button
         (click)="cutRow($event)"
-        dynamic-row-selector="cut-`${triggerId}`"
+        [id]="'cut-btn-' + triggerId"
         icon="cut"
         ghost
       ></ix-icon-button>
-      <ix-tooltip for="[dynamic-row-selector='cut-`${triggerId}`']">
-        Cut
-      </ix-tooltip>
+      <ix-tooltip [for]="'#cut-btn-' + triggerId"> Cut </ix-tooltip>
       <ix-icon-button
         (click)="copyRow($event)"
-        dynamic-row-selector="copy-`${triggerId}`"
+        [id]="'copy-btn-' + triggerId"
         icon="copy"
         ghost
       ></ix-icon-button>
-      <ix-tooltip for="[dynamic-row-selector='copy-`${triggerId}`']">
-        Copy
-      </ix-tooltip>
+      <ix-tooltip [for]="'#copy-btn-' + triggerId"> Copy </ix-tooltip>
       <ix-icon-button
         (click)="pasteRow($event)"
-        dynamic-row-selector="paste-`${triggerId}`"
+        [id]="'paste-btn-' + triggerId"
         icon="paste"
         [disabled]="!canPaste"
         ghost
       ></ix-icon-button>
-      <ix-tooltip for="[dynamic-row-selector='paste-`${triggerId}`']">
-        Paste
-      </ix-tooltip>
+      <ix-tooltip [for]="'#paste-btn-' + triggerId"> Paste </ix-tooltip>
     </ix-dropdown-quick-actions>
     <ix-divider />
     <ix-dropdown-item

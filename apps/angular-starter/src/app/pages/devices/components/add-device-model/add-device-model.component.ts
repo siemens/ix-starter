@@ -33,7 +33,6 @@ import {
     IxSelect,
     IxSelectItem,
     IxSelectValueAccessorDirective,
-    TranslateModule,
   ],
   templateUrl: './add-device-model.component.html',
   styleUrl: './add-device-model.component.scss',
