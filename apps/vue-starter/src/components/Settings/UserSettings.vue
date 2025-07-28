@@ -92,10 +92,10 @@ function onThemeClick(theme: 'brand' | 'classic') {
       </IxTypography>
       <section :class="styles.LanguageSelection">
         <IxRadioGroup>
-          <IxRadio id="l_en" :checked="currentLanguage === 'en'" @checkedChange="() => changeLanguage('en')"
-            :label="t('language.en')" />
-          <IxRadio id="l_de" :checked="currentLanguage === 'de'" @checkedChange="() => changeLanguage('de')"
-            :label="t('language.de')" />
+          <IxRadio id="l_en" :checked="currentLanguage === 'en'" :label="t('language.en')"
+            @checkedChange="() => changeLanguage('en')" />
+          <IxRadio id="l_de" :checked="currentLanguage === 'de'" :label="t('language.de')"
+            @checkedChange="() => changeLanguage('de')" />
         </IxRadioGroup>
       </section>
     </section>

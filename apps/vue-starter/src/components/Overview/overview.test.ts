@@ -16,9 +16,9 @@ test("add filter input", async () => {
       plugins: [i18n],
     },
   });
-  const filter = getByLabelText("Filter devices");
+  const filter = getByLabelText("Filter devices") as HTMLInputElement;
   expect(filter).toBeInTheDocument();
-  (filter as any).value = "robo1-net-sw17";
+  filter.value = "robo1-net-sw17";
   await fireEvent(filter, new CustomEvent("valueChange", { detail: "robo1-net-sw17" }));
   const items = await findAllByTestId("incident-item");
   expect(items).toHaveLength(1);

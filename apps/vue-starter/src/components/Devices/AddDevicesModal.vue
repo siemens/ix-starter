@@ -74,13 +74,13 @@ const dismiss = () => {
     <IxModalContent>
       <form id="modalForm" noValidate>
         <div class="form-grid">
-          <IxInput id="device-name" label="Device name" aria-label="Device name" v-model="device.deviceName" />
-          <IxInput id="vendor" label="Vendor" aria-label="Vendor" v-model="device.vendor" />
+          <IxInput id="device-name" v-model="device.deviceName" label="Device name" aria-label="Device name" />
+          <IxInput id="vendor" v-model="device.vendor" label="Vendor" aria-label="Vendor" />
           <div class="device-type-container">
-            <IxInput id="deviceType" label="Device type" aria-label="Device type" v-model="device.deviceType" />
+            <IxInput id="deviceType" v-model="device.deviceType" label="Device type" aria-label="Device type" />
           </div>
 
-          <IxSelect label="Status" id="status" :value="device.status"
+          <IxSelect id="status" label="Status" :value="device.status"
             @valueChange="device.status = $event.detail as DeviceState">
             <IxSelectItem value="Online" label="Online"></IxSelectItem>
             <IxSelectItem value="Offline" label="Offline"></IxSelectItem>
@@ -88,12 +88,12 @@ const dismiss = () => {
             <IxSelectItem value="Error" label="Error"></IxSelectItem>
           </IxSelect>
 
-          <IxInput id="articleNumber" label="Article number" aria-label="Article number"
-            v-model="device.articleNumber" />
-          <IxInput id="macAddress" label="MAC address" v-model="device.macAddress" />
-          <IxInput id="ipAddress" label="IP address" v-model="device.ipAddress" />
-          <IxInput id="firmwareVersion" label="Firmware version" v-model="device.firmwareVersion" />
-          <IxInput id="serialNumber" label="Serial number" v-model="device.serialNumber" />
+          <IxInput id="articleNumber" v-model="device.articleNumber" label="Article number"
+            aria-label="Article number" />
+          <IxInput id="macAddress" v-model="device.macAddress" label="MAC address" />
+          <IxInput id="ipAddress" v-model="device.ipAddress" label="IP address" />
+          <IxInput id="firmwareVersion" v-model="device.firmwareVersion" label="Firmware version" />
+          <IxInput id="serialNumber" v-model="device.serialNumber" label="Serial number" />
         </div>
       </form>
     </IxModalContent>

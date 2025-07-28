@@ -1,11 +1,11 @@
 /*
- * SPDX-FileCopyrightText: 2024 Siemens AG
- *
- * SPDX-License-Identifier: MIT
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
+* SPDX-FileCopyrightText: 2024 Siemens AG
+*
+* SPDX-License-Identifier: MIT
+*
+* This source code is licensed under the MIT license found in the
+* LICENSE file in the root directory of this source tree.
+*/
 
 <script setup lang="ts">
 import {
@@ -31,12 +31,15 @@ import {
   iconSingleCheck,
 } from "@siemens/ix-icons/icons";
 import { useDeviceStore } from "@/store/deviceStore";
-
 import { showDeleteMessage } from "@/helpers/modal";
 import { useI18n } from "vue-i18n";
 import { computed } from "vue";
+import type { GridApi, IRowNode } from 'ag-grid-community';
+import type { Device, DeviceState } from '@/types';
 
 const { t } = useI18n();
+
+const deviceStore = useDeviceStore();
 
 const handleDelete = async () => {
   const result = await showDeleteMessage(t);
@@ -52,14 +55,17 @@ const handleDelete = async () => {
   }
 };
 
-const deviceStore = useDeviceStore();
-
-const props = defineProps(["params", "api", "node"]);
+const props = defineProps<{
+  params: {
+    api: GridApi<Device>;
+    node: IRowNode<Device> & { data: Device };
+  };
+}>();
 
 const startEditingFirstCell = () => {
   console.log(props.params.node.data);
   props.params.api.startEditingCell({
-    rowIndex: props.params.node?.rowIndex,
+    rowIndex: props.params.node.rowIndex as number,
     colKey: "deviceName",
   });
 };
@@ -69,28 +75,18 @@ const toggleStatusLabel = computed(() => {
 });
 
 const toggleStatus = () => {
-  const updatedDevice = {
+  const newStatus: DeviceState = props.params.node.data.status === "Online" ? "Offline" : "Online";
+  const updatedDevice: Device = {
     ...props.params.node.data,
-    status: props.params.node.data.status === "Online" ? "Offline" : "Online",
+    status: newStatus,
   };
-
   deviceStore.editDevice(updatedDevice);
-
   props.params.node.setData(updatedDevice);
-
   props.params.api.refreshCells({
     force: true,
     rowNodes: [props.params.node],
     columns: ['status']
   });
-};
-
-const startMaintenance = () => {
-  const updatedDevice = {
-    ...props.params.node.data,
-    status: props.params.node.data.status === "Maintenance" ? "Online" : "Maintenance",
-  };
-  deviceStore.editDevice(updatedDevice);
 };
 
 const duplicateRow = () => {
@@ -156,18 +152,15 @@ const copyAndDeleteRow = () => {
 
 <template>
   <IxRow class="quick-actions-row">
-    <!-- Edit Button -->
     <IxIconButton class="edit-tooltip" aria-describedby="tooltip-edit" :icon="iconPen" variant="secondary" ghost
       @click="startEditingFirstCell" />
     <IxTooltip id="tooltip-edit" for=".edit-tooltip">{{ t('dropdown-quick-actions.rename') }}</IxTooltip>
 
-    <!-- Delete Button -->
     <IxIconButton class="delete-tooltip" aria-describedby="tooltip-delete" :icon="iconTrashcan" variant="secondary"
       ghost @click="handleDelete" />
     <IxTooltip id="tooltip-delete" for=".delete-tooltip">{{ t('dropdown-quick-actions.delete') }}</IxTooltip>
 
-    <!-- Context Menu -->
-    <IxIconButton :icon="iconContextMenu" variant="secondary" ghost :id="`devices-${props.params.node?.rowIndex}`">
+    <IxIconButton :id="`devices-${props.params.node?.rowIndex}`" :icon="iconContextMenu" variant="secondary" ghost>
     </IxIconButton>
     <IxDropdown :trigger="`devices-${props.params.node?.rowIndex}`">
       <IxDropdownQuickActions>

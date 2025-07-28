@@ -8,22 +8,29 @@
  */
 
 import { ref, onMounted, onUnmounted, watch, nextTick, type Ref, type ComputedRef } from "vue";
+
+import type { EChartsOption } from 'echarts';
 import { useIsMobileViewPort } from "./useMediaQuery";
 
-interface ChartConfig {
-  chartRef: Ref<any>;
-  initializeChart: () => Promise<void>;
-  optionRef: Ref<any> | ComputedRef<any>;
+interface ChartInstance {
+  $el?: HTMLElement;
+  resize: () => void;
 }
 
-export function useChart({ chartRef, initializeChart, optionRef }: ChartConfig) {
+interface ChartConfig {
+  chartRef: Ref<ChartInstance | undefined>;
+  initializeChart: () => Promise<void>;
+  optionRef: Ref<EChartsOption> | ComputedRef<EChartsOption>;
+}
+
+export function useChart({ chartRef, initializeChart }: ChartConfig) {
   const isMobile = useIsMobileViewPort();
   let resizeHandler: (() => void) | null = null;
   const isInitialized = ref(false);
 
   const ensureChartDimensions = async (maxRetries = 20): Promise<boolean> => {
     for (let i = 0; i < maxRetries; i++) {
-      if (chartRef.value?.$el?.clientWidth > 0 && chartRef.value?.$el?.clientHeight > 0) {
+      if ((chartRef.value?.$el?.clientWidth ?? 0) > 0 && (chartRef.value?.$el?.clientHeight ?? 0) > 0) {
         return true;
       }
       await new Promise((resolve) => setTimeout(resolve, 50));

@@ -22,7 +22,7 @@ import {
 import { iconHome, iconProject, iconUserSettings, iconLogOut } from '@siemens/ix-icons/icons';
 import { addIcons } from '@siemens/ix-icons';
 addIcons({ iconHome, iconProject });
-import { ref, onMounted, watch } from "vue";
+import { ref, watch } from "vue";
 import { useI18n } from "vue-i18n";
 import { useRouter, useRoute } from "vue-router";
 import UserSettings from "./components/Settings/UserSettings.vue";
@@ -69,10 +69,10 @@ watch(route, (newRoute) => {
       </IxAvatar>
     </IxApplicationHeader>
     <IxMenu enable-toggle-theme>
-      <IxMenuItem :icon="iconHome" @click="navigateTo('/')" :active="activeItem === '/'" :selected="route.path === '/'">
+      <IxMenuItem :icon="iconHome" :active="activeItem === '/'" :selected="route.path === '/'" @click="navigateTo('/')">
         {{ t("overview") }}</IxMenuItem>
-      <IxMenuItem :icon="iconProject" @click="navigateTo('/devices')" :active="activeItem === '/devices'"
-        :selected="route.path === '/devices'">{{ t("devices") }}</IxMenuItem>
+      <IxMenuItem :icon="iconProject" :active="activeItem === '/devices'" :selected="route.path === '/devices'"
+        @click="navigateTo('/devices')">{{ t("devices") }}</IxMenuItem>
 
       <IxMenuSettings :label="t('settings.title')">
         <IxMenuSettingsItem :label="t('settings.user-settings')">

@@ -48,7 +48,7 @@ export const useDeviceStore = defineStore("device", () => {
     try {
       const response = await fetch("/data.json");
       const data = await response.json();
-      const devicesWithId = data.map((device: any, index: number) => ({
+      const devicesWithId = data.map((device: Device, index: number) => ({
         ...device,
         id: (index + 1).toString(),
       }));

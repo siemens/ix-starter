@@ -34,8 +34,8 @@ const handleDemoModal = () => {
   <section class="incidents">
     <IxTypography format="label" bold>{{ t('incidents.title') }}</IxTypography>
     <div class="search-and-filter">
-      <IxInput :value="searchTerm" @valueChange="searchTerm = $event.detail" :placeholder="t('search')" type="text"
-        aria-label="Filter devices">
+      <IxInput :value="searchTerm" :placeholder="t('search')" type="text" aria-label="Filter devices"
+        @valueChange="searchTerm = $event.detail">
         <IxIcon slot="start" :name="iconSearch" color="color-primary" size="16"></IxIcon>
       </IxInput>
 

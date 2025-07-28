@@ -33,17 +33,17 @@ const categories = computed(() => {
   const devices = deviceStore.devices;
   if (!devices.length) return {};
 
-  const keys = Object.keys(devices[0]);
-  const categoryMap = {} as Record<string, { label: string; options: string[] }>;
+  const keys = Object.keys(devices[0]) as (keyof Device)[];
+  const categoryMap: Record<string, { label: string; options: string[] }> = {};
 
   keys.forEach((key) => {
-    const uniqueValues = Array.from(new Set(devices.map((device) => (device as any)[key] ?? "")));
-    const kebabKey = key.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase();
+    const uniqueValues = Array.from(new Set(devices.map((device) => device[key] ?? "")));
+    const kebabKey = String(key).replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase();
     let label = t(`device-details.${kebabKey}`);
     if (label === `device-details.${kebabKey}`) {
-      label = key.replace(/([A-Z])/g, " $1").replace(/^./, (s) => s.toUpperCase());
+      label = String(key).replace(/([A-Z])/g, " $1").replace(/^./, (s) => s.toUpperCase());
     }
-    categoryMap[key] = { label, options: uniqueValues };
+    categoryMap[String(key)] = { label, options: uniqueValues };
   });
 
   return categoryMap;
@@ -68,11 +68,13 @@ const maintenanceButtonLabel = computed(() => {
 });
 
 const filteredDeviceDetails = computed(() => {
-  if (!selectedData.value) return {};
-  return Object.keys(selectedData.value).reduce((acc, key) => {
-    if (key !== "id") acc[key] = (selectedData.value as any)[key];
-    return acc;
-  }, {} as Record<string, any>);
+  const details: Record<string, string | number | undefined> = {};
+  if (selectedData.value) {
+    (Object.keys(selectedData.value) as (keyof Device)[]).forEach((key) => {
+      if (key !== "id") details[String(key)] = selectedData.value![key];
+    });
+  }
+  return details;
 });
 
 const formatKey = (key: string) => {
@@ -88,7 +90,6 @@ const toggleMaintenance = async () => {
   deviceStore.editDevice(updatedDevice);
   selectedData.value = updatedDevice;
   
-  // Update the DataTable
   if (devicesListRef.value?.dataTableRef?.gridApi) {
     const api = devicesListRef.value.dataTableRef.gridApi;
     api.forEachNode((node) => {
@@ -99,6 +100,7 @@ const toggleMaintenance = async () => {
   }
   isMaintenanceLoading.value = false;
 };
+
 onMounted(() => {
   deviceStore.fetchDevices();
   const closeByEscape = (event: KeyboardEvent) => {
@@ -116,7 +118,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <DevicesList @cell-clicked="handleCellClicked" ref="devicesListRef" />
+  <DevicesList ref="devicesListRef" @cell-clicked="handleCellClicked" />
   
   <IxPane 
     :heading="t('device-details-header.title')" 

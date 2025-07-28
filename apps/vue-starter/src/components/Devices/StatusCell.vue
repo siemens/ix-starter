@@ -1,27 +1,22 @@
 /*
- * SPDX-FileCopyrightText: 2024 Siemens AG
- *
- * SPDX-License-Identifier: MIT
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
+* SPDX-FileCopyrightText: 2024 Siemens AG
+*
+* SPDX-License-Identifier: MIT
+*
+* This source code is licensed under the MIT license found in the
+* LICENSE file in the root directory of this source tree.
+*/
 
 <script setup lang="ts">
+
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
 import { IxIcon, IxTypography } from "@siemens/ix-vue";
-import { 
-  iconSuccess, 
-  iconInfo, 
-  iconMaintenanceWarning, 
-  iconError 
-} from '@siemens/ix-icons/icons';
-
-
+import { iconSuccess, iconInfo, iconMaintenanceWarning, iconError } from '@siemens/ix-icons/icons';
+import type { DeviceState } from '@/types';
 
 const { t } = useI18n();
-const props = defineProps<{ params: any }>();
+const props = defineProps<{ params: { value: DeviceState } }>();
 
 const statusValue = computed(() => props.params.value);
 
@@ -38,7 +33,6 @@ const iconConfig = computed(() => {
   }
 });
 
-// Translate the status value
 const translatedStatus = computed(() => t(`device-status.${statusValue.value.toLowerCase()}`, statusValue.value));
 </script>
 

@@ -4,7 +4,6 @@ import tsParser from '@typescript-eslint/parser';
 import vueParser from 'vue-eslint-parser';
 
 export default [
-  // Type-aware linting for Vue SFCs
   {
     files: ['**/*.vue'],
     ignores: [
@@ -36,7 +35,6 @@ export default [
       ...tseslint.configs.recommended.rules,
     },
   },
-  // Type-aware linting for other source files
   {
     files: ['**/*.{js,ts}'],
     ignores: [

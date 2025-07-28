@@ -1,8 +1,14 @@
-/* * SPDX-FileCopyrightText: 2024 Siemens AG * * SPDX-License-Identifier: MIT * * This source code
-is licensed under the MIT license found in the * LICENSE file in the root directory of this source
-tree. */
+/*
+* SPDX-FileCopyrightText: 2024 Siemens AG
+*
+* SPDX-License-Identifier: MIT
+*
+* This source code is licensed under the MIT license found in the
+* LICENSE file in the root directory of this source tree.
+*/
 
 <script setup lang="ts">
+
 import { iconProject } from "@siemens/ix-icons/icons";
 import { ref, computed, onMounted, watch, nextTick } from "vue";
 import { AgGridVue } from "ag-grid-vue3";
@@ -10,9 +16,9 @@ import { IxEmptyState } from "@siemens/ix-vue";
 import QuickActions from "./QuickActions.vue";
 import StatusCell from "./StatusCell.vue";
 import { useDeviceStore } from "@/store/deviceStore";
-import type { Device, DeviceState } from "@/types";
-import type { GridApi, IRowNode, ColDef } from "ag-grid-community";
 import { useI18n } from "vue-i18n";
+import type { Device, DeviceState } from "@/types";
+import type { GridApi, IRowNode, ColDef, GridReadyEvent, CellClickedEvent } from "ag-grid-community";
 
 interface Props {
   filterText: string;
@@ -49,7 +55,7 @@ const columnDefs = computed<ColDef[]>(() => [
     flex: 1,
     minWidth: 150,
     cellRenderer: StatusCell,
-    cellRendererParams: (params: any) => ({ rowData: params.data }),
+    cellRendererParams: (params: { data: Device }) => ({ rowData: params.data }),
   },
   {
     field: "vendor",
@@ -78,7 +84,7 @@ const columnDefs = computed<ColDef[]>(() => [
     maxWidth: 150,
     cellRenderer: QuickActions,
     cellStyle: { display: "flex", alignItems: "center" },
-    cellRendererParams: (params: any) => ({
+    cellRendererParams: (params: { api: GridApi<Device>; node: IRowNode<Device>; data: Device }) => ({
       api: params.api,
       node: params.node,
       rowData: params.data,
@@ -164,16 +170,19 @@ const doesExternalFilterPass = (node: IRowNode<Device>): boolean => {
   return true;
 };
 
-const onGridReady = (params: any) => {
+
+const onGridReady = (params: GridReadyEvent<Device>) => {
   gridApi.value = params.api;
   nextTick(() => {
     updateEmptyState();
   });
 };
 
-const onCellClicked = (event: any) => {
-  emit("cell-clicked", { expanded: true, data: event.data });
-  event.api.refreshCells({ rowNodes: [event.node] });
+const onCellClicked = (event: CellClickedEvent<Device>) => {
+  if (event.data) {
+    emit("cell-clicked", { expanded: true, data: event.data });
+    event.api.refreshCells({ rowNodes: [event.node] });
+  }
 };
 
 const refreshData = () => {
@@ -207,31 +216,15 @@ defineExpose({ categories, deviceState, refreshData, gridApi });
 
 <template>
   <div class="ag-grid-container">
-    <AgGridVue
-      @grid-ready="onGridReady"
-      @cell-clicked="onCellClicked"
-      class="ag-theme-alpine-dark ag-theme-ix"
-      style="width: 100%; height: 100%"
-      :columnDefs="columnDefs"
-      :rowData="rowData"
-      :rowHeight="42"
-      :frameworkComponents="{ QuickActions }"
-      :suppressRowTransform="true"
-      :suppressCellFocus="true"
-      :animateRows="true"
-      :suppressAnimationFrame="false"
-      :isExternalFilterPresent="isExternalFilterPresent"
-      :doesExternalFilterPass="doesExternalFilterPass"
-      rowSelection="single"
-    />
+    <AgGridVue class="ag-theme-alpine-dark ag-theme-ix" style="width: 100%; height: 100%" :columnDefs="columnDefs"
+      :rowData="rowData" :rowHeight="42" :frameworkComponents="{ QuickActions }" :suppressRowTransform="true"
+      :suppressCellFocus="true" :animateRows="true" :suppressAnimationFrame="false" :isExternalFilterPresent="isExternalFilterPresent"
+      :doesExternalFilterPass="doesExternalFilterPass" rowSelection="single"
+      @grid-ready="onGridReady" @cell-clicked="onCellClicked" />
 
     <div v-if="showEmptyState" class="empty-state">
-      <IxEmptyState
-        :header="t('device-quick-actions.devices')"
-        :sub-header="t('category-filter.placeholder')"
-        :icon="iconProject"
-        :action="t('cancel')"
-      />
+      <IxEmptyState :header="t('device-quick-actions.devices')" :sub-header="t('category-filter.placeholder')"
+        :icon="iconProject" :action="t('cancel')" />
     </div>
   </div>
 </template>
