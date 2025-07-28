@@ -20,7 +20,6 @@ interface ChartInstance {
 interface ChartConfig {
   chartRef: Ref<ChartInstance | undefined>;
   initializeChart: () => Promise<void>;
-  optionRef: Ref<EChartsOption> | ComputedRef<EChartsOption>;
 }
 
 export function useChart({ chartRef, initializeChart }: ChartConfig) {

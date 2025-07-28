@@ -12,24 +12,24 @@ import { ref, computed, onUnmounted } from "vue";
 import { themeSwitcher } from "@siemens/ix";
 import { IxCard, IxCardContent, IxTypography } from "@siemens/ix-vue";
 import { registerTheme, getComputedCSSProperty } from "@siemens/ix-echarts";
+import type { EChartsOption } from "echarts";
 import VueECharts from "vue-echarts";
 import * as echarts from "echarts/core";
-import { TooltipComponent, LegendComponent, GridComponent, MarkLineComponent } from "echarts/components";
-import { LineChart } from "echarts/charts";
-import { CanvasRenderer } from "echarts/renderers";
-import { type EChartsOption } from "echarts";
+import * as charts from "echarts/charts";
+import * as components from "echarts/components";
+import * as renderer from "echarts/renderers";
 import { useI18n } from "vue-i18n";
 import { useChart } from "../../composables/useChart";
 import { CHART_CONSTANTS, getStatusHistoryData } from "../../composables/chartConfig";
 
 registerTheme(echarts);
 echarts.use([
-  TooltipComponent,
-  LegendComponent,
-  GridComponent,
-  MarkLineComponent,
-  LineChart,
-  CanvasRenderer,
+  components.TooltipComponent,
+  components.LegendComponent,
+  components.GridComponent,
+  components.MarkLineComponent,
+  charts.LineChart,
+  renderer.CanvasRenderer,
 ]);
 
 const { t } = useI18n();
@@ -66,8 +66,7 @@ const chartOption = computed((): EChartsOption => {
 
 useChart({
   chartRef,
-  initializeChart: async () => {},
-  optionRef: chartOption
+  initializeChart: async () => {}
 });
 
 const themeChangeHandler = (newTheme: string) => {

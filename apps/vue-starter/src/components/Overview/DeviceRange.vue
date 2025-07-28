@@ -8,23 +8,22 @@
  */
  
 <script setup lang="ts">
-import { ref, watch } from "vue";
+import { ref, watch, type Ref } from "vue";
 import { themeSwitcher } from "@siemens/ix";
 import { IxCard, IxCardContent, IxTypography } from "@siemens/ix-vue";
 import { registerTheme, getComputedCSSProperty } from "@siemens/ix-echarts";
+import type { EChartsOption, BarSeriesOption } from "echarts";
+import type { Device } from "@/types";
 import VueECharts from "vue-echarts";
 import * as echarts from "echarts/core";
 import * as charts from "echarts/charts";
 import * as components from "echarts/components";
 import * as renderer from "echarts/renderers";
-import { type EChartsOption } from "echarts";
 import { useI18n } from "vue-i18n";
 import { useDeviceStore } from "@/store/deviceStore";
-import type { Device } from "@/types";
 import { useChart } from "../../composables/useChart";
 
 registerTheme(echarts);
-
 echarts.use([
   components.TooltipComponent,
   components.LegendComponent,
@@ -36,9 +35,12 @@ echarts.use([
 
 const { t } = useI18n();
 const deviceStore = useDeviceStore();
-const chartRef = ref();
+const chartRef = ref() as Ref<InstanceType<typeof VueECharts> | undefined>;
 const theme = ref(themeSwitcher.getCurrentTheme());
-const barChartOption = ref<EChartsOption>(getOption());
+const barChartOption = ref<EChartsOption>({
+  ...getOption(),
+  series: [] as BarSeriesOption[],
+});
 
 const initializeChart = async () => {
   await deviceStore.fetchDevices();
@@ -48,10 +50,9 @@ const initializeChart = async () => {
 useChart({
   chartRef,
   initializeChart,
-  optionRef: barChartOption
 });
 
-function reduceDevices(devices: Device[]) {
+function reduceDevices(devices: Device[]): BarSeriesOption[] {
   const onlineData = new Map<string, number>();
   const offlineData = new Map<string, number>();
   const maintenanceData = new Map<string, number>();
