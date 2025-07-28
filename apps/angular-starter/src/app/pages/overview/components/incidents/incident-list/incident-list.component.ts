@@ -1,10 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import {
   iconCloudUpload,
   iconMaintenanceWarning,
   iconInfo,
   iconError,
   iconOpenExternal,
+  iconUpload,
 } from '@siemens/ix-icons/icons';
 import { addIcons } from '@siemens/ix-icons';
 import {
@@ -20,6 +21,8 @@ import {
 } from '@siemens/ix-angular/standalone';
 import { useShowDemoMessage } from '../../../../../shared/utlis';
 import { TranslateModule } from '@ngx-translate/core';
+import { MediaQueryService } from '../../../../../shared/services/media-query.service';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-incident-list',
@@ -35,6 +38,7 @@ import { TranslateModule } from '@ngx-translate/core';
     IxIconButton,
     IxButton,
     TranslateModule,
+    AsyncPipe,
   ],
   templateUrl: './incident-list.component.html',
   styleUrl: './incident-list.component.scss',
@@ -43,6 +47,8 @@ export class IncidentListComponent {
   @Input() incidents: any[] = [];
   @Input() search = '';
 
+  public readonly mediaQueryService = inject(MediaQueryService);
+
   constructor() {
     addIcons({
       iconCloudUpload,
@@ -50,6 +56,7 @@ export class IncidentListComponent {
       iconInfo,
       iconError,
       iconOpenExternal,
+      iconUpload,
     });
   }
 

@@ -62,32 +62,32 @@
       </section>
     </section>
     @if (!isFilterRowEmpty) {
-    <div class="flex-grow-1">
-      <ag-grid-angular
-        #agGrid
-        class="ag-theme-alpine-dark ag-theme-ix grid-container"
-        [suppressRowTransform]="true"
-        [suppressCellFocus]="true"
-        rowSelection="single"
-        [rowData]="rowData"
-        [columnDefs]="columnDefs"
-        (rowClicked)="onRowClicked($event)"
-        [isExternalFilterPresent]="isExternalFilterPresent"
-        [doesExternalFilterPass]="doesExternalFilterPass"
-        (filterChanged)="onFilterChanged()"
-      >
-      </ag-grid-angular>
-    </div>
-    } @else{
-    <div class="empty-state-wrapper">
-      <ix-empty-state
-        header="No devices found"
-        subHeader="Please remove search terms or add a new device"
-        icon="project"
-        action="Reset Filter"
-        (actionClick)="resetFilter()"
-      ></ix-empty-state>
-    </div>
+      <div class="flex-grow-1">
+        <ag-grid-angular
+          #agGrid
+          class="ag-theme-alpine-dark ag-theme-ix grid-container"
+          [suppressRowTransform]="true"
+          [suppressCellFocus]="true"
+          rowSelection="single"
+          [rowData]="rowData"
+          [columnDefs]="columnDefs"
+          (rowClicked)="onRowClicked($event)"
+          [isExternalFilterPresent]="isExternalFilterPresent"
+          [doesExternalFilterPass]="doesExternalFilterPass"
+          (filterChanged)="onFilterChanged()"
+        >
+        </ag-grid-angular>
+      </div>
+    } @else {
+      <div class="empty-state-wrapper">
+        <ix-empty-state
+          header="No devices found"
+          subHeader="Please remove search terms or add a new device"
+          icon="project"
+          action="Reset Filter"
+          (actionClick)="resetFilter()"
+        ></ix-empty-state>
+      </div>
     }
   </section>
 
@@ -108,16 +108,15 @@
         </ix-typography>
 
         @for (item of selectedRowEntries; track item[0]; let i = $index) {
-
-        <ix-typography format="body" textColor="soft">
-          {{ item[0] }}:
-        </ix-typography>
-        <ix-typography format="body" textColor="std">
-          {{ item[1] }}
-        </ix-typography>
-        <ix-divider class="divider" />
+          <ix-typography format="body" textColor="soft">
+            {{ item[0] }}
+          </ix-typography>
+          <ix-typography format="body" textColor="std">
+            {{ item[1] }}
+          </ix-typography>
+          <ix-divider class="divider" />
         } @empty {
-        <li>No items available. {{ "language.title" | translate }}</li>
+          <li>No items available. {{ "language.title" | translate }}</li>
         }
       </div>
 

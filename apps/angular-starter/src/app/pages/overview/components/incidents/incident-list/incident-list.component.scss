@@ -1,26 +1,31 @@
 .event-list-header-offset {
   padding-left: 1.125rem;
 }
+
 .incident-list {
   display: flex;
   flex-direction: column;
   height: 100%;
   overflow: hidden;
 }
+
 .event-list {
   overflow: auto;
   height: 100%;
   position: relative;
   display: block;
 }
+
 .no-wrap {
-  white-space: nowrap;
+  flex-wrap: nowrap;
 }
+
 .info-text {
   padding-left: 2.5rem;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .incident-actions {
   display: flex;
   flex-wrap: nowrap;
@@ -28,13 +33,11 @@
   justify-content: flex-end;
   align-items: center;
 }
-// .title-offset-device,
-// .title-offset-date {
-//   margin-left: 1rem;
-// }
+
 .desktop {
   display: none;
 }
+
 @media (min-width: 768px) {
   .desktop {
     display: block;

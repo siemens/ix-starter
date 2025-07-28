@@ -55,6 +55,13 @@
   height: 76vh;
 }
 
+.device-name {
+  margin-bottom: 2rem;
+  overflow: hidden;
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+}
+
 @media only screen and (max-width: 48em) {
   .device-filter {
     flex-direction: column;

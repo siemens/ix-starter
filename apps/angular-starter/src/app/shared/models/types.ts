@@ -8,10 +8,10 @@ export interface DeviceData {
   deviceName: string;
   status: string;
   vendor: string;
-  description: string;
-  ipAddress: string;
+  deviceType: string;
+  IPAddress: string;
   articleNumber: string;
-  macAddress: string;
+  MACAddress: string;
   firmwareVersion: string;
   serialNumber: string;
 }

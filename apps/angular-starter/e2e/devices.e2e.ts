@@ -43,7 +43,7 @@ test("should filter devices by deviceName", async ({ page }) => {
     const aggrid = page.locator(".ag-root-wrapper");
     const rows = aggrid.locator(".ag-center-cols-container .ag-row");
 
-    await expect(rows).toHaveCount(21, {
+    await expect(rows).toHaveCount(22, {
         // AG-Grid takes some time to filter the rows
         timeout: 500,
     });
@@ -62,7 +62,7 @@ test('should filter devices by status', async ({ page }) => {
     const aggrid = page.locator(".ag-root-wrapper");
     const rows = aggrid.locator(".ag-center-cols-container .ag-row");
 
-    await expect(rows).toHaveCount(21, {
+    await expect(rows).toHaveCount(22, {
         // AG-Grid takes some time to filter the rows
         timeout: 500,
     });

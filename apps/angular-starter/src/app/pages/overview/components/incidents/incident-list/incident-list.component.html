@@ -36,52 +36,90 @@
   <ix-event-list [itemHeight]="72" [animated]="false" class="event-list">
     @for (incident of filteredIncidents; track incident.id) {
       <ix-event-list-item [itemColor]="'color-' + incident.color">
-        <ix-layout-grid noMargin>
-          <ix-row>
-            <ix-col size="3">
-              <ix-row style="gap: 1rem" class="no-wrap">
-                <ix-icon [name]="incident.icon" size="24"></ix-icon>
+        <!-- Mobile Layout -->
+        @if (mediaQueryService.isMobile$ | async) {
+          <ix-layout-grid noMargin>
+            <ix-row>
+              <ix-col size="6">
+                <ix-row style="gap: 1rem" class="no-wrap">
+                  <ix-icon [name]="incident.icon" size="24"></ix-icon>
+                  <ix-typography bold>
+                    {{ incident.incidentName }}
+                  </ix-typography>
+                </ix-row>
+                <ix-row>
+                  <ix-typography class="info-text" textColor="soft">
+                    {{ incident.infoText }}
+                  </ix-typography>
+                </ix-row>
+              </ix-col>
+              <ix-col size="4">
                 <ix-typography bold>
-                  {{ incident.incidentName }}
+                  {{ incident.deviceName }}
                 </ix-typography>
-              </ix-row>
-              <ix-row>
-                <ix-typography class="info-text" textColor="soft">
-                  {{ incident.infoText }}
+                <ix-typography textColor="soft">
+                  {{ incident.ipAddress }}
                 </ix-typography>
-              </ix-row>
-            </ix-col>
+              </ix-col>
+              <ix-col size="2">
+                <ix-icon-button
+                  variant="primary"
+                  outline
+                  icon="upload"
+                  (click)="usemodal()"
+                ></ix-icon-button>
+              </ix-col>
+            </ix-row>
+          </ix-layout-grid>
+        } @else {
+          <!-- Desktop Layout -->
+          <ix-layout-grid noMargin>
+            <ix-row>
+              <ix-col size="3">
+                <ix-row style="gap: 1rem" class="no-wrap">
+                  <ix-icon [name]="incident.icon" size="24"></ix-icon>
+                  <ix-typography bold>
+                    {{ incident.incidentName }}
+                  </ix-typography>
+                </ix-row>
+                <ix-row>
+                  <ix-typography class="info-text" textColor="soft">
+                    {{ incident.infoText }}
+                  </ix-typography>
+                </ix-row>
+              </ix-col>
 
-            <ix-col size="3">
-              <ix-typography bold>
-                {{ incident.deviceName }}
-              </ix-typography>
-              <ix-typography textColor="soft">
-                {{ incident.ipAddress }}
-              </ix-typography>
-            </ix-col>
+              <ix-col size="3">
+                <ix-typography bold>
+                  {{ incident.deviceName }}
+                </ix-typography>
+                <ix-typography textColor="soft">
+                  {{ incident.ipAddress }}
+                </ix-typography>
+              </ix-col>
 
-            <ix-col>
-              <ix-typography textColor="soft">
-                {{ incident.date }}
-              </ix-typography>
-              <ix-typography textColor="soft">
-                {{ incident.time }}
-              </ix-typography>
-            </ix-col>
+              <ix-col>
+                <ix-typography textColor="soft">
+                  {{ incident.date }}
+                </ix-typography>
+                <ix-typography textColor="soft">
+                  {{ incident.time }}
+                </ix-typography>
+              </ix-col>
 
-            <ix-col class="incident-actions">
-              <ix-icon-button
-                variant="secondary"
-                ghost
-                icon="open-external"
-              ></ix-icon-button>
-              <ix-button outline color="primary" (click)="usemodal()">
-                {{ "incidents.create-task" | translate }}
-              </ix-button>
-            </ix-col>
-          </ix-row>
-        </ix-layout-grid>
+              <ix-col class="incident-actions">
+                <ix-icon-button
+                  variant="secondary"
+                  ghost
+                  icon="open-external"
+                ></ix-icon-button>
+                <ix-button outline color="primary" (click)="usemodal()">
+                  {{ "incidents.create-task" | translate }}
+                </ix-button>
+              </ix-col>
+            </ix-row>
+          </ix-layout-grid>
+        }
       </ix-event-list-item>
     } @empty {
       <div>No items found.</div>

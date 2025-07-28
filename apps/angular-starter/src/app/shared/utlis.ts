@@ -21,11 +21,12 @@ export function useShowDemoMessage() {
   });
 }
 
-export function convertToTitleCase(key: string): string {
+export function convertToSentenceCase(key: string): string {
   return key
     .replace(/([A-Z])/g, ' $1')
     .replace(/_/g, ' ')
     .replace(/-/g, ' ')
+    .toLowerCase()
     .replace(/^./, (str) => str.toUpperCase())
     .trim();
 }

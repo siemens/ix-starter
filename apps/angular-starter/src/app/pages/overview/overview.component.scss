@@ -9,8 +9,10 @@
 .card-container {
   display: flex;
   gap: 1rem;
+  width: 100%;
+  box-sizing: border-box;
 
-  @media (max-width: 48em) {
+  @media (max-width: 768px) {
     flex-direction: column;
   }
 }
@@ -35,13 +37,30 @@ app-incidents {
 }
 app-device-range {
   flex: 1;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 app-status-history {
   flex: 2;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-@media only screen and (max-width: 48em) {
+@media only screen and (max-width: 768px) {
   .list {
     height: auto;
+    width: 100%;
+  }
+
+  .card-container {
+    flex-direction: column;
+  }
+
+  app-device-range,
+  app-status-history {
+    flex: none;
+    width: 100%;
   }
 }

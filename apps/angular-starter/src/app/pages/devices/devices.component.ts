@@ -31,7 +31,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Subject, takeUntil } from 'rxjs';
 import { CopiedDataOperType, DeviceData } from '../../shared/models/types';
 import { DEVICE_DATA } from '../../../assets/mock-data/device';
-import { convertToTitleCase } from '../../shared/utlis';
+import { convertToSentenceCase } from '../../shared/utlis';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedService } from '../../shared/services/shared.service';
 import { DeviceCellRendererComponent } from './components/device-cell-renderer/device-cell-renderer.component';
@@ -283,7 +283,7 @@ export class DevicesComponent implements OnDestroy, OnInit {
     this.selectedRow = event.data;
     this.selectedRowEntries = Object.entries(this.selectedRow);
     this.selectedRowEntries.forEach((item: string[]) => {
-      item[0] = convertToTitleCase(item[0]);
+      item[0] = convertToSentenceCase(item[0]);
     });
     this.expanded = true;
   }
@@ -355,7 +355,7 @@ export class DevicesComponent implements OnDestroy, OnInit {
     }
     this.selectedRowEntries = Object.entries(this.selectedRow);
     this.selectedRowEntries.forEach((item: string[]) => {
-      item[0] = convertToTitleCase(item[0]);
+      item[0] = convertToSentenceCase(item[0]);
     });
     this.updateStatusCount();
     this.agGrid.api.refreshCells();
