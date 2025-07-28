@@ -52,13 +52,13 @@
     }
   },
   "device-details-header": {
-    "title": "Device Details",
+    "title": "Device details",
     "firmware-card": "Firmware is not up to date",
     "update": "Update"
   },
   "device-details-footer": {
-    "set-maintenance": "Start Maintenance",
-    "end-maintenance": "End Maintenance"
+    "set-maintenance": "Start maintenance",
+    "end-maintenance": "End maintenance"
   },
   "device-details": {
     "title": "Device information",
