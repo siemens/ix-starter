@@ -3,7 +3,6 @@ import tseslint from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
 
 export default [
-  // Type-aware linting for source files
   {
     files: ['**/*.{js,ts,vue}'],
     ignores: [
@@ -19,7 +18,7 @@ export default [
     languageOptions: {
       parser: tsParser,
       parserOptions: {
-        project: './tsconfig.json',
+        project: './tsconfig.app.json',
         extraFileExtensions: ['.vue'],
       },
     },
