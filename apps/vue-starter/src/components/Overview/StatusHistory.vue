@@ -8,7 +8,7 @@
  */
 
 <script setup lang="ts">
-import { ref, computed, onUnmounted } from "vue";
+import { ref, onUnmounted } from "vue";
 import { themeSwitcher } from "@siemens/ix";
 import { IxCard, IxCardContent, IxTypography } from "@siemens/ix-vue";
 import { registerTheme, getComputedCSSProperty } from "@siemens/ix-echarts";
@@ -37,7 +37,10 @@ const chartRef = ref();
 const theme = ref(themeSwitcher.getCurrentTheme());
 const chartData = getStatusHistoryData();
 
-const chartOption = computed((): EChartsOption => {
+
+const chartOption = ref<EChartsOption>({ ...getChartOption() });
+
+function getChartOption(): EChartsOption {
   const series = Object.values(chartData.series).map(seriesData => ({
     type: "line" as const,
     name: seriesData.name,
@@ -62,12 +65,20 @@ const chartOption = computed((): EChartsOption => {
     },
     series,
   };
-});
+}
+
+function updateChartOption() {
+  chartOption.value = { ...getChartOption() };
+}
+
 
 useChart({
   chartRef,
-  initializeChart: async () => {}
+  initializeChart: async () => {
+    updateChartOption();
+  }
 });
+
 
 const themeChangeHandler = (newTheme: string) => {
   const root = document.documentElement;
@@ -76,6 +87,7 @@ const themeChangeHandler = (newTheme: string) => {
     .forEach(cls => root.classList.remove(cls));
   root.classList.add(newTheme);
   theme.value = newTheme;
+  updateChartOption();
 };
 
 themeSwitcher.themeChanged.on(themeChangeHandler);
