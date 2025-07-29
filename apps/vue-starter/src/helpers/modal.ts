@@ -60,8 +60,9 @@ export function showDemoModal(t: (key: string) => string) {
 export async function showModal(
   component: Component,
   modalSize?: IxModalSize,
+  props?: Record<string, unknown>,
 ): Promise<ModalInstance> {
-  const vnode = createVNode(component, {});
+  const vnode = createVNode(component, props || {});
   const container = document.createElement("div");
   container.style.visibility = "block";
   render(vnode, container);
