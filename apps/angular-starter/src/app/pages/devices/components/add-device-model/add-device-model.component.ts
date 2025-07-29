@@ -46,13 +46,13 @@ export class AddDeviceModelComponent implements OnInit {
     this.addDeviceForm = new FormGroup({
       deviceName: new FormControl(''),
       vendor: new FormControl(''),
-      description: new FormControl(''),
-      status: new FormControl('Online'),  // Default to Online like React
-      ipAddress: new FormControl(''),
-      articleNumber: new FormControl(''),
-      macAddress: new FormControl(''),
-      firmwareVersion: new FormControl(''),
-      serialNumber: new FormControl(''),
+      deviceType: new FormControl(''),     // ✓ Matches DeviceData.deviceType
+      status: new FormControl('Online'),   // ✓ Matches DeviceData.status
+      IPAddress: new FormControl(''),      // ✓ Matches DeviceData.IPAddress
+      articleNumber: new FormControl(''),  // ✓ Matches DeviceData.articleNumber
+      MACAddress: new FormControl(''),     // Changed from 'macAddress' to 'MACAddress'
+      firmwareVersion: new FormControl(''), // ✓ Matches DeviceData.firmwareVersion
+      serialNumber: new FormControl(''),   // ✓ Matches DeviceData.serialNumber
     });
   }
 

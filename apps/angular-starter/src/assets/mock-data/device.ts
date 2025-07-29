@@ -268,7 +268,7 @@ export const DEVICE_DATA: DeviceData[] = [
   {
     deviceName: '01320ht01.x2p1',
     vendor: 'Siemens',
-    deviceType: '',
+    deviceType: '111',
     status: 'Online',
     articleNumber: '',
     MACAddress: '00:1C:2B:ED:31:B8',

@@ -104,7 +104,7 @@
     <div class="container">
       <div>
         <ix-typography format="h1" class="device-name">
-          {{ selectedRow.deviceName }}
+          {{ selectedRow.deviceName ?? "-" }}
         </ix-typography>
 
         @for (item of selectedRowEntries; track item[0]; let i = $index) {
@@ -112,7 +112,7 @@
             {{ item[0] }}
           </ix-typography>
           <ix-typography format="body" textColor="std">
-            {{ item[1] }}
+            {{ item[1] || "-" }}
           </ix-typography>
           <ix-divider class="divider" />
         } @empty {
