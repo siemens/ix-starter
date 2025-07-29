@@ -36,6 +36,9 @@ jobs:
         run: |
           cd apps/vue-starter
           pnpm build
+        env:
+          VUE_BASE: /ix-starter/vue-starter/
+          VITE_THEME: 1
 
       - name: Deploy GitHub Pages 🚀 (React)
         uses: JamesIves/github-pages-deploy-action@v4
