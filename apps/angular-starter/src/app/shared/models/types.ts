@@ -5,6 +5,7 @@ export interface FilterCriteria {
 }
 
 export interface DeviceData {
+  id?: string;
   deviceName: string;
   status: string;
   vendor: string;

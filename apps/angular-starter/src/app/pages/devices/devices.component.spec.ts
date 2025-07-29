@@ -45,9 +45,9 @@ describe('categories', () => {
     expect(component.categories.vendor.options).toEqual(uniqueVendors);
   });
 
-  it('should have description options matching unique descriptions in rowData', () => {
-    const uniqueDescriptions = [...new Set(component.rowData.map((item: any) => item.description))];
-    expect(component.categories.description.options).toEqual(uniqueDescriptions);
+  it('should have deviceType options matching unique device types in rowData', () => {
+    const uniqueDeviceTypes = [...new Set(component.rowData.map((item: any) => item.deviceType))];
+    expect(component.categories.deviceType.options).toEqual(uniqueDeviceTypes);
   });
 
   it('should have status options matching unique statuses in rowData', () => {
@@ -55,16 +55,17 @@ describe('categories', () => {
     expect(component.categories.status.options).toEqual(uniqueStatuses);
   });
 
-  it('should have ipAddress options matching unique IP addresses in rowData', () => {
-    const uniqueIpAddresses = [...new Set(component.rowData.map((item: any) => item.ipAddress))];
-    expect(component.categories.ipAddress.options).toEqual(uniqueIpAddresses);
+  it('should have IPAddress options matching unique IP addresses in rowData', () => {
+    const uniqueIPAddresses = [...new Set(component.rowData.map((item: any) => item.IPAddress))];
+    expect(component.categories.IPAddress.options).toEqual(uniqueIPAddresses);
   });
 
   it('should have correct labels for each category', () => {
-    expect(component.categories.deviceName.label).toBe('Device Name');
-    expect(component.categories.vendor.label).toBe('Vendor');
-    expect(component.categories.description.label).toBe('Device Type');
-    expect(component.categories.status.label).toBe('Status');
-    expect(component.categories.ipAddress.label).toBe('IP Address');
+    // In test environment, translation keys are returned instead of translated values
+    expect(component.categories.deviceName.label).toBe('device-details.device-name');
+    expect(component.categories.vendor.label).toBe('device-details.vendor');
+    expect(component.categories.deviceType.label).toBe('device-details.device-type');
+    expect(component.categories.status.label).toBe('device-details.status');
+    expect(component.categories.IPAddress.label).toBe('device-details.ipaddress');
   });
 });

@@ -3,7 +3,6 @@ import {
   FormControl,
   FormGroup,
   ReactiveFormsModule,
-  Validators,
 } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -13,6 +12,7 @@ import {
   IxModalFooter,
   IxButton,
   IxActiveModal,
+  IxInput,
   IxTextValueAccessorDirective,
   IxSelect,
   IxSelectItem,
@@ -27,6 +27,7 @@ import {
     IxModalContent,
     IxModalFooter,
     IxButton,
+    IxInput,
     IxTextValueAccessorDirective,
     ReactiveFormsModule,
     TranslateModule,
@@ -43,13 +44,13 @@ export class AddDeviceModelComponent implements OnInit {
 
   ngOnInit() {
     this.addDeviceForm = new FormGroup({
-      deviceName: new FormControl('', [Validators.required]),
-      vendor: new FormControl('', [Validators.required]),
+      deviceName: new FormControl(''),
+      vendor: new FormControl(''),
       description: new FormControl(''),
-      status: new FormControl('', [Validators.required]),
-      ipAddress: new FormControl('', [Validators.required]),
-      articleNumber: new FormControl('', [Validators.required]),
-      macAddress: new FormControl('', [Validators.required]),
+      status: new FormControl('Online'),  // Default to Online like React
+      ipAddress: new FormControl(''),
+      articleNumber: new FormControl(''),
+      macAddress: new FormControl(''),
       firmwareVersion: new FormControl(''),
       serialNumber: new FormControl(''),
     });

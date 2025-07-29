@@ -56,10 +56,13 @@
   "device-details": {
     "device-name": "Gerätename",
     "vendor": "Hersteller",
+    "device-type": "Gerätetyp",
     "description": "Gerätetyp",
     "status": "Status",
     "article-number": "Artikelnummer",
+    "macaddress": "MAC Adresse",
     "mac-address": "MAC Adresse",
+    "ipaddress": "IP Adresse",
     "ip-address": "IP Adresse",
     "firmware-version": "Firmware-Version",
     "serial-number": "Serialnummer",

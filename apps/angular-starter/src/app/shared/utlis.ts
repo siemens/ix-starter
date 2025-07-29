@@ -30,3 +30,10 @@ export function convertToSentenceCase(key: string): string {
     .replace(/^./, (str) => str.toUpperCase())
     .trim();
 }
+
+export function toKebabCase(str: string): string {
+  return str
+    .replace(/([a-z])([A-Z])/g, '$1-$2')
+    .replace(/[\s_]+/g, '-')
+    .toLowerCase();
+}

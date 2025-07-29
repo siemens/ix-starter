@@ -25,13 +25,14 @@ import {
 import { ActionCellRendererComponent } from './components/action-cell-renderer/action-cell-renderer.component';
 import { AgGridAngular } from 'ag-grid-angular';
 import { IRowNode } from 'ag-grid-community';
-import { ModalService, showMessage } from '@siemens/ix-angular';
+import { ModalService } from '@siemens/ix-angular';
 import { AddDeviceModelComponent } from './components/add-device-model/add-device-model.component';
+import { DeleteModalComponent } from './components/delete-modal/delete-modal.component';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Subject, takeUntil } from 'rxjs';
 import { CopiedDataOperType, DeviceData } from '../../shared/models/types';
 import { DEVICE_DATA } from '../../../assets/mock-data/device';
-import { convertToSentenceCase } from '../../shared/utlis';
+import { convertToSentenceCase, toKebabCase } from '../../shared/utlis';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedService } from '../../shared/services/shared.service';
 import { DeviceCellRendererComponent } from './components/device-cell-renderer/device-cell-renderer.component';
@@ -66,33 +67,32 @@ export class DevicesComponent implements OnDestroy, OnInit {
   filterText = '';
   columnDefs: any[] = [];
   destroy$ = new Subject();
-  rowData: DeviceData[] = DEVICE_DATA;
+  rawRowData: any[] = DEVICE_DATA;
+  rowData: DeviceData[] = [];
   statusCount: any = {};
   canPaste = false;
   isFilterRowEmpty = false;
 
-  categories = {
-    deviceName: {
-      label: 'Device Name',
-      options: [...new Set(this.rowData.map((item: any) => item.deviceName))],
-    },
-    vendor: {
-      label: 'Vendor',
-      options: [...new Set(this.rowData.map((item: any) => item.vendor))],
-    },
-    description: {
-      label: 'Device Type',
-      options: [...new Set(this.rowData.map((item: any) => item.description))],
-    },
-    status: {
-      label: 'Status',
-      options: [...new Set(this.rowData.map((item: any) => item.status))],
-    },
-    ipAddress: {
-      label: 'IP Address',
-      options: [...new Set(this.rowData.map((item: any) => item.ipAddress))],
-    },
-  };
+  categories: any = {};
+
+  private createUniqueValueArray(devices: DeviceData[], key: string): string[] {
+    return Array.from(new Set(devices.map((device: any) => device[key] ?? '')));
+  }
+
+  private initializeCategories(): void {
+    if (this.rowData.length > 0) {
+      const newCategories: any = {};
+      const keys = Object.keys(this.rowData[0]);
+      keys.forEach((key) => {
+        const uniqueValues = this.createUniqueValueArray(this.rowData, key);
+        newCategories[key] = {
+          label: this.translate.instant(`device-details.${toKebabCase(key)}`),
+          options: uniqueValues,
+        };
+      });
+      this.categories = newCategories;
+    }
+  }
 
   get filterState() {
     return this._filterState;
@@ -124,10 +124,20 @@ export class DevicesComponent implements OnDestroy, OnInit {
   }
 
   ngOnInit() {
+    this.initializeData();
     this.translate.onLangChange.pipe(takeUntil(this.destroy$)).subscribe(() => {
       this.setColumnDefs();
+      this.initializeCategories();
     });
+    this.initializeCategories();
     this.updateStatusCount();
+  }
+
+  private initializeData(): void {
+    this.rowData = this.rawRowData.map((device, index) => ({
+      ...device,
+      id: (index + 1).toString(),
+    }));
   }
 
   onFilterChanged() {
@@ -152,8 +162,10 @@ export class DevicesComponent implements OnDestroy, OnInit {
     });
 
     modelRef.onClose.on((result) => {
-      this.rowData.splice(this.rowData.length, 0, result);
+      const newDevice = { ...result, id: (this.rowData.length + 1).toString() };
+      this.rowData.splice(this.rowData.length, 0, newDevice);
       this.rowData = [...this.rowData];
+      this.initializeCategories();
       this.updateStatusCount();
       this.sharedService.showToast(
         this.translate.instant('device-add-modal.success'),
@@ -187,7 +199,7 @@ export class DevicesComponent implements OnDestroy, OnInit {
         minWidth: 150,
       },
       {
-        field: 'description',
+        field: 'deviceType',
         headerName: this.translate.instant('device-details.description'),
         resizable: true,
         flex: 1,
@@ -195,7 +207,7 @@ export class DevicesComponent implements OnDestroy, OnInit {
         minWidth: 150,
       },
       {
-        field: 'ipAddress',
+        field: 'IPAddress',
         headerName: this.translate.instant('device-details.ip-address'),
         resizable: true,
         editable: true,
@@ -221,19 +233,15 @@ export class DevicesComponent implements OnDestroy, OnInit {
   }
 
   async onDelete(rowOrgIndex: number) {
-    const confirmationResponse = await showMessage.warning(
-      'Delete device?',
-      'Do you really want to delete the device?',
-      'Delete device',
-      'Cancel',
-      'delete',
-      'cancel',
-    );
+    const modalRef = await this.modalService.open({
+      content: DeleteModalComponent,
+    });
 
-    confirmationResponse.once((result) => {
-      if (result?.payload === 'delete') {
+    modalRef.onClose.on((result) => {
+      if (result?.deleted) {
         this.rowData.splice(rowOrgIndex, 1);
         this.rowData = [...this.rowData];
+        this.initializeCategories();
         this.updateStatusCount();
         this.sharedService.showToast(
           this.translate.instant(
@@ -246,8 +254,10 @@ export class DevicesComponent implements OnDestroy, OnInit {
   }
   onDuplicate(rowOrgIndex: number) {
     const rowToDuplicate = { ...this.rowData[rowOrgIndex] };
+    rowToDuplicate.id = (this.rowData.length + 1).toString();
     this.rowData.splice(rowOrgIndex + 1, 0, rowToDuplicate);
     this.rowData = [...this.rowData];
+    this.initializeCategories();
     this.sharedService.showToast(
       this.translate.instant(
         'dropdown-quick-actions.success-messages.duplicate',
@@ -266,8 +276,10 @@ export class DevicesComponent implements OnDestroy, OnInit {
     if (operType === CopiedDataOperType.CUT_PASTE) {
       this.rowData.splice(rowIndex, 1);
     }
+    rowToBeCopied.id = (this.rowData.length + 1).toString();
     this.rowData.splice(currentIndex + 1, 0, rowToBeCopied);
     this.rowData = [...this.rowData];
+    this.initializeCategories();
     this.sharedService.showToast(
       this.translate.instant('dropdown-quick-actions.success-messages.paste'),
       'success',
@@ -281,7 +293,8 @@ export class DevicesComponent implements OnDestroy, OnInit {
 
   onRowClicked(event: any) {
     this.selectedRow = event.data;
-    this.selectedRowEntries = Object.entries(this.selectedRow);
+    this.selectedRowEntries = Object.entries(this.selectedRow)
+      .filter(([key]) => key !== 'id'); // Filter out the id field
     this.selectedRowEntries.forEach((item: string[]) => {
       item[0] = convertToSentenceCase(item[0]);
     });
