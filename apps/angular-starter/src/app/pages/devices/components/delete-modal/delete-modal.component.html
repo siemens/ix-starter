@@ -2,18 +2,22 @@
   icon="trashcan"
   icon-color="color-alarm"
   (closeClick)="dismiss()"
-  size="32"
 >
   {{ "device-delete-modal.title" | translate }}
 </ix-modal-header>
-<ix-modal-content>
-  {{ "device-delete-modal.content" | translate }}
-</ix-modal-content>
+<ix-modal-content>{{
+  "device-delete-modal.content" | translate
+}}</ix-modal-content>
 <ix-modal-footer>
-  <ix-button variant="secondary" outline (click)="dismiss()">
+  <ix-button
+    variant="secondary"
+    outline
+    (click)="dismiss()"
+    (keydown.enter)="dismiss()"
+  >
     {{ "device-delete-modal.dismiss" | translate }}
   </ix-button>
-  <ix-button variant="danger" (click)="close()">
+  <ix-button variant="danger" (click)="close()" (keydown.enter)="close()">
     {{ "device-delete-modal.close" | translate }}
   </ix-button>
 </ix-modal-footer>
