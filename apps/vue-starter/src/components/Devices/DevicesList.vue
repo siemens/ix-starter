@@ -1,11 +1,6 @@
-/*
-* SPDX-FileCopyrightText: 2024 Siemens AG
-*
-* SPDX-License-Identifier: MIT
-*
-* This source code is licensed under the MIT license found in the
-* LICENSE file in the root directory of this source tree.
-*/
+/* * SPDX-FileCopyrightText: 2024 Siemens AG * * SPDX-License-Identifier: MIT * * This source code
+is licensed under the MIT license found in the * LICENSE file in the root directory of this source
+tree. */
 
 <script setup lang="ts">
 import { ref, computed, onMounted } from "vue";
@@ -14,7 +9,14 @@ import DataTableInstance from "./DataTable.vue";
 import AddDevicesModal from "./AddDevicesModal.vue";
 import { showModal } from "@/helpers/modal";
 import { IxButton, IxChip, IxCategoryFilter, IxContentHeader, IxEmptyState } from "@siemens/ix-vue";
-import { iconAddCircle, iconSuccess, iconMaintenanceWarning, iconError, iconInfo, iconProject } from "@siemens/ix-icons/icons";
+import {
+  iconAddCircle,
+  iconSuccess,
+  iconMaintenanceWarning,
+  iconError,
+  iconInfo,
+  iconProject,
+} from "@siemens/ix-icons/icons";
 import { FilterState, LogicalFilterOperator } from "@siemens/ix";
 import { useDeviceStore } from "@/store/deviceStore";
 import type { Device, DeviceState } from "@/types";
@@ -44,7 +46,9 @@ const categories = computed(() => {
   const categoryMap = {} as Record<string, { label: string; options: string[] }>;
 
   keys.forEach((key) => {
-    const uniqueValues = Array.from(new Set(devices.map((device) => device[key as keyof Device] ?? "")));
+    const uniqueValues = Array.from(
+      new Set(devices.map((device) => device[key as keyof Device] ?? "")),
+    );
     const kebabKey = key.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase();
     let label = t(`device-details.${kebabKey}`);
     if (label === `device-details.${kebabKey}`) {
@@ -103,9 +107,9 @@ const toggleFilter = (status: string) => {
   categoryFilterState.value = wasActive
     ? { tokens: [], categories: [] }
     : {
-      tokens: [],
-      categories: [{ id: "status", value: status, operator: LogicalFilterOperator.EQUAL }],
-    };
+        tokens: [],
+        categories: [{ id: "status", value: status, operator: LogicalFilterOperator.EQUAL }],
+      };
 };
 
 const onCategoryFilterChanged = (event: CustomEvent<FilterState>) => {
@@ -130,31 +134,58 @@ defineExpose({
 
 <template>
   <IxContentHeader slot="header" headerTitle="Devices">
-    <IxButton ghost class="add-devices-button" :icon="iconAddCircle" aria-label="add device" @click="addDeviceClick">
+    <IxButton
+      ghost
+      class="add-devices-button"
+      :icon="iconAddCircle"
+      aria-label="add device"
+      @click="addDeviceClick"
+    >
       Add device
     </IxButton>
   </IxContentHeader>
 
   <section class="devices-page">
     <section class="device-filter">
-      <IxCategoryFilter placeholder="Filter by" class="category-filter" :filterState="categoryFilterState"
-        :categories="categories" @filterChanged="onCategoryFilterChanged" />
+      <IxCategoryFilter
+        placeholder="Filter by"
+        class="category-filter"
+        :filterState="categoryFilterState"
+        :categories="categories"
+        @filterChanged="onCategoryFilterChanged"
+      />
 
       <section class="quick-filter">
-        <IxChip :outline="selectedStatus !== 'Online'" :icon="iconSuccess" variant="success"
-          @click="() => toggleFilter('Online')">
+        <IxChip
+          :outline="selectedStatus !== 'Online'"
+          :icon="iconSuccess"
+          variant="success"
+          @click="() => toggleFilter('Online')"
+        >
           {{ deviceState.Online }} online
         </IxChip>
-        <IxChip :outline="selectedStatus !== 'Maintenance'" :icon="iconMaintenanceWarning" variant="warning"
-          @click="() => toggleFilter('Maintenance')">
+        <IxChip
+          :outline="selectedStatus !== 'Maintenance'"
+          :icon="iconMaintenanceWarning"
+          variant="warning"
+          @click="() => toggleFilter('Maintenance')"
+        >
           {{ deviceState.Maintenance }} maintenance
         </IxChip>
-        <IxChip :outline="selectedStatus !== 'Error'" :icon="iconError" variant="alarm"
-          @click="() => toggleFilter('Error')">
+        <IxChip
+          :outline="selectedStatus !== 'Error'"
+          :icon="iconError"
+          variant="alarm"
+          @click="() => toggleFilter('Error')"
+        >
           {{ deviceState.Error }} error
         </IxChip>
-        <IxChip :outline="selectedStatus !== 'Offline'" :icon="iconInfo" variant="neutral"
-          @click="() => toggleFilter('Offline')">
+        <IxChip
+          :outline="selectedStatus !== 'Offline'"
+          :icon="iconInfo"
+          variant="neutral"
+          @click="() => toggleFilter('Offline')"
+        >
           {{ deviceState.Offline }} offline
         </IxChip>
       </section>
@@ -162,23 +193,37 @@ defineExpose({
 
     <template v-if="deviceStore.devices.length > 0 && filteredDevices.length === 0">
       <div class="empty-state-wrapper">
-        <IxEmptyState :header="t('device-quick-actions.no-devices-found') !== 'device-quick-actions.no-devices-found'
-          ? t('device-quick-actions.no-devices-found')
-          : 'No devices found'
-          " :sub-header="t('device-quick-actions.no-devices-found-desc') !==
+        <IxEmptyState
+          :header="
+            t('device-quick-actions.no-devices-found') !== 'device-quick-actions.no-devices-found'
+              ? t('device-quick-actions.no-devices-found')
+              : 'No devices found'
+          "
+          :sub-header="
+            t('device-quick-actions.no-devices-found-desc') !==
             'device-quick-actions.no-devices-found-desc'
-            ? t('device-quick-actions.no-devices-found-desc')
-            : 'Please remove search terms or add a new device'
-            " :icon="iconProject" :action="t('reset-filter') !== 'reset-filter' ? t('reset-filter') : 'Reset Filter'"
-          @actionClick="resetFilters" />
+              ? t('device-quick-actions.no-devices-found-desc')
+              : 'Please remove search terms or add a new device'
+          "
+          :icon="iconProject"
+          :action="t('reset-filter') !== 'reset-filter' ? t('reset-filter') : 'Reset Filter'"
+          @actionClick="resetFilters"
+        />
       </div>
     </template>
     <template v-else>
-      <DataTableInstance ref="dataTableRef" :filterText="''" :selectedStatus="selectedStatus" :selectedCategory="categoryFilterState.categories.reduce((acc: Record<string, string>, cat) => {
-        acc[cat.id] = cat.value;
-        return acc;
-      }, {})
-        " @cell-clicked="handleCellClicked" />
+      <DataTableInstance
+        ref="dataTableRef"
+        :filterText="''"
+        :selectedStatus="selectedStatus"
+        :selectedCategory="
+          categoryFilterState.categories.reduce((acc: Record<string, string>, cat) => {
+            acc[cat.id] = cat.value;
+            return acc;
+          }, {})
+        "
+        @cell-clicked="handleCellClicked"
+      />
     </template>
   </section>
 </template>
