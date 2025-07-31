@@ -1,21 +1,19 @@
-# VueStarterApp
+# `@siemens/ix-vue` + Vue + Vite
 
+## Development
 
+Execute `pnpm dev`
 
-## Setup your Local Environment
+## Build
 
-In order to contribute in the development of ViewStarterApp, please have the below installed on your machine :  
+Execute `pnpm build`
 
-1. Install latest node
-2. Install latest Visual Studio Code for IDE.
+## Testing
 
-## ## Running HESA-UI locally :  
+### Unit tests (vitest + @testing-library/vue)
 
-1. Goto root directory  
+Execute `pnpm test`
 
-2. Run below commands  
-`npm install`  
-`npm run build`  
-`npm run dev`  
+### E2E tests (playwright)
 
-The application should now be accessible on : http://localhost:5173/
+Execute `pnpm e2e`
