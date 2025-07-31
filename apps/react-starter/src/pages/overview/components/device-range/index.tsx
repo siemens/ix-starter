@@ -136,7 +136,7 @@ function DeviceRange() {
 
       setOptions(option);
     }
-  }, [devices]);
+  }, [devices, theme]);
 
   useResizeHandler(chartRef);
 

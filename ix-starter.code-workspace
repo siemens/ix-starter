@@ -5,6 +5,10 @@
       "path": "./apps/react-starter",
     },
     {
+      "name": "ix-vue-starter",
+      "path": "./apps/vue-starter",
+    },
+    {
       "name": "root",
       "path": "./",
     },
