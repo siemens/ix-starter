@@ -1,0 +1,13 @@
+<ix-card class="status-history">
+  <ix-card-content>
+    <ix-typography format="label" bold>
+      {{ "status-history.title" | translate }}
+    </ix-typography>
+    <div
+      echarts
+      [options]="options"
+      [theme]="theme$ | async"
+      class="echarts"
+    ></div>
+  </ix-card-content>
+</ix-card>

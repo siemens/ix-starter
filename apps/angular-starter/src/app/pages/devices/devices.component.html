@@ -1,0 +1,137 @@
+<ix-content>
+  <ix-content-header headerTitle="{{ 'devices' | translate }}" slot="header">
+    <ix-button
+      variant="primary"
+      ghost
+      icon="addCircle"
+      (click)="openAddDevice()"
+      aria-label="add device"
+    >
+      {{ "add-device" | translate }}
+    </ix-button>
+  </ix-content-header>
+
+  <section class="device-table">
+    <section class="device-filter">
+      <ix-category-filter
+        placeholder="Filter by"
+        [repeatCategories]="false"
+        [categories]="categories"
+        [filterState]="filterState"
+        (filterCleared)="filterText = ''"
+        class="category-filter"
+        (filterChanged)="onCategoryChange($event)"
+      >
+      </ix-category-filter>
+      <section class="quick-filter">
+        <ix-chip
+          icon="success"
+          variant="success"
+          [outline]="filterText !== 'Online'"
+          (click)="onQuickFilterBy('Online')"
+        >
+          {{ statusCount.Online ?? "0" }} online
+        </ix-chip>
+
+        <ix-chip
+          icon="maintenanceWarning"
+          variant="warning"
+          (click)="onQuickFilterBy('Maintenance')"
+          [outline]="filterText !== 'Maintenance'"
+        >
+          {{ statusCount.Maintenance ?? "0" }} maintenance
+        </ix-chip>
+
+        <ix-chip
+          icon="error"
+          variant="alarm"
+          (click)="onQuickFilterBy('Error')"
+          [outline]="filterText !== 'Error'"
+        >
+          {{ statusCount.Error ?? "0" }} error
+        </ix-chip>
+
+        <ix-chip
+          icon="info"
+          variant="neutral"
+          (click)="onQuickFilterBy('Offline')"
+          [outline]="filterText !== 'Offline'"
+        >
+          {{ statusCount.Offline ?? "0" }} offline
+        </ix-chip>
+      </section>
+    </section>
+    @if (!isFilterRowEmpty) {
+      <div class="flex-grow-1">
+        <ag-grid-angular
+          #agGrid
+          class="ag-theme-alpine-dark ag-theme-ix grid-container"
+          [suppressRowTransform]="true"
+          [suppressCellFocus]="true"
+          rowSelection="single"
+          [rowData]="rowData"
+          [columnDefs]="columnDefs"
+          (rowClicked)="onRowClicked($event)"
+          [isExternalFilterPresent]="isExternalFilterPresent"
+          [doesExternalFilterPass]="doesExternalFilterPass"
+          (filterChanged)="onFilterChanged()"
+        >
+        </ag-grid-angular>
+      </div>
+    } @else {
+      <div class="empty-state-wrapper">
+        <ix-empty-state
+          header="No devices found"
+          subHeader="Please remove search terms or add a new device"
+          icon="project"
+          action="Reset Filter"
+          (actionClick)="resetFilter()"
+        ></ix-empty-state>
+      </div>
+    }
+  </section>
+
+  <ix-pane
+    heading="{{ 'device-details-header.title' | translate }}"
+    composition="right"
+    size="320px"
+    variant="floating"
+    hide-on-collapse
+    [expanded]="expanded"
+    (expandedChanged)="expandedChanged($event)"
+    class="pane"
+  >
+    <div class="container">
+      <div>
+        <ix-typography format="h1" class="device-name">
+          {{ selectedRow.deviceName ?? "-" }}
+        </ix-typography>
+
+        @for (item of selectedRowEntries; track item[0]; let i = $index) {
+          <ix-typography format="body" textColor="soft">
+            {{ item[0] }}
+          </ix-typography>
+          <ix-typography format="body" textColor="std">
+            {{ item[1] || "-" }}
+          </ix-typography>
+          <ix-divider class="divider" />
+        } @empty {
+          <li>No items available. {{ "language.title" | translate }}</li>
+        }
+      </div>
+
+      <ix-button
+        [loading]="isStatusUpdateInProgress"
+        outline
+        (click)="toggleMaintenanceStatus()"
+      >
+        {{
+          (selectedRow.status === "Maintenance"
+            ? "device-details-footer.end-maintenance"
+            : "device-details-footer.set-maintenance"
+          ) | translate
+        }}
+      </ix-button>
+    </div>
+  </ix-pane>
+</ix-content>
