@@ -23,30 +23,28 @@ async function filterDevicePageByDeviceName(page: Page, deviceName: string) {
 }
 
 test("filter for a deviceName", async ({ page }) => {
-  await page.goto("http://localhost:5173/#/devices");
+  await page.goto("/#/devices");
 
   const aggrid = page.locator(".ag-root-wrapper");
   const rows = aggrid.locator(".ag-center-cols-container .ag-row");
 
-  await expect(rows).toHaveCount(22, {
-    // AG-Grid takes some time to filter the rows
-    timeout: 500,
-  });
+  await expect(aggrid).toBeVisible();
+
+  await expect(rows).toHaveCount(22);
 
   await filterDevicePageByDeviceName(page, "s71200");
 
   await expect(rows).toHaveCount(1, {
-    // AG-Grid takes some time to filter the rows
     timeout: 500,
   });
 });
 
 test("add a new device", async ({ page }) => {
-  await page.goto("http://localhost:5173/#/devices");
+  await page.goto("/#/devices");
 
   const newDeviceName = "My new device";
 
-  const addDeviceButton = page.getByLabel("Add device");
+  const addDeviceButton = page.getByLabel("add device");
   await addDeviceButton.click();
 
   const modal = page.locator("ix-modal");
@@ -54,11 +52,10 @@ test("add a new device", async ({ page }) => {
   const device = modal.getByLabel("Device Name");
   await device.locator("input").fill(newDeviceName);
 
-  const okayButton = modal.getByLabel("Add device");
+  const okayButton = modal.getByLabel("add device");
   await okayButton.click();
 
   await expect(modal).not.toBeVisible();
-  // Wait for the modal to close and the animation to finish
   await expect(modal).not.toBeInViewport();
 
   await filterDevicePageByDeviceName(page, newDeviceName);
