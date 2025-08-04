@@ -52,7 +52,7 @@ test("add a new device", async ({ page }) => {
   const device = modal.getByLabel("Device Name");
   await device.locator("input").fill(newDeviceName);
 
-  const okayButton = modal.getByLabel("add device");
+  const okayButton = modal.getByLabel("Add device");
   await okayButton.click();
 
   await expect(modal).not.toBeVisible();

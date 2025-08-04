@@ -99,7 +99,7 @@ const dismiss = () => {
     </IxModalContent>
     <IxModalFooter class="footer">
       <IxButton outline @click="dismiss">Cancel</IxButton>
-      <IxButton @click="addDevice">Add device</IxButton>
+      <IxButton @click="addDevice" aria-label="Add device">Add device</IxButton>
     </IxModalFooter>
   </div>
 </template>
