@@ -24,6 +24,7 @@ This Turborepo includes the following packages/apps:
 | Name          | Description                                                | Deploy |
 |---------------|------------------------------------------------------------|--------|
 | react-starter | Example application to show some features of the framework | [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/siemens/ix-starter/tree/main/apps/react-starter) |
+| vue-starter   | Example Vue 3 application with Siemens iX components      | [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/siemens/ix-starter/tree/main/apps/vue-starter) |
 
 ### Utilities
 
@@ -49,6 +50,12 @@ To develop all apps and packages, run the following command:
 
 ```
 pnpm dev --filter ix-react-starter
+```
+
+#### Vue
+
+```
+pnpm dev --filter ix-vue-starter
 ```
 
 ## Useful Links

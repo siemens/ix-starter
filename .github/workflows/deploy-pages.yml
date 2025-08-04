@@ -32,8 +32,22 @@ jobs:
           REACT_BASE: /ix-starter/react-starter/
           VITE_THEME: 1
 
-      - name: Deploy GitHub Pages 🚀
+      - name: Build Vue Starter
+        run: |
+          cd apps/vue-starter
+          pnpm build
+        env:
+          VUE_BASE: /ix-starter/vue-starter/
+          VITE_THEME: 1
+
+      - name: Deploy GitHub Pages 🚀 (React)
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: ./apps/react-starter/dist
           target-folder: react-starter
+
+      - name: Deploy GitHub Pages 🚀 (Vue)
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: ./apps/vue-starter/dist
+          target-folder: vue-starter

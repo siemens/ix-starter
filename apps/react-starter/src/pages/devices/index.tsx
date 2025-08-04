@@ -164,7 +164,7 @@ const DevicesPage = () => {
           ghost
           icon={iconAddCircle}
           onClick={show}
-          aria-label="add device"
+          aria-label={t("add-device")}
         >
           {t("add-device")}
         </IxButton>

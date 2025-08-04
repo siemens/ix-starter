@@ -1,0 +1,126 @@
+{
+  "analytics": "Analyse",
+  "cards": "Karten",
+  "content-header": "Hallo iX User, willkommen in unserer Demo-App!",
+  "device-status": {
+    "title": "Gerätestatus",
+    "online": "Online",
+    "offline": "Offline",
+    "maintenance": "Wartung",
+    "error": "Fehler"
+  },
+  "devices": "Geräte",
+  "add-device": "Gerät hinzufügen",
+  "device-quick-actions": {
+    "add-device": "Gerät hinzufügen",
+    "devices": "online",
+    "faulty-devices": "fehler",
+    "warning-devices": "wartung",
+    "off": "offline",
+    "no-devices-found": "Kein Gerät ausgewählt",
+    "remove-filter": "Bitte entfernen Sie die Suchbegriffe oder fügen Sie ein neues Gerät hinzu"
+  },
+  "category-filter": {
+    "placeholder": "Filtern nach",
+    "categories": "Kategorien",
+    "reset-filter": "Filter zurücksetzen"
+  },
+  "device-add-modal": {
+    "title": "Gerät hinzufügen",
+    "list-header": "Bitte wählen sie einen Status",
+    "close": "Gerät hinzufügen",
+    "dismiss": "Abbrechen",
+    "success": "Gerät erfolgreich hinzugefügt!"
+  },
+  "device-delete-modal": {
+    "title": "Gerät löschen?",
+    "content": "Wollen Sie das Gerät wirklich löschen?",
+    "close": "Gerät löschen",
+    "dismiss": "Abbrechen"
+  },
+  "dropdown-quick-actions": {
+    "rename": "Umbennen",
+    "on": "Einschalten",
+    "off": "Ausschalten",
+    "delete": "Löschen",
+    "success-messages": {
+      "copy": "Gerät erfolgreich in die Zwischenablage kopiert!",
+      "delete": "Gerät erfolgreich entfernt!",
+      "duplicate": "Gerät erfolgreich dupliziert!",
+      "cut": "Gerät erfolgreich in die Zwischenablage übertragen!",
+      "paste": "Gerät erfolgreich eingefügt!"
+    }
+  },
+  "device-details-header": {
+    "title": "Geräteinformationen",
+    "firmware-card": "Gerätefirmware ist veraltet.",
+    "update": "Update"
+  },
+  "device-details-footer": {
+    "set-maintenance": "Wartung starten",
+    "end-maintenance": "Wartung beenden"
+  },
+  "device-details": {
+    "title": "Geräteinformationen",
+    "device-name": "Gerätename",
+    "vendor": "Hersteller",
+    "device-type": "Gerätetyp",
+    "status": "Status",
+    "article-number": "Artikelnummer",
+    "mac-address": "MAC Adresse",
+    "ip-address": "IP Adresse",
+    "firmware-version": "Firmware-Version",
+    "serial-number": "Serialnummer"
+  },
+  "incidents": {
+    "title": "Zwischenfälle",
+    "create-task": "Aufgabe erstellen",
+    "incident-cards": {
+      "device": "Gerät",
+      "date": "Datum",
+      "update": "Aktualisieren",
+      "ipAddress": "IP Adresse",
+      "time": "Zeit",
+      "info": "Informationen",
+      "type": "Typ"
+    }
+  },
+  "language": {
+    "title": "Sprache",
+    "de": "Deutsch",
+    "en": "Englisch"
+  },
+  "theme": {
+    "title": "Design"
+  },
+  "list": "Liste",
+  "overview": "Übersicht",
+  "quick-actions": {
+    "title": "Quick actions",
+    "add-device": "Gerät hinzufügen",
+    "add-devices": "Geräte hinzufügen",
+    "schedule-maintenance": "Wartung planen"
+  },
+  "status-history": {
+    "title": "Statusverlauf"
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "user-settings": "Benutzereinstellungen",
+    "application-settings": "Anwendungseinstellungen",
+    "notification": "Benachrichtigungen",
+    "toggle-on": "Eingeschaltet",
+    "toggle-off": "Ausgeschaltet",
+    "import-device": "Gerätedaten importieren",
+    "upload-text": "Dateien hierher ziehen oder...",
+    "upload-button": "Dateien auswählen..."
+  },
+  "toggle-theme": "Theme wechseln",
+  "search": "Suchen",
+  "demo-message": "Diese Funktion ist in der Demo-Version derzeit nicht verfügbar.",
+  "cancel": "Abbrechen",
+  "okay": "OK",
+  "delete-message": "Wollen Sie das Gerät wirklich löschen?",
+  "delete-cancel": "Abbrechen",
+  "delete-confirm": "Gerät löschen"
+}
