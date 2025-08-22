@@ -23,7 +23,10 @@ This Turborepo includes the following packages/apps:
 
 | Name          | Description                                                | Deploy |
 |---------------|------------------------------------------------------------|--------|
-| react-starter | Example application to show some features of the framework | [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/siemens/ix-starter/tree/main/apps/react-starter) |
+| react-starter | Example application to show some features of the framework | [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/siemens/ix-starter/tree/main/apps/react-starter)[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/siemens/ix-starter) [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/siemens/ix-starter) [![Open in Codeanywhere](https://codeanywhere.com/img/open-in-codeanywhere-btn.svg)](https://app.codeanywhere.com/#https://github.com/siemens/ix-starter) |
+
+
+
 
 ### Utilities
 
