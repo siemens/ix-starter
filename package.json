@@ -14,6 +14,6 @@
     "turbo": "latest",
     "ix-theme-downloader": "workspace:*"
   },
-  "packageManager": "pnpm@8.6.10",
+  "packageManager": "pnpm@10.14.0",
   "name": "ix-starter"
 }
