@@ -81,7 +81,7 @@ const reduceDevices = (devices: Device[]): BarSeriesOption[] => {
       data: createSeries(offlineData),
       type: "bar",
       stack: "x",
-      color: getComputedCSSProperty("color-neutral"),
+      color: getComputedCSSProperty("color-critical"),
     },
   ];
 };
