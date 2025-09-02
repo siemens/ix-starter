@@ -28,7 +28,7 @@ importers:
         version: 3.2.0(@siemens/ix-icons@3.1.1)
       '@siemens/ix-aggrid':
         specifier: 3.0.2
-        version: 3.0.2(@siemens/ix-icons@3.1.1)(ag-grid-community@32.2.1)
+        version: 3.0.2(@siemens/ix-icons@3.1.1)(ag-grid-community@34.1.2)
       '@siemens/ix-echarts':
         specifier: 3.0.0
         version: 3.0.0(echarts@5.6.0)
@@ -39,8 +39,8 @@ importers:
         specifier: 3.2.0
         version: 3.2.0(@siemens/ix-icons@3.1.1)(@stencil/core@4.36.3)(@types/react@18.3.24)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       ag-grid-community:
-        specifier: 32.2.1
-        version: 32.2.1
+        specifier: 34.1.2
+        version: 34.1.2
       ag-grid-react:
         specifier: 32.2.1
         version: 32.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -909,8 +909,14 @@ packages:
   ag-charts-types@10.2.0:
     resolution: {integrity: sha512-PUqH1QtugpYLnlbMdeSZVf5PpT1XZVsP69qN1JXhetLtQpVC28zaj7ikwu9CMA9N9b+dBboA9QcjUQUJZVUokQ==}
 
+  ag-charts-types@12.1.2:
+    resolution: {integrity: sha512-B5IEMzaDxpJRko9sREIBEZOn44tlMX353tMJ1RGYHZrjDFx4on/p6q3YxBvway3nViAM2POmFOS45+1fF9YC8g==}
+
   ag-grid-community@32.2.1:
     resolution: {integrity: sha512-mrnm1DnLI9Wd408mMwP+6p7lbTC3FYgzNIUPygBvNh3SzZnbzTEUJF/BTKXi+MARWtG5S0IMUYy4hqBiLbobaQ==}
+
+  ag-grid-community@34.1.2:
+    resolution: {integrity: sha512-PN79zG/tigZaVKkQZXaithLO3j4JWp+9CjqEFth6kFUwMJ0E6OcNzNtn4NFEKM38fEdpGsr+k+gFk5KUE2h5fA==}
 
   ag-grid-react@32.2.1:
     resolution: {integrity: sha512-lojTKsT/ncRZ81mrDa7qkIhZePfYlLCHIiAL1WbzL1mNPrglaa7QQKkE6hhhuAXvAm2uUhK1OfkMPnrqsEFldA==}
@@ -2787,10 +2793,10 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.50.0':
     optional: true
 
-  '@siemens/ix-aggrid@3.0.2(@siemens/ix-icons@3.1.1)(ag-grid-community@32.2.1)':
+  '@siemens/ix-aggrid@3.0.2(@siemens/ix-icons@3.1.1)(ag-grid-community@34.1.2)':
     dependencies:
       '@siemens/ix': 3.2.0(@siemens/ix-icons@3.1.1)
-      ag-grid-community: 32.2.1
+      ag-grid-community: 34.1.2
     transitivePeerDependencies:
       - '@siemens/ix-icons'
 
@@ -3111,9 +3117,15 @@ snapshots:
 
   ag-charts-types@10.2.0: {}
 
+  ag-charts-types@12.1.2: {}
+
   ag-grid-community@32.2.1:
     dependencies:
       ag-charts-types: 10.2.0
+
+  ag-grid-community@34.1.2:
+    dependencies:
+      ag-charts-types: 12.1.2
 
   ag-grid-react@32.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
