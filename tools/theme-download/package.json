@@ -9,7 +9,7 @@
   },
   "type": "module",
   "dependencies": {
-    "axios": "^1.11.0",
+    "axios": "^1.12.2",
     "fs-extra": "^11.2.0",
     "tar": "^7.4.3",
     "zlib": "^1.0.5"
