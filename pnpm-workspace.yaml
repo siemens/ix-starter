@@ -2,3 +2,7 @@ packages:
   - "apps/*"
   - "packages/*"
   - "tools/*"
+
+minimumReleaseAge: 2880
+minimumReleaseAgeExclude:
+  - "@siemens/*"

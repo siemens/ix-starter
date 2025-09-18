@@ -1,4 +1,5 @@
 {
+  "name": "ix-starter",
   "private": true,
   "scripts": {
     "build": "turbo run build",
@@ -14,6 +15,12 @@
     "turbo": "latest",
     "ix-theme-downloader": "workspace:*"
   },
-  "packageManager": "pnpm@10.14.0",
-  "name": "ix-starter"
+  "packageManager": "pnpm@10.17.0",
+  "engines": {
+    "pnpm": ">=10.x.x",
+    "node": ">=22.19.x"
+  },
+  "volta": {
+    "node": "22.19.0"
+  }
 }
