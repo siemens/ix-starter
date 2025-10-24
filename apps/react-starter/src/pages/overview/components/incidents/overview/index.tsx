@@ -164,10 +164,10 @@ function Incidents() {
         </IxInput>
 
         <div className="btn-group">
-          <IxButton icon={iconCardLayout} outline onClick={showDemoMessage}>
+          <IxButton icon={iconCardLayout} variant="secondary" onClick={showDemoMessage}>
             {t("cards")}
           </IxButton>
-          <IxButton icon={iconList}>{t("list")}</IxButton>
+          <IxButton icon={iconList} variant="primary">{t("list")}</IxButton>
         </div>
       </div>
       <IncidentList incidents={incidents} search={search}></IncidentList>

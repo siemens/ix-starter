@@ -92,15 +92,15 @@ pnpm add @siemens/ix@0.0.0-pr-2198-20251023082407 @siemens/ix-react@0.0.0-pr-219
 ---
 
 #### 4.2 ix-application-header
-⚠️ **Status:** Visual review needed  
+✅ **Status:** COMPLETE - No action needed  
 **Change:** Height changed from 44px → 48px  
 **Location:** `src/App.tsx`  
-**Action:** Visual testing after package update
+**Verification:** Height is already 48px - correct for V4
 
 ---
 
 #### 4.3 ix-button variants
-🔴 **Status:** REQUIRES MIGRATION - 16 instances found
+✅ **Status:** COMPLETE - All 8 IxButton instances migrated
 
 **Affected Components in this app:**
 - ✅ ix-button (9 instances)
@@ -139,41 +139,39 @@ pnpm add @siemens/ix@0.0.0-pr-2198-20251023082407 @siemens/ix-react@0.0.0-pr-219
 | `true` | `false` | `subtle-secondary` |
 | `false` | `true` | `subtle-tertiary` |
 
-**Instances to Update:**
+**Migration Completed:**
 
-##### IxButton (9 instances)
+##### IxButton - 8 instances across 5 files
 
-1. **File:** `src/pages/devices/components/modal/add-device-modal.tsx`
-   - Line 1: `outline` → Change to `variant="secondary"`
-   - Line 2: Primary (no change needed, already correct)
+1. ✅ **File:** `src/pages/devices/components/ag-grid-table/delete-modal.tsx`
+   - Button 1: `variant="secondary" outline` → `variant="subtle-secondary"` (removed outline prop)
+   - Button 2: `variant="danger"` → `variant="danger-primary"`
 
-2. **File:** `src/pages/devices/index.tsx`
-   - `variant="primary"` → No change needed
+2. ✅ **File:** `src/pages/devices/components/modal/add-device-modal.tsx`
+   - Button 1: `outline` → `variant="secondary"` (removed outline prop)
+   - Button 2: No props → Added explicit `variant="primary"`
 
-3. **File:** `src/pages/devices/components/ag-grid-table/delete-modal.tsx`
-   - Line 1: `variant="secondary" outline` → Change to `variant="subtle-secondary"` (remove outline prop)
-   - Line 2: `variant="danger"` → Change to `variant="danger-primary"`
+3. ✅ **File:** `src/pages/devices/components/device-details/index.tsx`
+   - Button 1: `outline` → `variant="secondary"` (removed outline prop)
 
-4. **File:** `src/pages/devices/components/device-details/index.tsx`
-   - Default variant → Add `variant="primary"`
+4. ✅ **File:** `src/pages/overview/components/incidents/overview/index.tsx`
+   - Button 1: `outline` → `variant="secondary"` (removed outline prop)
+   - Button 2: No props → Added explicit `variant="primary"`
 
-5. **File:** `src/pages/overview/components/incidents/overview/index.tsx`
-   - Line 1: `outline` → Change to `variant="secondary"`
-   - Line 2: Default → Add `variant="primary"`
+5. ✅ **File:** `src/pages/overview/components/incidents/overview/incident-list/index.tsx`
+   - Button 1: `outline color="primary"` → `variant="secondary"` (removed outline and color props)
 
-6. **File:** `src/pages/overview/components/incidents/overview/incident-list/index.tsx`
-   - `outline color="primary"` → Change to `variant="secondary"` (remove outline and color props)
+##### IxIconButton - 9 instances across 2 files
 
-##### IxIconButton (7 instances)
+1. ✅ **File:** `src/pages/devices/components/ag-grid-table/quick-actions-cell-renderer.tsx`
+   - Button 1: `variant="secondary" ghost` → `variant="subtle-tertiary"` (removed ghost prop)
+   - Button 2: `variant="secondary" ghost` → `variant="subtle-tertiary"` (removed ghost prop)
+   - Button 3: `variant="secondary" ghost` → `variant="subtle-tertiary"` (removed ghost prop)
+   - Buttons 4-7: `ghost` (no variant) → `variant="subtle-tertiary"` (removed ghost prop)
 
-1. **File:** `src/pages/devices/components/ag-grid-table/quick-actions-cell-renderer.tsx`
-   - Lines 1-2: Default icon buttons → Add `variant="subtle-primary"`
-   - Line 3: Context menu button → Add `variant="subtle-primary"`
-   - Lines 4-7: `ghost` variant → Change to `variant="subtle-tertiary"` (remove ghost prop)
-
-2. **File:** `src/pages/overview/components/incidents/overview/incident-list/index.tsx`
-   - Line 1: `variant="secondary" ghost` → Change to `variant="subtle-tertiary"` (remove ghost prop)
-   - Line 2: `variant="primary"` → No change needed
+2. ✅ **File:** `src/pages/overview/components/incidents/overview/incident-list/index.tsx`
+   - Button 1 (Desktop): `variant="secondary" ghost` → `variant="subtle-tertiary"` (removed ghost prop)
+   - Button 2 (Mobile): `variant="primary" outline` → `variant="secondary"` (removed outline prop)
 
 ---
 

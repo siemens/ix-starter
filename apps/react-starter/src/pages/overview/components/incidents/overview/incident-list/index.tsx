@@ -51,8 +51,8 @@ function DesktopItem({ incident }: { incident: Incident }) {
           <IxTypography textColor="soft">{incident.time}</IxTypography>
         </IxCol>
         <IxCol className={styles.IncidentActions}>
-          <IxIconButton variant="secondary" ghost icon={iconOpenExternal} />
-          <IxButton outline color="primary" onClick={showDemoMessage}>
+          <IxIconButton variant="subtle-tertiary" icon={iconOpenExternal} />
+          <IxButton variant="secondary" onClick={showDemoMessage}>
             {t("incidents.create-task")}
           </IxButton>
         </IxCol>
@@ -83,8 +83,7 @@ function MobileItem({ incident }: { incident: Incident }) {
         </IxCol>
         <IxCol size="2">
           <IxIconButton
-            variant="primary"
-            outline
+            variant="secondary"
             icon={iconUpload}
             onClick={showDemoMessage}
           ></IxIconButton>
