@@ -1,5 +1,7 @@
 import { IxApplicationContext } from "@siemens/ix-react";
-import "@siemens/ix/dist/siemens-ix/siemens-ix.css";
+import "@siemens/ix/dist/siemens-ix/siemens-ix-core.css";
+import "@siemens/ix/dist/siemens-ix/theme/classic-light.css";
+import "@siemens/ix/dist/siemens-ix/theme/classic-dark.css";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createHashRouter, RouterProvider } from "react-router-dom";

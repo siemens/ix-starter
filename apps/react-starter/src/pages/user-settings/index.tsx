@@ -13,7 +13,6 @@ import classic from "./classic.png";
 import styles from "./styles.module.css";
 import clsx from "clsx";
 import { useEffect, useState } from "react";
-import { themeSwitcher } from "@siemens/ix";
 import { useTranslation } from "react-i18next";
 import useShowDemoMessage from "@/hooks/demoMessage";
 
@@ -66,9 +65,8 @@ export default function UserSettings() {
   );
 
   useEffect(() => {
-    const currentVariant = themeSwitcher.getCurrentTheme();
-    const isDark = currentVariant.endsWith(themeSwitcher.suffixDark);
-    themeSwitcher.setTheme(`theme-${currentTheme}-${isDark ? "dark" : "light"}`);
+    // Update theme using v4 data attribute approach
+    document.documentElement.setAttribute('data-ix-theme', currentTheme);
   }, [currentTheme]);
 
   function changeTheme(theme: string) {

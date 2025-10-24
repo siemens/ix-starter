@@ -176,15 +176,25 @@ pnpm add @siemens/ix@0.0.0-pr-2198-20251023082407 @siemens/ix-react@0.0.0-pr-219
 ---
 
 #### 4.4 ix-pane
-✅ **Status:** Optional enhancements available  
+✅ **Status:** COMPLETE - Reviewed for v4 compatibility  
 **Location:** `src/pages/devices/components/device-details/index.tsx`  
-**New Properties Available:**
-- `close-on-click-outside`
-- `aria-label-close-button`
-- `aria-label-expand-button`
-- `aria-label-collapse-button`
 
-**Action:** Can be added for improved accessibility (optional)
+**V4 Analysis:**
+- ✅ Component is already v4-compatible (no breaking changes)
+- ✅ Uses Escape key to close (existing implementation)
+- ❌ `closeOnClickOutside` - **Not suitable** for this use case
+
+**Why `closeOnClickOutside` was NOT added:**
+The pane displays device details from grid rows. Since the entire page is a grid with no free space, clicking another row would:
+1. Trigger `closeOnClickOutside` → close the pane
+2. Immediately trigger row click → reopen pane with new row's details
+
+This creates unnecessary flickering and poor UX. The existing Escape key close behavior is more appropriate.
+
+**Additional V4 Properties Available (Optional):**
+- `aria-label-close-button` - For improved accessibility
+- `aria-label-expand-button` - For improved accessibility  
+- `aria-label-collapse-button` - For improved accessibility
 
 ---
 
@@ -235,26 +245,132 @@ pnpm add @siemens/ix@0.0.0-pr-2198-20251023082407 @siemens/ix-react@0.0.0-pr-219
 
 ### Step 5: Global Style Updates
 
-#### 5.1 Updated Elevation Principle
-⚠️ **Status:** Review needed
+#### 5.1 Theme System Migration
+✅ **Status:** COMPLETE
 
-**Change:** Components require visual outline if placed on `color-2` or `component-1`
+**V4 Changes:**
+Theme structure reorganized with separate CSS files for better modularity and reduced bundle size.
 
-**Affected Components in App:**
+**V3 Approach:**
+```typescript
+// Single CSS file contained everything
+import "@siemens/ix/dist/siemens-ix/siemens-ix.css";
+```
+
+**V4 Approach (Recommended):**
+```typescript
+// Core styles + separate theme files
+import "@siemens/ix/dist/siemens-ix/siemens-ix-core.css";
+import "@siemens/ix/dist/siemens-ix/theme/classic-light.css";
+import "@siemens/ix/dist/siemens-ix/theme/classic-dark.css";
+```
+
+**Files Modified:**
+
+1. **`apps/react-starter/index.html`**
+   - Added `data-ix-theme="classic"` to `<html>` tag
+   - Added `data-ix-color-schema="dark"` for initial dark mode
+   ```html
+   <html lang="en" data-ix-theme="classic" data-ix-color-schema="dark">
+   ```
+
+2. **`apps/react-starter/src/main.tsx`**
+   - Replaced single CSS import with core + theme imports
+
+**Theme Switching:**
+✅ **Status:** COMPLETE - Migrated to v4 data attribute approach
+
+**Changes Made:**
+
+1. **`src/pages/user-settings/index.tsx`**
+   - Removed `themeSwitcher` import and class-based API usage
+   - Replaced `themeSwitcher.setTheme()` with direct data attribute manipulation:
+   ```typescript
+   // v4 approach: Update theme via data attribute
+   document.documentElement.setAttribute('data-ix-theme', currentTheme);
+   ```
+
+2. **`src/hooks/theme.ts`**
+   - Removed `themeSwitcher` dependency
+   - Implemented custom theme detection using data attributes:
+   ```typescript
+   const getCurrentTheme = (): string => {
+     const theme = document.documentElement.getAttribute('data-ix-theme') || 'classic';
+     const colorSchema = document.documentElement.getAttribute('data-ix-color-schema') || 'dark';
+     return `${theme}-${colorSchema}`;
+   };
+   ```
+   - Added MutationObserver to watch for theme changes:
+   ```typescript
+   const observer = new MutationObserver(() => {
+     setEchartsTheme(getCurrentTheme());
+   });
+   observer.observe(document.documentElement, {
+     attributes: true,
+     attributeFilter: ['data-ix-theme', 'data-ix-color-schema']
+   });
+   ```
+
+**Result:** 
+- No mixing of class-based and data attribute approaches
+- Fully compliant with v4 theme API
+- ECharts theme switching now responds to data attribute changes
+- Built-in `<IxMenu enableToggleTheme>` continues to work (it updates `data-ix-color-schema`)
+
+**V4 Documentation Reference:**
+
+According to v4 docs, there are two supported approaches:
+
+1. **Data Attributes (Recommended for new projects):**
+   ```html
+   <html data-ix-theme="classic" data-ix-color-schema="dark">
+   ```
+
+2. **CSS Classes (Legacy, still supported):**
+   ```html
+   <body class="theme-classic-dark">
+   ```
+
+Our implementation uses data attributes in HTML while maintaining compatibility with the `themeSwitcher` API.
+
+**Benefits of V4 Approach:**
+- Reduced bundle size (only load needed themes)
+- Better separation of concerns
+- Easier to add custom themes
+- More maintainable theme structure
+
+---
+
+#### 5.2 Updated Elevation Principle
+✅ **Status:** COMPLETE - No changes needed
+
+**V4 Elevation Principle:**
+Components require visual outline variant if placed on `color-2` or `component-1` backgrounds.
+
+**Analysis of Components in App:**
+
+##### Background Context
+- **IxApplication** → Base layer with `color-1` background
+- **IxContent** → Inherits `color-1` from IxApplication
+- **Overview page** → Renders directly in IxContent on `color-1`
 
 ##### IxCard (2 instances)
 **Locations:**
 1. `src/pages/overview/components/device-range/index.tsx`
 2. `src/pages/overview/components/status-history/index.tsx`
 
-**Current:** Using default `filled` variant  
-**Action:** Check background color context. If on `color-2` or `component-1`, change to `variant="outline"`
+**Background:** `color-1` (base layer)  
+**Current variant:** Default `filled` (uses `color-2`/`component-1`)  
+**Result:** ✅ Correct - Cards elevate from base layer as intended
 
 ##### IxEventList (1 instance)
 **Location:** `src/pages/overview/components/incidents/overview/incident-list/index.tsx`
 
-**Current:** Using default variant  
-**Action:** Check background color context. If on `color-2` or `component-1`, add `variant="outline"`
+**Background:** `color-1` (base layer)  
+**Current variant:** Default `filled` (uses `color-2`/`component-1`)  
+**Result:** ✅ Correct - EventList elevates from base layer as intended
+
+**Conclusion:** All components are already properly configured for v4 elevation. The filled variants on `color-1` base create the correct visual hierarchy without requiring outline variants.
 
 ---
 

@@ -7,16 +7,29 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { themeSwitcher } from "@siemens/ix";
 import { useLayoutEffect, useState } from "react";
 
+const getCurrentTheme = (): string => {
+  const theme = document.documentElement.getAttribute('data-ix-theme') || 'classic';
+  const colorSchema = document.documentElement.getAttribute('data-ix-color-schema') || 'dark';
+  return `${theme}-${colorSchema}`;
+};
+
 export const useEChartsTheme = () => {
-  const [echartsTheme, setEchartsTheme] = useState(themeSwitcher.getCurrentTheme());
+  const [theme, setTheme] = useState(getCurrentTheme());
 
   useLayoutEffect(() => {
-    const { dispose } = themeSwitcher.themeChanged.on((theme) => setEchartsTheme(theme));
-    return dispose;
+    const observer = new MutationObserver(() => {
+      setTheme(getCurrentTheme());
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-ix-theme', 'data-ix-color-schema']
+    });
+
+    return () => observer.disconnect();
   }, []);
 
-  return echartsTheme;
+  return theme;
 };
