@@ -6,6 +6,11 @@
 **React Starter App Version:** 0.0.0  
 **Migration Target:** V4 Release Candidate (PR-2198-20251023082407)
 
+### Environment Requirements
+- **Node.js:** v22.19.0 or higher for V4
+- **pnpm:** 10.14.0 (locked) ✅
+- **Package Manager:** pnpm (monorepo with Turborepo)
+
 ---
 
 ## Current Package Versions
@@ -29,7 +34,35 @@
 
 ### Step 1: Updated Dependencies
 ✅ **Status:** Ready to execute  
-**Action:** Update core iX packages to v4 RC versions
+
+**Command to update packages:**
+
+Run this command from the project root:
+```bash
+pnpm --filter ix-react-starter add @siemens/ix@0.0.0-pr-2198-20251023082407 @siemens/ix-react@0.0.0-pr-2198-20251023082407
+```
+
+Or from the `apps/react-starter` directory:
+```bash
+cd apps/react-starter
+pnpm add @siemens/ix@0.0.0-pr-2198-20251023082407 @siemens/ix-react@0.0.0-pr-2198-20251023082407
+```
+
+**What this command does:**
+- Updates `@siemens/ix` from 3.2.0 → 0.0.0-pr-2198-20251023082407
+- Updates `@siemens/ix-react` from 3.2.0 → 0.0.0-pr-2198-20251023082407
+- Automatically updates `package.json` and `pnpm-lock.yaml`
+- Installs the new package versions
+
+**Packages NOT updated (intentionally):**
+- `@siemens/ix-aggrid`: Keeping at 3.0.2 (waiting for v4 build)
+- `@siemens/ix-echarts`: Keeping at 3.0.0 (no update needed)
+- `@siemens/ix-icons`: Keeping at 3.1.1 (no breaking changes)
+
+**After running the command:**
+1. Verify the update: `pnpm list @siemens/ix @siemens/ix-react`
+2. Check that both packages show version `0.0.0-pr-2198-20251023082407`
+3. Proceed to Step 4: Component Updates (button variants migration)
 
 ---
 
