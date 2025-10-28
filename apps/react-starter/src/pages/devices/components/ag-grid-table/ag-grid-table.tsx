@@ -118,9 +118,9 @@ function AgGridTable() {
 
   const onRowSelected = useCallback(
     (rowSelection: RowSelectedEvent) => {
-      const { event } = rowSelection;
-      if (event) {
-        setSelectedDeviceId(rowSelection.data.id);
+      const { event, data } = rowSelection;
+      if (event && data) {
+        setSelectedDeviceId(data.id);
         setExpanded(true);
       }
     },
@@ -149,7 +149,7 @@ function AgGridTable() {
         columnDefs={getColumnDefs() as ColDef[] | ColGroupDef[]}
         suppressRowTransform={true}
         suppressCellFocus={true}
-        rowSelection={{ mode: "singleRow" }}
+        rowSelection="single"
         rowData={devices}
         onRowSelected={onRowSelected}
         onCellValueChanged={(e) => editDevice(e.data)}
