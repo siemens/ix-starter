@@ -52,7 +52,7 @@ function DesktopItem({ incident }: { incident: Incident }) {
         </IxCol>
         <IxCol className={styles.IncidentActions}>
           <IxIconButton variant="subtle-tertiary" icon={iconOpenExternal} />
-          <IxButton variant="secondary" onClick={showDemoMessage}>
+          <IxButton color="primary" variant="secondary" onClick={showDemoMessage}>
             {t("incidents.create-task")}
           </IxButton>
         </IxCol>
