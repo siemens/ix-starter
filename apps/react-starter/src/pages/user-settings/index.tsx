@@ -65,8 +65,7 @@ export default function UserSettings() {
   );
 
   useEffect(() => {
-    // Update theme using v4 data attribute approach
-    document.documentElement.setAttribute('data-ix-theme', currentTheme);
+    document.documentElement.setAttribute("data-ix-theme", currentTheme);
   }, [currentTheme]);
 
   function changeTheme(theme: string) {
