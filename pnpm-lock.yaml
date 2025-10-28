@@ -25,25 +25,25 @@ importers:
     dependencies:
       '@siemens/ix':
         specifier: 0.0.0-pr-2198-20251023082407
-        version: 0.0.0-pr-2198-20251023082407(@siemens/ix-icons@3.1.1)
+        version: 0.0.0-pr-2198-20251023082407(@siemens/ix-icons@3.2.0)
       '@siemens/ix-aggrid':
-        specifier: 3.0.2
-        version: 3.0.2(@siemens/ix-icons@3.1.1)(ag-grid-community@32.2.1)
+        specifier: 0.0.0-pr-2198-20251023082407
+        version: 0.0.0-pr-2198-20251023082407(@siemens/ix-icons@3.2.0)(ag-grid-community@33.3.2)
       '@siemens/ix-echarts':
         specifier: 3.0.0
         version: 3.0.0(echarts@5.6.0)
       '@siemens/ix-icons':
-        specifier: 3.1.1
-        version: 3.1.1
+        specifier: 3.2.0
+        version: 3.2.0
       '@siemens/ix-react':
         specifier: 0.0.0-pr-2198-20251023082407
-        version: 0.0.0-pr-2198-20251023082407(@siemens/ix-icons@3.1.1)(@stencil/core@4.36.3)(@types/react@18.3.24)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 0.0.0-pr-2198-20251023082407(@siemens/ix-icons@3.2.0)(@stencil/core@4.36.3)(@types/react@18.3.24)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       ag-grid-community:
-        specifier: 32.2.1
-        version: 32.2.1
+        specifier: 33.3.2
+        version: 33.3.2
       ag-grid-react:
-        specifier: 32.2.1
-        version: 32.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 33.3.2
+        version: 33.3.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -57,8 +57,8 @@ importers:
         specifier: ^3.0.1
         version: 3.0.2
       i18next:
-        specifier: ^23.15.1
-        version: 23.16.8
+        specifier: ^25.6.0
+        version: 25.6.0(typescript@5.9.2)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -70,7 +70,7 @@ importers:
         version: 7.62.0(react@18.3.1)
       react-i18next:
         specifier: ^15.0.2
-        version: 15.7.3(i18next@23.16.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.2)
+        version: 15.7.3(i18next@25.6.0(typescript@5.9.2))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.2)
       react-router-dom:
         specifier: ^6.27.0
         version: 6.30.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -679,19 +679,19 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@siemens/ix-aggrid@3.0.2':
-    resolution: {integrity: sha512-0bWOPClTyLhmEonohV4V0qyRp/szBzDvulNX+3O6bKX/8tyyWbq2abCVm3urWB3GZ/qzUaU4pF5ovEwdULOPpw==}
+  '@siemens/ix-aggrid@0.0.0-pr-2198-20251023082407':
+    resolution: {integrity: sha512-WdlTxkvqs2Lbp+uCTB5l2FTXfrilu1WaVMH7hlU28FBybIProZJKH50nwVxN8X5NdWzqJWq44y/C+iT8u4hyrw==}
     peerDependencies:
-      ag-grid-community: ^28 || ^29 || ^30 || ^31 || ^32
+      ag-grid-community: ^33
 
   '@siemens/ix-echarts@3.0.0':
     resolution: {integrity: sha512-N/L1Og+pwSYT6U2lKp5bRnZ+4CAx+mXl8kWmssCCf8OaEXdJg5ZSGCmqHjGFOZFZe5Ph8P5il+WvyeZkFyiJ2w==}
     peerDependencies:
       echarts: ^5.3.3
 
-  '@siemens/ix-icons@3.1.1':
-    resolution: {integrity: sha512-b+Hm35ORPpf0cwp3v7FP42LaCNUbUjIY2yZ/d8TGo6fitkOSD1moQpsioRrwdcNMmCtO5of4g/8w9/wuQjSTiw==}
-    engines: {node: '>=18.x.x', pnpm: '>=9.x.x'}
+  '@siemens/ix-icons@3.2.0':
+    resolution: {integrity: sha512-4cdEqCHlDILVCDCld1Ycy04/5d8ICCpRxE7Y3l2GBTo9EydI5ZUkVG243Y9wp/kZazTK9c4wvPZ5d6lCqS57tg==}
+    engines: {node: '>=22.19.x', pnpm: '>=10.x.x'}
 
   '@siemens/ix-react@0.0.0-pr-2198-20251023082407':
     resolution: {integrity: sha512-ilaf5ON5LYJk89I8QPXLi6K/fZwQ9S923bAWzivo1suQZWFSj1r/rbPSZpf2+nhInrIgIsq3a6+hnptniLzdag==}
@@ -704,11 +704,6 @@ packages:
     resolution: {integrity: sha512-U9NKd9afBOszj9yORv0FQq6+ynn7mXAMDMiDhh+mosBgoeoSdnFJOsuWe9SqA4wpOkSUgpieyrvjowF/ESbo+A==}
     peerDependencies:
       '@siemens/ix-icons': ^3.2.0
-
-  '@siemens/ix@3.2.0':
-    resolution: {integrity: sha512-a9joNlCRSzroRVyKhMER+BdM+8aDYjlP1nM1minuRqdCOHYT3Pz1snitXkXfxql5cj333ufj6qrxN625eDrNJA==}
-    peerDependencies:
-      '@siemens/ix-icons': ^3.0.0
 
   '@stencil/core@4.36.3':
     resolution: {integrity: sha512-C9DOaAjm+hSYRuVoUuYWG/lrYT8+4DG0AL0m1Ea9+G5v2Y6ApVpNJLbXvFlRZIdDMGecH86s6v0Gp39uockLxg==}
@@ -920,17 +915,17 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
-  ag-charts-types@10.2.0:
-    resolution: {integrity: sha512-PUqH1QtugpYLnlbMdeSZVf5PpT1XZVsP69qN1JXhetLtQpVC28zaj7ikwu9CMA9N9b+dBboA9QcjUQUJZVUokQ==}
+  ag-charts-types@11.3.2:
+    resolution: {integrity: sha512-trPGqgGYiTeLgtf9nLuztDYOPOFOLbqHn1g2D99phf7QowcwdX0TPx0wfWG8Hm90LjB8IH+G2s3AZe2vrdAtMQ==}
 
-  ag-grid-community@32.2.1:
-    resolution: {integrity: sha512-mrnm1DnLI9Wd408mMwP+6p7lbTC3FYgzNIUPygBvNh3SzZnbzTEUJF/BTKXi+MARWtG5S0IMUYy4hqBiLbobaQ==}
+  ag-grid-community@33.3.2:
+    resolution: {integrity: sha512-9bx0e/+ykOyLvUxHqmdy0cRVANH6JAtv0yZdnBZEXYYqBAwN+G5a4NY+2I1KvoOCYzbk8SnStG7y4hCdVAAWOQ==}
 
-  ag-grid-react@32.2.1:
-    resolution: {integrity: sha512-lojTKsT/ncRZ81mrDa7qkIhZePfYlLCHIiAL1WbzL1mNPrglaa7QQKkE6hhhuAXvAm2uUhK1OfkMPnrqsEFldA==}
+  ag-grid-react@33.3.2:
+    resolution: {integrity: sha512-5bv4JIJvGov23sduIUIyQTqpa/qhoQrRkQm5pFOQb7RMwusfx6xBPrkLwIIlCJiQ8g0OOinxWzZ2kQ2Zml6tLw==}
     peerDependencies:
-      react: ^16.3.0 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.3.0 || ^17.0.0 || ^18.0.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
   ajv@6.12.6:
     resolution: {integrity: sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==}
@@ -1487,8 +1482,13 @@ packages:
   htmlparser2@10.0.0:
     resolution: {integrity: sha512-TwAZM+zE5Tq3lrEHvOlvwgj1XLWQCtaaibSN11Q+gGBAS7Y1uZSWwXXRe4iF6OXnaq1riyQAPFOBtYc77Mxq0g==}
 
-  i18next@23.16.8:
-    resolution: {integrity: sha512-06r/TitrM88Mg5FdUXAKL96dJMzgqLE5dv3ryBAra4KCwD9mJ4ndOTS95ZuymIGoE+2hzfdaMak2X11/es7ZWg==}
+  i18next@25.6.0:
+    resolution: {integrity: sha512-tTn8fLrwBYtnclpL5aPXK/tAYBLWVvoHM1zdfXoRNLcI+RvtMsoZRV98ePlaW3khHYKuNh/Q65W/+NVFUeIwVw==}
+    peerDependencies:
+      typescript: ^5
+    peerDependenciesMeta:
+      typescript:
+        optional: true
 
   ignore@5.3.2:
     resolution: {integrity: sha512-hsBTNUqQTDwkWtcdYI2i06Y/nUBEsNEDJKjWdigLvegy8kDuJAS8uRlpkkcQpyEXL0Z/pjDy5HBmMjRCJ2gq+g==}
@@ -2819,10 +2819,10 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.50.0':
     optional: true
 
-  '@siemens/ix-aggrid@3.0.2(@siemens/ix-icons@3.1.1)(ag-grid-community@32.2.1)':
+  '@siemens/ix-aggrid@0.0.0-pr-2198-20251023082407(@siemens/ix-icons@3.2.0)(ag-grid-community@33.3.2)':
     dependencies:
-      '@siemens/ix': 3.2.0(@siemens/ix-icons@3.1.1)
-      ag-grid-community: 32.2.1
+      '@siemens/ix': 0.0.0-pr-2198-20251023082407(@siemens/ix-icons@3.2.0)
+      ag-grid-community: 33.3.2
     transitivePeerDependencies:
       - '@siemens/ix-icons'
 
@@ -2830,12 +2830,12 @@ snapshots:
     dependencies:
       echarts: 5.6.0
 
-  '@siemens/ix-icons@3.1.1': {}
+  '@siemens/ix-icons@3.2.0': {}
 
-  '@siemens/ix-react@0.0.0-pr-2198-20251023082407(@siemens/ix-icons@3.1.1)(@stencil/core@4.36.3)(@types/react@18.3.24)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@siemens/ix-react@0.0.0-pr-2198-20251023082407(@siemens/ix-icons@3.2.0)(@stencil/core@4.36.3)(@types/react@18.3.24)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@siemens/ix': 0.0.0-pr-2198-20251023082407(@siemens/ix-icons@3.1.1)
-      '@siemens/ix-icons': 3.1.1
+      '@siemens/ix': 0.0.0-pr-2198-20251023082407(@siemens/ix-icons@3.2.0)
+      '@siemens/ix-icons': 3.2.0
       '@stencil/react-output-target': 1.2.0(@stencil/core@4.36.3)(@types/react@18.3.24)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -2844,16 +2844,12 @@ snapshots:
       - '@stencil/core'
       - '@types/react'
 
-  '@siemens/ix@0.0.0-pr-2198-20251023082407(@siemens/ix-icons@3.1.1)':
+  '@siemens/ix@0.0.0-pr-2198-20251023082407(@siemens/ix-icons@3.2.0)':
     dependencies:
       '@floating-ui/dom': 1.7.4
-      '@siemens/ix-icons': 3.1.1
+      '@siemens/ix-icons': 3.2.0
       animejs: 4.2.2
       luxon: 3.7.2
-
-  '@siemens/ix@3.2.0(@siemens/ix-icons@3.1.1)':
-    dependencies:
-      '@siemens/ix-icons': 3.1.1
 
   '@stencil/core@4.36.3':
     optionalDependencies:
@@ -3148,15 +3144,15 @@ snapshots:
 
   acorn@8.15.0: {}
 
-  ag-charts-types@10.2.0: {}
+  ag-charts-types@11.3.2: {}
 
-  ag-grid-community@32.2.1:
+  ag-grid-community@33.3.2:
     dependencies:
-      ag-charts-types: 10.2.0
+      ag-charts-types: 11.3.2
 
-  ag-grid-react@32.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  ag-grid-react@33.3.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      ag-grid-community: 32.2.1
+      ag-grid-community: 33.3.2
       prop-types: 15.8.1
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -3866,9 +3862,11 @@ snapshots:
       domutils: 3.2.2
       entities: 6.0.1
 
-  i18next@23.16.8:
+  i18next@25.6.0(typescript@5.9.2):
     dependencies:
       '@babel/runtime': 7.28.3
+    optionalDependencies:
+      typescript: 5.9.2
 
   ignore@5.3.2: {}
 
@@ -4247,11 +4245,11 @@ snapshots:
     dependencies:
       react: 18.3.1
 
-  react-i18next@15.7.3(i18next@23.16.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.2):
+  react-i18next@15.7.3(i18next@25.6.0(typescript@5.9.2))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.2):
     dependencies:
       '@babel/runtime': 7.28.3
       html-parse-stringify: 3.0.1
-      i18next: 23.16.8
+      i18next: 25.6.0(typescript@5.9.2)
       react: 18.3.1
     optionalDependencies:
       react-dom: 18.3.1(react@18.3.1)
