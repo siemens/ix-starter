@@ -19,31 +19,31 @@ importers:
         version: 3.6.2
       turbo:
         specifier: latest
-        version: 2.5.6
+        version: 2.5.8
 
   apps/react-starter:
     dependencies:
       '@siemens/ix':
-        specifier: 3.2.0
-        version: 3.2.0(@siemens/ix-icons@3.1.1)
+        specifier: 0.0.0-pr-2198-20251023082407
+        version: 0.0.0-pr-2198-20251023082407(@siemens/ix-icons@3.2.0)
       '@siemens/ix-aggrid':
-        specifier: 3.0.2
-        version: 3.0.2(@siemens/ix-icons@3.1.1)(ag-grid-community@32.2.1)
+        specifier: 0.0.0-pr-2198-20251023082407
+        version: 0.0.0-pr-2198-20251023082407(@siemens/ix-icons@3.2.0)(ag-grid-community@33.3.2)
       '@siemens/ix-echarts':
         specifier: 3.0.0
         version: 3.0.0(echarts@5.6.0)
       '@siemens/ix-icons':
-        specifier: 3.1.1
-        version: 3.1.1
-      '@siemens/ix-react':
         specifier: 3.2.0
-        version: 3.2.0(@siemens/ix-icons@3.1.1)(@stencil/core@4.36.3)(@types/react@18.3.24)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 3.2.0
+      '@siemens/ix-react':
+        specifier: 0.0.0-pr-2198-20251023082407
+        version: 0.0.0-pr-2198-20251023082407(@siemens/ix-icons@3.2.0)(@stencil/core@4.36.3)(@types/react@18.3.24)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       ag-grid-community:
-        specifier: 32.2.1
-        version: 32.2.1
+        specifier: 33.3.2
+        version: 33.3.2
       ag-grid-react:
-        specifier: 32.2.1
-        version: 32.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 33.3.2
+        version: 33.3.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -57,8 +57,8 @@ importers:
         specifier: ^3.0.1
         version: 3.0.2
       i18next:
-        specifier: ^23.15.1
-        version: 23.16.8
+        specifier: ^25.6.0
+        version: 25.6.0(typescript@5.9.2)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -70,7 +70,7 @@ importers:
         version: 7.62.0(react@18.3.1)
       react-i18next:
         specifier: ^15.0.2
-        version: 15.7.3(i18next@23.16.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.2)
+        version: 15.7.3(i18next@25.6.0(typescript@5.9.2))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.2)
       react-router-dom:
         specifier: ^6.27.0
         version: 6.30.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -456,6 +456,15 @@ packages:
     resolution: {integrity: sha512-Z5kJ+wU3oA7MMIqVR9tyZRtjYPr4OC004Q4Rw7pgOKUOKkJfZ3O24nz3WYfGRpMDNmcOi3TwQOmgm7B7Tpii0w==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
+  '@floating-ui/core@1.7.3':
+    resolution: {integrity: sha512-sGnvb5dmrJaKEZ+LDIpguvdX3bDlEllmv4/ClQ9awcmCZrlx5jQyyMWFM5kBI+EyNOCDDiKk8il0zeuX3Zlg/w==}
+
+  '@floating-ui/dom@1.7.4':
+    resolution: {integrity: sha512-OOchDgh4F2CchOX94cRVqhvy7b3AFb+/rQXyswmzmGakRfkMgoWVjfnLWkRirfLEfuD4ysVW16eXzwt3jHIzKA==}
+
+  '@floating-ui/utils@0.2.10':
+    resolution: {integrity: sha512-aGTxbpbg8/b5JfU1HXSrbH3wXZuLPJcNEcZQFMxLs3oSzgtVu6nFPkbbGGUvBcUjKV2YyB9Wxxabo+HEH9tcRQ==}
+
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
     engines: {node: '>=18.18.0'}
@@ -670,31 +679,31 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@siemens/ix-aggrid@3.0.2':
-    resolution: {integrity: sha512-0bWOPClTyLhmEonohV4V0qyRp/szBzDvulNX+3O6bKX/8tyyWbq2abCVm3urWB3GZ/qzUaU4pF5ovEwdULOPpw==}
+  '@siemens/ix-aggrid@0.0.0-pr-2198-20251023082407':
+    resolution: {integrity: sha512-WdlTxkvqs2Lbp+uCTB5l2FTXfrilu1WaVMH7hlU28FBybIProZJKH50nwVxN8X5NdWzqJWq44y/C+iT8u4hyrw==}
     peerDependencies:
-      ag-grid-community: ^28 || ^29 || ^30 || ^31 || ^32
+      ag-grid-community: ^33
 
   '@siemens/ix-echarts@3.0.0':
     resolution: {integrity: sha512-N/L1Og+pwSYT6U2lKp5bRnZ+4CAx+mXl8kWmssCCf8OaEXdJg5ZSGCmqHjGFOZFZe5Ph8P5il+WvyeZkFyiJ2w==}
     peerDependencies:
       echarts: ^5.3.3
 
-  '@siemens/ix-icons@3.1.1':
-    resolution: {integrity: sha512-b+Hm35ORPpf0cwp3v7FP42LaCNUbUjIY2yZ/d8TGo6fitkOSD1moQpsioRrwdcNMmCtO5of4g/8w9/wuQjSTiw==}
-    engines: {node: '>=18.x.x', pnpm: '>=9.x.x'}
+  '@siemens/ix-icons@3.2.0':
+    resolution: {integrity: sha512-4cdEqCHlDILVCDCld1Ycy04/5d8ICCpRxE7Y3l2GBTo9EydI5ZUkVG243Y9wp/kZazTK9c4wvPZ5d6lCqS57tg==}
+    engines: {node: '>=22.19.x', pnpm: '>=10.x.x'}
 
-  '@siemens/ix-react@3.2.0':
-    resolution: {integrity: sha512-ROJ96VO43zFRyR0XsIhdi8PMXEU5sB98I16oCi/7XYDWjlnhmJATiQStVB7QSwve5Hl87YyDpW8fqt8nQUJqfQ==}
+  '@siemens/ix-react@0.0.0-pr-2198-20251023082407':
+    resolution: {integrity: sha512-ilaf5ON5LYJk89I8QPXLi6K/fZwQ9S923bAWzivo1suQZWFSj1r/rbPSZpf2+nhInrIgIsq3a6+hnptniLzdag==}
     peerDependencies:
-      '@siemens/ix-icons': ^3.0.0
+      '@siemens/ix-icons': ^3.2.0
       react: ^18 || ^19
       react-dom: ^18 || ^19
 
-  '@siemens/ix@3.2.0':
-    resolution: {integrity: sha512-a9joNlCRSzroRVyKhMER+BdM+8aDYjlP1nM1minuRqdCOHYT3Pz1snitXkXfxql5cj333ufj6qrxN625eDrNJA==}
+  '@siemens/ix@0.0.0-pr-2198-20251023082407':
+    resolution: {integrity: sha512-U9NKd9afBOszj9yORv0FQq6+ynn7mXAMDMiDhh+mosBgoeoSdnFJOsuWe9SqA4wpOkSUgpieyrvjowF/ESbo+A==}
     peerDependencies:
-      '@siemens/ix-icons': ^3.0.0
+      '@siemens/ix-icons': ^3.2.0
 
   '@stencil/core@4.36.3':
     resolution: {integrity: sha512-C9DOaAjm+hSYRuVoUuYWG/lrYT8+4DG0AL0m1Ea9+G5v2Y6ApVpNJLbXvFlRZIdDMGecH86s6v0Gp39uockLxg==}
@@ -906,20 +915,23 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
-  ag-charts-types@10.2.0:
-    resolution: {integrity: sha512-PUqH1QtugpYLnlbMdeSZVf5PpT1XZVsP69qN1JXhetLtQpVC28zaj7ikwu9CMA9N9b+dBboA9QcjUQUJZVUokQ==}
+  ag-charts-types@11.3.2:
+    resolution: {integrity: sha512-trPGqgGYiTeLgtf9nLuztDYOPOFOLbqHn1g2D99phf7QowcwdX0TPx0wfWG8Hm90LjB8IH+G2s3AZe2vrdAtMQ==}
 
-  ag-grid-community@32.2.1:
-    resolution: {integrity: sha512-mrnm1DnLI9Wd408mMwP+6p7lbTC3FYgzNIUPygBvNh3SzZnbzTEUJF/BTKXi+MARWtG5S0IMUYy4hqBiLbobaQ==}
+  ag-grid-community@33.3.2:
+    resolution: {integrity: sha512-9bx0e/+ykOyLvUxHqmdy0cRVANH6JAtv0yZdnBZEXYYqBAwN+G5a4NY+2I1KvoOCYzbk8SnStG7y4hCdVAAWOQ==}
 
-  ag-grid-react@32.2.1:
-    resolution: {integrity: sha512-lojTKsT/ncRZ81mrDa7qkIhZePfYlLCHIiAL1WbzL1mNPrglaa7QQKkE6hhhuAXvAm2uUhK1OfkMPnrqsEFldA==}
+  ag-grid-react@33.3.2:
+    resolution: {integrity: sha512-5bv4JIJvGov23sduIUIyQTqpa/qhoQrRkQm5pFOQb7RMwusfx6xBPrkLwIIlCJiQ8g0OOinxWzZ2kQ2Zml6tLw==}
     peerDependencies:
-      react: ^16.3.0 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.3.0 || ^17.0.0 || ^18.0.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
   ajv@6.12.6:
     resolution: {integrity: sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==}
+
+  animejs@4.2.2:
+    resolution: {integrity: sha512-Ys3RuvLdAeI14fsdKCQy7ytu4057QX6Bb7m4jwmfd6iKmUmLquTwk1ut0e4NtRQgCeq/s2Lv5+oMBjz6c7ZuIg==}
 
   ansi-regex@5.0.1:
     resolution: {integrity: sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==}
@@ -1470,8 +1482,13 @@ packages:
   htmlparser2@10.0.0:
     resolution: {integrity: sha512-TwAZM+zE5Tq3lrEHvOlvwgj1XLWQCtaaibSN11Q+gGBAS7Y1uZSWwXXRe4iF6OXnaq1riyQAPFOBtYc77Mxq0g==}
 
-  i18next@23.16.8:
-    resolution: {integrity: sha512-06r/TitrM88Mg5FdUXAKL96dJMzgqLE5dv3ryBAra4KCwD9mJ4ndOTS95ZuymIGoE+2hzfdaMak2X11/es7ZWg==}
+  i18next@25.6.0:
+    resolution: {integrity: sha512-tTn8fLrwBYtnclpL5aPXK/tAYBLWVvoHM1zdfXoRNLcI+RvtMsoZRV98ePlaW3khHYKuNh/Q65W/+NVFUeIwVw==}
+    peerDependencies:
+      typescript: ^5
+    peerDependenciesMeta:
+      typescript:
+        optional: true
 
   ignore@5.3.2:
     resolution: {integrity: sha512-hsBTNUqQTDwkWtcdYI2i06Y/nUBEsNEDJKjWdigLvegy8kDuJAS8uRlpkkcQpyEXL0Z/pjDy5HBmMjRCJ2gq+g==}
@@ -1669,6 +1686,10 @@ packages:
 
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
+
+  luxon@3.7.2:
+    resolution: {integrity: sha512-vtEhXh/gNjI9Yg1u4jX/0YVPMvxzHuGgCm6tC5kZyb08yjGWGnqAjGJvcXbqQR2P3MyMEFnRbpcdFS6PBcLqew==}
+    engines: {node: '>=12'}
 
   lz-string@1.5.0:
     resolution: {integrity: sha512-h5bgJWpxJNswbU7qCrV0tIKQCaS3blPDrqKWx+QxzuzL1zGUzij9XCWLrSLsJPu5t+eWA/ycetzYAO5IOMcWAQ==}
@@ -2139,38 +2160,38 @@ packages:
   tslib@2.8.1:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
 
-  turbo-darwin-64@2.5.6:
-    resolution: {integrity: sha512-3C1xEdo4aFwMJAPvtlPqz1Sw/+cddWIOmsalHFMrsqqydcptwBfu26WW2cDm3u93bUzMbBJ8k3zNKFqxJ9ei2A==}
+  turbo-darwin-64@2.5.8:
+    resolution: {integrity: sha512-Dh5bCACiHO8rUXZLpKw+m3FiHtAp2CkanSyJre+SInEvEr5kIxjGvCK/8MFX8SFRjQuhjtvpIvYYZJB4AGCxNQ==}
     cpu: [x64]
     os: [darwin]
 
-  turbo-darwin-arm64@2.5.6:
-    resolution: {integrity: sha512-LyiG+rD7JhMfYwLqB6k3LZQtYn8CQQUePbpA8mF/hMLPAekXdJo1g0bUPw8RZLwQXUIU/3BU7tXENvhSGz5DPA==}
+  turbo-darwin-arm64@2.5.8:
+    resolution: {integrity: sha512-f1H/tQC9px7+hmXn6Kx/w8Jd/FneIUnvLlcI/7RGHunxfOkKJKvsoiNzySkoHQ8uq1pJnhJ0xNGTlYM48ZaJOQ==}
     cpu: [arm64]
     os: [darwin]
 
-  turbo-linux-64@2.5.6:
-    resolution: {integrity: sha512-GOcUTT0xiT/pSnHL4YD6Yr3HreUhU8pUcGqcI2ksIF9b2/r/kRHwGFcsHgpG3+vtZF/kwsP0MV8FTlTObxsYIA==}
+  turbo-linux-64@2.5.8:
+    resolution: {integrity: sha512-hMyvc7w7yadBlZBGl/bnR6O+dJTx3XkTeyTTH4zEjERO6ChEs0SrN8jTFj1lueNXKIHh1SnALmy6VctKMGnWfw==}
     cpu: [x64]
     os: [linux]
 
-  turbo-linux-arm64@2.5.6:
-    resolution: {integrity: sha512-10Tm15bruJEA3m0V7iZcnQBpObGBcOgUcO+sY7/2vk1bweW34LMhkWi8svjV9iDF68+KJDThnYDlYE/bc7/zzQ==}
+  turbo-linux-arm64@2.5.8:
+    resolution: {integrity: sha512-LQELGa7bAqV2f+3rTMRPnj5G/OHAe2U+0N9BwsZvfMvHSUbsQ3bBMWdSQaYNicok7wOZcHjz2TkESn1hYK6xIQ==}
     cpu: [arm64]
     os: [linux]
 
-  turbo-windows-64@2.5.6:
-    resolution: {integrity: sha512-FyRsVpgaj76It0ludwZsNN40ytHN+17E4PFJyeliBEbxrGTc5BexlXVpufB7XlAaoaZVxbS6KT8RofLfDRyEPg==}
+  turbo-windows-64@2.5.8:
+    resolution: {integrity: sha512-3YdcaW34TrN1AWwqgYL9gUqmZsMT4T7g8Y5Azz+uwwEJW+4sgcJkIi9pYFyU4ZBSjBvkfuPZkGgfStir5BBDJQ==}
     cpu: [x64]
     os: [win32]
 
-  turbo-windows-arm64@2.5.6:
-    resolution: {integrity: sha512-j/tWu8cMeQ7HPpKri6jvKtyXg9K1gRyhdK4tKrrchH8GNHscPX/F71zax58yYtLRWTiK04zNzPcUJuoS0+v/+Q==}
+  turbo-windows-arm64@2.5.8:
+    resolution: {integrity: sha512-eFC5XzLmgXJfnAK3UMTmVECCwuBcORrWdewoiXBnUm934DY6QN8YowC/srhNnROMpaKaqNeRpoB5FxCww3eteQ==}
     cpu: [arm64]
     os: [win32]
 
-  turbo@2.5.6:
-    resolution: {integrity: sha512-gxToHmi9oTBNB05UjUsrWf0OyN5ZXtD0apOarC1KIx232Vp3WimRNy3810QzeNSgyD5rsaIDXlxlbnOzlouo+w==}
+  turbo@2.5.8:
+    resolution: {integrity: sha512-5c9Fdsr9qfpT3hA0EyYSFRZj1dVVsb6KIWubA9JBYZ/9ZEAijgUEae0BBR/Xl/wekt4w65/lYLTFaP3JmwSO8w==}
     hasBin: true
 
   type-check@0.4.0:
@@ -2643,6 +2664,17 @@ snapshots:
       '@eslint/core': 0.15.2
       levn: 0.4.1
 
+  '@floating-ui/core@1.7.3':
+    dependencies:
+      '@floating-ui/utils': 0.2.10
+
+  '@floating-ui/dom@1.7.4':
+    dependencies:
+      '@floating-ui/core': 1.7.3
+      '@floating-ui/utils': 0.2.10
+
+  '@floating-ui/utils@0.2.10': {}
+
   '@humanfs/core@0.19.1': {}
 
   '@humanfs/node@0.16.6':
@@ -2787,10 +2819,10 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.50.0':
     optional: true
 
-  '@siemens/ix-aggrid@3.0.2(@siemens/ix-icons@3.1.1)(ag-grid-community@32.2.1)':
+  '@siemens/ix-aggrid@0.0.0-pr-2198-20251023082407(@siemens/ix-icons@3.2.0)(ag-grid-community@33.3.2)':
     dependencies:
-      '@siemens/ix': 3.2.0(@siemens/ix-icons@3.1.1)
-      ag-grid-community: 32.2.1
+      '@siemens/ix': 0.0.0-pr-2198-20251023082407(@siemens/ix-icons@3.2.0)
+      ag-grid-community: 33.3.2
     transitivePeerDependencies:
       - '@siemens/ix-icons'
 
@@ -2798,12 +2830,12 @@ snapshots:
     dependencies:
       echarts: 5.6.0
 
-  '@siemens/ix-icons@3.1.1': {}
+  '@siemens/ix-icons@3.2.0': {}
 
-  '@siemens/ix-react@3.2.0(@siemens/ix-icons@3.1.1)(@stencil/core@4.36.3)(@types/react@18.3.24)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@siemens/ix-react@0.0.0-pr-2198-20251023082407(@siemens/ix-icons@3.2.0)(@stencil/core@4.36.3)(@types/react@18.3.24)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@siemens/ix': 3.2.0(@siemens/ix-icons@3.1.1)
-      '@siemens/ix-icons': 3.1.1
+      '@siemens/ix': 0.0.0-pr-2198-20251023082407(@siemens/ix-icons@3.2.0)
+      '@siemens/ix-icons': 3.2.0
       '@stencil/react-output-target': 1.2.0(@stencil/core@4.36.3)(@types/react@18.3.24)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -2812,9 +2844,12 @@ snapshots:
       - '@stencil/core'
       - '@types/react'
 
-  '@siemens/ix@3.2.0(@siemens/ix-icons@3.1.1)':
+  '@siemens/ix@0.0.0-pr-2198-20251023082407(@siemens/ix-icons@3.2.0)':
     dependencies:
-      '@siemens/ix-icons': 3.1.1
+      '@floating-ui/dom': 1.7.4
+      '@siemens/ix-icons': 3.2.0
+      animejs: 4.2.2
+      luxon: 3.7.2
 
   '@stencil/core@4.36.3':
     optionalDependencies:
@@ -3109,15 +3144,15 @@ snapshots:
 
   acorn@8.15.0: {}
 
-  ag-charts-types@10.2.0: {}
+  ag-charts-types@11.3.2: {}
 
-  ag-grid-community@32.2.1:
+  ag-grid-community@33.3.2:
     dependencies:
-      ag-charts-types: 10.2.0
+      ag-charts-types: 11.3.2
 
-  ag-grid-react@32.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  ag-grid-react@33.3.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      ag-grid-community: 32.2.1
+      ag-grid-community: 33.3.2
       prop-types: 15.8.1
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -3128,6 +3163,8 @@ snapshots:
       fast-json-stable-stringify: 2.1.0
       json-schema-traverse: 0.4.1
       uri-js: 4.4.1
+
+  animejs@4.2.2: {}
 
   ansi-regex@5.0.1: {}
 
@@ -3825,9 +3862,11 @@ snapshots:
       domutils: 3.2.2
       entities: 6.0.1
 
-  i18next@23.16.8:
+  i18next@25.6.0(typescript@5.9.2):
     dependencies:
       '@babel/runtime': 7.28.3
+    optionalDependencies:
+      typescript: 5.9.2
 
   ignore@5.3.2: {}
 
@@ -4026,6 +4065,8 @@ snapshots:
     dependencies:
       yallist: 3.1.1
 
+  luxon@3.7.2: {}
+
   lz-string@1.5.0: {}
 
   magic-string@0.30.18:
@@ -4204,11 +4245,11 @@ snapshots:
     dependencies:
       react: 18.3.1
 
-  react-i18next@15.7.3(i18next@23.16.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.2):
+  react-i18next@15.7.3(i18next@25.6.0(typescript@5.9.2))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.2):
     dependencies:
       '@babel/runtime': 7.28.3
       html-parse-stringify: 3.0.1
-      i18next: 23.16.8
+      i18next: 25.6.0(typescript@5.9.2)
       react: 18.3.1
     optionalDependencies:
       react-dom: 18.3.1(react@18.3.1)
@@ -4527,32 +4568,32 @@ snapshots:
 
   tslib@2.8.1: {}
 
-  turbo-darwin-64@2.5.6:
+  turbo-darwin-64@2.5.8:
     optional: true
 
-  turbo-darwin-arm64@2.5.6:
+  turbo-darwin-arm64@2.5.8:
     optional: true
 
-  turbo-linux-64@2.5.6:
+  turbo-linux-64@2.5.8:
     optional: true
 
-  turbo-linux-arm64@2.5.6:
+  turbo-linux-arm64@2.5.8:
     optional: true
 
-  turbo-windows-64@2.5.6:
+  turbo-windows-64@2.5.8:
     optional: true
 
-  turbo-windows-arm64@2.5.6:
+  turbo-windows-arm64@2.5.8:
     optional: true
 
-  turbo@2.5.6:
+  turbo@2.5.8:
     optionalDependencies:
-      turbo-darwin-64: 2.5.6
-      turbo-darwin-arm64: 2.5.6
-      turbo-linux-64: 2.5.6
-      turbo-linux-arm64: 2.5.6
-      turbo-windows-64: 2.5.6
-      turbo-windows-arm64: 2.5.6
+      turbo-darwin-64: 2.5.8
+      turbo-darwin-arm64: 2.5.8
+      turbo-linux-64: 2.5.8
+      turbo-linux-arm64: 2.5.8
+      turbo-windows-64: 2.5.8
+      turbo-windows-arm64: 2.5.8
 
   type-check@0.4.0:
     dependencies:

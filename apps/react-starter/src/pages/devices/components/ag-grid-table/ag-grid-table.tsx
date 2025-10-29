@@ -10,6 +10,7 @@
 import { useDataStore, useFilterStore, useOverviewPaneStore } from "@/store/device-store.ts";
 import { Device } from "@/types";
 import { LogicalFilterOperator } from "@siemens/ix";
+import { iconProject } from "@siemens/ix-icons/icons";
 import { IxEmptyState } from "@siemens/ix-react";
 import { ColDef, ColGroupDef, GridApi, IRowNode, RowSelectedEvent } from "ag-grid-community";
 import { AgGridReact } from "ag-grid-react";
@@ -18,7 +19,6 @@ import { useTranslation } from "react-i18next";
 import CustomDeviceCellRenderer from "./device-cell-renderer.tsx";
 import QuickActionsCellRenderer from "./quick-actions-cell-renderer.tsx";
 import styles from "./styles.module.css";
-import { iconProject } from "@siemens/ix-icons/icons";
 
 function AgGridTable() {
   const { t } = useTranslation();
@@ -118,9 +118,9 @@ function AgGridTable() {
 
   const onRowSelected = useCallback(
     (rowSelection: RowSelectedEvent) => {
-      const { event } = rowSelection;
-      if (event) {
-        setSelectedDeviceId(rowSelection.data.id);
+      const { event, data } = rowSelection;
+      if (event && data) {
+        setSelectedDeviceId(data.id);
         setExpanded(true);
       }
     },
@@ -149,9 +149,8 @@ function AgGridTable() {
         columnDefs={getColumnDefs() as ColDef[] | ColGroupDef[]}
         suppressRowTransform={true}
         suppressCellFocus={true}
-        rowSelection={"single"}
+        rowSelection="single"
         rowData={devices}
-        className="ag-theme-alpine-dark ag-theme-ix"
         onRowSelected={onRowSelected}
         onCellValueChanged={(e) => editDevice(e.data)}
         isExternalFilterPresent={isExternalFilterPresent}

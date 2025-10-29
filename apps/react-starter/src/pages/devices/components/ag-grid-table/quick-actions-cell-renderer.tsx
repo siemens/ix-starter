@@ -109,8 +109,7 @@ const QuickActionsCellRenderer = (props: QuickActionsCellRendererProps) => {
         className={`edit-tooltip-${props.data.id}`}
         aria-describedby={`tooltip-${props.data.id}`}
         icon={iconPen}
-        variant="secondary"
-        ghost
+        variant="subtle-tertiary"
         onClick={startEditingFirstCell}
       />
       <IxTooltip id={`tooltip-${props.data.id}`} for={`.edit-tooltip-${props.data.id}`}>
@@ -120,8 +119,7 @@ const QuickActionsCellRenderer = (props: QuickActionsCellRendererProps) => {
         className={`delete-tooltip-${props.data.id}`}
         aria-describedby="delete-tooltip"
         icon={iconTrashcan}
-        variant="secondary"
-        ghost
+        variant="subtle-tertiary"
         onClick={handleDelete}
       />
       <IxTooltip id={props.data.id} for={`.delete-tooltip-${props.data.id}`}>
@@ -129,16 +127,15 @@ const QuickActionsCellRenderer = (props: QuickActionsCellRendererProps) => {
       </IxTooltip>
       <IxIconButton
         icon={iconContextMenu}
-        variant="secondary"
-        ghost
+        variant="subtle-tertiary"
         id={`device_${props.node.rowIndex}`}
       ></IxIconButton>
       <IxDropdown trigger={`device_${props.node.rowIndex}`}>
         <IxDropdownQuickActions>
-          <IxIconButton icon={iconDuplicate} ghost onClick={handleDuplicate}></IxIconButton>
-          <IxIconButton icon={iconCut} ghost onClick={handleCut}></IxIconButton>
-          <IxIconButton icon={iconCopy} ghost onClick={handleCopy}></IxIconButton>
-          <IxIconButton icon={iconPaste} ghost onClick={handlePaste}></IxIconButton>
+          <IxIconButton icon={iconDuplicate} variant="subtle-tertiary" onClick={handleDuplicate}></IxIconButton>
+          <IxIconButton icon={iconCut} variant="subtle-tertiary" onClick={handleCut}></IxIconButton>
+          <IxIconButton icon={iconCopy} variant="subtle-tertiary" onClick={handleCopy}></IxIconButton>
+          <IxIconButton icon={iconPaste} variant="subtle-tertiary" onClick={handlePaste}></IxIconButton>
         </IxDropdownQuickActions>
         <IxDivider></IxDivider>
         <IxDropdownItem

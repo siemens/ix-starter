@@ -160,8 +160,7 @@ const DevicesPage = () => {
       <DeviceDetails />
       <IxContentHeader headerTitle={t("devices")} slot="header">
         <IxButton
-          variant="primary"
-          ghost
+          variant="tertiary"
           icon={iconAddCircle}
           onClick={show}
           aria-label="add device"
