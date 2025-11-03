@@ -7,14 +7,15 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import useShowDemoMessage from "@/hooks/demoMessage";
+import { themeSwitcher } from "@siemens/ix";
 import { IxRadio, IxRadioGroup, IxTypography } from "@siemens/ix-react";
-import brand from "./brand.png";
-import classic from "./classic.png";
-import styles from "./styles.module.css";
 import clsx from "clsx";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import useShowDemoMessage from "@/hooks/demoMessage";
+import brand from "./brand.png";
+import classic from "./classic.png";
+import styles from "./styles.module.css";
 
 function ThemeButton(props: {
   name: string;
@@ -65,7 +66,7 @@ export default function UserSettings() {
   );
 
   useEffect(() => {
-    document.documentElement.setAttribute("data-ix-theme", currentTheme);
+    themeSwitcher.setTheme(currentTheme);
   }, [currentTheme]);
 
   function changeTheme(theme: string) {

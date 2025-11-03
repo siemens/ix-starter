@@ -1,3 +1,4 @@
+import { themeSwitcher } from "@siemens/ix";
 import { useIxTheme as getIxTheme } from "@siemens/ix-aggrid";
 import { IxApplicationContext } from "@siemens/ix-react";
 import "@siemens/ix/dist/siemens-ix/siemens-ix-core.css";
@@ -29,7 +30,7 @@ function optionalTheme() {
     script.type = "module";
     document.head.appendChild(script);
 
-    document.body.classList.add("theme-brand-dark");
+    themeSwitcher.setTheme("brand");
   }
 }
 
