@@ -86,7 +86,7 @@ const DeviceDetails = () => {
 
         <IxButton
           loading={performMaintenance}
-          outline
+          variant="secondary"
           onClick={(event) => {
             event.stopPropagation();
             event.preventDefault();

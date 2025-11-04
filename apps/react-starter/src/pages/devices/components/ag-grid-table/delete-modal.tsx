@@ -37,10 +37,10 @@ export default function DeleteModal() {
       </IxModalHeader>
       <IxModalContent> {t("device-delete-modal.content")}</IxModalContent>
       <IxModalFooter>
-        <IxButton variant="secondary" outline onClick={() => dismiss()}>
+        <IxButton variant="subtle-secondary" onClick={() => dismiss()}>
           {t("device-delete-modal.dismiss")}
         </IxButton>
-        <IxButton variant="danger" onClick={() => close()}>
+        <IxButton variant="danger-primary" onClick={() => close()}>
           {t("device-delete-modal.close")}
         </IxButton>
       </IxModalFooter>
