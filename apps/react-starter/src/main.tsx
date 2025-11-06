@@ -1,5 +1,5 @@
 import { themeSwitcher } from "@siemens/ix";
-import { useIxTheme as getIxTheme } from "@siemens/ix-aggrid";
+import { getIxTheme } from "@siemens/ix-aggrid";
 import { IxApplicationContext } from "@siemens/ix-react";
 import "@siemens/ix/dist/siemens-ix/siemens-ix-core.css";
 import "@siemens/ix/dist/siemens-ix/theme/classic-dark.css";
@@ -13,6 +13,7 @@ import "./i18n";
 import "./index.css";
 import DevicesPage from "./pages/devices/index.tsx";
 import OverviewPage from "./pages/overview/index.tsx";
+import * as agGrid from "ag-grid-community";
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 
@@ -37,7 +38,7 @@ function optionalTheme() {
 optionalTheme();
 
 async function configureAgGridTheme() {
-  const ixTheme = await getIxTheme(() => import("ag-grid-community"));
+  const ixTheme = getIxTheme(agGrid);
   provideGlobalGridOptions({
     theme: ixTheme,
   });
