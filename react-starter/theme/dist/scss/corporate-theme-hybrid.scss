@@ -1,0 +1,19 @@
+/*
+ * COPYRIGHT (c) Siemens AG 2018-2025 ALL RIGHTS RESERVED.
+ */
+@use './brand/theme' as ix;
+@use './brand/dark/variables' as as_dark_variables;
+@use './brand/light/variables' as as_light_variables;
+
+@include ix.theme;
+
+:not(html),
+:not(body) {
+  &[data-ix-color-schema='dark'] {
+    @include as_dark_variables.setVars();
+  }
+
+  &[data-ix-color-schema='light'] {
+    @include as_light_variables.setVars();
+  }
+}
