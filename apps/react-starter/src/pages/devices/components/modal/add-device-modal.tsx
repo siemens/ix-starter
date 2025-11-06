@@ -140,11 +140,12 @@ export default function AddDeviceModal() {
       </IxModalContent>
 
       <IxModalFooter className={styles.ModalFooter}>
-        <IxButton aria-label={t("device-add-modal.dismiss")} outline onClick={() => dismiss()}>
+        <IxButton aria-label={t("device-add-modal.dismiss")} variant="secondary" onClick={() => dismiss()}>
           {t("device-add-modal.dismiss")}
         </IxButton>
         <IxButton
           aria-label={t("device-add-modal.close")}
+          variant="primary"
           type="button"
           onClick={() => formRef.current?.requestSubmit()}
         >

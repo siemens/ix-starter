@@ -79,7 +79,7 @@ function DeviceFilter() {
       filterState={{ tokens: [], categories: filter }}
       categories={categories}
       className={styles.CategoryFilter}
-      repeatCategories={false}
+      uniqueCategories={true}
     ></IxCategoryFilter>
   );
 }
@@ -159,13 +159,7 @@ const DevicesPage = () => {
     <>
       <DeviceDetails />
       <IxContentHeader headerTitle={t("devices")} slot="header">
-        <IxButton
-          variant="primary"
-          ghost
-          icon={iconAddCircle}
-          onClick={show}
-          aria-label="add device"
-        >
+        <IxButton variant="tertiary" icon={iconAddCircle} onClick={show} aria-label="add device">
           {t("add-device")}
         </IxButton>
       </IxContentHeader>

@@ -1,11 +1,8 @@
 {
   "name": "ix-theme-downloader",
   "version": "1.0.0",
-  "bin": {
-    "ix-theme-downloader": "./main.mjs"
-  },
   "scripts": {
-    "check": "echo \"Error: no test specified\" && exit 1"
+    "download": "tsx main.ts"
   },
   "type": "module",
   "dependencies": {
@@ -13,5 +10,10 @@
     "fs-extra": "^11.2.0",
     "tar": "^7.4.3",
     "zlib": "^1.0.5"
+  },
+  "devDependencies": {
+    "@dotenvx/dotenvx": "^1.51.1",
+    "@types/fs-extra": "^11.0.4",
+    "tsx": "^4.20.6"
   }
 }

@@ -6,9 +6,32 @@ import fs, { ensureDirSync } from "fs-extra";
 import path from "path";
 import zlib from "zlib";
 import * as tar from "tar";
+import { config as dotenv } from "@dotenvx/dotenvx";
 
-const token = process.env.CSC_TOKEN;
-const pkgUrl = process.env.BRAND_URL;
+const __dirname = path.resolve("..", "..");
+
+dotenv({
+  override: true,
+  path: path.join(__dirname, ".env"),
+});
+
+dotenv({
+  override: true,
+  path: path.join(__dirname, ".env.production"),
+});
+
+const token = process.env.CSC_TOKEN!;
+let pkgUrl = process.env.BRAND_URL!;
+const pkgVersion = process.env.BRAND_VERSION!;
+
+if (!pkgUrl) {
+  console.log("No additional theme configured");
+  process.exit(1);
+}
+
+if (!pkgUrl.endsWith(".tgz")) {
+  pkgUrl = pkgUrl + "-" + pkgVersion + ".tgz";
+}
 
 if (!process.env.CI) {
   console.error("This script should only be run in CI");
@@ -20,7 +43,7 @@ if (!token) {
   process.exit(1);
 }
 
-const download = async (url, file) => {
+const download = async (url: string, file: string) => {
   console.log("download");
   const response = await axios.get(url, {
     responseType: "arraybuffer",
@@ -33,9 +56,9 @@ const download = async (url, file) => {
   await fs.writeFile(file, fileData);
 };
 
-const unpack = async (file) => {
+const unpack = async (file: string) => {
   const unpackTheme = path.join(file, "..");
-  return new Promise((resolve) =>
+  return new Promise<string>((resolve) =>
     fs
       .createReadStream(file)
       .pipe(zlib.createGunzip())
@@ -50,8 +73,7 @@ const unpack = async (file) => {
   );
 };
 
-const cwd = process.cwd();
-const __node_modules = path.join(cwd, "node_modules");
+const __node_modules = path.join(__dirname, "node_modules");
 const __cache = path.join(__node_modules, ".cache", "ix-theme-downloader");
 const __themeTgz = path.join(__cache, "theme.tgz");
 
