@@ -17,7 +17,7 @@
     "@siemens/ix-echarts": "3.0.0",
     "@siemens/ix-icons": "3.2.0",
     "@siemens/ix-react": "^4.0.0",
-    "ag-grid-community": "33.3.2",
+    "ag-grid-community": "34.3.1",
     "ag-grid-react": "33.3.2",
     "clsx": "^2.1.1",
     "echarts": "^5.5.1",
