@@ -35,20 +35,24 @@
     i18nSettings="{{ 'settings.title' | translate }}"
     i18nToggleTheme="{{ 'toggle-theme' | translate }}"
   >
-    <nav routerLink="" (click)="activePage = 'overview'">
-      <a>
-        <ix-menu-item icon="home" [class.active]="activePage === 'overview'">
-          {{ "overview" | translate }}</ix-menu-item
-        >
-      </a>
-    </nav>
-    <nav [routerLink]="'devices'" (click)="activePage = 'devices'">
-      <a>
-        <ix-menu-item icon="project" [class.active]="activePage === 'devices'">
-          {{ "devices" | translate }}
-        </ix-menu-item>
-      </a>
-    </nav>
+    <a routerLink="">
+      <ix-menu-item
+        icon="home"
+        [class.active]="activePage === 'overview'"
+        (click)="activePage = 'overview'"
+      >
+        {{ "overview" | translate }}</ix-menu-item
+      >
+    </a>
+    <a [routerLink]="'devices'">
+      <ix-menu-item
+        icon="project"
+        [class.active]="activePage === 'devices'"
+        (click)="activePage = 'devices'"
+      >
+        {{ "devices" | translate }}
+      </ix-menu-item>
+    </a>
 
     <ix-menu-settings
       (tabChange)="setActiveSettingsTab($event)"
