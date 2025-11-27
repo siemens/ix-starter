@@ -1,6 +1,3 @@
-/*
- * COPYRIGHT (c) Siemens AG 2018-2025 ALL RIGHTS RESERVED.
- */
 # Siemens Industrial Experience Starter Apps
 
 [![MIT License](https://img.shields.io/badge/license-MIT-009999.svg?style=flat)](./LICENSE.md)
