@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import {
   IxCard,
   IxCardContent,
@@ -11,7 +11,7 @@ import { EChartsOption } from 'echarts';
 import { LineChart } from 'echarts/charts';
 import { TranslateModule } from '@ngx-translate/core';
 import { BehaviorSubject } from 'rxjs';
-import { themeSwitcher } from '@siemens/ix';
+import { themeSwitcher, Disposable } from '@siemens/ix';
 import { AsyncPipe } from '@angular/common';
 
 echarts.use([LineChart]);
@@ -30,11 +30,12 @@ echarts.use([LineChart]);
   styleUrl: './status-history.component.scss',
   providers: [provideEchartsCore({ echarts })],
 })
-export class StatusHistoryComponent implements OnInit {
+export class StatusHistoryComponent implements OnInit, OnDestroy {
   @ViewChild(NgxEchartsDirective) chart!: NgxEchartsDirective;
 
   themeSubject = new BehaviorSubject<string>('theme-classic-dark');
   theme$ = this.themeSubject.asObservable();
+  themeSwitchDisposable?: Disposable;
 
   seriesOnline = {
     name: 'Online',
@@ -110,11 +111,16 @@ export class StatusHistoryComponent implements OnInit {
   };
 
   ngOnInit(): void {
+    const currentTheme = themeSwitcher.getCurrentTheme();
+    this.themeSubject.next(currentTheme);
+    this.themeSwitchDisposable = themeSwitcher.themeChanged.on(
+      (theme: string) => {
+        this.themeSubject.next(theme);
+      },
+    );
+  }
 
-    const currenttheme = themeSwitcher.getCurrentTheme();
-    this.themeSubject.next(currenttheme);
-    themeSwitcher.themeChanged.on((theme: string) => {
-      this.themeSubject.next(theme);
-    });
+  ngOnDestroy(): void {
+    this.themeSwitchDisposable?.dispose();
   }
 }
