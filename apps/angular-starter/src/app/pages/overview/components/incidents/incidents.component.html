@@ -1,0 +1,32 @@
+<section class="incidents">
+  <ix-typography format="label" bold>
+    {{ "incidents.title" | translate }}
+  </ix-typography>
+  <div class="search-and-filter">
+    <ix-input
+      class="ix-form-control"
+      placeholder="Search"
+      aria-label="Filter devices"
+      type="text"
+      (valueChange)="onSearch($event)"
+    >
+      <ix-icon
+        slot="start"
+        name="search"
+        size="16"
+        color="color-primary"
+      ></ix-icon>
+    </ix-input>
+
+    <div class="btn-group">
+      <ix-button icon="card-layout" outline (click)="openModal()">
+        {{ "cards" | translate }}
+      </ix-button>
+      <ix-button icon="list"> {{ "list" | translate }} </ix-button>
+    </div>
+  </div>
+  <app-incident-list
+    [incidents]="incidents"
+    [search]="searchText"
+  ></app-incident-list>
+</section>

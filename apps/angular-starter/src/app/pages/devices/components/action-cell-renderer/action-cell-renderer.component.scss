@@ -1,0 +1,12 @@
+.ix-row {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  height: 100%;
+  align-items: center;
+}
+
+.dropdown {
+  pointer-events: all;
+  position: absolute;
+}

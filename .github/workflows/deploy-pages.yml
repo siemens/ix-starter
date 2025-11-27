@@ -27,13 +27,27 @@ jobs:
           BRAND_URL: ${{ vars.BRAND_URL }}
 
       - name: Build React Starter
-        run: pnpm build
+        run: pnpm build --filter ix-react-starter
         env:
           REACT_BASE: /ix-starter/react-starter/
           VITE_THEME: 1
 
-      - name: Deploy GitHub Pages 🚀
+      - name: Enable Brand Theme in Angular Starter
+        run: |
+          cd ./apps/angular-starter
+          sed -i "s/BRAND_THEME: false/BRAND_THEME: true/" src/environments/environment.ts
+
+      - name: Build Angular Starter
+        run: pnpm --filter ix-angular-starter run build --base-href /ix-starter/angular-starter/
+
+      - name: Deploy React App 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: ./apps/react-starter/dist
           target-folder: react-starter
+
+      - name: Deploy Angular App 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: ./apps/angular-starter/dist/browser
+          target-folder: angular-starter

@@ -1,0 +1,45 @@
+.event-list-header-offset {
+  padding-left: 1.125rem;
+}
+
+.incident-list {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.event-list {
+  overflow: auto;
+  height: 100%;
+  position: relative;
+  display: block;
+}
+
+.no-wrap {
+  flex-wrap: nowrap;
+}
+
+.info-text {
+  padding-left: 2.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.incident-actions {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.desktop {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .desktop {
+    display: block;
+  }
+}
