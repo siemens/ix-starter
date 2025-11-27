@@ -1,3 +1,6 @@
+/*
+ * COPYRIGHT (c) Siemens AG 2018-2025 ALL RIGHTS RESERVED.
+ */
 # Siemens Industrial Experience Starter Apps
 
 [![MIT License](https://img.shields.io/badge/license-MIT-009999.svg?style=flat)](./LICENSE.md)
@@ -24,6 +27,7 @@ This Turborepo includes the following packages/apps:
 | Name          | Description                                                | Deploy |
 |---------------|------------------------------------------------------------|--------|
 | react-starter | Example application to show some features of the framework | [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/siemens/ix-starter/tree/main/apps/react-starter) |
+| angular-starter | Example application to show some features of the framework | [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/siemens/ix-starter/tree/main/apps/angular-starter) |
 
 ### Utilities
 
