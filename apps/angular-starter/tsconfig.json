@@ -9,6 +9,7 @@
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
+    "allowImportingTsExtensions": true,
     "skipLibCheck": true,
     "isolatedModules": true,
     "esModuleInterop": true,
@@ -17,10 +18,7 @@
     "importHelpers": true,
     "target": "ES2022",
     "module": "ES2022",
-     "types": [
-      "node",
-      "@playwright/test"
-    ]
+    "types": ["node", "@playwright/test"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
