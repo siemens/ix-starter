@@ -23,15 +23,6 @@ importers:
 
   apps/angular-starter:
     dependencies:
-      '@ag-grid-community/angular':
-        specifier: ^32.3.5
-        version: 32.3.9(@ag-grid-community/core@32.3.9)(@angular/common@19.2.15(@angular/core@19.2.15(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@19.2.15(rxjs@7.8.2)(zone.js@0.15.1))
-      '@ag-grid-community/client-side-row-model':
-        specifier: ^32.3.5
-        version: 32.3.9
-      '@ag-grid-community/core':
-        specifier: ^32.3.5
-        version: 32.3.9
       '@angular/common':
         specifier: ^19.2.0
         version: 19.2.15(@angular/core@19.2.15(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2)
@@ -304,19 +295,6 @@ packages:
 
   '@adobe/css-tools@4.4.4':
     resolution: {integrity: sha512-Elp+iwUx5rN5+Y8xLt5/GRoG20WGoDCQ/1Fb+1LiGtvwbDavuSk0jhD/eZdckHAuzcDzccnkv+rEjyWfRx18gg==}
-
-  '@ag-grid-community/angular@32.3.9':
-    resolution: {integrity: sha512-vQ3zGp0NBjdm88886u15kpn9D8FmvoWmK2ysvVEfLO9upPaIE3n9QYPeTpHwmj1Hzheu26PHO/lycOZi9oQpVQ==}
-    peerDependencies:
-      '@ag-grid-community/core': 32.3.9
-      '@angular/common': '>= 16.0.0'
-      '@angular/core': '>= 16.0.0'
-
-  '@ag-grid-community/client-side-row-model@32.3.9':
-    resolution: {integrity: sha512-/x6gPhxn6c/QQSmDuNf81xrBNc3TKGymmokznvXPPf4tAXeLZn5kF0cW3sGa52XyqZcIsYFQvLkI+pCsX+I4ng==}
-
-  '@ag-grid-community/core@32.3.9':
-    resolution: {integrity: sha512-oZeAEPgaJVMzfKqbAPCyadcN5+iy+tjvhRLqEYJdBxtLgW/s2s0qXcXQvnrz7eUMD3Z7h3BQRVt2h/p0T6Ox/w==}
 
   '@ampproject/remapping@2.3.0':
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
@@ -2768,9 +2746,6 @@ packages:
   adjust-sourcemap-loader@4.0.0:
     resolution: {integrity: sha512-OXwN5b9pCUXNQHJpwwD2qP40byEmSgzj8B4ydSN0uMNYWiFmJ6x6KwUllMmfk8Rwu/HJDFR7U8ubsWBoN0Xp0A==}
     engines: {node: '>=8.9'}
-
-  ag-charts-types@10.3.9:
-    resolution: {integrity: sha512-drcRiJVencliC8LnRwk4MmeQDNNBg5GzmOoLFihO3/k0CUK0VF/N+2nc7iFozwaNG0btSB9vAhYuJLjqHMtRrQ==}
 
   ag-charts-types@11.3.2:
     resolution: {integrity: sha512-trPGqgGYiTeLgtf9nLuztDYOPOFOLbqHn1g2D99phf7QowcwdX0TPx0wfWG8Hm90LjB8IH+G2s3AZe2vrdAtMQ==}
@@ -6394,23 +6369,6 @@ snapshots:
 
   '@adobe/css-tools@4.4.4': {}
 
-  '@ag-grid-community/angular@32.3.9(@ag-grid-community/core@32.3.9)(@angular/common@19.2.15(@angular/core@19.2.15(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@19.2.15(rxjs@7.8.2)(zone.js@0.15.1))':
-    dependencies:
-      '@ag-grid-community/core': 32.3.9
-      '@angular/common': 19.2.15(@angular/core@19.2.15(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2)
-      '@angular/core': 19.2.15(rxjs@7.8.2)(zone.js@0.15.1)
-      tslib: 2.8.1
-
-  '@ag-grid-community/client-side-row-model@32.3.9':
-    dependencies:
-      '@ag-grid-community/core': 32.3.9
-      tslib: 2.8.1
-
-  '@ag-grid-community/core@32.3.9':
-    dependencies:
-      ag-charts-types: 10.3.9
-      tslib: 2.8.1
-
   '@ampproject/remapping@2.3.0':
     dependencies:
       '@jridgewell/gen-mapping': 0.3.13
@@ -9066,8 +9024,6 @@ snapshots:
     dependencies:
       loader-utils: 2.0.4
       regex-parser: 2.3.1
-
-  ag-charts-types@10.3.9: {}
 
   ag-charts-types@11.3.2: {}
 

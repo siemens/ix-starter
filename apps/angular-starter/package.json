@@ -16,9 +16,6 @@
   },
   "private": true,
   "dependencies": {
-    "@ag-grid-community/angular": "^32.3.5",
-    "@ag-grid-community/client-side-row-model": "^32.3.5",
-    "@ag-grid-community/core": "^32.3.5",
     "@angular/common": "^19.2.0",
     "@angular/compiler": "^19.2.0",
     "@angular/core": "^19.2.0",
