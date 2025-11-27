@@ -2,8 +2,7 @@
   <ix-icon-button
     [id]="'edit-btn-' + triggerId"
     icon="pen"
-    variant="secondary"
-    ghost
+    variant="subtle-tertiary"
     (click)="onEdit($event)"
   />
   <ix-tooltip [for]="'#edit-btn-' + triggerId">
@@ -13,8 +12,7 @@
     [id]="'delete-btn-' + triggerId"
     icon="trashcan"
     (click)="onDelete($event)"
-    variant="secondary"
-    ghost
+    variant="subtle-tertiary"
   />
 
   <ix-tooltip [for]="'#delete-btn-' + triggerId">
@@ -23,8 +21,7 @@
 
   <ix-icon-button
     icon="context-menu"
-    variant="secondary"
-    ghost
+    variant="subtle-tertiary"
     [id]="triggerId"
     (click)="$event.stopPropagation()"
   >
@@ -43,21 +40,21 @@
         [id]="'duplicate-btn-' + triggerId"
         (click)="onDuplicate($event)"
         icon="duplicate"
-        ghost
+        variant="tertiary"
       ></ix-dropdown-button>
       <ix-tooltip [for]="'#duplicate-btn-' + triggerId"> Duplicate </ix-tooltip>
       <ix-icon-button
         (click)="cutRow($event)"
         [id]="'cut-btn-' + triggerId"
         icon="cut"
-        ghost
+        variant="subtle-tertiary"
       ></ix-icon-button>
       <ix-tooltip [for]="'#cut-btn-' + triggerId"> Cut </ix-tooltip>
       <ix-icon-button
         (click)="copyRow($event)"
         [id]="'copy-btn-' + triggerId"
         icon="copy"
-        ghost
+        variant="subtle-tertiary"
       ></ix-icon-button>
       <ix-tooltip [for]="'#copy-btn-' + triggerId"> Copy </ix-tooltip>
       <ix-icon-button
@@ -65,7 +62,7 @@
         [id]="'paste-btn-' + triggerId"
         icon="paste"
         [disabled]="!canPaste"
-        ghost
+        variant="subtle-tertiary"
       ></ix-icon-button>
       <ix-tooltip [for]="'#paste-btn-' + triggerId"> Paste </ix-tooltip>
     </ix-dropdown-quick-actions>

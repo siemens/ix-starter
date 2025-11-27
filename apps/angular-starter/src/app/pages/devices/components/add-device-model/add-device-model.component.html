@@ -81,7 +81,7 @@
   <ix-button
     [attr.aria-label]="'device-add-modal.dismiss' | translate"
     (click)="activeModal.dismiss('close')"
-    outline
+    variant="secondary"
     class="dismiss-modal"
   >
     {{ "device-add-modal.dismiss" | translate }}
@@ -89,6 +89,7 @@
   <ix-button
     [attr.aria-label]="'device-add-modal.close' | translate"
     autofocus
+    variant="primary"
     class="close-modal"
     (click)="submitForm()"
   >

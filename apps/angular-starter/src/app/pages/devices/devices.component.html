@@ -1,8 +1,7 @@
 <ix-content>
   <ix-content-header headerTitle="{{ 'devices' | translate }}" slot="header">
     <ix-button
-      variant="primary"
-      ghost
+      variant="tertiary"
       icon="addCircle"
       (click)="openAddDevice()"
       aria-label="add device"
@@ -122,7 +121,7 @@
 
       <ix-button
         [loading]="isStatusUpdateInProgress"
-        outline
+        variant="secondary"
         (click)="toggleMaintenanceStatus()"
       >
         {{

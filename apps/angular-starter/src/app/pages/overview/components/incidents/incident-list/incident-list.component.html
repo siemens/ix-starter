@@ -63,8 +63,7 @@
               </ix-col>
               <ix-col size="2">
                 <ix-icon-button
-                  variant="primary"
-                  outline
+                  variant="secondary"
                   icon="upload"
                   (click)="usemodal()"
                 ></ix-icon-button>
@@ -109,11 +108,10 @@
 
               <ix-col class="incident-actions">
                 <ix-icon-button
-                  variant="secondary"
-                  ghost
+                  variant="subtle-tertiary"
                   icon="open-external"
                 ></ix-icon-button>
-                <ix-button outline color="primary" (click)="usemodal()">
+                <ix-button variant="secondary" (click)="usemodal()">
                   {{ "incidents.create-task" | translate }}
                 </ix-button>
               </ix-col>

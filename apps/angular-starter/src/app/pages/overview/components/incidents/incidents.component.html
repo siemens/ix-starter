@@ -19,10 +19,10 @@
     </ix-input>
 
     <div class="btn-group">
-      <ix-button icon="card-layout" outline (click)="openModal()">
+      <ix-button icon="card-layout" variant="secondary" (click)="openModal()">
         {{ "cards" | translate }}
       </ix-button>
-      <ix-button icon="list"> {{ "list" | translate }} </ix-button>
+      <ix-button icon="list" variant="primary"> {{ "list" | translate }} </ix-button>
     </div>
   </div>
   <app-incident-list
