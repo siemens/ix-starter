@@ -1,4 +1,7 @@
-import { Component, OnDestroy, ViewChild, OnInit, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild, inject } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { ModalService } from '@siemens/ix-angular';
 import {
   IxButton,
   IxCategoryFilter,
@@ -22,21 +25,16 @@ import {
   iconTrashcan,
   iconWarning,
 } from '@siemens/ix-icons/icons';
-import { ActionCellRendererComponent } from './components/action-cell-renderer/action-cell-renderer.component';
 import { AgGridAngular } from 'ag-grid-angular';
-import * as agGrid from 'ag-grid-community';
 import { IRowNode } from 'ag-grid-community';
-import { getIxTheme } from '@siemens/ix-aggrid';
-import { ModalService } from '@siemens/ix-angular';
+import { Subject, takeUntil } from 'rxjs';
+import { DEVICE_DATA } from '../../../assets/mock-data/device';
+import { CopiedDataOperType, DeviceData } from '../../shared/models/types';
+import { SharedService } from '../../shared/services/shared.service';
+import { toKebabCase } from '../../shared/utlis';
+import { ActionCellRendererComponent } from './components/action-cell-renderer/action-cell-renderer.component';
 import { AddDeviceModelComponent } from './components/add-device-model/add-device-model.component';
 import { DeleteModalComponent } from './components/delete-modal/delete-modal.component';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { Subject, takeUntil } from 'rxjs';
-import { CopiedDataOperType, DeviceData } from '../../shared/models/types';
-import { DEVICE_DATA } from '../../../assets/mock-data/device';
-import { toKebabCase } from '../../shared/utlis';
-import { ReactiveFormsModule } from '@angular/forms';
-import { SharedService } from '../../shared/services/shared.service';
 import { DeviceCellRendererComponent } from './components/device-cell-renderer/device-cell-renderer.component';
 
 @Component({
@@ -111,12 +109,6 @@ export class DevicesComponent implements OnDestroy, OnInit {
 
   constructor(
   ) {
-    // Configure iX theme for AG Grid
-    const ixTheme = getIxTheme(agGrid);
-    agGrid.provideGlobalGridOptions({
-      theme: ixTheme,
-    });
-
     this.setColumnDefs();
     addIcons({
       iconAddCircle,

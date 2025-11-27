@@ -16,7 +16,12 @@
   >
     {{ "device-delete-modal.dismiss" | translate }}
   </ix-button>
-  <ix-button variant="danger-primary" (click)="close()" (keydown.enter)="close()">
+  <ix-button
+    variant="danger-primary"
+    type="button"
+    (click)="close()"
+    (keydown.enter)="close()"
+  >
     {{ "device-delete-modal.close" | translate }}
   </ix-button>
 </ix-modal-footer>

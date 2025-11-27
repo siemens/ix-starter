@@ -3,9 +3,23 @@ import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
 import { environment } from './environments/environments';
 import { APP_BASE_HREF } from '@angular/common';
+import { getIxTheme } from '@siemens/ix-aggrid';
+import * as agGrid from 'ag-grid-community';
+import { ModuleRegistry, AllCommunityModule } from 'ag-grid-community';
+
+function setupAGGrid() {
+  ModuleRegistry.registerModules([AllCommunityModule]);
+
+  const ixTheme = getIxTheme(agGrid);
+  agGrid.provideGlobalGridOptions({
+    theme: ixTheme,
+  });
+}
+
+setupAGGrid();
 
 bootstrapApplication(AppComponent, appConfig).catch((err) =>
-  console.error(err)
+  console.error(err),
 );
 
 // Dynamically load the corporate theme if present
@@ -23,7 +37,8 @@ function optionalTheme() {
     script.type = 'module';
     document.head.appendChild(script);
 
-    document.body.classList.add('theme-brand-dark');
+    document.documentElement.setAttribute('data-ix-theme', 'brand');
+    document.documentElement.setAttribute('data-ix-color-schema', 'dark');
   }
 }
 
