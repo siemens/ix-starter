@@ -54,8 +54,7 @@ export class ActionCellRendererComponent implements ICellRendererAngularComp {
   private readonly sharedService = inject(SharedService);
   private readonly translate = inject(TranslateService);
 
-  constructor(
-  ) {
+  constructor() {
     addIcons({
       iconPen,
       iconTrashcan,
