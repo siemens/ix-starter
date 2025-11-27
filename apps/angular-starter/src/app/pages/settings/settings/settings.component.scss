@@ -1,0 +1,59 @@
+.user-settings {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.themeTitle {
+  padding-bottom: 1.5rem;
+}
+
+.theme-button {
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+
+  align-items: center;
+  gap: 1rem;
+}
+.theme-image-preview {
+  display: inline-flex;
+  position: relative;
+  border-radius: 0.125rem;
+  border: 1px solid var(--theme-color-6);
+  padding: 0.5rem;
+  gap: 1rem;
+  cursor: pointer;
+
+  width: 208px;
+  height: 160px;
+
+  img {
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+  }
+}
+.active {
+  border-color: var(--theme-color-dynamic);
+}
+
+.theme-selection {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+
+  gap: 1rem;
+}
+
+.language-selection {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+
+  gap: 0.5rem;
+}
+
+.headline-language {
+  margin-bottom: 0.75rem;
+}

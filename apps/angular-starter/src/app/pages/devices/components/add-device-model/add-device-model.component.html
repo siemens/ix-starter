@@ -1,0 +1,98 @@
+<ix-modal-header (closeClick)="activeModal.dismiss('close')">
+  {{ "device-add-modal.title" | translate }}
+</ix-modal-header>
+
+<ix-modal-content>
+  <form class="" [formGroup]="addDeviceForm" (ngSubmit)="submitForm()">
+    <div class="form-grid">
+      <ix-input
+        label="{{ 'device-details.device-name' | translate }}"
+        [attr.aria-label]="'device-details.device-name' | translate"
+        formControlName="deviceName"
+      >
+      </ix-input>
+      <ix-input
+        label="{{ 'device-details.vendor' | translate }}"
+        [attr.aria-label]="'device-details.vendor' | translate"
+        formControlName="vendor"
+      >
+      </ix-input>
+      <div class="item-full-width">
+        <ix-input
+          class="item-full-width"
+          label="{{ 'device-details.description' | translate }}"
+          [attr.aria-label]="'device-details.description' | translate"
+          formControlName="deviceType"
+        >
+        </ix-input>
+      </div>
+      <ix-select
+        label="{{ 'device-details.status' | translate }}"
+        [attr.aria-label]="'device-details.status' | translate"
+        i18nSelectListHeader="{{ 'device-add-modal.list-header' | translate }}"
+        formControlName="status"
+      >
+        <ix-select-item label="Online" value="Online"></ix-select-item>
+        <ix-select-item label="Offline" value="Offline"></ix-select-item>
+        <ix-select-item
+          label="Maintenance"
+          value="Maintenance"
+        ></ix-select-item>
+        <ix-select-item label="Error" value="Error"></ix-select-item>
+      </ix-select>
+
+      <ix-input
+        label="{{ 'device-details.article-number' | translate }}"
+        [attr.aria-label]="'device-details.article-number' | translate"
+        formControlName="articleNumber"
+      >
+      </ix-input>
+
+      <ix-input
+        label="{{ 'device-details.mac-address' | translate }}"
+        [attr.aria-label]="'device-details.mac-address' | translate"
+        formControlName="MACAddress"
+      >
+      </ix-input>
+
+      <ix-input
+        label="{{ 'device-details.ip-address' | translate }}"
+        [attr.aria-label]="'device-details.ip-address' | translate"
+        formControlName="IPAddress"
+      >
+      </ix-input>
+
+      <ix-input
+        label="{{ 'device-details.firmware-version' | translate }}"
+        [attr.aria-label]="'device-details.firmware-version' | translate"
+        formControlName="firmwareVersion"
+      >
+      </ix-input>
+      <ix-input
+        label="{{ 'device-details.serial-number' | translate }}"
+        [attr.aria-label]="'device-details.serial-number' | translate"
+        formControlName="serialNumber"
+      >
+      </ix-input>
+    </div>
+  </form>
+</ix-modal-content>
+<ix-modal-footer>
+  <ix-button
+    [attr.aria-label]="'device-add-modal.dismiss' | translate"
+    (click)="activeModal.dismiss('close')"
+    variant="secondary"
+    class="dismiss-modal"
+  >
+    {{ "device-add-modal.dismiss" | translate }}
+  </ix-button>
+  <ix-button
+    [attr.aria-label]="'device-add-modal.close' | translate"
+    autofocus
+    variant="primary"
+    class="close-modal"
+    (click)="submitForm()"
+  >
+    {{ "device-add-modal.close" | translate }}
+  </ix-button>
+</ix-modal-footer>
