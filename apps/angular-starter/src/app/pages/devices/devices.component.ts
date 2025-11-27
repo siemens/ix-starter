@@ -24,7 +24,9 @@ import {
 } from '@siemens/ix-icons/icons';
 import { ActionCellRendererComponent } from './components/action-cell-renderer/action-cell-renderer.component';
 import { AgGridAngular } from 'ag-grid-angular';
+import * as agGrid from 'ag-grid-community';
 import { IRowNode } from 'ag-grid-community';
+import { getIxTheme } from '@siemens/ix-aggrid';
 import { ModalService } from '@siemens/ix-angular';
 import { AddDeviceModelComponent } from './components/add-device-model/add-device-model.component';
 import { DeleteModalComponent } from './components/delete-modal/delete-modal.component';
@@ -109,6 +111,12 @@ export class DevicesComponent implements OnDestroy, OnInit {
 
   constructor(
   ) {
+    // Configure iX theme for AG Grid
+    const ixTheme = getIxTheme(agGrid);
+    agGrid.provideGlobalGridOptions({
+      theme: ixTheme,
+    });
+
     this.setColumnDefs();
     addIcons({
       iconAddCircle,
