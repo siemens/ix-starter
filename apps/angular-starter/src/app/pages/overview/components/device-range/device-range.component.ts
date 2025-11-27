@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
   IxCard,
   IxCardContent,
@@ -16,7 +16,7 @@ import {
 } from 'echarts/components';
 import { BarSeriesOption, EChartsOption } from 'echarts';
 import { Device } from '../../../../shared/models/types';
-import { themeSwitcher } from '@siemens/ix';
+import { themeSwitcher, Disposable } from '@siemens/ix';
 import { TranslateModule } from '@ngx-translate/core';
 import { BehaviorSubject } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
@@ -45,24 +45,31 @@ echarts.use([
   templateUrl: './device-range.component.html',
   styleUrl: './device-range.component.scss',
 })
-export class DeviceRangeComponent implements OnInit {
+export class DeviceRangeComponent implements OnInit, OnDestroy {
   options: EChartsOption = {};
   devices: Device[] = [];
   ipRanges: string[] = [];
   themeSubject = new BehaviorSubject<string>('theme-classic-dark');
   theme$ = this.themeSubject.asObservable();
-  currenttheme = 'theme-classic-dark';
+  currentTheme = 'theme-classic-dark';
+
+  themeChangedDisposable?: Disposable;
+
   ngOnInit(): void {
     this.devices = DEVICE_INFO;
     this.options = this.getChartOptions(this.reduceDevices(this.devices));
     registerTheme(echarts);
 
-    const currenttheme = themeSwitcher.getCurrentTheme();
-    this.themeSubject.next(currenttheme);
+    const currentTheme = themeSwitcher.getCurrentTheme();
+    this.themeSubject.next(currentTheme);
 
-    themeSwitcher.themeChanged.on((theme: string) => {
-      this.themeSubject.next(theme);
-    });
+    themeSwitcher.themeChanged.on((theme: string) =>
+      this.themeSubject.next(theme),
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.themeChangedDisposable?.dispose();
   }
 
   reduceDevices(devices: Device[]): BarSeriesOption[] {

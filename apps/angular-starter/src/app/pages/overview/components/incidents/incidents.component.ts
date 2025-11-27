@@ -56,7 +56,7 @@ export class IncidentsComponent {
     addIcons({ iconSearch, iconCardLayout, iconList });
   }
 
-  onSearch(event: any) {
-    this.searchText = event.target.value;
+  onSearch(event: CustomEvent<string>) {
+    this.searchText = event.detail;
   }
 }

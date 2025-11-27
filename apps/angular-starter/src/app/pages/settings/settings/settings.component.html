@@ -4,20 +4,41 @@
   </ix-typography>
   <section class="theme-selection">
     <div (click)="onThemeChange('theme-brand')" class="theme-button">
-      <div class="theme-image-preview" [class.active]="selectedThemeVariant === 'theme-brand'">
-        <img src="/assets/images/brand.png" alt="Siemens brand theme" draggable="false" />
+      <div
+        class="theme-image-preview"
+        [class.active]="selectedThemeVariant === 'theme-brand'"
+      >
+        <img
+          src="/assets/images/brand.png"
+          alt="Siemens brand theme"
+          draggable="false"
+        />
       </div>
       <div>
-        <ix-radio label="Siemens Brand" [checked]="selectedThemeVariant === 'theme-brand'" [disabled]="!isProdMode">
+        <ix-radio
+          label="Siemens Brand"
+          [checked]="selectedThemeVariant === 'theme-brand'"
+          [disabled]="!isProdMode"
+        >
         </ix-radio>
       </div>
     </div>
     <div (click)="onThemeChange('theme-classic')" class="theme-button">
-      <div class="theme-image-preview active" [class.active]="selectedThemeVariant === 'theme-classic'">
-        <img src="/assets/images/classic.png" alt="Siemens classic theme" draggable="false" />
+      <div
+        class="theme-image-preview active"
+        [class.active]="selectedThemeVariant === 'theme-classic'"
+      >
+        <img
+          src="/assets/images/classic.png"
+          alt="Siemens classic theme"
+          draggable="false"
+        />
       </div>
       <div>
-        <ix-radio label="Classic" [checked]="selectedThemeVariant === 'theme-classic'"></ix-radio>
+        <ix-radio
+          label="Classic"
+          [checked]="selectedThemeVariant === 'theme-classic'"
+        ></ix-radio>
       </div>
     </div>
   </section>
@@ -27,10 +48,16 @@
     </ix-typography>
     <section class="language-selection">
       <ix-radio-group>
-        <ix-radio label="{{ 'language.en' | translate }}" [checked]="currentLang === 'en'"
-          (checkedChange)="switchLanguage('en')"></ix-radio>
-        <ix-radio label="{{ 'language.de' | translate }}" [checked]="currentLang === 'de'"
-          (checkedChange)="switchLanguage('de')"></ix-radio>
+        <ix-radio
+          label="{{ 'language.en' | translate }}"
+          [checked]="currentLang === 'en'"
+          (checkedChange)="switchLanguage('en')"
+        ></ix-radio>
+        <ix-radio
+          label="{{ 'language.de' | translate }}"
+          [checked]="currentLang === 'de'"
+          (checkedChange)="switchLanguage('de')"
+        ></ix-radio>
       </ix-radio-group>
     </section>
   </section>

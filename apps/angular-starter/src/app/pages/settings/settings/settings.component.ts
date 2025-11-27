@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import {
   IxRadio,
   IxRadioGroup,
@@ -9,6 +9,7 @@ import { useShowDemoMessage } from '../../../shared/utlis';
 import { SharedService } from '../../../shared/services/shared.service';
 import { environment } from '../../../../environments/environments';
 import { themeSwitcher } from '@siemens/ix';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-settings',
@@ -16,18 +17,25 @@ import { themeSwitcher } from '@siemens/ix';
   templateUrl: './settings.component.html',
   styleUrl: './settings.component.scss',
 })
-export class SettingsComponent implements OnInit {
+export class SettingsComponent implements OnInit, OnDestroy {
   selectedThemeVariant = 'theme-classic';
   currentLang = 'en';
   isProdMode = false;
   private readonly sharedService = inject(SharedService);
 
-  ngOnInit() {
+  private languageChangeDisposable?: Subscription;
 
+  ngOnInit() {
     this.isProdMode = environment.BRAND_THEME;
-    this.sharedService.currentLang$.subscribe((lang) => {
-      this.currentLang = lang;
-    });
+    this.languageChangeDisposable = this.sharedService.currentLang$.subscribe(
+      (lang) => {
+        this.currentLang = lang;
+      },
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.languageChangeDisposable?.unsubscribe();
   }
 
   switchLanguage(lang: string) {
@@ -43,8 +51,7 @@ export class SettingsComponent implements OnInit {
       themeSwitcher.setTheme(newTheme);
 
       this.selectedThemeVariant = selectedThemeVariant;
-    }
-    else {
+    } else {
       useShowDemoMessage();
     }
   }
