@@ -7,7 +7,7 @@ import {
 import { TranslateModule } from '@ngx-translate/core';
 import { useShowDemoMessage } from '../../../shared/utlis';
 import { SharedService } from '../../../shared/services/shared.service';
-import { environment } from '../../../../environments/environments';
+import { environment } from '../../../../environments/environment';
 import { themeSwitcher } from '@siemens/ix';
 import { Subscription } from 'rxjs';
 

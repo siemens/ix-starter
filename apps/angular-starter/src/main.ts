@@ -1,7 +1,7 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
-import { environment } from './environments/environments';
+import { environment } from './environments/environment';
 import { getIxTheme } from '@siemens/ix-aggrid';
 import * as agGrid from 'ag-grid-community';
 import { ModuleRegistry, AllCommunityModule } from 'ag-grid-community';
