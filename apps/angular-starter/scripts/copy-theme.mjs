@@ -1,24 +1,22 @@
 import fs from "fs-extra";
 import path from "path";
 import { fileURLToPath } from "url";
+import { createRequire } from "module";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const THEME_PACKAGE = "@siemens-ix/corporate-theme";
 const TARGET_DIR = path.join(__dirname, "../src/assets/theme");
 
 function findThemePackage() {
-  const searchPaths = [
-    path.join(__dirname, "../../../node_modules", THEME_PACKAGE),
-    path.join(__dirname, "../node_modules", THEME_PACKAGE),
-  ];
-
-  for (const themePath of searchPaths) {
-    if (fs.existsSync(themePath)) {
-      console.log(`✓ Found theme at: ${themePath}`);
-      return themePath;
-    }
+  const require = createRequire(import.meta.url);
+  try {
+    const packageJsonPath = require.resolve(`${THEME_PACKAGE}/package.json`);
+    const themePath = path.dirname(packageJsonPath);
+    console.log(`✓ Found theme at: ${themePath}`);
+    return themePath;
+  } catch (error) {
+    return null;
   }
-  return null;
 }
 
 function copyTheme(sourcePath, targetPath) {
