@@ -1,13 +1,42 @@
 import fs from "fs-extra";
 import path from "path";
+import { fileURLToPath } from "url";
+import { createRequire } from "module";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const THEME_PACKAGE = "@siemens-ix/corporate-theme";
+const TARGET_DIR = path.join(__dirname, "../src/assets/theme");
+
+function findThemePackage() {
+  const require = createRequire(import.meta.url);
+  try {
+    const packageJsonPath = require.resolve(`${THEME_PACKAGE}/package.json`);
+    const themePath = path.dirname(packageJsonPath);
+    console.log(`✓ Found theme at: ${themePath}`);
+    return themePath;
+  } catch (error) {
+    return null;
+  }
+}
+
+function copyTheme(sourcePath, targetPath) {
+  fs.copySync(sourcePath, targetPath, {
+    overwrite: true,
+    filter: (src) => !src.includes("node_modules"),
+  });
+  console.log(`✓ Theme copied to: ${targetPath}`);
+}
 
 try {
-  const themePackage = import.meta.resolve("@siemens-ix/corporate-theme");
-  const theme = path.join(themePackage, "..", "..");
-  fs.copySync(theme, path.join(__dirname, "../src/assets/theme"), {
-    filter: (src) => !src.includes("corporate-theme-alternative/node_modules"),
-  });
-  console.log("Load additional theme");
-} catch (e) {
-  console.log("No additional theme found", e);
+  const themePath = findThemePackage();
+
+  if (!themePath) {
+    console.log("ℹ No theme found - using default");
+    process.exit(0);
+  }
+
+  copyTheme(themePath, TARGET_DIR);
+} catch (error) {
+  console.error(`✗ Error: ${error.message}`);
+  process.exit(1);
 }

@@ -35,7 +35,7 @@ jobs:
       - name: Enable Brand Theme in Angular Starter
         run: |
           cd ./apps/angular-starter
-          sed -i "s/BRAND_THEME: false/BRAND_THEME: true/" src/environments/environments.ts
+          sed -i "s/BRAND_THEME: false/BRAND_THEME: true/" src/environments/environment.ts
 
       - name: Build Angular Starter
         run: pnpm --filter ix-angular-starter run build --base-href /ix-starter/angular-starter/
