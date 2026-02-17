@@ -129,13 +129,14 @@ const QuickActionsCellRenderer = (props: QuickActionsCellRendererProps) => {
         icon={iconContextMenu}
         variant="subtle-tertiary"
         id={`device_${props.node.rowIndex}`}
+        aria-label={t("dropdown-quick-actions.more-actions")}
       ></IxIconButton>
       <IxDropdown trigger={`device_${props.node.rowIndex}`}>
         <IxDropdownQuickActions>
-          <IxIconButton icon={iconDuplicate} variant="subtle-tertiary" onClick={handleDuplicate}></IxIconButton>
-          <IxIconButton icon={iconCut} variant="subtle-tertiary" onClick={handleCut}></IxIconButton>
-          <IxIconButton icon={iconCopy} variant="subtle-tertiary" onClick={handleCopy}></IxIconButton>
-          <IxIconButton icon={iconPaste} variant="subtle-tertiary" onClick={handlePaste}></IxIconButton>
+          <IxIconButton icon={iconDuplicate} variant="subtle-tertiary" onClick={handleDuplicate} aria-label={t("dropdown-quick-actions.duplicate")}></IxIconButton>
+          <IxIconButton icon={iconCut} variant="subtle-tertiary" onClick={handleCut} aria-label={t("dropdown-quick-actions.cut")}></IxIconButton>
+          <IxIconButton icon={iconCopy} variant="subtle-tertiary" onClick={handleCopy} aria-label={t("dropdown-quick-actions.copy")}></IxIconButton>
+          <IxIconButton icon={iconPaste} variant="subtle-tertiary" onClick={handlePaste} aria-label={t("dropdown-quick-actions.paste")}></IxIconButton>
         </IxDropdownQuickActions>
         <IxDivider></IxDivider>
         <IxDropdownItem

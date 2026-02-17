@@ -51,7 +51,7 @@ function DesktopItem({ incident }: { incident: Incident }) {
           <IxTypography textColor="soft">{incident.time}</IxTypography>
         </IxCol>
         <IxCol className={styles.IncidentActions}>
-          <IxIconButton variant="subtle-tertiary" icon={iconOpenExternal} />
+          <IxIconButton variant="subtle-tertiary" icon={iconOpenExternal} aria-label={t("incidents.open-external")} />
           <IxButton color="primary" variant="secondary" onClick={showDemoMessage}>
             {t("incidents.create-task")}
           </IxButton>
@@ -62,6 +62,7 @@ function DesktopItem({ incident }: { incident: Incident }) {
 }
 
 function MobileItem({ incident }: { incident: Incident }) {
+  const { t } = useTranslation();
   const showDemoMessage = useShowDemoMessage();
   return (
     <IxLayoutGrid noMargin>
@@ -86,6 +87,7 @@ function MobileItem({ incident }: { incident: Incident }) {
             variant="secondary"
             icon={iconUpload}
             onClick={showDemoMessage}
+            aria-label={t("upload")}
           ></IxIconButton>
         </IxCol>
       </IxRow>

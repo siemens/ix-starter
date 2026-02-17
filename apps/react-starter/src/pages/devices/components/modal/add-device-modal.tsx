@@ -18,13 +18,13 @@ import {
   Modal,
   ModalRef,
 } from "@siemens/ix-react";
-import { useRef, useEffect } from "react";
-import styles from "./styles.module.css";
+import { useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import { useDataStore } from "../../../../store/device-store.ts";
 import { Device } from "../../../../types";
-import { useTranslation } from "react-i18next";
 import { showSuccessToast } from "../../../../util/util.ts";
+import styles from "./styles.module.css";
 
 export default function AddDeviceModal() {
   const { t } = useTranslation();
@@ -140,15 +140,10 @@ export default function AddDeviceModal() {
       </IxModalContent>
 
       <IxModalFooter className={styles.ModalFooter}>
-        <IxButton aria-label={t("device-add-modal.dismiss")} variant="secondary" onClick={() => dismiss()}>
+        <IxButton variant="secondary" onClick={() => dismiss()}>
           {t("device-add-modal.dismiss")}
         </IxButton>
-        <IxButton
-          aria-label={t("device-add-modal.close")}
-          variant="primary"
-          type="button"
-          onClick={() => formRef.current?.requestSubmit()}
-        >
+        <IxButton variant="primary" type="button" onClick={() => formRef.current?.requestSubmit()}>
           {t("device-add-modal.close")}
         </IxButton>
       </IxModalFooter>

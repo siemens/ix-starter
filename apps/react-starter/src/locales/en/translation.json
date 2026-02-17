@@ -35,6 +35,11 @@
     "on": "Turn on",
     "off": "Turn off",
     "delete": "Delete",
+    "more-actions": "More actions",
+    "duplicate": "Duplicate",
+    "cut": "Cut",
+    "copy": "Copy",
+    "paste": "Paste",
     "success-messages": {
       "copy": "Device copied to clipboard",
       "delete": "Device deleted",
@@ -67,6 +72,7 @@
   "incidents": {
     "title": "Incidents",
     "create-task": "Create task",
+    "open-external": "Open incident in new window",
     "incident-cards": {
       "device": "Device",
       "date": "Date"
@@ -101,6 +107,7 @@
   },
   "toggle-theme": "Toggle theme",
   "search": "Search",
+  "upload": "Upload",
   "demo-message": "This feature is currently unavailable in the demo version.",
   "cancel": "Cancel",
   "okay": "OK"
