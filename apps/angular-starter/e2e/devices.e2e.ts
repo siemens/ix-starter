@@ -23,13 +23,13 @@ async function filterDevicePageByDeviceName(page: Page, filterBy: string, filter
 }
 
 test('should display the devices table', async ({ page }) => {
-    await page.goto("http://localhost:4200/devices");
+    await page.goto("http://localhost:4200/#/devices");
     await expect(page.locator('ag-grid-angular')).toBeVisible();
 });
 
 
 test('should expand a device row on click', async ({ page }) => {
-    await page.goto("http://localhost:4200/devices");
+    await page.goto("http://localhost:4200/#/devices");
     const firstRow = page.locator('.ag-center-cols-container .ag-row').first();
     await firstRow.click();
     // Check for expanded details (adjust selector as needed)
@@ -38,7 +38,7 @@ test('should expand a device row on click', async ({ page }) => {
 
 
 test("should filter devices by deviceName", async ({ page }) => {
-    await page.goto("http://localhost:4200/devices");
+    await page.goto("http://localhost:4200/#/devices");
 
     const aggrid = page.locator(".ag-root-wrapper");
     const rows = aggrid.locator(".ag-center-cols-container .ag-row");
@@ -57,7 +57,7 @@ test("should filter devices by deviceName", async ({ page }) => {
 });
 
 test('should filter devices by status', async ({ page }) => {
-    await page.goto("http://localhost:4200/devices");
+    await page.goto("http://localhost:4200/#/devices");
 
     const aggrid = page.locator(".ag-root-wrapper");
     const rows = aggrid.locator(".ag-center-cols-container .ag-row");
