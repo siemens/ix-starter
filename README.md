@@ -2,69 +2,129 @@
 
 [![MIT License](https://img.shields.io/badge/license-MIT-009999.svg?style=flat)](./LICENSE.md)
 
-iX is an open-source design system for designers and developers, to consistently create the perfect digital experience for industrial software products.
+iX is an open-source design system for designers and developers to consistently create great digital experiences for industrial software products.
 
 <h3 align="center">
   <a href="https://github.com/siemens/ix">Main Repository</a>
   <span>-</span>
   <a href="https://ix.siemens.io/docs/installation/">Quickstart</a>
   <span>-</span>
-  <a href="https://ix.siemens.io/docs/introduction">
-    Documentation
-  </a>
+  <a href="https://ix.siemens.io/docs/introduction">Documentation</a>
   <span>-</span>
   <a href="https://community.siemens.com/c/ix/">Community</a>
 </h3>
 
-
 ## What's inside?
 
-This Turborepo includes the following packages/apps:
+This repository includes the following starter apps:
 
-| Name          | Description                                                | Deploy |
-|---------------|------------------------------------------------------------|--------|
-| react-starter | Example application to show some features of the framework | [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/siemens/ix-starter/tree/main/apps/react-starter) |
-| angular-starter | Example application to show some features of the framework | [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/siemens/ix-starter/tree/main/apps/angular-starter) |
+| Name | Description | Dev Port |
+|------|-------------|----------|
+| react-starter | Vite + React + TypeScript starter app demonstrating iX components and patterns | 3000 |
+| vue-starter | Vite + Vue + TypeScript starter app demonstrating iX components and patterns | 3200 |
+| angular-starter | Angular CLI + Angular starter app demonstrating iX components and patterns | 4200 |
 
-### Utilities
+Each app is fully self-contained (independent dependencies, scripts, and build pipeline).
 
-This Turborepo has some additional tools already setup for you:
+## Included Pages
+
+All starters include the same feature pages:
+
+- Get Started
+- Forms
+- Charts (ECharts + iX theme)
+- Grids (AG Grid + iX theme)
+- Theme toggle (light/dark)
+
+## Utilities
+
+Each starter is already configured with:
 
 - [TypeScript](https://www.typescriptlang.org/) for static type checking
 - [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+- [Playwright](https://playwright.dev/) for sanity E2E tests
 
-### Build
+## Prerequisites
 
-To build all apps and packages, run the following command:
+- [Node.js](https://nodejs.org/) >= 22
+- [pnpm](https://pnpm.io/) >= 9
 
-```
+## Build
+
+Build any starter app by running:
+
+```bash
+cd <app-folder>
+pnpm i
 pnpm build
 ```
 
-### Develop
+## Develop
 
-To develop all apps and packages, run the following command:
+Run each app independently.
 
-#### React
+### React
 
+```bash
+cd react-starter
+pnpm i
+pnpm dev
 ```
-pnpm dev --filter ix-react-starter
+
+### Vue
+
+```bash
+cd vue-starter
+pnpm i
+pnpm dev
 ```
 
+### Angular
 
-#### Angular
-
+```bash
+cd angular-starter
+pnpm i
+pnpm dev
 ```
-pnpm dev  --filter ix-angular-starter
+
+## E2E Testing
+
+```bash
+cd <app-folder>
+pnpm i
+pnpm exec playwright install
+pnpm test:e2e
+```
+
+## Available Scripts (per app)
+
+| Script | Description |
+|--------|-------------|
+| `pnpm dev` | Start development server |
+| `pnpm build` | Build for production |
+| `pnpm lint` | Run lint checks |
+| `pnpm test:e2e` | Run Playwright sanity tests |
+
+## Siemens iX Packages
+
+| Package | Version | Description |
+|---------|---------|-------------|
+| `@siemens/ix` | ^5.0.0 | Core components |
+| `@siemens/ix-react` | ^5.0.0 | React bindings |
+| `@siemens/ix-vue` | ^5.0.0 | Vue bindings |
+| `@siemens/ix-angular` | ^5.0.0 | Angular bindings |
+| `@siemens/ix-icons` | ^3.2.0 | Icon library |
+| `@siemens/ix-echarts` | ^4.0.0 | ECharts integration |
+| `@siemens/ix-aggrid` | ^5.0.0 | AG Grid integration |
 
 ## Useful Links
 
-Learn more about the power of Turborepo:
+- [Siemens iX Documentation](https://ix.siemens.io/)
+- [Siemens iX GitHub](https://github.com/siemens/ix)
+- [Siemens iX Community](https://community.siemens.com/c/ix/)
+- [ECharts Documentation](https://echarts.apache.org/)
+- [AG Grid Documentation](https://www.ag-grid.com/)
 
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+## License
+
+MIT

@@ -8,6 +8,7 @@
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint .",
+    "e2e": "playwright test",
     "test:e2e": "playwright test"
   },
   "dependencies": {

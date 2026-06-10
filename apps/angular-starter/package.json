@@ -8,6 +8,7 @@
     "build": "ng build",
     "start": "ng serve",
     "lint": "ng lint",
+    "e2e": "playwright test",
     "test:e2e": "playwright test"
   },
   "dependencies": {

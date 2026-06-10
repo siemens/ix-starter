@@ -35,3 +35,11 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# monorepo frontend app artifacts
+**/test-results/
+**/playwright-report/
+**/blob-report/
+**/playwright/.cache/
+**/dist/
+**/.angular/cache/
