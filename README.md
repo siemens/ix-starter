@@ -2,122 +2,112 @@
 
 [![MIT License](https://img.shields.io/badge/license-MIT-009999.svg?style=flat)](./LICENSE.md)
 
-iX is an open-source design system for designers and developers to consistently create great digital experiences for industrial software products.
+iX is an open-source design system for designers and developers to consistently create great digital experiences for industrial software products. This repository provides ready-to-use starter apps that can be scaffolded with [`degit`](https://github.com/Rich-Harris/degit).
 
 <h3 align="center">
   <a href="https://github.com/siemens/ix">Main Repository</a>
   <span>-</span>
-  <a href="https://ix.siemens.io/docs/installation/">Quickstart</a>
-  <span>-</span>
-  <a href="https://ix.siemens.io/docs/introduction">Documentation</a>
-  <span>-</span>
-  <a href="https://community.siemens.com/c/ix/">Community</a>
+  <a href="https://ix.siemens.io">Documentation</a>
 </h3>
 
-## What's inside?
+## Scaffold a starter app
 
-This repository includes the following starter apps:
+Use `degit` to copy a starter app into a new project folder without cloning the full repository history.
 
-| Name | Description | Dev Port |
-|------|-------------|----------|
-| react-starter | Vite + React + TypeScript starter app demonstrating iX components and patterns | 3000 |
-| vue-starter | Vite + Vue + TypeScript starter app demonstrating iX components and patterns | 3200 |
-| angular-starter | Angular CLI + Angular starter app demonstrating iX components and patterns | 4200 |
+The current starter version is always available from `main`. Omit a tag to scaffold the current version.
 
-Each app is fully self-contained (independent dependencies, scripts, and build pipeline).
+| Framework | Source                 | Command                                                               |
+| --------- | ---------------------- | --------------------------------------------------------------------- |
+| React     | `apps/react-starter`   | `npx degit siemens/ix-starter/apps/react-starter my-ix-react-app`     |
+| Vue       | `apps/vue-starter`     | `npx degit siemens/ix-starter/apps/vue-starter my-ix-vue-app`         |
+| Angular   | `apps/angular-starter` | `npx degit siemens/ix-starter/apps/angular-starter my-ix-angular-app` |
 
-## Included Pages
+## Scaffold an older version
+
+Older starter versions are stored as repository tags. Append `#<tag>` to the starter source to scaffold a specific older version.
+
+For example, use `#v5.0.0` to scaffold starter apps from the `v5.0.0` tag:
+
+| Framework | Source                        | Command                                                                      |
+| --------- | ----------------------------- | ---------------------------------------------------------------------------- |
+| React     | `apps/react-starter#v5.0.0`   | `npx degit siemens/ix-starter/apps/react-starter#v5.0.0 my-ix-react-app`     |
+| Vue       | `apps/vue-starter#v5.0.0`     | `npx degit siemens/ix-starter/apps/vue-starter#v5.0.0 my-ix-vue-app`         |
+| Angular   | `apps/angular-starter#v5.0.0` | `npx degit siemens/ix-starter/apps/angular-starter#v5.0.0 my-ix-angular-app` |
+
+The tag must exist in this repository. If a tag does not exist, `degit` will fail.
+
+## Start development
+
+After scaffolding a starter app, install dependencies and start the development server from the generated project folder.
+
+```bash
+cd my-ix-react-app
+pnpm install
+pnpm dev
+```
+
+Use the generated folder name from your selected command, for example `my-ix-vue-app` or `my-ix-angular-app`.
+
+## Starter apps
+
+| Framework | Starter path           | Tooling                   | Dev port |
+| --------- | ---------------------- | ------------------------- | -------- |
+| React     | `apps/react-starter`   | Vite + React + TypeScript | 3000     |
+| Vue       | `apps/vue-starter`     | Vite + Vue + TypeScript   | 3200     |
+| Angular   | `apps/angular-starter` | Angular CLI + Angular     | 4200     |
+
+Each starter app is self-contained with its own dependencies, scripts, and build pipeline.
+
+## Included pages
 
 All starters include the same feature pages:
 
 - Get Started
 - Forms
-- Charts (ECharts + iX theme)
-- Grids (AG Grid + iX theme)
-- Theme toggle (light/dark)
+- Charts with ECharts and the iX theme
+- Grids with AG Grid and the iX theme
+- Theme toggle for light and dark mode
 
-## Utilities
+## Included utilities
 
-Each starter is already configured with:
+Each starter is configured with:
 
 - [TypeScript](https://www.typescriptlang.org/) for static type checking
 - [ESLint](https://eslint.org/) for code linting
 - [Playwright](https://playwright.dev/) for sanity E2E tests
 
-## Prerequisites
+## Available scripts
 
-- [Node.js](https://nodejs.org/) >= 22
-- [pnpm](https://pnpm.io/) >= 9
+Run scripts from the generated starter app folder.
 
-## Build
+| Script          | Description                  |
+| --------------- | ---------------------------- |
+| `pnpm dev`      | Start the development server |
+| `pnpm build`    | Build for production         |
+| `pnpm lint`     | Run lint checks              |
+| `pnpm test:e2e` | Run Playwright sanity tests  |
 
-Build any starter app by running:
-
-```bash
-cd <app-folder>
-pnpm i
-pnpm build
-```
-
-## Develop
-
-Run each app independently.
-
-### React
+## E2E testing
 
 ```bash
-cd react-starter
-pnpm i
-pnpm dev
-```
-
-### Vue
-
-```bash
-cd vue-starter
-pnpm i
-pnpm dev
-```
-
-### Angular
-
-```bash
-cd angular-starter
-pnpm i
-pnpm dev
-```
-
-## E2E Testing
-
-```bash
-cd <app-folder>
-pnpm i
+pnpm install
 pnpm exec playwright install
 pnpm test:e2e
 ```
 
-## Available Scripts (per app)
+## Siemens iX packages
 
-| Script | Description |
-|--------|-------------|
-| `pnpm dev` | Start development server |
-| `pnpm build` | Build for production |
-| `pnpm lint` | Run lint checks |
-| `pnpm test:e2e` | Run Playwright sanity tests |
+| Package               | Description         |
+| --------------------- | ------------------- |
+| `@siemens/ix`         | Core components     |
+| `@siemens/ix-react`   | React bindings      |
+| `@siemens/ix-vue`     | Vue bindings        |
+| `@siemens/ix-angular` | Angular bindings    |
+| `@siemens/ix-icons`   | Icon library        |
+| `@siemens/ix-echarts` | ECharts integration |
+| `@siemens/ix-aggrid`  | AG Grid integration |
 
-## Siemens iX Packages
-
-| Package | Version | Description |
-|---------|---------|-------------|
-| `@siemens/ix` | ^5.0.0 | Core components |
-| `@siemens/ix-react` | ^5.0.0 | React bindings |
-| `@siemens/ix-vue` | ^5.0.0 | Vue bindings |
-| `@siemens/ix-angular` | ^5.0.0 | Angular bindings |
-| `@siemens/ix-icons` | ^3.2.0 | Icon library |
-| `@siemens/ix-echarts` | ^4.0.0 | ECharts integration |
-| `@siemens/ix-aggrid` | ^5.0.0 | AG Grid integration |
-
-## Useful Links
+## Useful links
 
 - [Siemens iX Documentation](https://ix.siemens.io/)
 - [Siemens iX GitHub](https://github.com/siemens/ix)
