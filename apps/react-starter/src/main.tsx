@@ -1,32 +1,32 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { HashRouter } from 'react-router-dom';
-import * as echarts from 'echarts/core';
-import { LineChart } from 'echarts/charts';
-import {
-  GridComponent,
-  TooltipComponent,
-  TitleComponent,
-  LegendComponent,
-} from 'echarts/components';
-import { CanvasRenderer } from 'echarts/renderers';
+import { themeSwitcher } from '@siemens/ix';
 import { registerTheme } from '@siemens/ix-echarts';
-import { ModuleRegistry, AllCommunityModule } from 'ag-grid-community';
 import { addIcons } from '@siemens/ix-icons';
 import {
   iconHome,
   iconPiechart,
-  iconTextDocument,
-  iconTable,
   iconQuestion,
+  iconTable,
+  iconTextDocument,
 } from '@siemens/ix-icons/icons';
+import { AllCommunityModule, ModuleRegistry } from 'ag-grid-community';
+import { LineChart } from 'echarts/charts';
+import {
+  GridComponent,
+  LegendComponent,
+  TitleComponent,
+  TooltipComponent,
+} from 'echarts/components';
+import * as echarts from 'echarts/core';
+import { CanvasRenderer } from 'echarts/renderers';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { HashRouter } from 'react-router-dom';
+
 import App from './App';
 import { ErrorBoundary } from './components/ErrorBoundary';
-import { themeSwitcher } from '@siemens/ix';
-
 import '@siemens/ix/dist/siemens-ix/siemens-ix.css';
 
-addIcons({ iconHome, iconPiechart, iconTextDocument, iconTable, iconQuestion });
+addIcons({ iconHome, iconPiechart, iconQuestion, iconTable, iconTextDocument });
 echarts.use([
   LineChart,
   GridComponent,
@@ -43,11 +43,11 @@ function optionalTheme(): void {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href = `${import.meta.env.BASE_URL}theme/dist/css/brand-theme.css`;
-    document.head.appendChild(link);
+    document.head.append(link);
     const script = document.createElement('script');
     script.src = `${import.meta.env.BASE_URL}theme/dist/index.js`;
     script.type = 'module';
-    document.head.appendChild(script);
+    document.head.append(script);
     themeSwitcher.setTheme('brand', 'dark');
   } else {
     themeSwitcher.setTheme('classic', 'dark');
@@ -55,12 +55,12 @@ function optionalTheme(): void {
 }
 optionalTheme();
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.querySelector('#root')!).render(
   <React.StrictMode>
     <ErrorBoundary>
       <HashRouter>
         <App />
       </HashRouter>
     </ErrorBoundary>
-  </React.StrictMode>
+  </React.StrictMode>,
 );

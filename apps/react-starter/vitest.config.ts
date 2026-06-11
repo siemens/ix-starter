@@ -5,12 +5,12 @@ import { configDefaults, defineConfig } from 'vitest/config';
 export default defineConfig({
   plugins: [react()],
   test: {
-    exclude: [...configDefaults.exclude, 'e2e/**'],
-    passWithNoTests: true,
     browser: {
       enabled: true,
-      provider: playwright(),
       instances: [{ browser: 'chromium' }],
+      provider: playwright(),
     },
+    exclude: [...configDefaults.exclude, 'e2e/**'],
+    passWithNoTests: true,
   },
 });
