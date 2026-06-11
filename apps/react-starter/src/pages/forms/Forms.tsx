@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 import {
   IxInput,
   IxSelect,
@@ -10,33 +10,31 @@ import {
   IxContentHeader,
   IxTypography,
   showMessage,
-} from '@siemens/ix-react';
-import stylesModule from './Forms.module.css';
-
-const styles = stylesModule as unknown as Record<string, string>;
+} from "@siemens/ix-react";
+import styles from "./Forms.module.css";
 
 const INSPECTION_TYPES = [
-  'Visual Inspection',
-  'Dimensional Check',
-  'Functional Test',
-  'Safety Audit',
+  "Visual Inspection",
+  "Dimensional Check",
+  "Functional Test",
+  "Safety Audit",
 ];
 
 function Forms() {
-  const [inspectorName, setInspectorName] = useState('');
-  const [inspectionType, setInspectionType] = useState('');
-  const [inspectionDate, setInspectionDate] = useState('');
-  const [inspectionMode, setInspectionMode] = useState('inline');
+  const [inspectorName, setInspectorName] = useState("");
+  const [inspectionType, setInspectionType] = useState("");
+  const [inspectionDate, setInspectionDate] = useState("");
+  const [inspectionMode, setInspectionMode] = useState("inline");
 
   const handleSave = async () => {
     await showMessage({
-      messageTitle: 'Confirm inspection assignment?',
-      message: 'The inspection will be assigned and a notification will be sent to the inspector.',
-      icon: 'question',
+      messageTitle: "Confirm inspection assignment?",
+      message: "The inspection will be assigned and a notification will be sent to the inspector.",
+      icon: "question",
       centered: true,
       actions: [
-        { id: 'cancel', text: 'Cancel', type: 'cancel' },
-        { id: 'ok', text: 'Confirm', type: 'okay' },
+        { id: "cancel", text: "Cancel", type: "cancel" },
+        { id: "ok", text: "Confirm", type: "okay" },
       ],
     });
   };
@@ -49,7 +47,11 @@ function Forms() {
         validating user input.
       </IxTypography>
 
-      <form className={styles.formContainer} aria-label="Inspection assignment form" onSubmit={(e) => e.preventDefault()}>
+      <form
+        className={styles.formContainer}
+        aria-label="Inspection assignment form"
+        onSubmit={(e) => e.preventDefault()}
+      >
         <IxInput
           label="Inspector Name"
           placeholder="Jane Doe"
@@ -90,7 +92,7 @@ function Forms() {
 
         <div className={styles.buttonRow}>
           <IxButton variant="primary" aria-label="Save inspection assignment" onClick={handleSave}>
-            {'Save'}
+            {"Save"}
           </IxButton>
         </div>
       </form>

@@ -1,0 +1,15 @@
+diff --git a/internal/stencil-ext-modules.d.ts b/internal/stencil-ext-modules.d.ts
+index 06c9b3b1d22a2675ff0f2f69ac072f3accd02b2c..92dbbb040c3ba6428d7643e34d09a13f050d3b73 100644
+--- a/internal/stencil-ext-modules.d.ts
++++ b/internal/stencil-ext-modules.d.ts
+@@ -1,3 +1,10 @@
++type CSSModuleClasses = { readonly [key: string]: string }
++
++declare module '*.module.css' {
++  const classes: CSSModuleClasses
++  export default classes
++}
++
+ declare module '*.css' {
+   const src: string;
+   export default src;
