@@ -1,9 +1,3 @@
 {
-  "recommendations": [
-    "esbenp.prettier-vscode",
-    "firsttris.vscode-jest-runner",
-    "dbaeumer.vscode-eslint",
-    "EditorConfig.EditorConfig",
-    "psioniq.psi-header"
-  ]
+  "recommendations": ["EditorConfig.EditorConfig"]
 }
