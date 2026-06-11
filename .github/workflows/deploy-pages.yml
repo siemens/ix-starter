@@ -1,0 +1,81 @@
+name: Deploy GitHub Page
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm_deployment:
+        description: "Please confirm deployment"
+        required: true
+        type: boolean
+
+concurrency: deploy-gh-pages-${{ github.ref }}
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy-react-starter:
+    if: ${{ inputs.confirm_deployment == true && github.repository == 'siemens/ix-starter' }}
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}react-starter/
+    steps:
+      - name: Checkout
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
+
+      - uses: ./.github/workflows/actions/install
+
+      - name: Install brand theme
+        run: pnpm --filter ix-theme-downloader download
+        env:
+          CSC_TOKEN: ${{ secrets.CSC_TOKEN }}
+          BRAND_URL: ${{ vars.BRAND_URL }}
+          BRAND_VERSION: ${{ vars.BRAND_VERSION }}
+
+      - name: Build React Starter
+        run: |
+          pnpm --filter ix-react-starter exec tsc
+          pnpm --filter ix-react-starter exec vite build --base=/ix-starter/react-starter/
+
+      - name: Inject brand theme into React Starter artifact
+        run: |
+          rm -rf apps/react-starter/dist/theme
+          cp -R node_modules/@siemens-ix/corporate-theme apps/react-starter/dist/theme
+          node <<'NODE'
+          const fs = require('node:fs');
+
+          const indexPath = 'apps/react-starter/dist/index.html';
+          const base = '/ix-starter/react-starter/';
+          let html = fs.readFileSync(indexPath, 'utf8');
+
+          if (!html.includes('data-ix-theme="classic"')) {
+            throw new Error('Expected classic theme marker in React Starter build artifact');
+          }
+
+          html = html.replace('data-ix-theme="classic"', 'data-ix-theme="brand"');
+
+          const themeAssets = [
+            `<link rel="stylesheet" href="${base}theme/dist/css/brand-theme.css">`,
+            `<script type="module" src="${base}theme/dist/index.js"></script>`,
+          ].join('\n    ');
+
+          html = html.replace('</head>', `    ${themeAssets}\n  </head>`);
+          fs.writeFileSync(indexPath, html);
+          NODE
+
+      - name: Prepare GitHub Pages artifact
+        run: |
+          mkdir -p github-pages/react-starter
+          cp -R apps/react-starter/dist/. github-pages/react-starter/
+
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: github-pages
+
+      - name: Deploy React Starter
+        id: deployment
+        uses: actions/deploy-pages@v4

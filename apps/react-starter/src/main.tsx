@@ -22,7 +22,6 @@ import {
 } from '@siemens/ix-icons/icons';
 import App from './App';
 import { ErrorBoundary } from './components/ErrorBoundary';
-import { themeSwitcher } from '@siemens/ix';
 
 import '@siemens/ix/dist/siemens-ix/siemens-ix.css';
 
@@ -37,23 +36,6 @@ echarts.use([
 ]);
 registerTheme(echarts);
 ModuleRegistry.registerModules([AllCommunityModule]);
-
-function optionalTheme(): void {
-  if (import.meta.env.VITE_THEME) {
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = `${import.meta.env.BASE_URL}theme/dist/css/brand-theme.css`;
-    document.head.appendChild(link);
-    const script = document.createElement('script');
-    script.src = `${import.meta.env.BASE_URL}theme/dist/index.js`;
-    script.type = 'module';
-    document.head.appendChild(script);
-    themeSwitcher.setTheme('brand', 'dark');
-  } else {
-    themeSwitcher.setTheme('classic', 'dark');
-  }
-}
-optionalTheme();
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
