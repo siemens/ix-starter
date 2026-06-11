@@ -1,88 +1,84 @@
-import { registerTheme } from "@siemens/ix-echarts";
-import { iconLogOut, iconUserSettings, iconHome, iconProject } from "@siemens/ix-icons/icons";
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import {
   IxApplication,
   IxApplicationHeader,
   IxAvatar,
-  IxContent,
-  IxDropdownItem,
   IxMenu,
   IxMenuItem,
-  IxMenuSettings,
-  IxMenuSettingsItem,
-} from "@siemens/ix-react";
-import * as echarts from "echarts/core";
-import { useEffect, useRef } from "react";
-import { useTranslation } from "react-i18next";
-import { NavLink, Outlet } from "react-router-dom";
-import useShowDemoMessage from "./hooks/demoMessage";
-import Logo from "./Logo";
-import UserSettings from "./pages/user-settings";
-import { useDataStore } from "./store/device-store";
-import ApplicationSettings from "./pages/application-settings";
+  IxContent,
+} from '@siemens/ix-react';
+import { ErrorBoundary } from './components/ErrorBoundary';
+import { CompanyLogo } from './components/CompanyLogo';
 
-registerTheme(echarts);
+import GetStarted from './pages/get-started/GetStarted';
+import Forms from './pages/forms/Forms';
+import Charts from './pages/charts/Charts';
+import Grids from './pages/grids/Grids';
+import './App.css';
 
 function App() {
-  const menuRef = useRef<HTMLIxMenuElement>(null);
-  const showDemoMessage = useShowDemoMessage();
-  const { fetch } = useDataStore();
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  useEffect(() => {
-    fetch();
-  }, [fetch]);
-
-  const { t } = useTranslation();
+  const isActive = (path: string): boolean => location.pathname === path;
 
   return (
-    <IxApplication>
-      <IxApplicationHeader name="Siemens Industrial Experience">
-        <Logo />
-        <IxAvatar username="Your user" extra="Administrator">
-          <IxDropdownItem
-            icon={iconUserSettings}
-            label={t("settings.user-settings")}
-            onClick={showDemoMessage}
-          />
-          <IxDropdownItem icon={iconLogOut} label="Logout" onClick={showDemoMessage} />
-        </IxAvatar>
-      </IxApplicationHeader>
-      <IxMenu
-        ref={menuRef}
-        enableToggleTheme
-        i18nToggleTheme={t("toggle-theme")}
-        i18nSettings={t("settings.title")}
-      >
-        <NavLink to="/">
-          {({ isActive }: { isActive: boolean }) => (
-            <IxMenuItem active={isActive} icon={iconHome}>
-              {t("overview")}
-            </IxMenuItem>
-          )}
-        </NavLink>
+    <>
+      <a href="#main-content" className="skip-link">Skip to main content</a>
+      <IxApplication>
+        <IxApplicationHeader name="Siemens Industrial Experience Starter App">
+          <div slot="logo">
+            <CompanyLogo />
+          </div>
+          <IxAvatar initials="JD" aria-label="User avatar: JD" />
+        </IxApplicationHeader>
 
-        <NavLink to="/devices">
-          {({ isActive }: { isActive: boolean }) => (
-            <IxMenuItem active={isActive} icon={iconProject}>
-              {t("devices")}
-            </IxMenuItem>
-          )}
-        </NavLink>
+        <IxMenu enableToggleTheme aria-label="Main navigation">
+          <IxMenuItem
+            icon="home"
+            active={isActive('/')}
+            onClick={(e) => { e.preventDefault(); navigate('/'); }}
+          >
+            Get Started
+          </IxMenuItem>
+          <IxMenuItem
+            icon="text-document"
+            active={isActive('/forms')}
+            onClick={(e) => { e.preventDefault(); navigate('/forms'); }}
+          >
+            Forms
+          </IxMenuItem>
+          <IxMenuItem
+            icon="piechart"
+            active={isActive('/charts')}
+            onClick={(e) => { e.preventDefault(); navigate('/charts'); }}
+          >
+            Charts
+          </IxMenuItem>
+          <IxMenuItem
+            icon="table"
+            active={isActive('/grids')}
+            onClick={(e) => { e.preventDefault(); navigate('/grids'); }}
+          >
+            Grids
+          </IxMenuItem>
+        </IxMenu>
 
-        <IxMenuSettings label={t("settings.title")}>
-          <IxMenuSettingsItem label={t("settings.user-settings")}>
-            <UserSettings />
-          </IxMenuSettingsItem>
-          <IxMenuSettingsItem label={t("settings.application-settings")}>
-            <ApplicationSettings />
-          </IxMenuSettingsItem>
-        </IxMenuSettings>
-      </IxMenu>
-
-      <IxContent>
-        <Outlet></Outlet>
-      </IxContent>
-    </IxApplication>
+        <IxContent>
+          <div id="main-content" tabIndex={-1}>
+            <ErrorBoundary>
+              <Routes>
+                <Route path="/" element={<GetStarted />} />
+                <Route path="/forms" element={<Forms />} />
+                <Route path="/charts" element={<Charts />} />
+                <Route path="/grids" element={<Grids />} />
+                <Route path="*" element={<GetStarted />} />
+              </Routes>
+            </ErrorBoundary>
+          </div>
+        </IxContent>
+      </IxApplication>
+    </>
   );
 }
 

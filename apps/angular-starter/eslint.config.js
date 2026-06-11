@@ -1,49 +1,53 @@
-// @ts-check
-const eslint = require("@eslint/js");
-const tseslint = require("typescript-eslint");
-const angular = require("angular-eslint");
-const eslintConfigPrettier = require("eslint-config-prettier");
+import eslint from '@eslint/js';
+import tseslint from 'typescript-eslint';
+import angular from '@angular-eslint/eslint-plugin';
+import angularTemplate from '@angular-eslint/eslint-plugin-template';
+import templateParser from '@angular-eslint/template-parser';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-module.exports = tseslint.config(
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+export default tseslint.config(
   {
-    files: ["**/*.ts"],
-    extends: [
-      eslint.configs.recommended,
-      ...tseslint.configs.recommended,
-      ...tseslint.configs.stylistic,
-      ...angular.configs.tsRecommended,
-    ],
-    processor: angular.processInlineTemplates,
+    ignores: ['dist/', '.angular/'],
+  },
+  {
+    files: ['**/*.ts'],
+    extends: [eslint.configs.recommended, ...tseslint.configs.recommended],
+    languageOptions: {
+      parserOptions: {
+        project: './tsconfig.json',
+        tsconfigRootDir: __dirname,
+      },
+    },
+    plugins: {
+      '@angular-eslint': angular,
+    },
     rules: {
-      "@angular-eslint/directive-selector": [
-        "error",
-        {
-          type: "attribute",
-          prefix: "app",
-          style: "camelCase",
-        },
+      '@angular-eslint/directive-selector': [
+        'error',
+        { type: 'attribute', prefix: 'app', style: 'camelCase' },
       ],
-      "@angular-eslint/component-selector": [
-        "error",
-        {
-          type: "element",
-          prefix: "app",
-          style: "kebab-case",
-        },
+      '@angular-eslint/component-selector': [
+        'error',
+        { type: 'element', prefix: 'app', style: 'kebab-case' },
       ],
-      "@typescript-eslint/no-explicit-any": "off",
+      '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+      '@typescript-eslint/no-explicit-any': 'warn',
     },
   },
   {
-    files: ["**/*.html"],
-    extends: [
-      ...angular.configs.templateRecommended,
-      ...angular.configs.templateAccessibility,
-    ],
-    rules: {
-      "@angular-eslint/template/click-events-have-key-events": "off",
-      "@angular-eslint/template/interactive-supports-focus": "off",
+    files: ['**/*.html'],
+    plugins: {
+      '@angular-eslint/template': angularTemplate,
     },
-  },
-  eslintConfigPrettier,
+    languageOptions: {
+      parser: templateParser,
+    },
+    rules: {
+      '@angular-eslint/template/banana-in-box': 'error',
+      '@angular-eslint/template/no-negated-async': 'error',
+    },
+  }
 );

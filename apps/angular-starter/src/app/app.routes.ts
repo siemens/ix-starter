@@ -1,19 +1,13 @@
 import { Routes } from '@angular/router';
-import { OverviewComponent } from './pages/overview/overview.component';
-import { DevicesComponent } from './pages/devices/devices.component';
+import { GetStartedComponent } from './pages/get-started/get-started.component';
+import { FormsComponent } from './pages/forms/forms.component';
+import { ChartsComponent } from './pages/charts/charts.component';
+import { GridsComponent } from './pages/grids/grids.component';
 
 export const routes: Routes = [
-  {
-    path: '',
-    redirectTo: 'overview',
-    pathMatch: 'full',
-  },
-  {
-    path: 'overview',
-    component: OverviewComponent,
-  },
-  {
-    path: 'devices',
-    component: DevicesComponent,
-  },
+  { path: '', component: GetStartedComponent },
+  { path: 'forms', component: FormsComponent },
+  { path: 'charts', component: ChartsComponent },
+  { path: 'grids', component: GridsComponent },
+  { path: '**', redirectTo: '' },
 ];

@@ -1,114 +1,50 @@
-import { Component, inject, OnInit } from '@angular/core';
-import {
-  NavigationEnd,
-  Router,
-  RouterLink,
-  RouterOutlet,
-} from '@angular/router';
+import { Component, ErrorHandler, OnInit, ViewChild } from '@angular/core';
+import { RouterLink, RouterOutlet, Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import {
   IxApplication,
   IxApplicationHeader,
   IxAvatar,
-  IxDropdownItem,
   IxMenu,
   IxMenuItem,
-  IxMenuSettingsItem,
-  IxMenuSettings,
-  IxTypography,
-  IxToggle,
-  IxUpload,
+  IxContent,
 } from '@siemens/ix-angular/standalone';
-import { addIcons } from '@siemens/ix-icons';
-import {
-  iconStar,
-  iconStarFilled,
-  iconHome,
-  iconProject,
-  iconUserSettings,
-  iconLogOut,
-} from '@siemens/ix-icons/icons';
-import { useShowDemoMessage } from './shared/utlis';
-import { SettingsComponent } from './pages/settings/settings/settings.component';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { filter } from 'rxjs';
-import { themeSwitcher } from '@siemens/ix';
+import { ErrorBoundaryComponent } from './error-boundary.component';
+import { GlobalErrorHandler } from './error-handler';
+import { CompanyLogoComponent } from './company-logo.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    IxApplication,
-    IxApplicationHeader,
-    IxMenu,
-    IxMenuItem,
-    IxAvatar,
-    IxDropdownItem,
-    IxMenuSettingsItem,
-    IxMenuSettings,
+    CommonModule,
     RouterOutlet,
     RouterLink,
-    IxTypography,
-    IxToggle,
-    IxUpload,
-    SettingsComponent,
-    TranslateModule,
+    IxApplication,
+    IxApplicationHeader,
+    IxAvatar,
+    IxMenu,
+    IxMenuItem,
+    IxContent,
+    ErrorBoundaryComponent,
   ],
   templateUrl: './app.component.html',
-
-  styleUrl: './app.component.scss',
+  styleUrl: './app.component.css',
 })
 export class AppComponent implements OnInit {
-  activePage = 'overview';
-  activeSettingsTab = 'user-settings'; // Track active settings tab
-  private readonly router = inject(Router);
-  private readonly translateService = inject(TranslateService);
-  constructor() {
-    addIcons({
-      iconStar,
-      iconStarFilled,
-      iconHome,
-      iconProject,
-      iconUserSettings,
-      iconLogOut,
-    });
-  }
+  @ViewChild(ErrorBoundaryComponent, { static: true }) boundary!: ErrorBoundaryComponent;
+  protected readonly companyLogoComponent = CompanyLogoComponent;
+
+  constructor(private router: Router, private errorHandler: ErrorHandler) {}
 
   ngOnInit() {
-    themeSwitcher.setTheme('theme-classic-dark');
-    this.setActivePageFromUrl(this.router.url);
-    // Listen to route changes
-    this.router.events
-      .pipe(filter((event) => event instanceof NavigationEnd))
-      .subscribe((event: NavigationEnd) => {
-        this.setActivePageFromUrl(event.url);
-      });
-
-    // Ensure the first tab is active by default
-    this.activeSettingsTab = 'user-settings';
+    (this.errorHandler as GlobalErrorHandler).registerBoundary(this.boundary);
   }
 
-  private setActivePageFromUrl(url: string) {
-    if (url.includes('devices')) {
-      this.activePage = 'devices';
-    } else if (url.includes('overview')) {
-      this.activePage = 'overview';
+  isActiveRoute(path: string): boolean {
+    if (path === '/') {
+      return this.router.url === '/' || this.router.url === '';
     }
-  }
-
-  openModal() {
-    useShowDemoMessage();
-  }
-
-  setActiveSettingsTab(event: any) {
-    const selectedLabel = event.detail;
-
-    const userSettingsLabel = this.translateService.instant('settings.user-settings');
-    const appSettingsLabel = this.translateService.instant('settings.application-settings');
-
-    if (selectedLabel === userSettingsLabel) {
-      this.activeSettingsTab = 'user-settings';
-    } else if (selectedLabel === appSettingsLabel) {
-      this.activeSettingsTab = 'application-settings';
-    }
+    return this.router.url === path || this.router.url.startsWith(path + '/');
   }
 }
