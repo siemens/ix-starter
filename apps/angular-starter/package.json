@@ -24,7 +24,7 @@
     "@siemens/ix-aggrid": "^5.0.0",
     "@siemens/ix-angular": "^5.0.0",
     "@siemens/ix-echarts": "^4.0.0",
-    "@siemens/ix-icons": "^3.2.0",
+    "@siemens/ix-icons": "^3.4.0",
     "ag-grid-angular": "^33.0.0",
     "ag-grid-community": "^33.0.0",
     "echarts": "^5.4.1",
