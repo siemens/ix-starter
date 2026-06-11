@@ -1,0 +1,40 @@
+{
+  "name": "angularnext-starter",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
+  },
+  "private": true,
+  "packageManager": "pnpm@10.17.0",
+  "dependencies": {
+    "@angular/common": "^21.2.0",
+    "@angular/compiler": "^21.2.0",
+    "@angular/core": "^21.2.0",
+    "@angular/forms": "^21.2.0",
+    "@angular/platform-browser": "^21.2.0",
+    "@angular/router": "^21.2.0",
+    "@siemens/ix-aggrid": "^5.0.0",
+    "@siemens/ix-angular": "^5.0.0",
+    "@siemens/ix-echarts": "^4.0.0",
+    "@siemens/ix-icons": "^3.4.0",
+    "@siemens/ix": "^5.0.0",
+    "ag-grid-angular": "^33.0.0",
+    "ag-grid-community": "^33.0.0",
+    "echarts": "^5.4.1",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@angular/build": "^21.2.13",
+    "@angular/cli": "^21.2.13",
+    "@angular/compiler-cli": "^21.2.0",
+    "jsdom": "^28.0.0",
+    "prettier": "^3.8.1",
+    "typescript": "~5.9.2",
+    "vitest": "^4.0.8"
+  }
+}
