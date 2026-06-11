@@ -1,14 +1,14 @@
-import { themeSwitcher } from '@siemens/ix';
-import { getIxTheme } from '@siemens/ix-aggrid';
-import { registerTheme } from '@siemens/ix-echarts';
-import { IxButton, IxContentHeader, IxTypography } from '@siemens/ix-react';
-import * as ag from 'ag-grid-community';
-import { AgGridReact } from 'ag-grid-react';
-import * as echarts from 'echarts/core';
-import { useEffect, useRef, useState } from 'react';
-
-import { CHART_SCATTER_DATA, buildChartOptions } from '../../shared';
-import styles from './Charts.module.css';
+import { useEffect, useRef, useState } from "react";
+import type { MutableRefObject } from "react";
+import { IxTypography, IxContentHeader, IxButton } from "@siemens/ix-react";
+import { themeSwitcher } from "@siemens/ix";
+import { registerTheme } from "@siemens/ix-echarts";
+import * as echarts from "echarts/core";
+import { AgGridReact } from "ag-grid-react";
+import * as ag from "ag-grid-community";
+import { getIxTheme } from "@siemens/ix-aggrid";
+import { buildChartOptions, CHART_SCATTER_DATA } from "../../shared";
+import styles from "./Charts.module.css";
 
 registerTheme(echarts);
 
@@ -16,33 +16,27 @@ const ixTheme = getIxTheme(ag);
 
 const CHART_TABLE_DATA = CHART_SCATTER_DATA.map(([hours, vibration]) => ({
   operatingHours: hours,
-  vibration,
+  vibration: vibration,
 }));
 
 const CHART_TABLE_COL_DEFS: ag.ColDef<{ operatingHours: number; vibration: number }>[] = [
-  { field: 'operatingHours', flex: 1, headerName: 'Operating Hours (Pump A-102)', minWidth: 150 },
-  { field: 'vibration', flex: 1, headerName: 'Vibration (mm/s)', minWidth: 150 },
+  { field: "operatingHours", headerName: "Operating Hours (Pump A-102)", flex: 1, minWidth: 150 },
+  { field: "vibration", headerName: "Vibration (mm/s)", flex: 1, minWidth: 150 },
 ];
 
 function getEChartsThemeName(): string {
   const theme = themeSwitcher.getTheme();
   const colorSchema = themeSwitcher.getColorSchema();
   let mode = colorSchema;
-  if (colorSchema === 'system') {
-    mode = globalThis.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  if (colorSchema === "system") {
+    mode = globalThis.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
   }
   return `theme-${theme}-${mode}`;
 }
 
-type ChartInstanceRef = {
-  current: echarts.ECharts | null;
-};
-
-function initChart(el: HTMLDivElement, instanceRef: ChartInstanceRef) {
+function initChart(el: HTMLDivElement, instanceRef: MutableRefObject<echarts.ECharts | null>) {
   const orphan = echarts.getInstanceByDom(el);
-  if (orphan) {
-    orphan.dispose();
-  }
+  if (orphan) orphan.dispose();
   instanceRef.current = echarts.init(el, getEChartsThemeName());
   instanceRef.current.setOption(buildChartOptions());
 }
@@ -53,9 +47,7 @@ function Charts() {
   const [showTable, setShowTable] = useState(false);
 
   useEffect(() => {
-    if (showTable || !chartRef.current) {
-      return;
-    }
+    if (showTable || !chartRef.current) return;
 
     const existingInstance = echarts.getInstanceByDom(chartRef.current);
     if (existingInstance) {
@@ -65,17 +57,13 @@ function Charts() {
   }, [showTable]);
 
   useEffect(() => {
-    if (!chartRef.current) {
-      return undefined;
-    }
+    if (!chartRef.current) return;
 
     const container = chartRef.current;
 
     const observer = new ResizeObserver((entries) => {
       const { width, height } = entries[0].contentRect;
-      if (width === 0 || height === 0) {
-        return;
-      }
+      if (width === 0 || height === 0) return;
       if (instanceRef.current) {
         instanceRef.current.resize();
       } else {
@@ -86,9 +74,7 @@ function Charts() {
     observer.observe(container);
 
     const handleThemeChange = () => {
-      if (!chartRef.current) {
-        return;
-      }
+      if (!chartRef.current) return;
       initChart(chartRef.current, instanceRef);
     };
 
@@ -108,16 +94,14 @@ function Charts() {
         <IxContentHeader headerTitle="Charts" />
         <IxButton
           variant="secondary"
-          aria-label={showTable ? 'Show as chart' : 'Show as data table'}
-          onClick={() => {
-            setShowTable(!showTable);
-          }}
+          aria-label={showTable ? "Show as chart" : "Show as data table"}
+          onClick={() => setShowTable(!showTable)}
         >
-          {showTable ? 'Show as chart' : 'Show as data table'}
+          {showTable ? "Show as chart" : "Show as data table"}
         </IxButton>
       </div>
       <IxTypography format="body" className={styles.description}>
-        Siemens Industrial Experience provides an{' '}
+        Siemens Industrial Experience provides an{" "}
         <a
           href="https://echarts.apache.org"
           target="_blank"
@@ -125,7 +109,7 @@ function Charts() {
           aria-label="ECharts (opens in a new tab)"
         >
           ECharts
-        </a>{' '}
+        </a>{" "}
         theme.
         <br />
         This lets you use different chart types in the Siemens Industrial Experience design system.
@@ -140,7 +124,7 @@ function Charts() {
           <AgGridReact
             rowData={CHART_TABLE_DATA}
             columnDefs={CHART_TABLE_COL_DEFS}
-            suppressMovableColumns
+            suppressMovableColumns={true}
             domLayout="autoHeight"
             rowHeight={36}
             theme={ixTheme}

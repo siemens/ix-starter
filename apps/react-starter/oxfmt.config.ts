@@ -1,18 +1,21 @@
 import { defineConfig } from 'oxfmt';
 
 export default defineConfig({
-  arrowParens: 'always',
-  bracketSameLine: false,
-  bracketSpacing: true,
-  embeddedLanguageFormatting: 'auto',
-  endOfLine: 'lf',
-  ignorePatterns: ['dist/**', 'coverage/**', 'playwright-report/**', 'test-results/**'],
-  insertFinalNewline: true,
-  jsxSingleQuote: false,
   printWidth: 100,
-  proseWrap: 'preserve',
+  tabWidth: 2,
+  useTabs: false,
   semi: true,
   singleQuote: true,
+  jsxSingleQuote: false,
+  trailingComma: 'all',
+  bracketSpacing: true,
+  bracketSameLine: false,
+  arrowParens: 'always',
+  endOfLine: 'lf',
+  insertFinalNewline: true,
+  embeddedLanguageFormatting: 'auto',
+  proseWrap: 'preserve',
+  ignorePatterns: ['dist/**', 'coverage/**', 'playwright-report/**', 'test-results/**'],
   sortImports: {
     groups: [
       'builtin',
@@ -30,7 +33,4 @@ export default defineConfig({
   sortPackageJson: {
     sortScripts: true,
   },
-  tabWidth: 2,
-  trailingComma: 'all',
-  useTabs: false,
 });

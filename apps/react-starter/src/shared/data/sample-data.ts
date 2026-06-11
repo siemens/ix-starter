@@ -13,21 +13,21 @@ export const CHART_SCATTER_DATA = [
 ];
 
 export const CHART_X_AXIS = {
-  interval: 500,
-  max: 3500,
-  min: 0,
-  name: 'Operating hours',
-  nameGap: 36,
-  nameLocation: 'middle' as const,
   type: 'value' as const,
+  min: 0,
+  max: 3500,
+  interval: 500,
+  name: 'Operating hours',
+  nameLocation: 'middle' as const,
+  nameGap: 36,
 };
 
 export const CHART_Y_AXIS = {
-  interval: 500,
-  max: 2500,
-  min: 0,
-  name: 'Vibration (mm/s)',
   type: 'value' as const,
+  min: 0,
+  max: 2500,
+  interval: 500,
+  name: 'Vibration (mm/s)',
 };
 
 export interface GridRowData {
@@ -37,12 +37,12 @@ export interface GridRowData {
 }
 
 export const GRID_ROW_DATA: GridRowData[] = [
-  { model: 'S7-1500', quantity: 32, series: 'SIMATIC' },
-  { model: 'CMS1200', quantity: 16, series: 'SIPLUS' },
-  { model: 'S7-1200', quantity: 41, series: 'SIMATIC' },
-  { model: 'S7-1500V', quantity: 32, series: 'SIMATIC' },
-  { model: 'ET 200pro', quantity: 52, series: 'SIMATIC' },
-  { model: '828D', quantity: 73, series: 'SINUMERIK' },
+  { series: 'SIMATIC', model: 'S7-1500', quantity: 32 },
+  { series: 'SIPLUS', model: 'CMS1200', quantity: 16 },
+  { series: 'SIMATIC', model: 'S7-1200', quantity: 41 },
+  { series: 'SIMATIC', model: 'S7-1500V', quantity: 32 },
+  { series: 'SIMATIC', model: 'ET 200pro', quantity: 52 },
+  { series: 'SINUMERIK', model: '828D', quantity: 73 },
 ];
 
 export const GRID_COL_DEFS: {
@@ -52,19 +52,40 @@ export const GRID_COL_DEFS: {
   type?: string;
   minWidth?: number;
 }[] = [
-  { field: 'series', flex: 1, headerName: 'Series', minWidth: 120 },
-  { field: 'model', flex: 1, headerName: 'Model', minWidth: 120 },
-  { field: 'quantity', flex: 1, headerName: 'Quantity', minWidth: 100, type: 'rightAligned' },
+  { field: 'series', headerName: 'Series', flex: 1, minWidth: 120 },
+  { field: 'model', headerName: 'Model', flex: 1, minWidth: 120 },
+  { field: 'quantity', headerName: 'Quantity', flex: 1, minWidth: 100, type: 'rightAligned' },
 ];
 
 export function buildChartOptions() {
   return {
-    grid: { bottom: 90, left: 60, right: 30, top: 30 },
+    tooltip: {
+      trigger: 'axis' as const,
+      axisPointer: {
+        type: 'cross' as const,
+        label: { show: false },
+      },
+      backgroundColor: 'var(--theme-color-1)',
+      borderColor: 'var(--theme-color-soft-bdr)',
+      textStyle: {
+        color: 'var(--theme-color-std-text)',
+      },
+      formatter: (params: unknown) => {
+        const p = Array.isArray(params) ? params[0] : params;
+        const marker = p.marker ?? '';
+        const xVal = p.value[0];
+        const yVal = p.value[1];
+        return `${marker} <b>${p.seriesName}</b><br/>Operating hours: ${xVal}<br/>Vibration: ${yVal} mm/s`;
+      },
+    },
     legend: {
+      show: true,
       bottom: '0',
       left: 'center',
-      show: true,
     },
+    grid: { left: 60, right: 30, top: 30, bottom: 90 },
+    xAxis: CHART_X_AXIS,
+    yAxis: CHART_Y_AXIS,
     series: [
       {
         name: 'Pump A-102',
@@ -76,26 +97,5 @@ export function buildChartOptions() {
         smooth: false,
       },
     ],
-    tooltip: {
-      axisPointer: {
-        label: { show: false },
-        type: 'cross' as const,
-      },
-      backgroundColor: 'var(--theme-color-1)',
-      borderColor: 'var(--theme-color-soft-bdr)',
-      formatter: (params: unknown) => {
-        const p = Array.isArray(params) ? params[0] : params;
-        const marker = p.marker ?? '';
-        const xVal = p.value[0];
-        const yVal = p.value[1];
-        return `${marker} <b>${p.seriesName}</b><br/>Operating hours: ${xVal}<br/>Vibration: ${yVal} mm/s`;
-      },
-      textStyle: {
-        color: 'var(--theme-color-std-text)',
-      },
-      trigger: 'axis' as const,
-    },
-    xAxis: CHART_X_AXIS,
-    yAxis: CHART_Y_AXIS,
   };
 }
