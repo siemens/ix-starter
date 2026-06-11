@@ -10,6 +10,7 @@ import {
   IxMenuItem,
 } from '@siemens/ix-angular/standalone';
 import { CompanyLogoComponent } from './../components/company-logo/company-logo.component';
+import { iconHome, iconPiechart, iconTable, iconTextDocument } from '@siemens/ix-icons/icons';
 
 @Component({
   selector: 'app-root',
@@ -28,7 +29,16 @@ import { CompanyLogoComponent } from './../components/company-logo/company-logo.
   styleUrl: './app.css'
 })
 export class App {
+
+  readonly icons = {
+    iconHome,
+    iconTextDocument,
+    iconPiechart,
+    iconTable
+  } as const;
+
   protected readonly companyLogoComponent = CompanyLogoComponent;
+
   constructor(private router: Router) {}
 
   isActiveRoute(path: string): boolean {

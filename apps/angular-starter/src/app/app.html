@@ -9,22 +9,22 @@
 
   <ix-menu enableToggleTheme aria-label="Main navigation">
     <a routerLink="" tabindex="-1">
-      <ix-menu-item icon="home" [attr.active]="isActiveRoute('/') ? '' : null">
+      <ix-menu-item [icon]="icons.iconHome" [attr.active]="isActiveRoute('/') ? '' : null">
         Get Started
       </ix-menu-item>
     </a>
     <a routerLink="forms" tabindex="-1">
-      <ix-menu-item icon="text-document" [attr.active]="isActiveRoute('/forms') ? '' : null">
+      <ix-menu-item [icon]="icons.iconTextDocument" [attr.active]="isActiveRoute('/forms') ? '' : null">
         Forms
       </ix-menu-item>
     </a>
     <a routerLink="charts" tabindex="-1">
-      <ix-menu-item icon="piechart" [attr.active]="isActiveRoute('/charts') ? '' : null">
+      <ix-menu-item [icon]="icons.iconPiechart" [attr.active]="isActiveRoute('/charts') ? '' : null">
         Charts
       </ix-menu-item>
     </a>
     <a routerLink="grids" tabindex="-1">
-      <ix-menu-item icon="table" [attr.active]="isActiveRoute('/grids') ? '' : null">
+      <ix-menu-item [icon]="icons.iconTable" [attr.active]="isActiveRoute('/grids') ? '' : null">
         Grids
       </ix-menu-item>
     </a>

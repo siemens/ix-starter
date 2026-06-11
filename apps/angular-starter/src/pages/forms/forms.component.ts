@@ -12,6 +12,7 @@ import {
   IxButton,
   MessageService,
 } from '@siemens/ix-angular/standalone';
+import { iconQuestion } from '@siemens/ix-icons/icons';
 
 const INSPECTION_TYPES = [
   'Visual Inspection',
@@ -60,7 +61,7 @@ export class FormsComponent {
     await this.messageService.showMessage({
       messageTitle: 'Confirm inspection assignment?',
       message: 'The inspection will be assigned and a notification will be sent to the inspector.',
-      icon: 'question',
+      icon: iconQuestion,
       centered: true,
       actions: [
         { id: 'cancel', text: 'Cancel', type: 'cancel' },

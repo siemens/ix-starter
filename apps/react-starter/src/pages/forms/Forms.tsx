@@ -12,6 +12,7 @@ import {
   showMessage,
 } from "@siemens/ix-react";
 import styles from "./Forms.module.css";
+import { iconQuestion } from "@siemens/ix-icons/icons";
 
 const INSPECTION_TYPES = [
   "Visual Inspection",
@@ -30,7 +31,7 @@ function Forms() {
     await showMessage({
       messageTitle: "Confirm inspection assignment?",
       message: "The inspection will be assigned and a notification will be sent to the inspector.",
-      icon: "question",
+      icon: iconQuestion,
       centered: true,
       actions: [
         { id: "cancel", text: "Cancel", type: "cancel" },

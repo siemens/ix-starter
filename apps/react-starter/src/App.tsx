@@ -15,6 +15,7 @@ import Forms from './pages/forms/Forms';
 import Charts from './pages/charts/Charts';
 import Grids from './pages/grids/Grids';
 import './App.css';
+import { iconHome, iconPiechart, iconTable, iconTextDocument } from '@siemens/ix-icons/icons';
 
 function App() {
   const navigate = useNavigate();
@@ -35,28 +36,28 @@ function App() {
 
         <IxMenu enableToggleTheme aria-label="Main navigation">
           <IxMenuItem
-            icon="home"
+            icon={iconHome}
             active={isActive('/')}
             onClick={(e) => { e.preventDefault(); navigate('/'); }}
           >
             Get Started
           </IxMenuItem>
           <IxMenuItem
-            icon="text-document"
+            icon={iconTextDocument}
             active={isActive('/forms')}
             onClick={(e) => { e.preventDefault(); navigate('/forms'); }}
           >
             Forms
           </IxMenuItem>
           <IxMenuItem
-            icon="piechart"
+            icon={iconPiechart}
             active={isActive('/charts')}
             onClick={(e) => { e.preventDefault(); navigate('/charts'); }}
           >
             Charts
           </IxMenuItem>
           <IxMenuItem
-            icon="table"
+            icon={iconTable}
             active={isActive('/grids')}
             onClick={(e) => { e.preventDefault(); navigate('/grids'); }}
           >

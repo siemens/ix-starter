@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useRouter, useRoute } from 'vue-router';
+import { iconHome, iconTextDocument, iconPiechart, iconTable } from '@siemens/ix-icons/icons';
 import { IxApplication, IxApplicationHeader, IxAvatar, IxMenu, IxMenuItem, IxContent } from '@siemens/ix-vue';
 import ErrorBoundary from './components/ErrorBoundary.vue';
 import CompanyLogo from './components/CompanyLogo.vue';
@@ -20,28 +21,28 @@ const route = useRoute();
 
     <IxMenu enable-toggle-theme aria-label="Main navigation">
       <IxMenuItem
-        icon="home"
+        :icon="iconHome"
         :active="route.path === '/'"
         @click.prevent="router.push('/')"
       >
         Get Started
       </IxMenuItem>
       <IxMenuItem
-        icon="text-document"
+        :icon="iconTextDocument"
         :active="route.path === '/forms'"
         @click.prevent="router.push('/forms')"
       >
         Forms
       </IxMenuItem>
       <IxMenuItem
-        icon="piechart"
+        :icon="iconPiechart"
         :active="route.path === '/charts'"
         @click.prevent="router.push('/charts')"
       >
         Charts
       </IxMenuItem>
       <IxMenuItem
-        icon="table"
+        :icon="iconTable"
         :active="route.path === '/grids'"
         @click.prevent="router.push('/grids')"
       >
