@@ -23,9 +23,14 @@ jobs:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
       - uses: ./.github/workflows/actions/install
 
+      - name: Install Playwright Chromium
+        run: |
+          pnpm --filter ix-angular-starter exec playwright install chromium
+          pnpm --filter ix-react-starter exec playwright install chromium
+          pnpm --filter ix-vue-starter exec playwright install chromium
+
       - name: Build
         run: pnpm build
-
 
       - name: Test
         run: pnpm test
