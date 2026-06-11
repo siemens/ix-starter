@@ -9,7 +9,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "angular-starter": {
+    "ix-angular-starter": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -75,13 +75,13 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "angular-starter:build:production"
+              "buildTarget": "ix-angular-starter:build:production"
             },
             "hosted": {
-              "buildTarget": "angular-starter:build:hosted"
+              "buildTarget": "ix-angular-starter:build:hosted"
             },
             "development": {
-              "buildTarget": "angular-starter:build:development"
+              "buildTarget": "ix-angular-starter:build:development"
             }
           },
           "defaultConfiguration": "development"
