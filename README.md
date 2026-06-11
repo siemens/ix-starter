@@ -48,16 +48,6 @@ pnpm dev
 
 Use the generated folder name from your selected command, for example `my-ix-vue-app` or `my-ix-angular-app`.
 
-## Starter apps
-
-| Framework | Starter path           | Tooling                   | Dev port |
-| --------- | ---------------------- | ------------------------- | -------- |
-| React     | `apps/react-starter`   | Vite + React + TypeScript | 3000     |
-| Vue       | `apps/vue-starter`     | Vite + Vue + TypeScript   | 3200     |
-| Angular   | `apps/angular-starter` | Angular CLI + Angular     | 4200     |
-
-Each starter app is self-contained with its own dependencies, scripts, and build pipeline.
-
 ## Included pages
 
 All starters include the same feature pages:
@@ -68,32 +58,16 @@ All starters include the same feature pages:
 - Grids with AG Grid and the iX theme
 - Theme toggle for light and dark mode
 
-## Included utilities
-
-Each starter is configured with:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Playwright](https://playwright.dev/) for sanity E2E tests
-
 ## Available scripts
 
 Run scripts from the generated starter app folder.
 
-| Script          | Description                  |
-| --------------- | ---------------------------- |
-| `pnpm dev`      | Start the development server |
-| `pnpm build`    | Build for production         |
-| `pnpm lint`     | Run lint checks              |
-| `pnpm test:e2e` | Run Playwright sanity tests  |
-
-## E2E testing
-
-```bash
-pnpm install
-pnpm exec playwright install
-pnpm test:e2e
-```
+| Script       | Description                  |
+| ------------ | ---------------------------- |
+| `pnpm dev`   | Start the development server |
+| `pnpm build` | Build for production         |
+| `pnpm lint`  | Run lint checks              |
+| `pnpm test`  | Run tests                    |
 
 ## Siemens iX packages
 
@@ -111,7 +85,6 @@ pnpm test:e2e
 
 - [Siemens iX Documentation](https://ix.siemens.io/)
 - [Siemens iX GitHub](https://github.com/siemens/ix)
-- [Siemens iX Community](https://community.siemens.com/c/ix/)
 - [ECharts Documentation](https://echarts.apache.org/)
 - [AG Grid Documentation](https://www.ag-grid.com/)
 
