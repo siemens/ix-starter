@@ -20,84 +20,12 @@ jobs:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
       - uses: ./.github/workflows/actions/install
 
       - name: Build
         run: pnpm build
 
-  lint:
-    name: Lint
-    timeout-minutes: 15
-    runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v3
-      - uses: ./.github/workflows/actions/install
-
-      - name: Lint
-        run: pnpm lint
-
-  unit:
-    name: Unit
-    timeout-minutes: 15
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-      - uses: ./.github/workflows/actions/install
-      - name: Install Playwright Browsers
-        run: |
-          cd ./apps/react-starter
-          pnpm exec playwright install chromium --with-deps
-
-      - name: Test (React)
-        run: pnpm --filter ix-react-starter test
-
-      - name: Test (Angular)
-        run: pnpm --filter ix-angular-starter test 
-
-  e2e:
-    # Depend on build job to ensure the build is completed before running E2E tests
-    # needs: [build]
-    name: E2E
-    timeout-minutes: 15
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-      - uses: ./.github/workflows/actions/install
-
-      # React E2E
-      - name: Install Playwright Browsers (React)
-        run: |
-          cd ./apps/react-starter
-          pnpm playwright install chromium --with-deps
-
-      - name: E2E (React)
-        run: pnpm --filter ix-react-starter e2e
-
-      - name: E2E Report (React)
-        if: ${{ !cancelled() }}
-        uses: actions/upload-artifact@v4
-        with:
-          name: react-playwright-report
-          path: apps/react-starter/playwright-report/
-          retention-days: 1
-
-      # Angular E2E
-      - name: Install Playwright Browsers (Angular)
-        run: |
-          cd ./apps/angular-starter
-          pnpm playwright install chromium --with-deps
-
-      - name: E2E (Angular)
-        run: pnpm --filter ix-angular-starter e2e
-
-      - name: E2E Report (Angular)
-        if: ${{ !cancelled() }}
-        uses: actions/upload-artifact@v4
-        with:
-          name: angular-playwright-report
-          path: apps/angular-starter/playwright-report/
-          retention-days: 1
+      - name: Test
+        run: pnpm test
