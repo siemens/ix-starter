@@ -1,5 +1,5 @@
 import { ErrorHandler, inject, Injectable, Injector } from '@angular/core';
-import { ErrorBoundaryComponent } from './error-boundary.component';
+import { ErrorBoundaryComponent } from './../components/error-boundary/error-boundary.component';
 
 @Injectable()
 export class GlobalErrorHandler implements ErrorHandler {

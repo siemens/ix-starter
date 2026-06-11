@@ -1,15 +1,15 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
-  "newProjectRoot": "projects",
   "cli": {
+    "packageManager": "pnpm",
     "cache": {
       "enabled": false
-    },
-    "analytics": "099c972f-75bf-4ca6-83c8-38c7017664a2"
+    }
   },
+  "newProjectRoot": "projects",
   "projects": {
-    "ix-angular-starter": {
+    "angular-starter": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -17,34 +17,37 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular/build:application",
           "options": {
-            "outputPath": "dist",
-            "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "assets": [
               {
                 "glob": "**/*",
-                "input": "src/assets",
-                "output": "/assets"
+                "input": "public"
               }
             ],
             "styles": [
               "node_modules/@siemens/ix/dist/siemens-ix/siemens-ix.css",
               "src/styles.css"
-            ],
-            "scripts": []
+            ]
           },
           "configurations": {
             "production": {
               "budgets": [
-                { "type": "initial", "maximumWarning": "4mb", "maximumError": "5mb" },
-                { "type": "anyComponentStyle", "maximumWarning": "4kb", "maximumError": "8kb" }
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
               ],
-              "outputHashing": "all",
-              "sourceMap": true
+              "outputHashing": "all"
             },
             "hosted": {
               "budgets": [
@@ -69,18 +72,22 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular/build:dev-server",
           "configurations": {
-            "production": { "buildTarget": "ix-angular-starter:build:production" },
-            "development": { "buildTarget": "ix-angular-starter:build:development" }
+            "production": {
+              "buildTarget": "angular-starter:build:production"
+            },
+            "hosted": {
+              "buildTarget": "angular-starter:build:hosted"
+            },
+            "development": {
+              "buildTarget": "angular-starter:build:development"
+            }
           },
           "defaultConfiguration": "development"
         },
-        "lint": {
-          "builder": "@angular-eslint/builder:lint",
-          "options": {
-            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
-          }
+        "test": {
+          "builder": "@angular/build:unit-test"
         }
       }
     }

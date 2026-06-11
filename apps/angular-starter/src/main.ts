@@ -9,7 +9,7 @@ import { addIcons } from '@siemens/ix-icons';
 import { iconHome, iconPiechart, iconTextDocument, iconTable, iconQuestion } from '@siemens/ix-icons/icons';
 import { themeSwitcher } from '@siemens/ix';
 import { appConfig } from './app/app.config';
-import { AppComponent } from './app/app.component';
+import { App } from './app/app';
 import { environment } from './environments/environment';
 
 addIcons({ iconHome, iconPiechart, iconTextDocument, iconTable, iconQuestion });
@@ -36,4 +36,5 @@ function optionalTheme(): void {
 }
 optionalTheme();
 
-bootstrapApplication(AppComponent, appConfig).catch((err) => console.error(err));
+bootstrapApplication(App, appConfig)
+  .catch((err) => console.error(err));
