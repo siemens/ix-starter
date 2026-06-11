@@ -16,7 +16,12 @@ export default [
     languageOptions: {
       ecmaVersion: 2020,
       parserOptions: {
-        project: ['./tsconfig.json', './tsconfig.node.json'],
+        project: [
+          './tsconfig.json',
+          './tsconfig.node.json',
+          './tsconfig.test.json',
+          './tsconfig.e2e.json',
+        ],
         tsconfigRootDir: __dirname,
       },
     },

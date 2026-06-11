@@ -1,4 +1,5 @@
-import { Component, ErrorInfo, ReactNode } from 'react';
+import { Component } from 'react';
+import type { ErrorInfo, ReactNode } from 'react';
 import { IxTypography, IxButton } from '@siemens/ix-react';
 import stylesModule from './ErrorBoundary.module.css';
 

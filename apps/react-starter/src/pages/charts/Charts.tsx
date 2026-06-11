@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState, MutableRefObject } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import type { MutableRefObject } from 'react';
 import { IxTypography, IxContentHeader, IxButton } from '@siemens/ix-react';
 import { themeSwitcher } from '@siemens/ix';
 import { registerTheme } from '@siemens/ix-echarts';
