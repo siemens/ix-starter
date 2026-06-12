@@ -14,13 +14,6 @@ import {
 import styles from "./Forms.module.css";
 import { iconQuestion } from "@siemens/ix-icons/icons";
 
-const INSPECTION_TYPES = [
-  "Visual Inspection",
-  "Dimensional Check",
-  "Functional Test",
-  "Safety Audit",
-];
-
 function Forms() {
   const [inspectorName, setInspectorName] = useState("");
   const [inspectionType, setInspectionType] = useState("");
@@ -67,9 +60,15 @@ function Forms() {
           value={inspectionType}
           onValueChange={(e) => setInspectionType(e.detail as string)}
         >
-          {INSPECTION_TYPES.map((type) => (
-            <IxSelectItem key={type} value={type} label={type} />
-          ))}
+            <IxSelectItem value="Visual Inspection" label="Visual Inspection" />
+            <IxSelectItem value="Dimensional Check" label="Dimensional Check" />
+            <IxSelectItem value="Functional Test" label="Functional Test" />
+            <IxSelectItem value="Safety Audit" label="Safety Audit" />
+            <IxSelectItem value="Pressure Test" label="Pressure Test" />
+            <IxSelectItem value="Material Analysis" label="Material Analysis" />
+            <IxSelectItem value="Electrical Test" label="Electrical Test" />
+            <IxSelectItem value="Thermal Imaging" label="Thermal Imaging" />
+            <IxSelectItem value="Calibration Check" label="Calibration Check" />
         </IxSelect>
 
         <IxDateInput

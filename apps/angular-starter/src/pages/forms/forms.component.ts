@@ -14,13 +14,6 @@ import {
 } from '@siemens/ix-angular/standalone';
 import { iconQuestion } from '@siemens/ix-icons/icons';
 
-const INSPECTION_TYPES = [
-  'Visual Inspection',
-  'Dimensional Check',
-  'Functional Test',
-  'Safety Audit',
-];
-
 @Component({
   selector: 'app-forms-page',
   standalone: true,
@@ -40,7 +33,6 @@ const INSPECTION_TYPES = [
   styleUrl: './forms.component.css',
 })
 export class FormsComponent {
-  INSPECTION_TYPES = INSPECTION_TYPES;
   inspectorName = '';
   inspectionType = '';
   inspectionDate = '';

@@ -14,13 +14,6 @@ import {
 } from "@siemens/ix-vue";
 import { iconQuestion } from "@siemens/ix-icons/icons";
 
-const INSPECTION_TYPES = [
-  "Visual Inspection",
-  "Dimensional Check",
-  "Functional Test",
-  "Safety Audit",
-];
-
 const inspectorName = ref("");
 const inspectionType = ref("");
 const inspectionDate = ref("");
@@ -62,7 +55,15 @@ async function handleSave() {
       :value="inspectionType"
       @value-change="inspectionType = String($event.detail)"
     >
-      <IxSelectItem v-for="type in INSPECTION_TYPES" :key="type" :value="type" :label="type" />
+      <IxSelectItem value="Visual Inspection" label="Visual Inspection" />
+      <IxSelectItem value="Dimensional Check" label="Dimensional Check" />
+      <IxSelectItem value="Functional Test" label="Functional Test" />
+      <IxSelectItem value="Safety Audit" label="Safety Audit" />
+      <IxSelectItem value="Pressure Test" label="Pressure Test" />
+      <IxSelectItem value="Material Analysis" label="Material Analysis" />
+      <IxSelectItem value="Electrical Test" label="Electrical Test" />
+      <IxSelectItem value="Thermal Imaging" label="Thermal Imaging" />
+      <IxSelectItem value="Calibration Check" label="Calibration Check" />
     </IxSelect>
 
     <IxDateInput
