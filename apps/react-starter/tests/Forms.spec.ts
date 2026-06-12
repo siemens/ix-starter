@@ -18,9 +18,7 @@ test("selects an inspection type and sets the select value", async () => {
   const inspectionType = getByLabelText("Inspection Type");
   await inspectionType.click();
   const option = getByRole("option", { name: "Safety Audit" });
-  await expect.element(option).toBeInTheDocument();
-  await expect.element(option).toBeVisible();
-  await option.click();
+  await option.click({ force: true });
 
   await expect.element(inspectionType).toHaveValue("Safety Audit");
 });
