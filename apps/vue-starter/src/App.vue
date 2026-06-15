@@ -2,7 +2,6 @@
 import { useRouter, useRoute } from 'vue-router';
 import { iconHome, iconTextDocument, iconPiechart, iconTable } from '@siemens/ix-icons/icons';
 import { IxApplication, IxApplicationHeader, IxAvatar, IxMenu, IxMenuItem, IxContent } from '@siemens/ix-vue';
-import ErrorBoundary from './components/ErrorBoundary.vue';
 import CompanyLogo from './components/CompanyLogo.vue';
 
 const router = useRouter();
@@ -13,9 +12,7 @@ const route = useRoute();
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <IxApplication>
     <IxApplicationHeader name="Siemens Industrial Experience Starter App">
-      <div slot="logo">
-        <CompanyLogo />
-      </div>
+      <CompanyLogo />
       <IxAvatar initials="JD" aria-label="User avatar: JD" />
     </IxApplicationHeader>
 
@@ -52,9 +49,7 @@ const route = useRoute();
 
     <IxContent>
       <div id="main-content" tabindex="-1">
-        <ErrorBoundary>
-          <router-view />
-        </ErrorBoundary>
+        <router-view />
       </div>
     </IxContent>
   </IxApplication>

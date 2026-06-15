@@ -24,6 +24,7 @@ import { iconHome, iconPiechart, iconTable, iconTextDocument } from '@siemens/ix
     IxMenu,
     IxMenuItem,
     IxContent,
+    CompanyLogoComponent
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'
@@ -36,8 +37,6 @@ export class App {
     iconPiechart,
     iconTable
   } as const;
-
-  protected readonly companyLogoComponent = CompanyLogoComponent;
 
   constructor(private router: Router) {}
 

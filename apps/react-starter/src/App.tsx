@@ -29,9 +29,7 @@ function App() {
       </a>
       <IxApplication>
         <IxApplicationHeader name="Siemens Industrial Experience Starter App">
-          <div slot="logo">
-            <CompanyLogo />
-          </div>
+          <CompanyLogo />
           <IxAvatar initials="JD" aria-label="User avatar: JD" />
         </IxApplicationHeader>
 
