@@ -1,30 +1,21 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { HashRouter } from "react-router-dom";
-import * as echarts from "echarts/core";
+import { registerTheme } from "@siemens/ix-echarts";
+import { AllCommunityModule, ModuleRegistry } from "ag-grid-community";
 import { LineChart } from "echarts/charts";
 import {
   GridComponent,
-  TooltipComponent,
-  TitleComponent,
   LegendComponent,
+  TitleComponent,
+  TooltipComponent,
 } from "echarts/components";
+import * as echarts from "echarts/core";
 import { CanvasRenderer } from "echarts/renderers";
-import { registerTheme } from "@siemens/ix-echarts";
-import { ModuleRegistry, AllCommunityModule } from "ag-grid-community";
-import { addIcons } from "@siemens/ix-icons";
-import {
-  iconHome,
-  iconPiechart,
-  iconTextDocument,
-  iconTable,
-  iconQuestion,
-} from "@siemens/ix-icons/icons";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { HashRouter } from "react-router-dom";
 import App from "./App";
 
 import "@siemens/ix/dist/siemens-ix/siemens-ix.css";
 
-addIcons({ iconHome, iconPiechart, iconTextDocument, iconTable, iconQuestion });
 echarts.use([
   LineChart,
   GridComponent,

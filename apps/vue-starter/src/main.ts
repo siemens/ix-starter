@@ -6,15 +6,11 @@ import { GridComponent, TooltipComponent, TitleComponent, LegendComponent } from
 import { CanvasRenderer } from 'echarts/renderers';
 import { registerTheme } from '@siemens/ix-echarts';
 import { ModuleRegistry, AllCommunityModule } from 'ag-grid-community';
-import { addIcons } from '@siemens/ix-icons';
-import { iconHome, iconPiechart, iconTextDocument, iconTable, iconQuestion } from '@siemens/ix-icons/icons';
 
 import '@siemens/ix/dist/siemens-ix/siemens-ix.css';
 import './styles/global.css';
 
 import App from './App.vue';
-
-addIcons({ iconHome, iconPiechart, iconTextDocument, iconTable, iconQuestion });
 
 echarts.use([LineChart, GridComponent, TooltipComponent, TitleComponent, LegendComponent, CanvasRenderer]);
 registerTheme(echarts);
