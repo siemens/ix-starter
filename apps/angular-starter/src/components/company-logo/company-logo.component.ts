@@ -6,5 +6,4 @@ import { Component } from '@angular/core';
   templateUrl: './company-logo.component.html',
 })
 export class CompanyLogoComponent {
-  protected readonly showLogo = !window.customElements.get('ix-siemens-logo');
 }

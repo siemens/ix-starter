@@ -38,6 +38,8 @@ export class App {
     iconTable
   } as const;
 
+  protected readonly showLogo = !window.customElements.get('ix-siemens-logo');
+
   constructor(private router: Router) {}
 
   isActiveRoute(path: string): boolean {
