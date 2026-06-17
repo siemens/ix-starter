@@ -48,7 +48,7 @@ const route = useRoute();
     </IxMenu>
 
     <IxContent>
-      <div id="main-content" tabindex="-1">
+      <div id="main-content">
         <router-view />
       </div>
     </IxContent>

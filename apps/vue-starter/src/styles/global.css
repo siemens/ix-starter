@@ -4,6 +4,11 @@ html, body, #app {
   padding: 0;
 }
 
+#main-content:focus,
+#main-content:focus-within {
+  outline: var(--theme-color-focus-bdr);
+}
+
 .skip-link {
   position: absolute;
   top: -40px;

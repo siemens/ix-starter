@@ -76,7 +76,7 @@ function App() {
           </IxMenuItem>
         </IxMenu>
 
-        <IxContent id="main-content" tabIndex={-1}>
+        <IxContent id="main-content">
           <Routes>
             <Route path="/" element={<GetStarted />} />
             <Route path="/forms" element={<Forms />} />
