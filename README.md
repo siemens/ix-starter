@@ -2,69 +2,92 @@
 
 [![MIT License](https://img.shields.io/badge/license-MIT-009999.svg?style=flat)](./LICENSE.md)
 
-iX is an open-source design system for designers and developers, to consistently create the perfect digital experience for industrial software products.
+iX is an open-source design system for designers and developers to consistently create great digital experiences for industrial software products. This repository provides ready-to-use starter apps that can be scaffolded with [`degit`](https://github.com/Rich-Harris/degit).
 
 <h3 align="center">
   <a href="https://github.com/siemens/ix">Main Repository</a>
   <span>-</span>
-  <a href="https://ix.siemens.io/docs/installation/">Quickstart</a>
-  <span>-</span>
-  <a href="https://ix.siemens.io/docs/introduction">
-    Documentation
-  </a>
-  <span>-</span>
-  <a href="https://community.siemens.com/c/ix/">Community</a>
+  <a href="https://ix.siemens.io">Documentation</a>
 </h3>
 
+## Scaffold a starter app
 
-## What's inside?
+Use `degit` to copy a starter app into a new project folder without cloning the full repository history.
 
-This Turborepo includes the following packages/apps:
+The current starter version is always available from `main`. Omit a tag to scaffold the current version.
 
-| Name          | Description                                                | Deploy |
-|---------------|------------------------------------------------------------|--------|
-| react-starter | Example application to show some features of the framework | [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/siemens/ix-starter/tree/main/apps/react-starter) |
-| angular-starter | Example application to show some features of the framework | [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/siemens/ix-starter/tree/main/apps/angular-starter) |
+| Framework | Source                 | Command                                                               |
+| --------- | ---------------------- | --------------------------------------------------------------------- |
+| React     | `apps/react-starter`   | `npx degit siemens/ix-starter/apps/react-starter my-ix-react-app`     |
+| Vue       | `apps/vue-starter`     | `npx degit siemens/ix-starter/apps/vue-starter my-ix-vue-app`         |
+| Angular   | `apps/angular-starter` | `npx degit siemens/ix-starter/apps/angular-starter my-ix-angular-app` |
 
-### Utilities
+## Scaffold an older version
 
-This Turborepo has some additional tools already setup for you:
+Older starter versions are stored as repository tags. Append `#<tag>` to the starter source to scaffold a specific older version.
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+For example, use `#v5.0.0` to scaffold starter apps from the `v5.0.0` tag:
 
-### Build
+| Framework | Source                        | Command                                                                      |
+| --------- | ----------------------------- | ---------------------------------------------------------------------------- |
+| React     | `apps/react-starter#v5.0.0`   | `npx degit siemens/ix-starter/apps/react-starter#v5.0.0 my-ix-react-app`     |
+| Vue       | `apps/vue-starter#v5.0.0`     | `npx degit siemens/ix-starter/apps/vue-starter#v5.0.0 my-ix-vue-app`         |
+| Angular   | `apps/angular-starter#v5.0.0` | `npx degit siemens/ix-starter/apps/angular-starter#v5.0.0 my-ix-angular-app` |
 
-To build all apps and packages, run the following command:
+The tag must exist in this repository. If a tag does not exist, `degit` will fail.
 
+## Start development
+
+After scaffolding a starter app, install dependencies and start the development server from the generated project folder.
+
+```bash
+cd my-ix-react-app
+pnpm install
+pnpm dev
 ```
-pnpm build
-```
 
-### Develop
+Use the generated folder name from your selected command, for example `my-ix-vue-app` or `my-ix-angular-app`.
 
-To develop all apps and packages, run the following command:
+## Included pages
 
-#### React
+All starters include the same feature pages:
 
-```
-pnpm dev --filter ix-react-starter
-```
+- Get Started
+- Forms
+- Charts with ECharts and the iX theme
+- Grids with AG Grid and the iX theme
+- Theme toggle for light and dark mode
 
+## Available scripts
 
-#### Angular
+Run scripts from the generated starter app folder.
 
-```
-pnpm dev  --filter ix-angular-starter
+| Script       | Description                  |
+| ------------ | ---------------------------- |
+| `pnpm dev`   | Start the development server |
+| `pnpm build` | Build for production         |
+| `pnpm lint`  | Run lint checks              |
+| `pnpm test`  | Run tests                    |
 
-## Useful Links
+## Siemens iX packages
 
-Learn more about the power of Turborepo:
+| Package               | Description         |
+| --------------------- | ------------------- |
+| `@siemens/ix`         | Core components     |
+| `@siemens/ix-react`   | React bindings      |
+| `@siemens/ix-vue`     | Vue bindings        |
+| `@siemens/ix-angular` | Angular bindings    |
+| `@siemens/ix-icons`   | Icon library        |
+| `@siemens/ix-echarts` | ECharts integration |
+| `@siemens/ix-aggrid`  | AG Grid integration |
 
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+## Useful links
+
+- [Siemens iX Documentation](https://ix.siemens.io/)
+- [Siemens iX GitHub](https://github.com/siemens/ix)
+- [ECharts Documentation](https://echarts.apache.org/)
+- [AG Grid Documentation](https://www.ag-grid.com/)
+
+## License
+
+MIT

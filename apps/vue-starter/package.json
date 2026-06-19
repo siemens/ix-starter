@@ -1,0 +1,36 @@
+{
+  "name": "ix-vue-starter",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@siemens/ix": "^5.0.0",
+    "@siemens/ix-aggrid": "^5.0.0",
+    "@siemens/ix-echarts": "^4.0.0",
+    "@siemens/ix-icons": "^3.4.0",
+    "@siemens/ix-vue": "^5.0.0",
+    "ag-grid-community": "^33.0.0",
+    "ag-grid-vue3": "^33.0.0",
+    "echarts": "^5.4.1",
+    "vue": "^3.5.0",
+    "vue-router": "^4.4.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^24.12.3",
+    "@vitejs/plugin-vue": "^6.0.6",
+    "@vitest/browser-playwright": "^4.1.8",
+    "@vue/tsconfig": "^0.9.1",
+    "typescript": "~6.0.2",
+    "vite": "^8.0.12",
+    "vitest": "^4.1.8",
+    "vitest-browser-vue": "^2.1.0",
+    "vue-tsc": "^3.2.8"
+  }
+}

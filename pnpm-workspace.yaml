@@ -1,8 +1,9 @@
 packages:
-  - "apps/*"
-  - "packages/*"
-  - "tools/*"
+  - apps/*
+  - packages/*
+  - tools/*
 
 minimumReleaseAge: 2880
+
 minimumReleaseAgeExclude:
-  - "@siemens/*"
+  - '@siemens/*'

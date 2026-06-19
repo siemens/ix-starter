@@ -25,7 +25,7 @@ let pkgUrl = process.env.BRAND_URL!;
 const pkgVersion = process.env.BRAND_VERSION!;
 
 if (!pkgUrl) {
-  console.log("No additional theme configured");
+  console.error("BRAND_URL is required");
   process.exit(1);
 }
 
@@ -44,7 +44,6 @@ if (!token) {
 }
 
 const download = async (url: string, file: string) => {
-  console.log("download");
   const response = await axios.get(url, {
     responseType: "arraybuffer",
     headers: {
@@ -73,17 +72,19 @@ const unpack = async (file: string) => {
   );
 };
 
-const __node_modules = path.join(__dirname, "node_modules");
-const __cache = path.join(__node_modules, ".cache", "ix-theme-downloader");
+const __nodeModules = path.join(__dirname, "node_modules");
+const __cache = path.join(__nodeModules, ".cache", "ix-theme-downloader");
 const __themeTgz = path.join(__cache, "theme.tgz");
 
 ensureDirSync(__cache);
 
-if (!fs.existsSync(__node_modules)) {
+if (!fs.existsSync(__nodeModules)) {
   console.error("node_modules not found");
   process.exit(1);
 }
 
 await download(pkgUrl, __themeTgz);
 const unpackTheme = await unpack(__themeTgz);
-fs.moveSync(unpackTheme, path.join(__node_modules, "@siemens-ix", "corporate-theme"));
+fs.moveSync(unpackTheme, path.join(__nodeModules, "@siemens-ix", "corporate-theme"), {
+  overwrite: true,
+});
