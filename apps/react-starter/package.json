@@ -10,11 +10,11 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@siemens/ix": "^5.0.0",
-    "@siemens/ix-aggrid": "^5.0.0",
-    "@siemens/ix-echarts": "^4.0.0",
+    "@siemens/ix": "^5.1.0",
+    "@siemens/ix-aggrid": "^5.0.1",
+    "@siemens/ix-echarts": "^4.1.0",
     "@siemens/ix-icons": "^3.4.0",
-    "@siemens/ix-react": "^5.0.0",
+    "@siemens/ix-react": "^5.1.0",
     "ag-grid-community": "^33.0.0",
     "ag-grid-react": "^33.0.0",
     "echarts": "^5",
