@@ -42,17 +42,17 @@ importers:
         specifier: ^21.2.0
         version: 21.2.16(@angular/common@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/platform-browser@21.2.16(@angular/animations@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1)))(@angular/common@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1)))(rxjs@7.8.2)
       '@siemens/ix':
-        specifier: ^5.0.0
-        version: 5.0.0(@siemens/ix-icons@3.4.0)
+        specifier: ^5.1.0
+        version: 5.1.0(@siemens/ix-icons@3.4.0)
       '@siemens/ix-aggrid':
-        specifier: ^5.0.0
-        version: 5.0.0(@siemens/ix@5.0.0(@siemens/ix-icons@3.4.0))(ag-grid-community@33.3.2)
+        specifier: ^5.0.1
+        version: 5.0.1(@siemens/ix@5.1.0(@siemens/ix-icons@3.4.0))(ag-grid-community@33.3.2)
       '@siemens/ix-angular':
-        specifier: ^5.0.0
-        version: 5.0.0(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/forms@21.2.16(@angular/common@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/platform-browser@21.2.16(@angular/animations@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1)))(@angular/common@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1)))(rxjs@7.8.2))(@siemens/ix-icons@3.4.0)
+        specifier: ^5.1.0
+        version: 5.1.0(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/forms@21.2.16(@angular/common@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/platform-browser@21.2.16(@angular/animations@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1)))(@angular/common@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1)))(rxjs@7.8.2))(@siemens/ix-icons@3.4.0)
       '@siemens/ix-echarts':
-        specifier: ^4.0.0
-        version: 4.0.0(@siemens/ix@5.0.0(@siemens/ix-icons@3.4.0))(echarts@5.6.0)
+        specifier: ^4.1.0
+        version: 4.1.0(@siemens/ix@5.1.0(@siemens/ix-icons@3.4.0))(echarts@5.6.0)
       '@siemens/ix-icons':
         specifier: ^3.4.0
         version: 3.4.0
@@ -106,20 +106,20 @@ importers:
   apps/react-starter:
     dependencies:
       '@siemens/ix':
-        specifier: ^5.0.0
-        version: 5.0.0(@siemens/ix-icons@3.4.0)
+        specifier: ^5.1.0
+        version: 5.1.0(@siemens/ix-icons@3.4.0)
       '@siemens/ix-aggrid':
-        specifier: ^5.0.0
-        version: 5.0.0(@siemens/ix@5.0.0(@siemens/ix-icons@3.4.0))(ag-grid-community@33.3.2)
+        specifier: ^5.0.1
+        version: 5.0.1(@siemens/ix@5.1.0(@siemens/ix-icons@3.4.0))(ag-grid-community@33.3.2)
       '@siemens/ix-echarts':
-        specifier: ^4.0.0
-        version: 4.0.0(@siemens/ix@5.0.0(@siemens/ix-icons@3.4.0))(echarts@5.6.0)
+        specifier: ^4.1.0
+        version: 4.1.0(@siemens/ix@5.1.0(@siemens/ix-icons@3.4.0))(echarts@5.6.0)
       '@siemens/ix-icons':
         specifier: ^3.4.0
         version: 3.4.0
       '@siemens/ix-react':
-        specifier: ^5.0.0
-        version: 5.0.0(@siemens/ix-icons@3.4.0)(@stencil/core@4.36.3)(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+        specifier: ^5.1.0
+        version: 5.1.0(@siemens/ix-icons@3.4.0)(@stencil/core@4.36.3)(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       ag-grid-community:
         specifier: ^33.0.0
         version: 33.3.2
@@ -173,20 +173,20 @@ importers:
   apps/vue-starter:
     dependencies:
       '@siemens/ix':
-        specifier: ^5.0.0
-        version: 5.0.0(@siemens/ix-icons@3.4.0)
+        specifier: ^5.1.0
+        version: 5.1.0(@siemens/ix-icons@3.4.0)
       '@siemens/ix-aggrid':
-        specifier: ^5.0.0
-        version: 5.0.0(@siemens/ix@5.0.0(@siemens/ix-icons@3.4.0))(ag-grid-community@33.3.2)
+        specifier: ^5.0.1
+        version: 5.0.1(@siemens/ix@5.1.0(@siemens/ix-icons@3.4.0))(ag-grid-community@33.3.2)
       '@siemens/ix-echarts':
-        specifier: ^4.0.0
-        version: 4.0.0(@siemens/ix@5.0.0(@siemens/ix-icons@3.4.0))(echarts@5.6.0)
+        specifier: ^4.1.0
+        version: 4.1.0(@siemens/ix@5.1.0(@siemens/ix-icons@3.4.0))(echarts@5.6.0)
       '@siemens/ix-icons':
         specifier: ^3.4.0
         version: 3.4.0
       '@siemens/ix-vue':
-        specifier: ^5.0.0
-        version: 5.0.0(@siemens/ix-icons@3.4.0)(@stencil/core@4.36.3)(vue-router@4.6.4(vue@3.5.35(typescript@6.0.3)))(vue@3.5.35(typescript@6.0.3))
+        specifier: ^5.1.0
+        version: 5.1.0(@siemens/ix-icons@3.4.0)(@stencil/core@4.36.3)(vue-router@4.6.4(vue@3.5.35(typescript@6.0.3)))(vue@3.5.35(typescript@6.0.3))
       ag-grid-community:
         specifier: ^33.0.0
         version: 33.3.2
@@ -345,7 +345,7 @@ packages:
   '@angular/animations@21.2.16':
     resolution: {integrity: sha512-YPhph/OC1A0vkT95XZW6lXMNmi5ly91JeXi+5yeG8CCxfqscVfRNPsYbRWjSueO0cQT2HJ8U1CLteQ5a1OaoHA==}
     engines: {node: ^20.19.0 || ^22.12.0 || >=24.0.0}
-    deprecated: '@angular/animations is deprecated. Use `animate.enter` and `animate.leave` instead.'
+    deprecated: '@angular/animations is deprecated. Use `animate.enter` and `animate.leave` instead. For more information see: https://v22.angular.dev/guide/animations.'
     peerDependencies:
       '@angular/core': 21.2.16
 
@@ -2232,44 +2232,44 @@ packages:
     resolution: {integrity: sha512-rIEdtNTdCCTwuo7B4tMoq5qmbLXdBgmW6Ays1hyno//4OE+HFtvlWZd+hl6KceEyN00IcZ2HRaPnfd71E1JnoA==}
     engines: {node: ^20.19.0 || ^22.12.0 || >=24.0.0, npm: ^6.11.0 || ^7.5.6 || >=8.0.0, yarn: '>= 1.13.0'}
 
-  '@siemens/ix-aggrid@5.0.0':
-    resolution: {integrity: sha512-BnNgUMPSeZs+jTsZ9CrmI4KnPJoXCNwL1b4RedzZeCLQEjzRApWWyYu7e473GKQaUhjf9F9a/777B6qlkKkkgg==}
+  '@siemens/ix-aggrid@5.0.1':
+    resolution: {integrity: sha512-NuDo+b8i+7zDXF+5rgKsHcuIq8VARexFehkBrDepXwqeNiDai6n3fEwzs0MEafrsTI0bXUtexhLxzmRhOOPfjw==}
     peerDependencies:
       '@siemens/ix': ^5.0.0
       ag-grid-community: ^33 || ^34 || ^35
 
-  '@siemens/ix-angular@5.0.0':
-    resolution: {integrity: sha512-YZQIkoAawoRWmTQidiAf4iL2WjfS+GiksBYIqXOWXVZ6jnU91S0YFu4C3JKFR/1vfTlNMFbjcATdqUWW9f/pxA==}
+  '@siemens/ix-angular@5.1.0':
+    resolution: {integrity: sha512-r74Bg3ZP4FdmB+AKAtZqzzGjlMUgKr6xlIe5BULhKbur3Z4qi/JvEnQgCfcGEFbg1BAJrOUUAWQ2pH6ZW5UDqA==}
     peerDependencies:
       '@angular/core': '>=20.0.0'
       '@angular/forms': '>=20.0.0'
       '@siemens/ix-icons': ^3.4.0
 
-  '@siemens/ix-echarts@4.0.0':
-    resolution: {integrity: sha512-4rpbBs/35fkpFPiw0lMr8j1YQRwvncIWfQxp++GTb3dutRygKQx/bK+Uao0tyEG6M0Mo2dr3Ay8qlet8t8Myvw==}
+  '@siemens/ix-echarts@4.1.0':
+    resolution: {integrity: sha512-hhSw0Era7PiZnUyBEBIDPqcfBVMLEm+eWufpi2TIsqzSvxoEQfS3J59K0kRJ0qBzIfRw2q4hwc9sDxFjZ6tU+g==}
     peerDependencies:
       '@siemens/ix': ^5.0.0
-      echarts: ^5.3.3
+      echarts: ^5.0.0 || ^6.0.0
 
   '@siemens/ix-icons@3.4.0':
     resolution: {integrity: sha512-T6maRV+DJ1MjT29phC/miwwc8fP/D8LQGNjc0UlBZnFCLaDMrtasQTREQzff99uROUmHw4nt5A65/ZWnW/j9Pg==}
     engines: {node: '>=22.19.x', pnpm: '>=10.x.x'}
 
-  '@siemens/ix-react@5.0.0':
-    resolution: {integrity: sha512-uXE2N1+z4cuZtcHy4392MUqBXQAzXql5dsXJ7Gu6RhH9zzcY+G7ew1ihqQKKW/8RpibSYwQp8GfacApJQCdoLA==}
+  '@siemens/ix-react@5.1.0':
+    resolution: {integrity: sha512-k/HhSpkytWD/R3Ds8Pt7CZSM4IXgW9GDqsswp0RuBl8t19VF8AfxMYNyhERifq3ByLGnaNRiOgP+Q7x1uOPINg==}
     peerDependencies:
       '@siemens/ix-icons': ^3.4.0
       react: ^18 || ^19
       react-dom: ^18 || ^19
 
-  '@siemens/ix-vue@5.0.0':
-    resolution: {integrity: sha512-9XMQPACXiUVTwWXq/LNR7x6QjgNkWOPio5VMxo6vFCwN0ELlatsYyc+sLDL4CFWY/j0aOTwTf4I8aHrGG7hJMA==}
+  '@siemens/ix-vue@5.1.0':
+    resolution: {integrity: sha512-ecekWx4GJpkF7vPTTEC2+z19bAX7NoCg4bEN6/kyZxTd4StJVbp72UczQIaNwMuaDGTB8q7i/2zgMUkrPKR/Xw==}
     peerDependencies:
       '@siemens/ix-icons': ^3.4.0
       vue: '>=3.2.45'
 
-  '@siemens/ix@5.0.0':
-    resolution: {integrity: sha512-OpuiXkx8ccLXIh1ZQKt+0KtMqApZOLweUXbTxblDFMHt95V/pOYygISmOatIXCgIhZgqEGYcrWJeVTe5rfTmng==}
+  '@siemens/ix@5.1.0':
+    resolution: {integrity: sha512-OXceXfvdGP5YmJ7tacBRK7BU8McvbG01E+Ehnu95ZY931yBMX9J3+R+5rhkcZMv8IwsWosmciRsT7BmAd15oqg==}
     peerDependencies:
       '@siemens/ix-icons': ^3.4.0
 
@@ -2315,12 +2315,12 @@ packages:
       react: ^18 || ^19
       react-dom: ^18 || ^19
 
-  '@stencil/vue-output-target@0.12.2':
-    resolution: {integrity: sha512-XMHUrDDg6L6PtpgDt6MG9G/hLfkJ5wQ+41qKaY7yszNNJjQQKybm5iEXEuCcRv0nTnXu2k5wzGj6KJb5Or1aPQ==}
+  '@stencil/vue-output-target@0.13.2':
+    resolution: {integrity: sha512-mPpT39f+0Y7KrJRKSN6BTWR5fIq1+EMgPG/IZeR3H6d4LaQRnuMs+z4W12b4nuIyUpol+uTSSVOGfOqJKie6rQ==}
     peerDependencies:
       '@stencil/core': '>=2.0.0 || >=3 || >= 4.0.0-beta.0 || >= 4.0.0'
       vue: ^3.4.38
-      vue-router: ^4.5.0
+      vue-router: ^4.5.0 || ^5.0.0
     peerDependenciesMeta:
       '@stencil/core':
         optional: true
@@ -6607,29 +6607,29 @@ snapshots:
     transitivePeerDependencies:
       - chokidar
 
-  '@siemens/ix-aggrid@5.0.0(@siemens/ix@5.0.0(@siemens/ix-icons@3.4.0))(ag-grid-community@33.3.2)':
+  '@siemens/ix-aggrid@5.0.1(@siemens/ix@5.1.0(@siemens/ix-icons@3.4.0))(ag-grid-community@33.3.2)':
     dependencies:
-      '@siemens/ix': 5.0.0(@siemens/ix-icons@3.4.0)
+      '@siemens/ix': 5.1.0(@siemens/ix-icons@3.4.0)
       ag-grid-community: 33.3.2
 
-  '@siemens/ix-angular@5.0.0(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/forms@21.2.16(@angular/common@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/platform-browser@21.2.16(@angular/animations@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1)))(@angular/common@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1)))(rxjs@7.8.2))(@siemens/ix-icons@3.4.0)':
+  '@siemens/ix-angular@5.1.0(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/forms@21.2.16(@angular/common@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/platform-browser@21.2.16(@angular/animations@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1)))(@angular/common@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1)))(rxjs@7.8.2))(@siemens/ix-icons@3.4.0)':
     dependencies:
       '@angular/core': 21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1)
       '@angular/forms': 21.2.16(@angular/common@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/platform-browser@21.2.16(@angular/animations@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1)))(@angular/common@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1)))(rxjs@7.8.2)
-      '@siemens/ix': 5.0.0(@siemens/ix-icons@3.4.0)
+      '@siemens/ix': 5.1.0(@siemens/ix-icons@3.4.0)
       '@siemens/ix-icons': 3.4.0
       tslib: 2.8.1
 
-  '@siemens/ix-echarts@4.0.0(@siemens/ix@5.0.0(@siemens/ix-icons@3.4.0))(echarts@5.6.0)':
+  '@siemens/ix-echarts@4.1.0(@siemens/ix@5.1.0(@siemens/ix-icons@3.4.0))(echarts@5.6.0)':
     dependencies:
-      '@siemens/ix': 5.0.0(@siemens/ix-icons@3.4.0)
+      '@siemens/ix': 5.1.0(@siemens/ix-icons@3.4.0)
       echarts: 5.6.0
 
   '@siemens/ix-icons@3.4.0': {}
 
-  '@siemens/ix-react@5.0.0(@siemens/ix-icons@3.4.0)(@stencil/core@4.36.3)(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)':
+  '@siemens/ix-react@5.1.0(@siemens/ix-icons@3.4.0)(@stencil/core@4.36.3)(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)':
     dependencies:
-      '@siemens/ix': 5.0.0(@siemens/ix-icons@3.4.0)
+      '@siemens/ix': 5.1.0(@siemens/ix-icons@3.4.0)
       '@siemens/ix-icons': 3.4.0
       '@stencil/react-output-target': 1.5.3(@stencil/core@4.36.3)(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       react: 19.2.7
@@ -6639,17 +6639,17 @@ snapshots:
       - '@stencil/core'
       - '@types/react'
 
-  '@siemens/ix-vue@5.0.0(@siemens/ix-icons@3.4.0)(@stencil/core@4.36.3)(vue-router@4.6.4(vue@3.5.35(typescript@6.0.3)))(vue@3.5.35(typescript@6.0.3))':
+  '@siemens/ix-vue@5.1.0(@siemens/ix-icons@3.4.0)(@stencil/core@4.36.3)(vue-router@4.6.4(vue@3.5.35(typescript@6.0.3)))(vue@3.5.35(typescript@6.0.3))':
     dependencies:
-      '@siemens/ix': 5.0.0(@siemens/ix-icons@3.4.0)
+      '@siemens/ix': 5.1.0(@siemens/ix-icons@3.4.0)
       '@siemens/ix-icons': 3.4.0
-      '@stencil/vue-output-target': 0.12.2(@stencil/core@4.36.3)(vue-router@4.6.4(vue@3.5.35(typescript@6.0.3)))(vue@3.5.35(typescript@6.0.3))
+      '@stencil/vue-output-target': 0.13.2(@stencil/core@4.36.3)(vue-router@4.6.4(vue@3.5.35(typescript@6.0.3)))(vue@3.5.35(typescript@6.0.3))
       vue: 3.5.35(typescript@6.0.3)
     transitivePeerDependencies:
       - '@stencil/core'
       - vue-router
 
-  '@siemens/ix@5.0.0(@siemens/ix-icons@3.4.0)':
+  '@siemens/ix@5.1.0(@siemens/ix-icons@3.4.0)':
     dependencies:
       '@floating-ui/dom': 1.7.4
       '@siemens/ix-icons': 3.4.0
@@ -6716,7 +6716,7 @@ snapshots:
     transitivePeerDependencies:
       - '@types/react'
 
-  '@stencil/vue-output-target@0.12.2(@stencil/core@4.36.3)(vue-router@4.6.4(vue@3.5.35(typescript@6.0.3)))(vue@3.5.35(typescript@6.0.3))':
+  '@stencil/vue-output-target@0.13.2(@stencil/core@4.36.3)(vue-router@4.6.4(vue@3.5.35(typescript@6.0.3)))(vue@3.5.35(typescript@6.0.3))':
     dependencies:
       vue: 3.5.35(typescript@6.0.3)
     optionalDependencies:
