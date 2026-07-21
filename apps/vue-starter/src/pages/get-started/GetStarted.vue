@@ -14,19 +14,30 @@ const router = useRouter();
   </IxTypography>
 
   <IxTypography format="body" class="description-short">
-    The starter app includes an application shell and three example pages featuring our most
-    popular components:
+    The starter app includes an application shell and three example pages featuring our most popular
+    components:
   </IxTypography>
 
   <div class="nav-links">
-    <IxLinkButton aria-label="Navigate to Forms page" @click.prevent="router.push('/forms')">Forms</IxLinkButton>
-    <IxLinkButton aria-label="Navigate to Charts page" @click.prevent="router.push('/charts')">Charts</IxLinkButton>
-    <IxLinkButton aria-label="Navigate to Grids page" @click.prevent="router.push('/grids')">Grids</IxLinkButton>
+    <IxLinkButton aria-label="Navigate to Forms page" @click.prevent="router.push('/forms')"
+      >Forms</IxLinkButton
+    >
+    <IxLinkButton aria-label="Navigate to Charts page" @click.prevent="router.push('/charts')"
+      >Charts</IxLinkButton
+    >
+    <IxLinkButton aria-label="Navigate to Grids page" @click.prevent="router.push('/grids')"
+      >Grids</IxLinkButton
+    >
   </div>
 
   <IxTypography format="body" class="description">
     Browse the full component library in our documentation:
-    <a href="https://ix.siemens.io" target="_blank" rel="noreferrer" aria-label="ix.siemens.io (opens in a new tab)">
+    <a
+      href="https://ix.siemens.io"
+      target="_blank"
+      rel="noreferrer"
+      aria-label="ix.siemens.io (opens in a new tab)"
+    >
       ix.siemens.io
     </a>
   </IxTypography>

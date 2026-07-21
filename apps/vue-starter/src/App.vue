@@ -1,7 +1,14 @@
 <script setup lang="ts">
 import { useRouter, useRoute } from 'vue-router';
 import { iconHome, iconTextDocument, iconPiechart, iconTable } from '@siemens/ix-icons/icons';
-import { IxApplication, IxApplicationHeader, IxAvatar, IxMenu, IxMenuItem, IxContent } from '@siemens/ix-vue';
+import {
+  IxApplication,
+  IxApplicationHeader,
+  IxAvatar,
+  IxMenu,
+  IxMenuItem,
+  IxContent,
+} from '@siemens/ix-vue';
 import CompanyLogo from './components/CompanyLogo.vue';
 
 const router = useRouter();
@@ -17,11 +24,7 @@ const route = useRoute();
     </IxApplicationHeader>
 
     <IxMenu enable-toggle-theme aria-label="Main navigation">
-      <IxMenuItem
-        :icon="iconHome"
-        :active="route.path === '/'"
-        @click.prevent="router.push('/')"
-      >
+      <IxMenuItem :icon="iconHome" :active="route.path === '/'" @click.prevent="router.push('/')">
         Get Started
       </IxMenuItem>
       <IxMenuItem

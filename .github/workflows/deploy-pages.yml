@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       confirm_deployment:
-        description: "Please confirm deployment"
+        description: 'Please confirm deployment'
         required: true
         type: boolean
 

@@ -1,10 +1,14 @@
 <ix-content-header headerTitle="Forms"></ix-content-header>
 <ix-typography format="body" class="description">
-  Siemens Industrial Experience provides consistent form elements for collecting and
-  validating user input.
+  Siemens Industrial Experience provides consistent form elements for collecting and validating user
+  input.
 </ix-typography>
 
-<form class="form-container" aria-label="Inspection assignment form" (submit)="$event.preventDefault()">
+<form
+  class="form-container"
+  aria-label="Inspection assignment form"
+  (submit)="$event.preventDefault()"
+>
   <ix-input
     label="Inspector Name"
     placeholder="Jane Doe"
@@ -50,6 +54,8 @@
   </ix-radio-group>
 
   <div class="button-row">
-    <ix-button variant="primary" aria-label="Save inspection assignment" (click)="handleSave()">Save</ix-button>
+    <ix-button variant="primary" aria-label="Save inspection assignment" (click)="handleSave()"
+      >Save</ix-button
+    >
   </div>
 </form>
