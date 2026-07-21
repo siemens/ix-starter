@@ -17,7 +17,8 @@ const ixTheme = getIxTheme(ag);
       target="_blank"
       rel="noreferrer"
       aria-label="AG Grid (opens in a new tab)"
-    >AG Grid</a>.
+      >AG Grid</a
+    >.
     <br />
     This lets you use its features while staying consistent with the Siemens Industrial Experience
     design system.

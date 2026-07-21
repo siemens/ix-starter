@@ -1,17 +1,11 @@
 {
-  "include": [
-    "tsdown.config.ts",
-    "src",
-    "__tests__"
-  ],
+  "include": ["tsdown.config.ts", "src", "__tests__"],
   "compilerOptions": {
     "rootDir": ".",
     "outDir": "dist",
     "target": "es2023",
     "module": "preserve",
-    "types": [
-      "node"
-    ],
+    "types": ["node"],
     "noEmit": true,
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,

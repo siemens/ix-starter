@@ -1,4 +1,4 @@
-import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import {
   IxApplication,
   IxApplicationHeader,
@@ -6,15 +6,15 @@ import {
   IxMenu,
   IxMenuItem,
   IxContent,
-} from "@siemens/ix-react";
-import { CompanyLogo } from "./components/CompanyLogo";
+} from '@siemens/ix-react';
+import { CompanyLogo } from './components/CompanyLogo';
 
-import GetStarted from "./pages/get-started/GetStarted";
-import Forms from "./pages/forms/Forms";
-import Charts from "./pages/charts/Charts";
-import Grids from "./pages/grids/Grids";
-import "./App.css";
-import { iconHome, iconPiechart, iconTable, iconTextDocument } from "@siemens/ix-icons/icons";
+import GetStarted from './pages/get-started/GetStarted';
+import Forms from './pages/forms/Forms';
+import Charts from './pages/charts/Charts';
+import Grids from './pages/grids/Grids';
+import './App.css';
+import { iconHome, iconPiechart, iconTable, iconTextDocument } from '@siemens/ix-icons/icons';
 
 function App() {
   const navigate = useNavigate();
@@ -36,40 +36,40 @@ function App() {
         <IxMenu enableToggleTheme aria-label="Main navigation">
           <IxMenuItem
             icon={iconHome}
-            active={isActive("/")}
-            onClick={(e) => {
+            active={isActive('/')}
+            onClick={e => {
               e.preventDefault();
-              navigate("/");
+              navigate('/');
             }}
           >
             Get Started
           </IxMenuItem>
           <IxMenuItem
             icon={iconTextDocument}
-            active={isActive("/forms")}
-            onClick={(e) => {
+            active={isActive('/forms')}
+            onClick={e => {
               e.preventDefault();
-              navigate("/forms");
+              navigate('/forms');
             }}
           >
             Forms
           </IxMenuItem>
           <IxMenuItem
             icon={iconPiechart}
-            active={isActive("/charts")}
-            onClick={(e) => {
+            active={isActive('/charts')}
+            onClick={e => {
               e.preventDefault();
-              navigate("/charts");
+              navigate('/charts');
             }}
           >
             Charts
           </IxMenuItem>
           <IxMenuItem
             icon={iconTable}
-            active={isActive("/grids")}
-            onClick={(e) => {
+            active={isActive('/grids')}
+            onClick={e => {
               e.preventDefault();
-              navigate("/grids");
+              navigate('/grids');
             }}
           >
             Grids

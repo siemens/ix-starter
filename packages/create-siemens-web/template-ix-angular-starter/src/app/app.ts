@@ -24,18 +24,17 @@ import { iconHome, iconPiechart, iconTable, iconTextDocument } from '@siemens/ix
     IxMenu,
     IxMenuItem,
     IxContent,
-    CompanyLogoComponent
+    CompanyLogoComponent,
   ],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
 export class App {
-
   readonly icons = {
     iconHome,
     iconTextDocument,
     iconPiechart,
-    iconTable
+    iconTable,
   } as const;
 
   protected readonly showLogo = !window.customElements.get('ix-siemens-logo');
