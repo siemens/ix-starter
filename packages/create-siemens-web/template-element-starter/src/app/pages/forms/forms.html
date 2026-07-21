@@ -1,0 +1,140 @@
+<div class="si-layout-header">
+  <h2 class="si-layout-title si-layout-top-element">
+    {{ 'FORMS.HEADING' | translate }}
+  </h2>
+</div>
+<p>{{ 'FORMS.PARAGRAPH_1' | translate }}</p>
+<p>{{ 'FORMS.PARAGRAPH_2' | translate }}</p>
+<div class="card">
+  <div class="card-body">
+    <form class="h-100" [formGroup]="form">
+      <div class="row">
+        <div class="col-12">
+          <si-form-fieldset label="FORMS.FORM.ROLE" inline>
+            <button
+              si-help-button
+              type="button"
+              siHelpTitle="FORMS.FORM.INPUT_HELP_TITLE"
+              siHelpContent="FORMS.FORM.INPUT_HELP_DESCRIPTION"
+              >{{ 'FORMS.FORM.ROLE_MORE_INFORMATION' | translate }}</button
+            >
+            <si-form-item label="FORMS.FORM.ENGINEER">
+              <input
+                type="radio"
+                formControlName="role"
+                value="ENGINEER"
+                id="role-engineer"
+                class="form-check-input"
+              />
+            </si-form-item>
+            <si-form-item label="FORMS.FORM.INSTALLER">
+              <input
+                type="radio"
+                formControlName="role"
+                value="INSTALLER"
+                id="role-installer"
+                class="form-check-input"
+              />
+            </si-form-item>
+          </si-form-fieldset>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <si-form-item label="FORMS.FORM.NAME">
+            <input
+              type="text"
+              id="name"
+              class="form-control"
+              formControlName="name"
+              required
+              minlength="3"
+              pattern="^[A-Z].*"
+            />
+          </si-form-item>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <si-form-item label="FORMS.FORM.DESCRIPTION">
+            <input
+              type="text"
+              id="description"
+              class="w-100 form-control"
+              formControlName="description"
+            />
+          </si-form-item>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <si-form-item label="FORMS.FORM.PHONE_NUMBER">
+            <si-phone-number-input
+              class="form-control"
+              formControlName="phoneNumber"
+              defaultCountry="CH"
+              [supportedCountries]="['AU', 'CH', 'DE', 'FK', 'IN', 'US']"
+            />
+          </si-form-item>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <si-form-item label="FORMS.FORM.BIRTHDAY">
+            <si-calendar-button class="w-100">
+              <input
+                type="text"
+                id="birthday"
+                class="w-100 form-control"
+                autocomplete="off"
+                formControlName="birthday"
+                siDatepicker
+                required
+              />
+            </si-calendar-button>
+          </si-form-item>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <si-form-item label="FORMS.FORM.TRAVEL_DATE">
+            <si-date-range id="travelDate" required formControlName="travelDate" />
+          </si-form-item>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <si-form-item label="FORMS.FORM.ARRIVAL">
+            <si-timepicker id="arrival" formControlName="arrival" [hideLabels]="true" />
+          </si-form-item>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <si-form-item label="FORMS.FORM.DEPARTURE">
+            <si-timepicker id="departure" formControlName="departure" [hideLabels]="true" />
+          </si-form-item>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <si-form-item label="FORMS.FORM.SERVICE_CLASS">
+            <si-select
+              class="form-control"
+              formControlName="serviceClass"
+              id="form-class-label"
+              [options]="optionsList"
+            />
+          </si-form-item>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <si-form-item label="FORMS.FORM.FELLOW_PASSENGERS">
+            <si-number-input class="form-control" formControlName="fellowPassengers" />
+          </si-form-item>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

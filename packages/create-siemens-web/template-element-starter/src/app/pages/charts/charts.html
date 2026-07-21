@@ -1,0 +1,26 @@
+<div class="si-layout-header">
+  <h2 class="si-layout-title si-layout-top-element">
+    {{ 'CHARTS.HEADING' | translate }}
+  </h2>
+</div>
+<p>{{ 'CHARTS.PARAGRAPH_1' | translate }}</p>
+<p>{{ 'CHARTS.PARAGRAPH_2' | translate }}</p>
+<div class="row si-layout-inner flex-row">
+  <div class="col-12">
+    <!-- eslint-disable @angular-eslint/template/no-inline-styles -->
+    <si-chart-cartesian
+      #chart
+      class="bg-base-1 flex"
+      style="min-height: 400px"
+      [title]="'CHARTS.CHART.TITLE' | translate"
+      [xAxis]="{
+        type: 'category',
+        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+      }"
+      [yAxis]="{ type: 'value' }"
+      [series]="series()"
+      [showCustomLegend]="true"
+      (siResizeObserver)="chart.resize()"
+    />
+  </div>
+</div>

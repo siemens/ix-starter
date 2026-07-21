@@ -1,0 +1,32 @@
+<div class="si-layout-header">
+  <h2 class="si-layout-title si-layout-top-element">
+    {{ 'GRIDS.HEADING' | translate }}
+  </h2>
+</div>
+<p>{{ 'GRIDS.PARAGRAPH_1' | translate }}</p>
+<p>{{ 'GRIDS.PARAGRAPH_2' | translate }}</p>
+<ngx-datatable
+  class="table-element si-layout-fixed-height"
+  siDatatableInteraction
+  columnMode="force"
+  [rowHeight]="tableConfig.rowHeightSmall"
+  [rows]="rows()"
+>
+  <ngx-datatable-column
+    prop="name"
+    [name]="'GRIDS.TABLE.COLUMN_NAME' | translate"
+    [flexGrow]="2.5"
+  />
+
+  <ngx-datatable-column
+    prop="department"
+    [name]="'GRIDS.TABLE.COLUMN_DEPARTMENT' | translate"
+    [flexGrow]="2.5"
+  />
+
+  <ngx-datatable-column
+    prop="role"
+    [name]="'GRIDS.TABLE.COLUMN_ROLE' | translate"
+    [flexGrow]="2.5"
+  />
+</ngx-datatable>

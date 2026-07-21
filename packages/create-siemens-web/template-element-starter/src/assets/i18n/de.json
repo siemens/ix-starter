@@ -4,15 +4,73 @@
     "DE": "Deutsch"
   },
   "NAV": {
-    "ACCOUNT": "Konto",
+    "FORMS": "Formulare",
+    "CHARTS": "Diagramme",
+    "GET-STARTED": "Erste Schritte",
+    "GRIDS": "Tabellen",
     "LANGUAGE": "Sprache",
     "THEME": "Theme"
   },
-  "HOME": {
-    "HEADING": "Startseite",
-    "INTRO": "Willkommen zum SiMPL Element Starter-Template",
-    "LINK": "Lese die Doku",
-    "SELECT_LANG": "Wähle deine bevorzugte Sprache"
+  "FORMS": {
+    "HEADING": "Formulare",
+    "PARAGRAPH_1": "Siemens Element integriert die Angular Reactive Forms.",
+    "PARAGRAPH_2": "Dies ermöglicht die Nutzung der Funktionen bei gleichzeitiger Einhaltung des Siemens Element Designsystems.",
+    "FORM": {
+      "ENGINEER": "Ingenieur",
+      "INSTALLER": "Installateur",
+      "INPUT_HELP_TITLE": "Hilfe für Eingaben",
+      "INPUT_HELP_DESCRIPTION": "Der Inhalt sollte kurz und prägnant sein, optional mit Links zu detaillierteren Informationen, die anderswo verfügbar sind, oder jedem anderen interaktiven Element, das zur Erledigung der Aufgabe erforderlich ist.",
+      "ROLE_MORE_INFORMATION": "Weitere Informationen zur Rolle",
+      "NAME": "Name",
+      "ROLE": "Rolle",
+      "DESCRIPTION": "Beschreibung",
+      "PHONE_NUMBER": "Telefonnummer",
+      "BIRTHDAY": "Geburtstag",
+      "TRAVEL_DATE": "Reisedatum",
+      "ARRIVAL": "Ankunft",
+      "DEPARTURE": "Abreise",
+      "SERVICE_CLASS": "Serviceklasse",
+      "FELLOW_PASSENGERS": "Mitreisende"
+    }
+  },
+  "CHARTS": {
+    "HEADING": "Diagramme",
+    "PARAGRAPH_1": "Siemens Element integriert die ECharts-Bibliothek.",
+    "PARAGRAPH_2": "Dies ermöglicht die Nutzung der Funktionen bei gleichzeitiger Einhaltung des Siemens Element Designsystems.",
+    "CHART": {
+      "TITLE": "Änderungen pro Wochentag",
+      "LINES_ADDED": "Hinzugefügte Zeilen",
+      "LINES_REMOVED": "Entfernte Zeilen"
+    }
+  },
+  "GET-STARTED": {
+    "HEADING": "Erste Schritte mit Element",
+    "PARAGRAPH_1": "Erkunden Sie das Siemens Element Designsystem mit unserer interaktiven Starter-App.",
+    "PARAGRAPH_2": "Schneller entwickeln mit einsatzbereiten Komponenten und Dokumentation.",
+    "LINKS": {
+      "CHARTS": {
+        "LABEL": "Diagramme",
+        "TOOLTIP": "Zur Diagramme-Seite navigieren"
+      },
+      "FORMS": {
+        "LABEL": "Formulare",
+        "TOOLTIP": "Zur Formulare-Seite navigieren"
+      },
+      "GRIDS": {
+        "LABEL": "Tabellen",
+        "TOOLTIP": "Zur Tabellen-Seite navigieren"
+      }
+    }
+  },
+  "GRIDS": {
+    "HEADING": "Tabellen",
+    "PARAGRAPH_1": "Siemens Element integriert die ngx-datatable.",
+    "PARAGRAPH_2": "Dies ermöglicht die Nutzung der Funktionen bei gleichzeitiger Einhaltung des Siemens Element Designsystems.",
+    "TABLE": {
+      "COLUMN_NAME": "Name",
+      "COLUMN_DEPARTMENT": "Abteilung",
+      "COLUMN_ROLE": "Rolle"
+    }
   },
   "THEME": {
     "AUTO": "Auto",

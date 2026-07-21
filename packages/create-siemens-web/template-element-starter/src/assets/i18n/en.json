@@ -4,15 +4,73 @@
     "DE": "Deutsch"
   },
   "NAV": {
-    "ACCOUNT": "Account",
+    "FORMS": "Forms",
+    "CHARTS": "Charts",
+    "GET-STARTED": "Get started",
+    "GRIDS": "Grids",
     "LANGUAGE": "Language",
     "THEME": "Theme"
   },
-  "HOME": {
-    "HEADING": "Home",
-    "INTRO": "Welcome to the SiMPL Element starter template",
-    "LINK": "Read the docs",
-    "SELECT_LANG": "Select your preferred language"
+  "FORMS": {
+    "HEADING": "Forms",
+    "PARAGRAPH_1": "Siemens Element integrates the Angular Reactive Forms.",
+    "PARAGRAPH_2": "This lets you use its features while staying consistent with the Siemens Element design system.",
+    "FORM": {
+      "ENGINEER": "Engineer",
+      "INSTALLER": "Installer",
+      "INPUT_HELP_TITLE": "Help for input",
+      "INPUT_HELP_DESCRIPTION": "The content should be short and concise, optionally with links to more detailed information available elsewhere, or any other interactive element needed to complete the task.",
+      "ROLE_MORE_INFORMATION": "More information about the role",
+      "NAME": "Name",
+      "ROLE": "Role",
+      "DESCRIPTION": "Description",
+      "PHONE_NUMBER": "Phone number",
+      "BIRTHDAY": "Birthday",
+      "TRAVEL_DATE": "Travel date",
+      "ARRIVAL": "Arrival",
+      "DEPARTURE": "Departure",
+      "SERVICE_CLASS": "Service class",
+      "FELLOW_PASSENGERS": "Fellow passengers"
+    }
+  },
+  "CHARTS": {
+    "HEADING": "Charts",
+    "PARAGRAPH_1": "Siemens Element integrates the ECharts library.",
+    "PARAGRAPH_2": "This lets you use its features while staying consistent with the Siemens Element design system.",
+    "CHART": {
+      "TITLE": "Changes per week day",
+      "LINES_ADDED": "Lines added",
+      "LINES_REMOVED": "Lines removed"
+    }
+  },
+  "GET-STARTED": {
+    "HEADING": "Get started with Element",
+    "PARAGRAPH_1": "Explore the Siemens Element design system with our interactive starter app.",
+    "PARAGRAPH_2": "Build faster with ready-to-use components and documentation.",
+    "LINKS": {
+      "CHARTS": {
+        "LABEL": "Charts",
+        "TOOLTIP": "Navigate to Charts page"
+      },
+      "FORMS": {
+        "LABEL": "Forms",
+        "TOOLTIP": "Navigate to Forms page"
+      },
+      "GRIDS": {
+        "LABEL": "Grids",
+        "TOOLTIP": "Navigate to Grids page"
+      }
+    }
+  },
+  "GRIDS": {
+    "HEADING": "Grids",
+    "PARAGRAPH_1": "Siemens Element integrates the ngx-datatable.",
+    "PARAGRAPH_2": "This lets you use its features while staying consistent with the Siemens Element design system.",
+    "TABLE": {
+      "COLUMN_NAME": "Name",
+      "COLUMN_DEPARTMENT": "Department",
+      "COLUMN_ROLE": "Role"
+    }
   },
   "THEME": {
     "AUTO": "Auto",
