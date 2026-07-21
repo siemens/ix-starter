@@ -1,0 +1,9 @@
+.description {
+  display: block;
+  margin-block-start: 1.5rem;
+  margin-block-end: 1.5rem;
+}
+
+.grid-container {
+  max-inline-size: min(720px, 100%);
+}

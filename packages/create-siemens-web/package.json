@@ -1,0 +1,43 @@
+{
+  "name": "create-siemens-web",
+  "version": "0.0.1",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "create-siemens-web": "index.js"
+  },
+  "files": [
+    "index.js",
+    "template-*",
+    "dist"
+  ],
+  "scripts": {
+    "dev": "tsdown --watch",
+    "build": "tsdown",
+    "typecheck": "tsc",
+    "prepublishOnly": "npm run build",
+    "execute": "node index.js"
+  },
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/siemens/ix-starter.git",
+    "directory": "packages/create-siemens-web"
+  },
+  "bugs": {
+    "url": "https://github.com/siemens/ix-starter/issues"
+  },
+  "homepage": "https://github.com/siemens/ix-starter/tree/main/packages/create-siemens-web#readme",
+  "devDependencies": {
+    "@clack/prompts": "^1.6.0",
+    "@types/cross-spawn": "^6.0.6",
+    "@types/node": "^22.0.0",
+    "@vercel/detect-agent": "^1.2.3",
+    "cross-spawn": "^7.0.6",
+    "mri": "^1.2.0",
+    "tsdown": "^0.22.3",
+    "unrun": "^0.3.1"
+  }
+}

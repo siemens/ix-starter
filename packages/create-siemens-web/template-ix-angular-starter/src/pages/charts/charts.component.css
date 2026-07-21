@@ -1,0 +1,41 @@
+.charts-page {
+  inline-size: 100%;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  inline-size: 100%;
+}
+
+.page-header ix-content-header {
+  flex: 1;
+}
+
+.description {
+  display: block;
+  margin-block-start: 1.5rem;
+  margin-block-end: 1.5rem;
+}
+
+.chart-title {
+  margin-block-end: 1rem;
+}
+
+.chart-container {
+  inline-size: 100%;
+  max-inline-size: min(700px, 100%);
+  block-size: min(400px, 60vw);
+  margin: 0;
+}
+
+.table-container {
+  inline-size: 459px;
+  max-inline-size: 100%;
+}
+
+:host ::ng-deep .table-container .ag-cell {
+  padding: 8px;
+  line-height: 20px;
+}
