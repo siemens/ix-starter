@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref } from 'vue';
 import {
   IxContentHeader,
   IxTypography,
@@ -11,23 +11,23 @@ import {
   IxRadio,
   IxButton,
   showMessage,
-} from "@siemens/ix-vue";
-import { iconQuestion } from "@siemens/ix-icons/icons";
+} from '@siemens/ix-vue';
+import { iconQuestion } from '@siemens/ix-icons/icons';
 
-const inspectorName = ref("");
-const inspectionType = ref("");
-const inspectionDate = ref("");
-const inspectionMode = ref("inline");
+const inspectorName = ref('');
+const inspectionType = ref('');
+const inspectionDate = ref('');
+const inspectionMode = ref('inline');
 
 async function handleSave() {
   await showMessage({
-    messageTitle: "Confirm inspection assignment?",
-    message: "The inspection will be assigned and a notification will be sent to the inspector.",
+    messageTitle: 'Confirm inspection assignment?',
+    message: 'The inspection will be assigned and a notification will be sent to the inspector.',
     icon: iconQuestion,
     centered: true,
     actions: [
-      { id: "cancel", text: "Cancel", type: "cancel" },
-      { id: "ok", text: "Confirm", type: "okay" },
+      { id: 'cancel', text: 'Cancel', type: 'cancel' },
+      { id: 'ok', text: 'Confirm', type: 'okay' },
     ],
   });
 }

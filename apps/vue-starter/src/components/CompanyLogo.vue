@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const showLogo = !window.customElements.get("ix-siemens-logo");
+const showLogo = !window.customElements.get('ix-siemens-logo');
 </script>
 
 <template>
