@@ -1,6 +1,6 @@
 html,
 body {
-  height: 100%;
+  block-size: 100%;
   margin: 0;
   padding: 0;
 }
@@ -28,8 +28,8 @@ body {
 
 .sr-only {
   position: absolute;
-  width: 1px;
-  height: 1px;
+  inline-size: 1px;
+  block-size: 1px;
   padding: 0;
   margin: -1px;
   overflow: hidden;

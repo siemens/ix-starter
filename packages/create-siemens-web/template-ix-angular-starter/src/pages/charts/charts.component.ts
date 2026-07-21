@@ -6,6 +6,7 @@ import {
   AfterViewInit,
   OnDestroy,
   NgZone,
+  inject,
 } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
 import * as ag from 'ag-grid-community';
@@ -42,13 +43,14 @@ const CHART_TABLE_COL_DEFS: ag.ColDef[] = [
 
 @Component({
   selector: 'app-charts',
-  standalone: true,
   imports: [IxContentHeader, IxTypography, IxButton, AgGridAngular],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './charts.component.html',
   styleUrl: './charts.component.css',
 })
 export class ChartsComponent implements AfterViewInit, OnDestroy {
+  private readonly ngZone = inject(NgZone);
+
   @ViewChild('chartContainer') chartContainer!: ElementRef<HTMLDivElement>;
   private chartInstance: echarts.ECharts | null = null;
   private resizeObserver: ResizeObserver | null = null;
@@ -57,8 +59,6 @@ export class ChartsComponent implements AfterViewInit, OnDestroy {
   chartTableData = CHART_TABLE_DATA;
   chartTableColDefs = CHART_TABLE_COL_DEFS;
   ixTheme = ixTheme;
-
-  constructor(private ngZone: NgZone) {}
 
   toggleView() {
     this.showTable = !this.showTable;

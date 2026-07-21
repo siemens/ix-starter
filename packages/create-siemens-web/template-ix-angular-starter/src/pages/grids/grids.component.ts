@@ -8,7 +8,6 @@ import { GRID_ROW_DATA, GRID_COL_DEFS, type GridRowData } from './../../shared';
 
 @Component({
   selector: 'app-grids',
-  standalone: true,
   imports: [IxContentHeader, IxTypography, AgGridAngular],
   templateUrl: './grids.component.html',
   styleUrl: './grids.component.css',

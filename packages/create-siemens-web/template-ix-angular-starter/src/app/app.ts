@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import {
   IxApplication,
@@ -30,6 +30,8 @@ import { iconHome, iconPiechart, iconTable, iconTextDocument } from '@siemens/ix
   styleUrl: './app.css',
 })
 export class App {
+  private readonly router = inject(Router);
+
   readonly icons = {
     iconHome,
     iconTextDocument,
@@ -38,8 +40,6 @@ export class App {
   } as const;
 
   protected readonly showLogo = !window.customElements.get('ix-siemens-logo');
-
-  constructor(private router: Router) {}
 
   isActiveRoute(path: string): boolean {
     if (path === '/') {

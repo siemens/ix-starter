@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
   IxContentHeader,
@@ -16,7 +16,6 @@ import { iconQuestion } from '@siemens/ix-icons/icons';
 
 @Component({
   selector: 'app-forms-page',
-  standalone: true,
   imports: [
     FormsModule,
     IxContentHeader,
@@ -33,12 +32,12 @@ import { iconQuestion } from '@siemens/ix-icons/icons';
   styleUrl: './forms.component.css',
 })
 export class FormsComponent {
+  private readonly messageService = inject(MessageService);
+
   inspectorName = '';
   inspectionType = '';
   inspectionDate = '';
   inspectionMode = 'inline';
-
-  constructor(private readonly messageService: MessageService) {}
 
   onInspectionTypeChange(event: CustomEvent<string | string[]>) {
     const value = event.detail;
