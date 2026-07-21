@@ -45,14 +45,14 @@
 <ng-template #language>
   <si-header-dropdown>
     @for (language of languageItems; track language) {
-    <button
-      si-header-dropdown-item
-      type="button"
-      [checked]="getLanguage() === language.key ? 'check' : ''"
-      (click)="switchLanguage(language.key)"
-    >
-      {{ language.label | translate }}
-    </button>
+      <button
+        si-header-dropdown-item
+        type="button"
+        [checked]="getLanguage() === language.key ? 'check' : ''"
+        (click)="switchLanguage(language.key)"
+      >
+        {{ language.label | translate }}
+      </button>
     }
   </si-header-dropdown>
 </ng-template>
@@ -93,30 +93,30 @@
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
     </p>
   </div>
-  @for (_ of [1,2,3,4,5]; track $index) {
-  <div class="flex-grow-1 row mt-8 mb-6 gy-4">
-    <div class="col">
-      <si-card class="h-100" heading="HOME.INTRO">
-        <div class="card-body" body>
-          <a href="https://simpl.code.siemens.io/simpl-element/" target="_blank">
-            {{ 'HOME.LINK' | translate }}
-          </a>
-        </div>
-      </si-card>
+  @for (_ of [1, 2, 3, 4, 5]; track $index) {
+    <div class="flex-grow-1 row mt-8 mb-6 gy-4">
+      <div class="col">
+        <si-card class="h-100" heading="HOME.INTRO">
+          <div class="card-body" body>
+            <a href="https://simpl.code.siemens.io/simpl-element/" target="_blank">
+              {{ 'HOME.LINK' | translate }}
+            </a>
+          </div>
+        </si-card>
+      </div>
+      <div class="col">
+        <si-card class="h-100" heading="HOME.SELECT_LANG">
+          <div class="card-body" body>
+            <si-language-switcher
+              languageSwitcherLabel="language switcher"
+              [availableLanguages]="[
+                { value: 'en', name: 'English' },
+                { value: 'de', name: 'Deutsch' },
+              ]"
+            />
+          </div>
+        </si-card>
+      </div>
     </div>
-    <div class="col">
-      <si-card class="h-100" heading="HOME.SELECT_LANG">
-        <div class="card-body" body>
-          <si-language-switcher
-            languageSwitcherLabel="language switcher"
-            [availableLanguages]="[
-              { value: 'en', name: 'English' },
-              { value: 'de', name: 'Deutsch' }
-            ]"
-          />
-        </div>
-      </si-card>
-    </div>
-  </div>
   }
 </div>

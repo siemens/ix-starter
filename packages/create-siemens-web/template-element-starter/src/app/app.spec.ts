@@ -1,9 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { provideTranslateService } from '@ngx-translate/core';
-import {
-  provideMissingTranslationHandlerForElement
-} from '@siemens/element-translate-ng/ngx-translate';
+import { provideMissingTranslationHandlerForElement } from '@siemens/element-translate-ng/ngx-translate';
 
 import { App as TestComponent } from './app';
 
@@ -11,7 +9,12 @@ describe('App', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [TestComponent],
-      providers: [provideRouter([]), provideTranslateService({ missingTranslationHandler: provideMissingTranslationHandlerForElement() })]
+      providers: [
+        provideRouter([]),
+        provideTranslateService({
+          missingTranslationHandler: provideMissingTranslationHandlerForElement(),
+        }),
+      ],
     }).compileComponents();
   });
 

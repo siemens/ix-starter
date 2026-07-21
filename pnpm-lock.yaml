@@ -8,6 +8,9 @@ importers:
 
   .:
     devDependencies:
+      '@siemens/prettier-config':
+        specifier: ^4.4.2
+        version: 4.4.2(prettier@3.6.2)
       eslint:
         specifier: ^9.12.0
         version: 9.34.0(jiti@2.7.0)
@@ -2432,6 +2435,11 @@ packages:
     resolution: {integrity: sha512-OXceXfvdGP5YmJ7tacBRK7BU8McvbG01E+Ehnu95ZY931yBMX9J3+R+5rhkcZMv8IwsWosmciRsT7BmAd15oqg==}
     peerDependencies:
       '@siemens/ix-icons': ^3.4.0
+
+  '@siemens/prettier-config@4.4.2':
+    resolution: {integrity: sha512-NefTBLxcTykm7y8+saMWTs2RkHq5UL5/1ThAX90qGA8DV+TbAYtjzQnI4FkBh1D4lAqggPJiX8OTZMsQT9z8VQ==}
+    peerDependencies:
+      prettier: ^3.0.0
 
   '@sigstore/bundle@4.0.0':
     resolution: {integrity: sha512-NwCl5Y0V6Di0NexvkTqdoVfmjTaQwoLM236r89KEojGmq/jMls8S+zb7yOwAPdXvbwfKDlP+lmXgAL4vKSQT+A==}
@@ -7331,6 +7339,10 @@ snapshots:
       '@siemens/ix-icons': 3.4.0
       animejs: 4.2.2
       luxon: 3.7.2
+
+  '@siemens/prettier-config@4.4.2(prettier@3.6.2)':
+    dependencies:
+      prettier: 3.6.2
 
   '@sigstore/bundle@4.0.0':
     dependencies:

@@ -6,13 +6,13 @@ import {
   SiHeaderAccountItemComponent,
   SiHeaderActionsDirective,
   SiHeaderBrandDirective,
-  SiHeaderLogoDirective
+  SiHeaderLogoDirective,
 } from '@siemens/element-ng/application-header';
 import { SiCardComponent } from '@siemens/element-ng/card';
 import {
   SiHeaderDropdownComponent,
   SiHeaderDropdownItemComponent,
-  SiHeaderDropdownTriggerDirective
+  SiHeaderDropdownTriggerDirective,
 } from '@siemens/element-ng/header-dropdown';
 import { SiLanguageSwitcherComponent } from '@siemens/element-ng/language-switcher';
 import { ThemeType } from '@siemens/element-ng/theme';
@@ -33,20 +33,20 @@ import { SettingsService } from '../../services/settings.service';
     SiCardComponent,
     RouterLink,
     SiLanguageSwitcherComponent,
-    TranslatePipe
+    TranslatePipe,
   ],
   templateUrl: './home.html',
   styleUrl: './home.scss',
   host: {
-    class: 'si-layout-inner'
-  }
+    class: 'si-layout-inner',
+  },
 })
 export class Home {
   private settingsService = inject(SettingsService);
 
-  readonly languageItems = this.settingsService.availableLanguages.map((language) => ({
+  readonly languageItems = this.settingsService.availableLanguages.map(language => ({
     key: language,
-    label: `LANGUAGE.${language.toUpperCase()}`
+    label: `LANGUAGE.${language.toUpperCase()}`,
   }));
 
   switchLanguage(language: string) {
@@ -64,5 +64,4 @@ export class Home {
   getLanguage(): string {
     return this.settingsService.language;
   }
-
 }

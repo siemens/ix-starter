@@ -1,17 +1,9 @@
-import path from 'node:path'
-import url from 'node:url'
-import { defineConfig } from 'vitest/config'
-
-const _dirname = path.dirname(url.fileURLToPath(import.meta.url))
+import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
   test: {
     include: ['**/__tests__/**/*.spec.[tj]s'],
-    exclude: [
-      '**/node_modules/**',
-      '**/dist/**',
-      '**/__tests__/test-app/**',
-    ],
+    exclude: ['**/node_modules/**', '**/dist/**', '**/__tests__/test-app/**'],
     deps: {
       // we specify 'packages' so Vitest doesn't inline the files
       moduleDirectories: ['node_modules', 'packages'],
@@ -22,5 +14,5 @@ export default defineConfig({
   oxc: {
     target: 'node20',
   },
-  publicDir: false  
-})
+  publicDir: false,
+});

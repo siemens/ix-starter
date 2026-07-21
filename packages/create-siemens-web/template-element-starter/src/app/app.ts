@@ -9,8 +9,8 @@ import { SettingsService } from './services/settings.service';
   templateUrl: './app.html',
   styleUrl: './app.scss',
   host: {
-    class: 'has-navbar-fixed-top si-layout-fixed-height'
-  }
+    class: 'has-navbar-fixed-top si-layout-fixed-height',
+  },
 })
 export class App {
   private settingsService = inject(SettingsService);

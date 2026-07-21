@@ -1,12 +1,12 @@
-import fs from "node:fs";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-import util from "node:util";
-import type { SpawnOptions } from "node:child_process";
-import spawn from "cross-spawn";
-import mri from "mri";
-import * as prompts from "@clack/prompts";
-import { determineAgent } from "@vercel/detect-agent";
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import util from 'node:util';
+import type { SpawnOptions } from 'node:child_process';
+import spawn from 'cross-spawn';
+import mri from 'mri';
+import * as prompts from '@clack/prompts';
+import { determineAgent } from '@vercel/detect-agent';
 
 const { red, green, yellow, underline } = createColors();
 
@@ -27,48 +27,48 @@ type FrameworkVariant = {
 
 const FRAMEWORKS: Framework[] = [
   {
-    name: "angular",
-    display: "Angular",
+    name: 'angular',
+    display: 'Angular',
     color: red,
     variants: [
       {
-        name: "element-starter",
-        display: "Element (Angular) ↗",
+        name: 'element-starter',
+        display: 'Element (Angular) ↗',
         color: red,
       },
       {
-        name: "ix-angular-starter",
-        display: "iX (Angular) ↗",
+        name: 'ix-angular-starter',
+        display: 'iX (Angular) ↗',
         color: red,
       },
     ],
   },
   {
-    name: "react",
-    display: "React",
+    name: 'react',
+    display: 'React',
     color: green,
     variants: [
       {
-        name: "ix-react-starter",
-        display: "iX (React) ↗",
+        name: 'ix-react-starter',
+        display: 'iX (React) ↗',
         color: green,
       },
     ],
   },
   {
-    name: "vue",
-    display: "Vue",
+    name: 'vue',
+    display: 'Vue',
     color: yellow,
     variants: [
       {
-        name: "ix-vue-starter",
-        display: "iX (Vue) ↗",
+        name: 'ix-vue-starter',
+        display: 'iX (Vue) ↗',
         color: yellow,
       },
     ],
   },
 ];
-const DEFAULT_TEMPLATE = "element-starter";
+const DEFAULT_TEMPLATE = 'element-starter';
 
 const argv = mri<{
   template?: string;
@@ -77,9 +77,9 @@ const argv = mri<{
   immediate?: boolean;
   interactive?: boolean;
 }>(process.argv.slice(2), {
-  boolean: ["help", "overwrite", "immediate", "interactive"],
-  alias: { h: "help", t: "template", i: "immediate" },
-  string: ["template"],
+  boolean: ['help', 'overwrite', 'immediate', 'interactive'],
+  alias: { h: 'help', t: 'template', i: 'immediate' },
+  string: ['template'],
 });
 const cwd = process.cwd();
 
@@ -103,28 +103,28 @@ ${getListOfAllTemplates()}
 `;
 
 function getListOfAllTemplates() {
-  return FRAMEWORKS.map((f) => {
+  return FRAMEWORKS.map(f => {
     const frameworkColor = f.color;
     const frameworkName = frameworkColor(f.display || f.name);
-    const variants = f.variants.map((v) => `  - ${v.name}`).join("\n");
+    const variants = f.variants.map(v => `  - ${v.name}`).join('\n');
     return `${frameworkName}\n${variants}`;
-  }).join("\n\n");
+  }).join('\n\n');
 }
 
-const TEMPLATES = FRAMEWORKS.map((f) => f.variants.map((v) => v.name)).reduce(
+const TEMPLATES = FRAMEWORKS.map(f => f.variants.map(v => v.name)).reduce(
   (a, b) => a.concat(b),
   [],
 );
 
 const renameFiles: Record<string, string | undefined> = {
-  _gitignore: ".gitignore",
-  _editorconfig: ".editorconfig",
-  _npmrc: ".npmrc",
-  _prettierignore: ".prettierignore",
-  "_stylelintrc.yml": ".stylelintrc.yml",
+  _gitignore: '.gitignore',
+  _editorconfig: '.editorconfig',
+  _npmrc: '.npmrc',
+  _prettierignore: '.prettierignore',
+  '_stylelintrc.yml': '.stylelintrc.yml',
 };
 
-const defaultTargetDir = "vite-project";
+const defaultTargetDir = 'vite-project';
 
 function run([command, ...args]: string[], options?: SpawnOptions) {
   const { status, error } = spawn.sync(command, args, options);
@@ -133,7 +133,7 @@ function run([command, ...args]: string[], options?: SpawnOptions) {
   }
 
   if (error) {
-    console.error(`\n${command} ${args.join(" ")} error!`);
+    console.error(`\n${command} ${args.join(' ')} error!`);
     console.error(error);
     process.exit(1);
   }
@@ -146,19 +146,19 @@ function install(root: string, agent: string) {
   }
   prompts.log.step(`Installing dependencies with ${agent}...`);
   run(getInstallCommand(agent), {
-    stdio: "inherit",
+    stdio: 'inherit',
     cwd: root,
   });
 }
 
 function start(root: string, agent: string) {
   if (process.env._TEST_CLI) {
-    prompts.log.step("Starting dev server... (skipped in test)");
+    prompts.log.step('Starting dev server... (skipped in test)');
     return;
   }
-  prompts.log.step("Starting dev server...");
-  run(getRunCommand(agent, "dev"), {
-    stdio: "inherit",
+  prompts.log.step('Starting dev server...');
+  run(getRunCommand(agent, 'dev'), {
+    stdio: 'inherit',
     cwd: root,
   });
 }
@@ -182,23 +182,23 @@ async function init() {
   const { isAgent } = await determineAgent();
   if (isAgent && interactive) {
     console.log(
-      "\nTo create in one go, run: create-vite <DIRECTORY> --no-interactive --template <TEMPLATE>\n",
+      '\nTo create in one go, run: create-vite <DIRECTORY> --no-interactive --template <TEMPLATE>\n',
     );
   }
 
   const pkgInfo = pkgFromUserAgent(process.env.npm_config_user_agent);
-  const cancel = () => prompts.cancel("Operation cancelled");
+  const cancel = () => prompts.cancel('Operation cancelled');
 
   // 1. Get project name and target dir
   let targetDir = argTargetDir;
   if (!targetDir) {
     if (interactive) {
       const projectName = await prompts.text({
-        message: "Project name:",
+        message: 'Project name:',
         defaultValue: defaultTargetDir,
         placeholder: defaultTargetDir,
-        validate: (value) => {
-          return !value || formatTargetDir(value).length > 0 ? undefined : "Invalid project name";
+        validate: value => {
+          return !value || formatTargetDir(value).length > 0 ? undefined : 'Invalid project name';
         },
       });
       if (prompts.isCancel(projectName)) return cancel();
@@ -210,40 +210,40 @@ async function init() {
 
   // 2. Handle directory if exist and not empty
   if (fs.existsSync(targetDir) && !isEmpty(targetDir)) {
-    let overwrite: "yes" | "no" | "ignore" | undefined = argOverwrite ? "yes" : undefined;
+    let overwrite: 'yes' | 'no' | 'ignore' | undefined = argOverwrite ? 'yes' : undefined;
     if (!overwrite) {
       if (interactive) {
         const res = await prompts.select({
           message:
-            (targetDir === "." ? "Current directory" : `Target directory "${targetDir}"`) +
+            (targetDir === '.' ? 'Current directory' : `Target directory "${targetDir}"`) +
             ` is not empty. Please choose how to proceed:`,
           options: [
             {
-              label: "Cancel operation",
-              value: "no",
+              label: 'Cancel operation',
+              value: 'no',
             },
             {
-              label: "Remove existing files and continue",
-              value: "yes",
+              label: 'Remove existing files and continue',
+              value: 'yes',
             },
             {
-              label: "Ignore files and continue",
-              value: "ignore",
+              label: 'Ignore files and continue',
+              value: 'ignore',
             },
           ],
         });
         if (prompts.isCancel(res)) return cancel();
         overwrite = res;
       } else {
-        overwrite = "no";
+        overwrite = 'no';
       }
     }
 
     switch (overwrite) {
-      case "yes":
+      case 'yes':
         emptyDir(targetDir);
         break;
-      case "no":
+      case 'no':
         cancel();
         return;
     }
@@ -254,12 +254,12 @@ async function init() {
   if (!isValidPackageName(packageName)) {
     if (interactive) {
       const packageNameResult = await prompts.text({
-        message: "Package name:",
+        message: 'Package name:',
         defaultValue: toValidPackageName(packageName),
         placeholder: toValidPackageName(packageName),
         validate(dir) {
           if (dir && !isValidPackageName(dir)) {
-            return "Invalid package.json name";
+            return 'Invalid package.json name';
           }
         },
       });
@@ -282,8 +282,8 @@ async function init() {
       const framework = await prompts.select({
         message: hasInvalidArgTemplate
           ? `"${argTemplate}" isn't a valid template. Please choose from below: `
-          : "Select a framework:",
-        options: FRAMEWORKS.map((framework) => {
+          : 'Select a framework:',
+        options: FRAMEWORKS.map(framework => {
           const frameworkColor = framework.color;
           return {
             label: frameworkColor(framework.display || framework.name),
@@ -294,10 +294,10 @@ async function init() {
       if (prompts.isCancel(framework)) return cancel();
 
       const variant = await prompts.select({
-        message: "Select a variant:",
-        options: framework.variants.map((variant) => {
+        message: 'Select a variant:',
+        options: framework.variants.map(variant => {
           const command = variant.customCommand
-            ? getFullCustomCommand(variant.customCommand, pkgInfo).replace(/ TARGET_DIR$/, "")
+            ? getFullCustomCommand(variant.customCommand, pkgInfo).replace(/ TARGET_DIR$/, '')
             : undefined;
           return {
             label: getLabel(variant),
@@ -314,21 +314,21 @@ async function init() {
     }
   }
 
-  const pkgManager = pkgInfo ? pkgInfo.name : "npm";
+  const pkgManager = pkgInfo ? pkgInfo.name : 'npm';
 
   const root = path.join(cwd, targetDir);
 
   const { customCommand } =
-    FRAMEWORKS.flatMap((f) => f.variants).find((v) => v.name === template) ?? {};
+    FRAMEWORKS.flatMap(f => f.variants).find(v => v.name === template) ?? {};
 
   if (customCommand) {
     const fullCustomCommand = getFullCustomCommand(customCommand, pkgInfo);
 
-    const [command, ...args] = fullCustomCommand.split(" ");
+    const [command, ...args] = fullCustomCommand.split(' ');
     // we replace TARGET_DIR here because targetDir may include a space
-    const replacedArgs = args.map((arg) => arg.replace("TARGET_DIR", () => targetDir));
+    const replacedArgs = args.map(arg => arg.replace('TARGET_DIR', () => targetDir));
     const { status } = spawn.sync(command, replacedArgs, {
-      stdio: "inherit",
+      stdio: 'inherit',
     });
     process.exit(status ?? 0);
   }
@@ -351,7 +351,7 @@ async function init() {
   fs.mkdirSync(root, { recursive: true });
   prompts.log.step(`Scaffolding project in ${root}...`);
 
-  const templateDir = path.resolve(fileURLToPath(import.meta.url), "../..", `template-${template}`);
+  const templateDir = path.resolve(fileURLToPath(import.meta.url), '../..', `template-${template}`);
 
   const writeTemplate = (relPath: string, content?: string) => {
     const isTopLevel = !relPath.includes(path.sep);
@@ -361,8 +361,8 @@ async function init() {
     fs.mkdirSync(path.dirname(targetPath), { recursive: true });
     if (content) {
       fs.writeFileSync(targetPath, content);
-    } else if (basename === "index.html") {
-      const templateContent = fs.readFileSync(path.join(templateDir, relPath), "utf-8");
+    } else if (basename === 'index.html') {
+      const templateContent = fs.readFileSync(path.join(templateDir, relPath), 'utf-8');
       const updatedContent = templateContent.replace(
         /<title>.*?<\/title>/,
         `<title>${packageName}</title>`,
@@ -374,28 +374,28 @@ async function init() {
   };
 
   const allFiles = walkTemplateDir(templateDir);
-  for (const file of allFiles.filter((f) => f !== "package.json")) {
+  for (const file of allFiles.filter(f => f !== 'package.json')) {
     writeTemplate(file);
   }
 
-  const pkg = JSON.parse(fs.readFileSync(path.join(templateDir, `package.json`), "utf-8"));
+  const pkg = JSON.parse(fs.readFileSync(path.join(templateDir, `package.json`), 'utf-8'));
 
   pkg.name = packageName;
 
-  writeTemplate("package.json", JSON.stringify(pkg, null, 2) + "\n");
+  writeTemplate('package.json', JSON.stringify(pkg, null, 2) + '\n');
 
   if (immediate) {
     install(root, pkgManager);
     start(root, pkgManager);
   } else {
-    let doneMessage = "";
+    let doneMessage = '';
     const cdProjectName = path.relative(cwd, root);
     doneMessage += `Done. Now run:\n`;
     if (root !== cwd) {
-      doneMessage += `\n  cd ${cdProjectName.includes(" ") ? `"${cdProjectName}"` : cdProjectName}`;
+      doneMessage += `\n  cd ${cdProjectName.includes(' ') ? `"${cdProjectName}"` : cdProjectName}`;
     }
-    doneMessage += `\n  ${getInstallCommand(pkgManager).join(" ")}`;
-    doneMessage += `\n  ${getRunCommand(pkgManager, "dev").join(" ")}`;
+    doneMessage += `\n  ${getInstallCommand(pkgManager).join(' ')}`;
+    doneMessage += `\n  ${getRunCommand(pkgManager, 'dev').join(' ')}`;
     prompts.outro(doneMessage);
   }
 }
@@ -403,11 +403,11 @@ async function init() {
 function formatTargetDir(targetDir: string) {
   return targetDir
     .trim()
-    .replace(/[<>:"\\|?*]/g, "")
-    .replace(/\/+$/g, "");
+    .replace(/[<>:"\\|?*]/g, '')
+    .replace(/\/+$/g, '');
 }
 
-function walkTemplateDir(dir: string, prefix = ""): string[] {
+function walkTemplateDir(dir: string, prefix = ''): string[] {
   const result: string[] = [];
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
     const relPath = prefix ? path.join(prefix, entry.name) : entry.name;
@@ -428,14 +428,14 @@ function toValidPackageName(projectName: string) {
   return projectName
     .trim()
     .toLowerCase()
-    .replace(/\s+/g, "-")
-    .replace(/^[._]/, "")
-    .replace(/[^a-z\d\-~]+/g, "-");
+    .replace(/\s+/g, '-')
+    .replace(/^[._]/, '')
+    .replace(/[^a-z\d\-~]+/g, '-');
 }
 
 function isEmpty(path: string) {
   const files = fs.readdirSync(path);
-  return files.length === 0 || (files.length === 1 && files[0] === ".git");
+  return files.length === 0 || (files.length === 1 && files[0] === '.git');
 }
 
 function emptyDir(dir: string) {
@@ -443,7 +443,7 @@ function emptyDir(dir: string) {
     return;
   }
   for (const file of fs.readdirSync(dir)) {
-    if (file === ".git") {
+    if (file === '.git') {
       continue;
     }
     fs.rmSync(path.resolve(dir, file), { recursive: true, force: true });
@@ -457,8 +457,8 @@ interface PkgInfo {
 
 function pkgFromUserAgent(userAgent: string | undefined): PkgInfo | undefined {
   if (!userAgent) return undefined;
-  const pkgSpec = userAgent.split(" ")[0];
-  const pkgSpecArr = pkgSpec.split("/");
+  const pkgSpec = userAgent.split(' ')[0];
+  const pkgSpecArr = pkgSpec.split('/');
   return {
     name: pkgSpecArr[0],
     version: pkgSpecArr[1],
@@ -466,12 +466,12 @@ function pkgFromUserAgent(userAgent: string | undefined): PkgInfo | undefined {
 }
 
 function updateReactCompilerReadme(root: string, newBody: string) {
-  editFile(path.resolve(root, `README.md`), (content) => {
-    const h2Start = content.indexOf("## React Compiler");
-    const bodyStart = content.indexOf("\n\n", h2Start);
-    const compilerSectionEnd = content.indexOf("\n## ", bodyStart);
+  editFile(path.resolve(root, `README.md`), content => {
+    const h2Start = content.indexOf('## React Compiler');
+    const bodyStart = content.indexOf('\n\n', h2Start);
+    const compilerSectionEnd = content.indexOf('\n## ', bodyStart);
     if (h2Start === -1 || bodyStart === -1 || compilerSectionEnd === -1) {
-      console.warn("Could not update compiler section in README.md");
+      console.warn('Could not update compiler section in README.md');
       return content;
     }
     return content.replace(content.slice(bodyStart + 2, compilerSectionEnd - 1), newBody);
@@ -479,55 +479,55 @@ function updateReactCompilerReadme(root: string, newBody: string) {
 }
 
 function editFile(file: string, callback: (content: string) => string) {
-  const content = fs.readFileSync(file, "utf-8");
-  fs.writeFileSync(file, callback(content), "utf-8");
+  const content = fs.readFileSync(file, 'utf-8');
+  fs.writeFileSync(file, callback(content), 'utf-8');
 }
 
 function getFullCustomCommand(customCommand: string, pkgInfo?: PkgInfo) {
-  const pkgManager = pkgInfo ? pkgInfo.name : "npm";
-  const isYarn1 = pkgManager === "yarn" && pkgInfo?.version.startsWith("1.");
+  const pkgManager = pkgInfo ? pkgInfo.name : 'npm';
+  const isYarn1 = pkgManager === 'yarn' && pkgInfo?.version.startsWith('1.');
 
   return (
     customCommand
       .replace(/^npm create (?:-- )?/, () => {
         // `bun create` uses its own set of templates,
         // the closest alternative is using `bun x` directly on the package
-        if (pkgManager === "bun") {
-          return "bun x create-";
+        if (pkgManager === 'bun') {
+          return 'bun x create-';
         }
         // Deno uses `run -A npm:create-` instead of `create` or `init` to also provide needed perms
-        if (pkgManager === "deno") {
-          return "deno run -A npm:create-";
+        if (pkgManager === 'deno') {
+          return 'deno run -A npm:create-';
         }
         // pnpm doesn't support the -- syntax
-        if (pkgManager === "pnpm") {
-          return "pnpm create ";
+        if (pkgManager === 'pnpm') {
+          return 'pnpm create ';
         }
         // For other package managers, preserve the original format
-        return customCommand.startsWith("npm create -- ")
+        return customCommand.startsWith('npm create -- ')
           ? `${pkgManager} create -- `
           : `${pkgManager} create `;
       })
       // Only Yarn 1.x doesn't support `@version` in the `create` command
-      .replace("@latest", () => (isYarn1 ? "" : "@latest"))
+      .replace('@latest', () => (isYarn1 ? '' : '@latest'))
       .replace(/^npm exec (?:-- )?/, () => {
         // Prefer `pnpm dlx`, `yarn dlx`, or `bun x`
-        if (pkgManager === "pnpm") {
+        if (pkgManager === 'pnpm') {
           // pnpm doesn't support the -- syntax
-          return "pnpm dlx ";
+          return 'pnpm dlx ';
         }
-        if (pkgManager === "yarn" && !isYarn1) {
-          return "yarn dlx ";
+        if (pkgManager === 'yarn' && !isYarn1) {
+          return 'yarn dlx ';
         }
-        if (pkgManager === "bun") {
-          return "bun x ";
+        if (pkgManager === 'bun') {
+          return 'bun x ';
         }
-        if (pkgManager === "deno") {
-          return "deno run -A npm:";
+        if (pkgManager === 'deno') {
+          return 'deno run -A npm:';
         }
         // Use `npm exec` in all other cases,
         // including Yarn 1.x and other custom npm clients.
-        return customCommand.startsWith("npm exec -- ") ? "npm exec -- " : "npm exec ";
+        return customCommand.startsWith('npm exec -- ') ? 'npm exec -- ' : 'npm exec ';
       })
   );
 }
@@ -543,22 +543,22 @@ function getLabel(variant: FrameworkVariant) {
 }
 
 function getInstallCommand(agent: string) {
-  if (agent === "yarn") {
+  if (agent === 'yarn') {
     return [agent];
   }
-  return [agent, "install"];
+  return [agent, 'install'];
 }
 
 function getRunCommand(agent: string, script: string) {
   switch (agent) {
-    case "yarn":
-    case "pnpm":
-    case "bun":
+    case 'yarn':
+    case 'pnpm':
+    case 'bun':
       return [agent, script];
-    case "deno":
-      return [agent, "task", script];
+    case 'deno':
+      return [agent, 'task', script];
     default:
-      return [agent, "run", script];
+      return [agent, 'run', script];
   }
 }
 
@@ -573,6 +573,6 @@ function createColors() {
   });
 }
 
-init().catch((e) => {
+init().catch(e => {
   console.error(e);
 });

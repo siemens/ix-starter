@@ -5,7 +5,7 @@ import { provideTranslateService } from '@ngx-translate/core';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 import {
   provideMissingTranslationHandlerForElement,
-  provideNgxTranslateForElement
+  provideNgxTranslateForElement,
 } from '@siemens/element-translate-ng/ngx-translate';
 
 import { routes } from './app.routes';
@@ -17,8 +17,8 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideNgxTranslateForElement(),
     provideTranslateService({
-      missingTranslationHandler: provideMissingTranslationHandlerForElement()
+      missingTranslationHandler: provideMissingTranslationHandlerForElement(),
     }),
-    provideTranslateHttpLoader({ prefix: 'assets/i18n/', suffix: '.json' })
-  ]
+    provideTranslateHttpLoader({ prefix: 'assets/i18n/', suffix: '.json' }),
+  ],
 };

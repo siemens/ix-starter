@@ -17,10 +17,10 @@ export const tsConfig = typescriptEslint.config({
         'tsconfig.json',
         'tsconfig.app.json',
         'tsconfig.spec.json',
-        'playwright/tsconfig.json'
+        'playwright/tsconfig.json',
       ],
-      tsconfigRootDir: __dirname
-    }
+      tsconfigRootDir: __dirname,
+    },
   },
   rules: {
     '@angular-eslint/component-class-suffix': ['off'],
@@ -29,18 +29,18 @@ export const tsConfig = typescriptEslint.config({
       {
         type: 'attribute',
         prefix: 'app',
-        style: 'camelCase'
-      }
+        style: 'camelCase',
+      },
     ],
     '@angular-eslint/component-selector': [
       'error',
       {
         type: 'element',
         prefix: 'app',
-        style: 'kebab-case'
-      }
-    ]
-  }
+        style: 'kebab-case',
+      },
+    ],
+  },
 });
 
 export const templateConfig = typescriptEslint.config({
@@ -59,11 +59,11 @@ export const templateConfig = typescriptEslint.config({
           'label',
           'outerHTML',
           'title',
-          'si-tab'
-        ]
-      }
-    ]
-  }
+          'si-tab',
+        ],
+      },
+    ],
+  },
 });
 
 export default typescriptEslint.config(...tsConfig, ...templateConfig);

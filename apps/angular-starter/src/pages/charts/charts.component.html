@@ -1,7 +1,11 @@
 <div class="charts-page">
   <div class="page-header">
     <ix-content-header headerTitle="Charts"></ix-content-header>
-    <ix-button variant="secondary" [attr.aria-label]="showTable ? 'Show as chart' : 'Show as data table'" (click)="toggleView()">
+    <ix-button
+      variant="secondary"
+      [attr.aria-label]="showTable ? 'Show as chart' : 'Show as data table'"
+      (click)="toggleView()"
+    >
       {{ showTable ? 'Show as chart' : 'Show as data table' }}
     </ix-button>
   </div>
@@ -36,11 +40,7 @@
       />
     </section>
   } @else {
-    <figure
-      #chartContainer
-      aria-labelledby="chart-title"
-      class="chart-container"
-    >
+    <figure #chartContainer aria-labelledby="chart-title" class="chart-container">
       <figcaption class="sr-only">Bar chart showing monthly production output</figcaption>
     </figure>
   }

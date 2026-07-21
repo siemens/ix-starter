@@ -83,42 +83,46 @@ onUnmounted(() => {
   <div class="charts-page">
     <div class="page-header">
       <IxContentHeader header-title="Charts" />
-      <IxButton variant="secondary" :aria-label="showTable ? 'Show as chart' : 'Show as data table'" @click="toggleView">
+      <IxButton
+        variant="secondary"
+        :aria-label="showTable ? 'Show as chart' : 'Show as data table'"
+        @click="toggleView"
+      >
         {{ showTable ? 'Show as chart' : 'Show as data table' }}
       </IxButton>
     </div>
     <IxTypography format="body" class="description">
-    Siemens Industrial Experience provides an
-    <a href="https://echarts.apache.org" target="_blank" rel="noreferrer" aria-label="ECharts (opens in a new tab)">ECharts</a>
-    theme. 
-    <br />
-    This lets you use different chart types in the Siemens Industrial Experience design
-    system.
-  </IxTypography>
+      Siemens Industrial Experience provides an
+      <a
+        href="https://echarts.apache.org"
+        target="_blank"
+        rel="noreferrer"
+        aria-label="ECharts (opens in a new tab)"
+        >ECharts</a
+      >
+      theme.
+      <br />
+      This lets you use different chart types in the Siemens Industrial Experience design system.
+    </IxTypography>
 
-  <IxTypography id="chart-title" format="label-lg" bold class="chart-title">
-    Motor vibration analysis
-  </IxTypography>
+    <IxTypography id="chart-title" format="label-lg" bold class="chart-title">
+      Motor vibration analysis
+    </IxTypography>
 
-  <section v-if="showTable" class="table-container" aria-label="Chart data table">
-    <AgGridVue
-      :row-data="CHART_TABLE_DATA"
-      :column-defs="CHART_TABLE_COL_DEFS"
-      :suppress-movable-columns="true"
-      dom-layout="autoHeight"
-      :row-height="36"
-      :theme="ixTheme"
-      aria-label="Motor vibration data table"
-    />
-  </section>
-  <figure
-    v-else
-    ref="chartRef"
-    aria-labelledby="chart-title"
-    class="chart-container"
-  >
-    <figcaption class="sr-only">Bar chart showing monthly production output</figcaption>
-  </figure>
+    <section v-if="showTable" class="table-container" aria-label="Chart data table">
+      <AgGridVue
+        :row-data="CHART_TABLE_DATA"
+        :column-defs="CHART_TABLE_COL_DEFS"
+        :suppress-movable-columns="true"
+        dom-layout="autoHeight"
+        :row-height="36"
+        :theme="ixTheme"
+        aria-label="Motor vibration data table"
+      />
+    </section>
+    <figure v-else ref="chartRef" aria-labelledby="chart-title" class="chart-container">
+      <figcaption class="sr-only">Bar chart showing monthly production output</figcaption>
+    </figure>
   </div>
 </template>
 
