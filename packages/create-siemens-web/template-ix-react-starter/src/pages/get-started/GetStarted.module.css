@@ -1,0 +1,18 @@
+.description {
+  display: block;
+  margin-block-start: 1.5rem;
+  margin-block-end: 1.5rem;
+}
+
+.descriptionShort {
+  display: block;
+  margin-block-end: 1.5rem;
+}
+
+.navLinks {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-block-end: 2rem;
+}
