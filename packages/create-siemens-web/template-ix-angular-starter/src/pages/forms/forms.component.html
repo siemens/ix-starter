@@ -1,0 +1,55 @@
+<ix-content-header headerTitle="Forms"></ix-content-header>
+<ix-typography format="body" class="description">
+  Siemens Industrial Experience provides consistent form elements for collecting and
+  validating user input.
+</ix-typography>
+
+<form class="form-container" aria-label="Inspection assignment form" (submit)="$event.preventDefault()">
+  <ix-input
+    label="Inspector Name"
+    placeholder="Jane Doe"
+    helperText="Enter the certified inspector's full name"
+    [value]="inspectorName"
+    (valueChange)="inspectorName = $event.detail"
+  ></ix-input>
+
+  <ix-select
+    label="Inspection Type"
+    helperText="Choose the inspection to perform"
+    [value]="inspectionType"
+    (valueChange)="onInspectionTypeChange($event)"
+  >
+    <ix-select-item value="Visual Inspection" label="Visual Inspection"></ix-select-item>
+    <ix-select-item value="Dimensional Check" label="Dimensional Check"></ix-select-item>
+    <ix-select-item value="Functional Test" label="Functional Test"></ix-select-item>
+    <ix-select-item value="Safety Audit" label="Safety Audit"></ix-select-item>
+    <ix-select-item value="Pressure Test" label="Pressure Test"></ix-select-item>
+    <ix-select-item value="Material Analysis" label="Material Analysis"></ix-select-item>
+    <ix-select-item value="Electrical Test" label="Electrical Test"></ix-select-item>
+    <ix-select-item value="Thermal Imaging" label="Thermal Imaging"></ix-select-item>
+    <ix-select-item value="Calibration Check" label="Calibration Check"></ix-select-item>
+  </ix-select>
+
+  <ix-date-input
+    label="Inspection Date"
+    helperText="Schedule the inspection"
+    placeholder="DD/MM/YYYY"
+    format="dd/MM/yyyy"
+    [value]="inspectionDate"
+    (valueChange)="onInspectionDateChange($event)"
+  ></ix-date-input>
+
+  <ix-radio-group
+    label="Inspection Mode"
+    helperText="In-line inspection takes place during production. Offline sampling requires batch removal for lab testing."
+    [value]="inspectionMode"
+    (valueChange)="inspectionMode = $event.detail"
+  >
+    <ix-radio value="inline" label="In-line inspection"></ix-radio>
+    <ix-radio value="offline" label="Offline sampling"></ix-radio>
+  </ix-radio-group>
+
+  <div class="button-row">
+    <ix-button variant="primary" aria-label="Save inspection assignment" (click)="handleSave()">Save</ix-button>
+  </div>
+</form>

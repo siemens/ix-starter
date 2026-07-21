@@ -32,6 +32,8 @@
   "homepage": "https://github.com/siemens/ix-starter/tree/main/packages/create-siemens-web#readme",
   "devDependencies": {
     "@clack/prompts": "^1.6.0",
+    "@types/cross-spawn": "^6.0.6",
+    "@types/node": "^22.0.0",
     "@vercel/detect-agent": "^1.2.3",
     "cross-spawn": "^7.0.6",
     "mri": "^1.2.0",
