@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+
+// Load Siemens fonts
+@use '@simpl/brand/assets/fonts/styles/siemens-sans';
+// Load Element icons
+@use '@siemens/element-icons/dist/style/siemens-element-icons';
+// Use Element Theme
+@use '@siemens/element-theme/src/theme' with (
+  $element-theme-default: 'siemens-brand',
+  $element-themes: (
+    'siemens-brand',
+    'element'
+  )
+);
+
+// Use Element components
+@use '@siemens/element-ng/element-ng';
+// Actually build the siemens-brand theme
+@use '@siemens/element-theme/src/styles/themes';
+@use '@simpl/brand/dist/element-theme-siemens-brand-light' as brand-light;
+@use '@simpl/brand/dist/element-theme-siemens-brand-dark' as brand-dark;
+@include themes.make-theme(brand-light.$tokens, 'siemens-brand');
+@include themes.make-theme(brand-dark.$tokens, 'siemens-brand', true);
+
+body {
+  display: flex;
+  flex: auto;
+  flex-direction: column;
+}
+
+router-outlet {
+  display: none;
+}

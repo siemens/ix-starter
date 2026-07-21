@@ -1,0 +1,22 @@
+{
+  "LANGUAGE": {
+    "EN": "English",
+    "DE": "Deutsch"
+  },
+  "NAV": {
+    "ACCOUNT": "Account",
+    "LANGUAGE": "Language",
+    "THEME": "Theme"
+  },
+  "HOME": {
+    "HEADING": "Home",
+    "INTRO": "Welcome to the SiMPL Element starter template",
+    "LINK": "Read the docs",
+    "SELECT_LANG": "Select your preferred language"
+  },
+  "THEME": {
+    "AUTO": "Auto",
+    "DARK": "Dark",
+    "LIGHT": "Light"
+  }  
+}

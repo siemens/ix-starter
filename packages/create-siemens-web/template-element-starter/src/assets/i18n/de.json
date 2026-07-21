@@ -1,0 +1,22 @@
+{
+  "LANGUAGE": {
+    "EN": "English",
+    "DE": "Deutsch"
+  },
+  "NAV": {
+    "ACCOUNT": "Konto",
+    "LANGUAGE": "Sprache",
+    "THEME": "Theme"    
+  },
+  "HOME": {
+    "HEADING": "Startseite",
+    "INTRO": "Willkommen zum SiMPL Element Starter-Template",
+    "LINK": "Lese die Doku",
+    "SELECT_LANG": "Wähle deine bevorzugte Sprache"
+  },
+  "THEME": {
+    "AUTO": "Auto",
+    "DARK": "Dunkel",
+    "LIGHT": "Hell"
+  }
+}

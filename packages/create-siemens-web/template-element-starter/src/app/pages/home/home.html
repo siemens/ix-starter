@@ -1,0 +1,122 @@
+<si-application-header>
+  <si-header-brand>
+    <a siHeaderLogo routerLink="/" class="d-none d-md-flex"></a>
+    <span class="application-name">simpl element generator test</span>
+  </si-header-brand>
+  <si-header-actions>
+    <button
+      si-header-account-item
+      type="button"
+      name="Jane Smith"
+      [siHeaderDropdownTriggerFor]="account"
+    >
+      {{ 'NAV.ACCOUNT' | translate }}
+    </button>
+  </si-header-actions>
+</si-application-header>
+
+<ng-template #account>
+  <si-header-dropdown>
+    <div class="mx-5">
+      <div class="fw-bold">Jane Smith</div>
+      <div>jane.smith.simpl&#64;siemens.com</div>
+      <div class="d-flex align-items-center text-secondary mt-2">Siemens</div>
+    </div>
+    <div class="dropdown-divider"></div>
+    <button
+      si-header-dropdown-item
+      icon="element-language"
+      type="button"
+      [siHeaderDropdownTriggerFor]="language"
+    >
+      {{ 'NAV.LANGUAGE' | translate }}
+    </button>
+    <button
+      si-header-dropdown-item
+      icon="element-palette"
+      type="button"
+      [siHeaderDropdownTriggerFor]="theme"
+    >
+      {{ 'NAV.THEME' | translate }}
+    </button>
+  </si-header-dropdown>
+</ng-template>
+
+<ng-template #language>
+  <si-header-dropdown>
+    @for (language of languageItems; track language) {
+    <button
+      si-header-dropdown-item
+      type="button"
+      [checked]="getLanguage() === language.key ? 'check' : ''"
+      (click)="switchLanguage(language.key)"
+    >
+      {{ language.label | translate }}
+    </button>
+    }
+  </si-header-dropdown>
+</ng-template>
+
+<ng-template #theme>
+  <si-header-dropdown>
+    <button
+      si-header-dropdown-item
+      type="button"
+      [checked]="getTheme() === 'auto' ? 'check' : ''"
+      (click)="switchTheme('auto')"
+    >
+      {{ 'THEME.AUTO' | translate }}
+    </button>
+    <button
+      si-header-dropdown-item
+      type="button"
+      [checked]="getTheme() === 'light' ? 'check' : ''"
+      (click)="switchTheme('light')"
+    >
+      {{ 'THEME.LIGHT' | translate }}
+    </button>
+    <button
+      si-header-dropdown-item
+      type="button"
+      [checked]="getTheme() === 'dark' ? 'check' : ''"
+      (click)="switchTheme('dark')"
+    >
+      {{ 'THEME.DARK' | translate }}
+    </button>
+  </si-header-dropdown>
+</ng-template>
+
+<div class="si-layout-main-padding si-layout-inner">
+  <div class="si-layout-header">
+    <h2 class="si-layout-title si-layout-top-element">{{ 'HOME.HEADING' | translate }}</h2>
+    <p class="si-layout-subtitle">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+    </p>
+  </div>
+  @for (_ of [1,2,3,4,5]; track $index) {
+  <div class="flex-grow-1 row mt-8 mb-6 gy-4">
+    <div class="col">
+      <si-card class="h-100" heading="HOME.INTRO">
+        <div class="card-body" body>
+          <a href="https://simpl.code.siemens.io/simpl-element/" target="_blank">
+            {{ 'HOME.LINK' | translate }}
+          </a>
+        </div>
+      </si-card>
+    </div>
+    <div class="col">
+      <si-card class="h-100" heading="HOME.SELECT_LANG">
+        <div class="card-body" body>
+          <si-language-switcher
+            languageSwitcherLabel="language switcher"
+            [availableLanguages]="[
+              { value: 'en', name: 'English' },
+              { value: 'de', name: 'Deutsch' }
+            ]"
+          />
+        </div>
+      </si-card>
+    </div>
+  </div>
+  }
+</div>
