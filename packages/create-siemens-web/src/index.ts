@@ -10,46 +10,6 @@ import { determineAgent } from '@vercel/detect-agent';
 
 const { red, green, yellow, underline } = createColors();
 
-const argv = mri<{
-  template?: string;
-  help?: boolean;
-  overwrite?: boolean;
-  immediate?: boolean;
-  interactive?: boolean;
-}>(process.argv.slice(2), {
-  boolean: ['help', 'overwrite', 'immediate', 'interactive'],
-  alias: { h: 'help', t: 'template', i: 'immediate' },
-  string: ['template'],
-});
-const cwd = process.cwd();
-
-// prettier-ignore
-const helpMessage = `\
-Usage: create-siemens-web [OPTION]... [DIRECTORY]
-
-Create a new Siemens web application in JavaScript or TypeScript.
-When running in TTY, the CLI will start in interactive mode.
-
-Options:
-  -t, --template NAME                   use a specific template
-  -i, --immediate / --no-immediate      install dependencies and start dev
-  --overwrite                           remove existing files if target directory is not empty
-  --interactive / --no-interactive      force interactive / non-interactive mode
-  -h, --help                            display this help message
-
-Available templates:
-${getListOfAllTemplates()}
-`;
-
-function getListOfAllTemplates() {
-  return FRAMEWORKS.map(f => {
-    const frameworkColor = f.color;
-    const frameworkName = frameworkColor(f.display || f.name);
-    const variants = f.variants.map(v => `  - ${v.name}`).join('\n');
-    return `${frameworkName}\n${variants}`;
-  }).join('\n\n');
-}
-
 type ColorFunc = (str: string) => string;
 type Framework = {
   name: string;
@@ -114,6 +74,46 @@ const TEMPLATES = FRAMEWORKS.map(f => f.variants.map(v => v.name)).reduce(
   (a, b) => a.concat(b),
   [],
 );
+
+const argv = mri<{
+  template?: string;
+  help?: boolean;
+  overwrite?: boolean;
+  immediate?: boolean;
+  interactive?: boolean;
+}>(process.argv.slice(2), {
+  boolean: ['help', 'overwrite', 'immediate', 'interactive'],
+  alias: { h: 'help', t: 'template', i: 'immediate' },
+  string: ['template'],
+});
+const cwd = process.cwd();
+
+// prettier-ignore
+const helpMessage = `\
+Usage: create-siemens-web [OPTION]... [DIRECTORY]
+
+Create a new Siemens web application in JavaScript or TypeScript.
+When running in TTY, the CLI will start in interactive mode.
+
+Options:
+  -t, --template NAME                   use a specific template
+  -i, --immediate / --no-immediate      install dependencies and start dev
+  --overwrite                           remove existing files if target directory is not empty
+  --interactive / --no-interactive      force interactive / non-interactive mode
+  -h, --help                            display this help message
+
+Available templates:
+${getListOfAllTemplates()}
+`;
+
+function getListOfAllTemplates() {
+  return FRAMEWORKS.map(f => {
+    const frameworkColor = f.color;
+    const frameworkName = frameworkColor(f.display || f.name);
+    const variants = f.variants.map(v => `  - ${v.name}`).join('\n');
+    return `${frameworkName}\n${variants}`;
+  }).join('\n\n');
+}
 
 const renameFiles: Record<string, string | undefined> = {
   _gitignore: '.gitignore',
