@@ -63,7 +63,7 @@ const FRAMEWORKS: Framework[] = [
       {
         name: "ix-vue-starter",
         display: "iX (Vue) ↗",
-        color: red,
+        color: yellow,
       },
     ],
   },
