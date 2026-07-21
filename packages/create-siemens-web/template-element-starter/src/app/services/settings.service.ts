@@ -10,7 +10,7 @@ export class SettingsService {
 
   constructor() {
     this.translate.setDefaultLang('en');
-    this.translate.onLangChange.subscribe(this.storeLanguage);
+    this.translate.onLangChange.subscribe(event => this.storeLanguage(event));
 
     const language = this.loadLanguage() ?? this.translate.getBrowserLang() ?? 'en';
     this.setLanguage(language);
