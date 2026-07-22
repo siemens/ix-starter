@@ -7,6 +7,11 @@ on:
         description: 'Please confirm deployment'
         required: true
         type: boolean
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
 
 concurrency: deploy-gh-pages-${{ github.ref }}
 
@@ -17,7 +22,9 @@ permissions:
 
 jobs:
   deploy-starter-templates:
-    if: ${{ inputs.confirm_deployment == true && github.repository == 'siemens/ix-starter' }}
+    if: >-
+      github.repository == 'siemens/ix-starter' &&
+      (github.event_name == 'pull_request' || inputs.confirm_deployment == true)
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -164,10 +171,12 @@ jobs:
         run: cp -R github-pages-source/element-starter/dist/element-starter/browser/. github-pages/element-starter/
 
       - name: Upload GitHub Pages artifact
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         uses: actions/upload-pages-artifact@v4
         with:
           path: github-pages
 
       - name: Deploy starter templates
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         id: deployment
         uses: actions/deploy-pages@v4
