@@ -7,11 +7,6 @@ on:
         description: 'Please confirm deployment'
         required: true
         type: boolean
-  pull_request:
-    types:
-      - opened
-      - reopened
-      - synchronize
 
 concurrency: deploy-gh-pages-${{ github.ref }}
 
@@ -22,9 +17,7 @@ permissions:
 
 jobs:
   deploy-starter-templates:
-    if: >-
-      github.repository == 'siemens/ix-starter' &&
-      (github.event_name == 'pull_request' || inputs.confirm_deployment == true)
+    if: ${{ inputs.confirm_deployment == true && github.repository == 'siemens/ix-starter' }}
     runs-on: ubuntu-latest
     environment:
       name: github-pages
