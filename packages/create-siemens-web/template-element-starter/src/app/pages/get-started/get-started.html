@@ -1,0 +1,18 @@
+<div class="si-layout-header">
+  <h2 class="si-layout-title si-layout-top-element">
+    {{ 'GET-STARTED.HEADING' | translate }}
+  </h2>
+</div>
+<p>{{ 'GET-STARTED.PARAGRAPH_1' | translate }}</p>
+<p>{{ 'GET-STARTED.PARAGRAPH_2' | translate }}</p>
+<div class="d-flex flex-column gap-5">
+  <a class="me-auto" [siLink]="{ link: '../forms', tooltip: 'GET-STARTED.LINKS.FORMS.TOOLTIP' }">
+    {{ 'GET-STARTED.LINKS.FORMS.LABEL' | translate }}
+  </a>
+  <a class="me-auto" [siLink]="{ link: '../charts', tooltip: 'GET-STARTED.LINKS.CHARTS.TOOLTIP' }">
+    {{ 'GET-STARTED.LINKS.CHARTS.LABEL' | translate }}
+  </a>
+  <a class="me-auto" [siLink]="{ link: '../grids', tooltip: 'GET-STARTED.LINKS.GRIDS.TOOLTIP' }">
+    {{ 'GET-STARTED.LINKS.GRIDS.LABEL' | translate }}
+  </a>
+</div>

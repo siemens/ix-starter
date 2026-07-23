@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-
+@use 'flag-icons/sass/flag-icons' with (
+  $flag-icons-use-square: false
+);
 // Load Siemens fonts
 @use '@simpl/brand/assets/fonts/styles/siemens-sans';
 // Load Element icons

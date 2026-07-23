@@ -1,8 +1,6 @@
 {
-  "name": "element-starter",
-  "description": "Element starter project",
-  "version": "0.0.1",
-  "license": "SEE LICENSE IN LICENSE.md",
+  "name": "template-element-starter",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
     "ng": "ng",
@@ -13,12 +11,13 @@
     "watch": "ng build --watch",
     "test": "ng test",
     "lint": "ng lint",
+    "lint:format": "prettier --check .",
     "lint:sass": "stylelint **.scss",
     "lint:all": "npm run lint && npm run lint:sass",
     "e2e:prepare": "playwright install",
     "e2e": "playwright test",
     "e2e:ui": "playwright test --ui",
-    "lint:format": "echo no formatter; exit 0"
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@angular/cdk": "22.0.5",
@@ -30,26 +29,31 @@
     "@angular/router": "22.0.6",
     "@ngx-translate/core": "17.0.0",
     "@ngx-translate/http-loader": "17.0.0",
-    "@siemens/element-ng": "49.13.0",
+    "@siemens/charts-ng": "49.13.0",
     "@siemens/element-icons": "1.2.0",
-    "@simpl/brand": "3.3.0",
-    "@siemens/element-translate-ng": "49.13.0",
+    "@siemens/element-ng": "49.13.0",
     "@siemens/element-theme": "49.13.0",
+    "@siemens/element-translate-ng": "49.13.0",
+    "@siemens/ngx-datatable": "26.2.1",
+    "@simpl/brand": "3.3.0",
+    "echarts": "6.1.0",
+    "flag-icons": "7.5.0",
+    "google-libphonenumber": "3.2.44",
     "rxjs": "7.8.2",
     "tslib": "2.8.1"
   },
   "devDependencies": {
+    "@angular-eslint/builder": "22.1.0",
     "@angular/build": "22.0.7",
     "@angular/cli": "22.0.7",
     "@angular/compiler-cli": "22.0.6",
-    "@angular/language-service": "22.0.6",
-    "@angular-eslint/builder": "22.1.0",
-    "@playwright/test": "1.61.1",
     "@eslint/js": "10.0.1",
+    "@playwright/test": "1.61.1",
     "@siemens/eslint-config-angular": "4.4.2",
+    "@siemens/prettier-config": "4.4.2",
     "@siemens/stylelint-config-scss": "4.4.2",
     "@vitest/browser-playwright": "4.1.10",
-    "@vitest/coverage-v8": "^4.1.9",
+    "@vitest/coverage-v8": "4.1.10",
     "angular-eslint": "22.0.0",
     "eslint": "10.6.0",
     "eslint-plugin-perfectionist": "5.10.0",
@@ -57,10 +61,12 @@
     "http-server": "^14.0.0",
     "postcss": "^8.4.29",
     "postcss-scss": "4.0.9",
+    "prettier": "3.8.1",
     "stylelint": "17.14.0",
     "stylelint-scss": "7.2.0",
     "typescript": "6.0.3",
     "typescript-eslint": "8.63.0",
-    "vitest": "^4.1.9"
-  }
+    "vitest": "4.1.10"
+  },
+  "prettier": "@siemens/prettier-config"
 }

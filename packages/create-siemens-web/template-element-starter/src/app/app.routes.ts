@@ -1,8 +1,22 @@
 import { Routes } from '@angular/router';
 
-import { Home } from './pages/home/home';
+import { Charts } from './pages/charts/charts';
+import { Forms } from './pages/forms/forms';
+import { GetStarted } from './pages/get-started/get-started';
+import { Grids } from './pages/grids/grids';
+import { Main } from './pages/main';
 
 export const routes: Routes = [
-  { path: 'home', component: Home },
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  {
+    path: 'main',
+    component: Main,
+    children: [
+      { path: 'charts', component: Charts },
+      { path: 'forms', component: Forms },
+      { path: 'get-started', component: GetStarted },
+      { path: 'grids', component: Grids },
+      { path: '', redirectTo: 'get-started', pathMatch: 'full' },
+    ],
+  },
+  { path: '**', redirectTo: 'main' },
 ];

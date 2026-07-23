@@ -1,6 +1,9 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
+  "cli": {
+    "schematicCollections": ["@schematics/angular"]
+  },
   "newProjectRoot": "projects",
   "projects": {
     "element-starter": {
@@ -70,9 +73,6 @@
           },
           "defaultConfiguration": "development"
         },
-        "extract-i18n": {
-          "builder": "@angular/build:extract-i18n"
-        },
         "test": {
           "builder": "@angular/build:unit-test",
           "options": {
@@ -106,8 +106,5 @@
         }
       }
     }
-  },
-  "cli": {
-    "schematicCollections": ["@schematics/angular"]
   }
 }
