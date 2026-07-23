@@ -114,6 +114,11 @@ jobs:
         env:
           CSC_TOKEN: ${{ secrets.CSC_TOKEN }}
 
+      - name: Configure Element registry token 2
+        run: pnpm config set "//code.siemens.com/:_authToken" "${CSC_TOKEN}"
+        env:
+          CSC_TOKEN: ${{ secrets.CSC_TOKEN }}
+
       - name: Install Element Starter dependencies
         working-directory: github-pages-source/element-starter
         run: pnpm install --reporter=ndjson --ignore-workspace
