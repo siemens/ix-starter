@@ -116,7 +116,7 @@ jobs:
 
       - name: Install Element Starter dependencies
         working-directory: github-pages-source/element-starter
-        run: pnpm install --ignore-workspace
+        run: pnpm install --reporter=ndjson --ignore-workspace
 
       - name: Build Element Starter
         working-directory: github-pages-source/element-starter
