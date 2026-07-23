@@ -36,9 +36,9 @@ jobs:
       - name: Test
         run: pnpm test
 
-  build-starter-templates:
+  build-ix-starter-templates:
     if: ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository }}
-    name: Build Starter Templates
+    name: Build iX Starter Templates
     timeout-minutes: 15
     runs-on: ubuntu-latest
     steps:
@@ -86,6 +86,18 @@ jobs:
       - name: Build Angular Starter
         working-directory: github-pages-source/angular-starter
         run: pnpm --ignore-workspace exec ng build --base-href=/ix-starter/angular-starter/
+
+  build-element-starter-templates:
+    if: ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository }}
+    name: Build Element Starter Templates
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
+      - uses: ./.github/workflows/actions/install
+
+      - name: Build create-siemens-web
+        run: pnpm --filter create-siemens-web build
 
       - name: Scaffold Element Starter
         run: >-
