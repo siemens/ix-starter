@@ -21,7 +21,7 @@
     "turbo": "latest",
     "vitest": "^4.1.10"
   },
-  "packageManager": "pnpm@10.17.0",
+  "packageManager": "pnpm@11.18.0",
   "engines": {
     "pnpm": ">=10.x.x"
   },
