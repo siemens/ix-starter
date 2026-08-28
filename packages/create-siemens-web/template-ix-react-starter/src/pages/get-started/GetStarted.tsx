@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) Siemens 2018 - 2026
+ * SPDX-License-Identifier: MIT
+ */
+
 import { useNavigate } from 'react-router-dom';
 import { IxTypography, IxLinkButton, IxContentHeader } from '@siemens/ix-react';
 import styles from './GetStarted.module.css';

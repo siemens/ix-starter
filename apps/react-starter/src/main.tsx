@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) Siemens 2018 - 2026
+ * SPDX-License-Identifier: MIT
+ */
+
 import { registerTheme } from '@siemens/ix-echarts';
 import { AllCommunityModule, ModuleRegistry } from 'ag-grid-community';
 import { LineChart } from 'echarts/charts';

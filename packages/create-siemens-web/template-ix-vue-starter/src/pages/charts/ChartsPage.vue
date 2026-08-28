@@ -1,3 +1,8 @@
+<!--
+  ~ Copyright (c) Siemens 2018 - 2026
+  ~ SPDX-License-Identifier: MIT
+-->
+
 <script setup lang="ts">
 import { ref, shallowRef, onMounted, onUnmounted, nextTick } from 'vue';
 import { IxContentHeader, IxTypography, IxButton } from '@siemens/ix-vue';
