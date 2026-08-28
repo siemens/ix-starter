@@ -1,6 +1,3 @@
-/*
- * COPYRIGHT (c) Siemens AG 2018-2024 ALL RIGHTS RESERVED.
- */
 import axios from 'axios';
 import fs, { ensureDirSync } from 'fs-extra';
 import path from 'path';

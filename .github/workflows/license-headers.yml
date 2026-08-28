@@ -1,0 +1,64 @@
+name: License Headers
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ['main']
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+
+concurrency:
+  group: license-headers-${{ github.event_name }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    if: ${{ github.event_name != 'workflow_dispatch' }}
+    name: Check License Headers
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+
+      - name: Check License Headers
+        uses: apache/skywalking-eyes/header@61275cc80d0798a405cb070f7d3a8aaf7cf2c2c1 # v0.8.0
+        with:
+          config: .licenserc.yaml
+          mode: check
+          token: ''
+
+  fix:
+    if: ${{ github.event_name == 'workflow_dispatch' }}
+    name: Fix License Headers
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          ref: main
+
+      - name: Fix License Headers
+        uses: apache/skywalking-eyes/header@61275cc80d0798a405cb070f7d3a8aaf7cf2c2c1 # v0.8.0
+        with:
+          config: .licenserc.yaml
+          mode: fix
+          token: ''
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
+        with:
+          branch: fix/license-headers
+          commit-message: 'fix: add missing license headers'
+          title: 'fix: add missing license headers'
+          body: |
+            Apply missing license headers using Apache SkyWalking Eyes and
+            the repository's `.licenserc.yaml` configuration.
+          delete-branch: true
