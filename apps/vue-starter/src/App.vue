@@ -16,8 +16,7 @@ const route = useRoute();
 </script>
 
 <template>
-  <a href="#main-content" class="skip-link">Skip to main content</a>
-  <IxApplication>
+  <IxApplication skipLinkMainTargetId="main-content">
     <IxApplicationHeader name="Siemens Industrial Experience Starter App">
       <CompanyLogo />
       <IxAvatar initials="JD" aria-label="User avatar: JD" />

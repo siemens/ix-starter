@@ -23,70 +23,65 @@ function App() {
   const isActive = (path: string): boolean => location.pathname === path;
 
   return (
-    <>
-      <a href="#main-content" className="skip-link">
-        Skip to main content
-      </a>
-      <IxApplication>
-        <IxApplicationHeader name="Siemens Industrial Experience Starter App">
-          <CompanyLogo />
-          <IxAvatar initials="JD" aria-label="User avatar: JD" />
-        </IxApplicationHeader>
+    <IxApplication skipLinkMainTargetId="main-content">
+      <IxApplicationHeader name="Siemens Industrial Experience Starter App">
+        <CompanyLogo />
+        <IxAvatar initials="JD" aria-label="User avatar: JD" />
+      </IxApplicationHeader>
 
-        <IxMenu enableToggleTheme aria-label="Main navigation">
-          <IxMenuItem
-            icon={iconHome}
-            active={isActive('/')}
-            onClick={e => {
-              e.preventDefault();
-              navigate('/');
-            }}
-          >
-            Get Started
-          </IxMenuItem>
-          <IxMenuItem
-            icon={iconTextDocument}
-            active={isActive('/forms')}
-            onClick={e => {
-              e.preventDefault();
-              navigate('/forms');
-            }}
-          >
-            Forms
-          </IxMenuItem>
-          <IxMenuItem
-            icon={iconPiechart}
-            active={isActive('/charts')}
-            onClick={e => {
-              e.preventDefault();
-              navigate('/charts');
-            }}
-          >
-            Charts
-          </IxMenuItem>
-          <IxMenuItem
-            icon={iconTable}
-            active={isActive('/grids')}
-            onClick={e => {
-              e.preventDefault();
-              navigate('/grids');
-            }}
-          >
-            Grids
-          </IxMenuItem>
-        </IxMenu>
+      <IxMenu enableToggleTheme aria-label="Main navigation">
+        <IxMenuItem
+          icon={iconHome}
+          active={isActive('/')}
+          onClick={e => {
+            e.preventDefault();
+            navigate('/');
+          }}
+        >
+          Get Started
+        </IxMenuItem>
+        <IxMenuItem
+          icon={iconTextDocument}
+          active={isActive('/forms')}
+          onClick={e => {
+            e.preventDefault();
+            navigate('/forms');
+          }}
+        >
+          Forms
+        </IxMenuItem>
+        <IxMenuItem
+          icon={iconPiechart}
+          active={isActive('/charts')}
+          onClick={e => {
+            e.preventDefault();
+            navigate('/charts');
+          }}
+        >
+          Charts
+        </IxMenuItem>
+        <IxMenuItem
+          icon={iconTable}
+          active={isActive('/grids')}
+          onClick={e => {
+            e.preventDefault();
+            navigate('/grids');
+          }}
+        >
+          Grids
+        </IxMenuItem>
+      </IxMenu>
 
-        <IxContent id="main-content">
-          <Routes>
-            <Route path="/" element={<GetStarted />} />
-            <Route path="/forms" element={<Forms />} />
-            <Route path="/charts" element={<Charts />} />
-            <Route path="/grids" element={<Grids />} />
-            <Route path="*" element={<GetStarted />} />
-          </Routes>
-        </IxContent>
-      </IxApplication>
-    </>
+      <IxContent id="main-content">
+        <Routes>
+          <Route path="/" element={<GetStarted />} />
+          <Route path="/forms" element={<Forms />} />
+          <Route path="/charts" element={<Charts />} />
+          <Route path="/grids" element={<Grids />} />
+          <Route path="*" element={<GetStarted />} />
+        </Routes>
+      </IxContent>
+    </IxApplication>
   );
 }
 
