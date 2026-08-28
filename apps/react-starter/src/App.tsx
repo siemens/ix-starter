@@ -23,7 +23,7 @@ function App() {
   const isActive = (path: string): boolean => location.pathname === path;
 
   return (
-    <IxApplication skipLinkTargetId="main-content">
+    <IxApplication skipLinkMainTargetId="main-content">
       <IxApplicationHeader name="Siemens Industrial Experience Starter App">
         <CompanyLogo />
         <IxAvatar initials="JD" aria-label="User avatar: JD" />
