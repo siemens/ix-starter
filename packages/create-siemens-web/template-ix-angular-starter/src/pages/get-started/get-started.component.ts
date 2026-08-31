@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) Siemens 2018 - 2026
+ * SPDX-License-Identifier: MIT
+ */
+
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { IxContentHeader, IxTypography, IxLinkButton } from '@siemens/ix-angular/standalone';
