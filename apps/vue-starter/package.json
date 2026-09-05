@@ -10,11 +10,11 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@siemens/ix": "^5.1.0",
-    "@siemens/ix-aggrid": "^5.0.1",
-    "@siemens/ix-echarts": "^4.1.0",
-    "@siemens/ix-icons": "^3.4.0",
-    "@siemens/ix-vue": "^5.1.0",
+    "@siemens/ix": "^5.2.1",
+    "@siemens/ix-aggrid": "^5.1.0",
+    "@siemens/ix-echarts": "^4.1.1",
+    "@siemens/ix-icons": "^3.5.0",
+    "@siemens/ix-vue": "^5.2.1",
     "ag-grid-community": "^33.0.0",
     "ag-grid-vue3": "^33.0.0",
     "echarts": "^5.4.1",
@@ -22,7 +22,7 @@
     "vue-router": "^4.4.0"
   },
   "devDependencies": {
-    "@playwright/test": "^1.60.0",
+    "@playwright/test": "1.61.1",
     "@types/node": "^24.12.3",
     "@vitejs/plugin-vue": "^6.0.6",
     "@vitest/browser-playwright": "^4.1.8",
