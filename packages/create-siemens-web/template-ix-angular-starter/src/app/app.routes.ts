@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) Siemens 2018 - 2026
+ * SPDX-License-Identifier: MIT
+ */
+
 import { Routes } from '@angular/router';
 import { GetStartedComponent } from './../pages/get-started/get-started.component';
 import { FormsComponent } from './../pages/forms/forms.component';

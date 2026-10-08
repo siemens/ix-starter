@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) Siemens 2018 - 2026
+ * SPDX-License-Identifier: MIT
+ */
+
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {

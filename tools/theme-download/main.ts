@@ -1,6 +1,8 @@
 /*
- * COPYRIGHT (c) Siemens AG 2018-2024 ALL RIGHTS RESERVED.
+ * Copyright (c) Siemens 2018 - 2026
+ * SPDX-License-Identifier: MIT
  */
+
 import axios from 'axios';
 import fs, { ensureDirSync } from 'fs-extra';
 import path from 'path';

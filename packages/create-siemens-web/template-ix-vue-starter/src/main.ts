@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) Siemens 2018 - 2026
+ * SPDX-License-Identifier: MIT
+ */
+
 import { createApp } from 'vue';
 import { createRouter, createWebHashHistory } from 'vue-router';
 import * as echarts from 'echarts/core';

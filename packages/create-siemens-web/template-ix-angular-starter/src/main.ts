@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) Siemens 2018 - 2026
+ * SPDX-License-Identifier: MIT
+ */
+
 import { bootstrapApplication } from '@angular/platform-browser';
 import { registerTheme } from '@siemens/ix-echarts';
 import { AllCommunityModule, ModuleRegistry } from 'ag-grid-community';

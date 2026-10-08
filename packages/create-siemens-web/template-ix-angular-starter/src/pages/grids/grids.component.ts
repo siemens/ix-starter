@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) Siemens 2018 - 2026
+ * SPDX-License-Identifier: MIT
+ */
+
 import { Component } from '@angular/core';
 import { IxContentHeader, IxTypography } from '@siemens/ix-angular/standalone';
 import { AgGridAngular } from 'ag-grid-angular';

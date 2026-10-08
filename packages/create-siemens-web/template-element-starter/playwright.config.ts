@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) Siemens 2018 - 2026
+ * SPDX-License-Identifier: MIT
+ */
+
 import { devices, type PlaywrightTestConfig } from '@playwright/test';
 
 const port = process.env['PORT'] ?? '4200';

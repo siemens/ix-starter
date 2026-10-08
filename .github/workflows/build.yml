@@ -79,13 +79,22 @@ jobs:
           node packages/create-siemens-web/index.js github-pages-source/angular-starter
           --no-interactive --template ix-angular-starter
 
+      - name: Approve packages which allowed to run scripts during installation
+        working-directory: github-pages-source/angular-starter
+        run: |
+          echo "allowBuilds:
+            '@parcel/watcher': true
+            esbuild: true
+            lmdb: true
+            msgpackr-extract: true" > pnpm-workspace.yaml
+
       - name: Install Angular Starter dependencies
         working-directory: github-pages-source/angular-starter
-        run: pnpm install --ignore-workspace
+        run: pnpm install
 
       - name: Build Angular Starter
         working-directory: github-pages-source/angular-starter
-        run: pnpm --ignore-workspace exec ng build --base-href=/ix-starter/angular-starter/
+        run: pnpm run build --base-href=/ix-starter/angular-starter/
 
   build-element-starter-templates:
     if: ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository }}
@@ -104,25 +113,23 @@ jobs:
           node packages/create-siemens-web/index.js github-pages-source/element-starter
           --no-interactive --template element-starter
 
-      - name: Configure Element registry
+      - name: Approve packages which allowed to run scripts during installation
         working-directory: github-pages-source/element-starter
-        run: pnpm config set --location=project @simpl:registry https://code.siemens.com/api/v4/packages/npm/
-
-      - name: Configure Element registry token
-        working-directory: github-pages-source/element-starter
-        run: pnpm config set --location=project //code.siemens.com/api/v4/packages/npm/:_authToken "$CSC_TOKEN"
-        env:
-          CSC_TOKEN: ${{ secrets.CSC_TOKEN }}
-
-      - name: Configure Element registry token 2
-        run: pnpm config set "//code.siemens.com/:_authToken" "${CSC_TOKEN}"
-        env:
-          CSC_TOKEN: ${{ secrets.CSC_TOKEN }}
+        run: |
+          echo "allowBuilds:
+            '@parcel/watcher': true
+            esbuild: true
+            lmdb: true
+            msgpackr-extract: true" > pnpm-workspace.yaml
 
       - name: Install Element Starter dependencies
         working-directory: github-pages-source/element-starter
-        run: pnpm install --reporter=ndjson --ignore-workspace
+        run: pnpm install
+        env:
+          # GitLab serves tarballs through the project-scoped registry route.
+          PNPM_CONFIG__AUTH: >-
+            { "https://code.siemens.com/api/v4/projects/732/packages/npm": { "@simpl": { "authToken": "${{ secrets.CSC_TOKEN }}" } } }
 
       - name: Build Element Starter
         working-directory: github-pages-source/element-starter
-        run: pnpm --ignore-workspace exec ng build --base-href=/ix-starter/element-starter/
+        run: pnpm build --base-href=/ix-starter/element-starter/
