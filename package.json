@@ -23,9 +23,7 @@
   },
   "packageManager": "pnpm@11.18.0",
   "engines": {
-    "pnpm": ">=10.x.x"
-  },
-  "volta": {
-    "node": "22.21.0"
+    "pnpm": ">=10.x.x",
+    "node": "^24.22.2"
   }
 }
