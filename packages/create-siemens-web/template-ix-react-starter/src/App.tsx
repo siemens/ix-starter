@@ -28,7 +28,7 @@ function App() {
   const isActive = (path: string): boolean => location.pathname === path;
 
   return (
-    <IxApplication skipLinkMainTargetId="main-content">
+    <IxApplication>
       <IxApplicationHeader name="Siemens Industrial Experience Starter App">
         <CompanyLogo />
         <IxAvatar initials="JD" aria-label="User avatar: JD" />
@@ -77,7 +77,7 @@ function App() {
         </IxMenuItem>
       </IxMenu>
 
-      <IxContent id="main-content">
+      <IxContent>
         <Routes>
           <Route path="/" element={<GetStarted />} />
           <Route path="/forms" element={<Forms />} />

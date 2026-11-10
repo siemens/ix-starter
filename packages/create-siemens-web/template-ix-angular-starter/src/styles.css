@@ -10,11 +10,6 @@ body {
   padding: 0;
 }
 
-#main-content:focus,
-#main-content:focus-within {
-  outline: var(--theme-color-focus-bdr);
-}
-
 .sr-only {
   position: absolute;
   inline-size: 1px;
