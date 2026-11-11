@@ -1,8 +1,3 @@
-<!--
-  ~ Copyright (c) Siemens 2018 - 2026
-  ~ SPDX-License-Identifier: MIT
--->
-
 <script setup lang="ts">
 import { IxContentHeader, IxTypography } from '@siemens/ix-vue';
 import { AgGridVue } from 'ag-grid-vue3';
@@ -22,8 +17,7 @@ const ixTheme = getIxTheme(ag);
       target="_blank"
       rel="noreferrer"
       aria-label="AG Grid (opens in a new tab)"
-      >AG Grid</a
-    >.
+    >AG Grid</a>.
     <br />
     This lets you use its features while staying consistent with the Siemens Industrial Experience
     design system.

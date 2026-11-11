@@ -1,10 +1,5 @@
-<!--
-  ~ Copyright (c) Siemens 2018 - 2026
-  ~ SPDX-License-Identifier: MIT
--->
-
 <script setup lang="ts">
-const showLogo = !window.customElements.get('ix-siemens-logo');
+const showLogo = !window.customElements.get("ix-siemens-logo");
 </script>
 
 <template>

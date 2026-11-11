@@ -1,7 +1,3 @@
-/*
- * Copyright (c) Siemens 2018 - 2026
- * SPDX-License-Identifier: MIT
- */
 
 export const CompanyLogo = () => {
   if (window.customElements.get('ix-siemens-logo')) {
@@ -9,14 +5,7 @@ export const CompanyLogo = () => {
   }
 
   return (
-    <svg
-      slot="logo"
-      width="77"
-      height="32"
-      viewBox="0 0 77 32"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg slot="logo" width="77" height="32" viewBox="0 0 77 32" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         fillRule="evenodd"
         clipRule="evenodd"

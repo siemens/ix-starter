@@ -1,8 +1,0 @@
-// Copyright (c) Siemens 2018 - 2026
-// SPDX-License-Identifier: MIT
-
-// Drop when using esbuild. `~` is required for webpack only.
-@use 'styles' with (
-  $siemens-font-path: '~@simpl/fonts/dist/fonts',
-  $icon-font-path: '~@simpl/element-icons/dist/fonts'
-);

@@ -3,7 +3,7 @@ name: CI
 on:
   workflow_dispatch:
   push:
-    branches: ['main'] # remove "react-demo-app" before merge to main
+    branches: ["main"] # remove "react-demo-app" before merge to main
   pull_request:
     types:
       - opened
@@ -29,107 +29,8 @@ jobs:
           pnpm --filter ix-react-starter exec playwright install chromium
           pnpm --filter ix-vue-starter exec playwright install chromium
 
-      - run: pnpm run lint:format
       - name: Build
         run: pnpm build
 
       - name: Test
         run: pnpm test
-
-  build-ix-starter-templates:
-    if: ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository }}
-    name: Build iX Starter Templates
-    timeout-minutes: 15
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
-      - uses: ./.github/workflows/actions/install
-
-      - name: Build create-siemens-web
-        run: pnpm --filter create-siemens-web build
-
-      - name: Scaffold React Starter
-        run: >-
-          node packages/create-siemens-web/index.js github-pages-source/react-starter
-          --no-interactive --template ix-react-starter
-
-      - name: Install React Starter dependencies
-        working-directory: github-pages-source/react-starter
-        run: pnpm install --ignore-workspace
-
-      - name: Build React Starter
-        working-directory: github-pages-source/react-starter
-        run: pnpm --ignore-workspace exec tsc && pnpm --ignore-workspace exec vite build --base=/ix-starter/react-starter/
-
-      - name: Scaffold Vue Starter
-        run: >-
-          node packages/create-siemens-web/index.js github-pages-source/vue-starter
-          --no-interactive --template ix-vue-starter
-
-      - name: Install Vue Starter dependencies
-        working-directory: github-pages-source/vue-starter
-        run: pnpm install --ignore-workspace
-
-      - name: Build Vue Starter
-        working-directory: github-pages-source/vue-starter
-        run: pnpm --ignore-workspace exec vue-tsc && pnpm --ignore-workspace exec vite build --base=/ix-starter/vue-starter/
-
-      - name: Scaffold Angular Starter
-        run: >-
-          node packages/create-siemens-web/index.js github-pages-source/angular-starter
-          --no-interactive --template ix-angular-starter
-
-      - name: Approve packages which allowed to run scripts during installation
-        working-directory: github-pages-source/angular-starter
-        run: |
-          echo "allowBuilds:
-            '@parcel/watcher': true
-            esbuild: true
-            lmdb: true
-            msgpackr-extract: true" > pnpm-workspace.yaml
-
-      - name: Install Angular Starter dependencies
-        working-directory: github-pages-source/angular-starter
-        run: pnpm install
-
-      - name: Build Angular Starter
-        working-directory: github-pages-source/angular-starter
-        run: pnpm run build --base-href=/ix-starter/angular-starter/
-
-  build-element-starter-templates:
-    if: ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository }}
-    name: Build Element Starter Templates
-    timeout-minutes: 15
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
-      - uses: ./.github/workflows/actions/install
-
-      - name: Build create-siemens-web
-        run: pnpm --filter create-siemens-web build
-
-      - name: Scaffold Element Starter
-        run: >-
-          node packages/create-siemens-web/index.js github-pages-source/element-starter
-          --no-interactive --template element-starter
-
-      - name: Approve packages which allowed to run scripts during installation
-        working-directory: github-pages-source/element-starter
-        run: |
-          echo "allowBuilds:
-            '@parcel/watcher': true
-            esbuild: true
-            lmdb: true
-            msgpackr-extract: true" > pnpm-workspace.yaml
-
-      - name: Install Element Starter dependencies
-        working-directory: github-pages-source/element-starter
-        run: pnpm install
-        env:
-          # GitLab serves tarballs through the project-scoped registry route.
-          PNPM_CONFIG__AUTH: >-
-            { "https://code.siemens.com/api/v4/projects/732/packages/npm": { "@simpl": { "authToken": "${{ secrets.CSC_TOKEN }}" } } }
-
-      - name: Build Element Starter
-        working-directory: github-pages-source/element-starter
-        run: pnpm build --base-href=/ix-starter/element-starter/

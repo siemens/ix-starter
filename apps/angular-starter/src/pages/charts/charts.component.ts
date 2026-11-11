@@ -1,8 +1,3 @@
-/*
- * Copyright (c) Siemens 2018 - 2026
- * SPDX-License-Identifier: MIT
- */
-
 import {
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
@@ -74,10 +69,7 @@ export class ChartsComponent implements AfterViewInit, OnDestroy {
           if (existingInstance) {
             existingInstance.dispose();
           }
-          this.chartInstance = echarts.init(
-            this.chartContainer.nativeElement,
-            getEChartsThemeName(),
-          );
+          this.chartInstance = echarts.init(this.chartContainer.nativeElement, getEChartsThemeName());
           this.chartInstance.setOption(buildChartOptions());
         }
       }, 0);
@@ -87,14 +79,17 @@ export class ChartsComponent implements AfterViewInit, OnDestroy {
   private themeChangeHandler = () => {
     this.chartInstance?.dispose();
     if (!this.chartContainer?.nativeElement) return;
-    this.chartInstance = echarts.init(this.chartContainer.nativeElement, getEChartsThemeName());
+    this.chartInstance = echarts.init(
+      this.chartContainer.nativeElement,
+      getEChartsThemeName()
+    );
     this.chartInstance.setOption(buildChartOptions());
   };
 
   ngAfterViewInit() {
     const container = this.chartContainer.nativeElement;
 
-    this.resizeObserver = new ResizeObserver(entries => {
+    this.resizeObserver = new ResizeObserver((entries) => {
       const { width, height } = entries[0].contentRect;
       if (width === 0 || height === 0) return;
 

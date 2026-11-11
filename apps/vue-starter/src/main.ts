@@ -1,18 +1,8 @@
-/*
- * Copyright (c) Siemens 2018 - 2026
- * SPDX-License-Identifier: MIT
- */
-
 import { createApp } from 'vue';
 import { createRouter, createWebHashHistory } from 'vue-router';
 import * as echarts from 'echarts/core';
 import { LineChart } from 'echarts/charts';
-import {
-  GridComponent,
-  TooltipComponent,
-  TitleComponent,
-  LegendComponent,
-} from 'echarts/components';
+import { GridComponent, TooltipComponent, TitleComponent, LegendComponent } from 'echarts/components';
 import { CanvasRenderer } from 'echarts/renderers';
 import { registerTheme } from '@siemens/ix-echarts';
 import { ModuleRegistry, AllCommunityModule } from 'ag-grid-community';
@@ -22,14 +12,7 @@ import './styles/global.css';
 
 import App from './App.vue';
 
-echarts.use([
-  LineChart,
-  GridComponent,
-  TooltipComponent,
-  TitleComponent,
-  LegendComponent,
-  CanvasRenderer,
-]);
+echarts.use([LineChart, GridComponent, TooltipComponent, TitleComponent, LegendComponent, CanvasRenderer]);
 registerTheme(echarts);
 ModuleRegistry.registerModules([AllCommunityModule]);
 

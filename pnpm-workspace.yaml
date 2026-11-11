@@ -3,12 +3,6 @@ packages:
   - packages/*
   - tools/*
 
-allowBuilds:
-  '@parcel/watcher': true
-  esbuild: true
-  lmdb: true
-  msgpackr-extract: true
-
 minimumReleaseAge: 2880
 
 minimumReleaseAgeExclude:
