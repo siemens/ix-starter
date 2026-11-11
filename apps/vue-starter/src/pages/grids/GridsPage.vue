@@ -1,8 +1,3 @@
-<!--
-  ~ Copyright (c) Siemens 2018 - 2026
-  ~ SPDX-License-Identifier: MIT
--->
-
 <script setup lang="ts">
 import { IxContentHeader, IxTypography } from '@siemens/ix-vue';
 import { AgGridVue } from 'ag-grid-vue3';

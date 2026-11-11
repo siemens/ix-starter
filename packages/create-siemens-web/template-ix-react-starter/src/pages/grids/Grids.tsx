@@ -1,8 +1,3 @@
-/*
- * Copyright (c) Siemens 2018 - 2026
- * SPDX-License-Identifier: MIT
- */
-
 import { IxTypography, IxContentHeader } from '@siemens/ix-react';
 import { AgGridReact } from 'ag-grid-react';
 import * as ag from 'ag-grid-community';

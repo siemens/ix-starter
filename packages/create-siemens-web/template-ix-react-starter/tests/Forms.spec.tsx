@@ -1,8 +1,3 @@
-/*
- * Copyright (c) Siemens 2018 - 2026
- * SPDX-License-Identifier: MIT
- */
-
 import { expect, test } from 'vitest';
 import { render } from 'vitest-browser-react';
 import Forms from '../src/pages/forms/Forms';

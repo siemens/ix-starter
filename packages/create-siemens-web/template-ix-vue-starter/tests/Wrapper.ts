@@ -1,8 +1,3 @@
-/*
- * Copyright (c) Siemens 2018 - 2026
- * SPDX-License-Identifier: MIT
- */
-
 import '@siemens/ix/dist/siemens-ix/siemens-ix.css';
 import { defineComponent, h, toRaw, type Component, type PropType } from 'vue';
 

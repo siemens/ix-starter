@@ -1,8 +1,3 @@
-/*
- * Copyright (c) Siemens 2018 - 2026
- * SPDX-License-Identifier: MIT
- */
-
 import path from 'path';
 import { fileURLToPath } from 'url';
 import typescriptEslint from 'typescript-eslint';

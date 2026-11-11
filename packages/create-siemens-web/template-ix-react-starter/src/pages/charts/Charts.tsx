@@ -1,8 +1,3 @@
-/*
- * Copyright (c) Siemens 2018 - 2026
- * SPDX-License-Identifier: MIT
- */
-
 import { useEffect, useRef, useState } from 'react';
 import type { MutableRefObject } from 'react';
 import { IxTypography, IxContentHeader, IxButton } from '@siemens/ix-react';

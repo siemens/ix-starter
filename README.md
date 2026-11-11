@@ -1,6 +1,6 @@
 # Siemens Industrial Experience Starter Apps
 
-[![MIT License](https://img.shields.io/badge/license-MIT-009999.svg?style=flat)](./LICENSE)
+[![MIT License](https://img.shields.io/badge/license-MIT-009999.svg?style=flat)](./LICENSE.md)
 
 iX is an open-source design system for designers and developers to consistently create great digital experiences for industrial software products. This repository provides ready-to-use starter apps that can be scaffolded with [`degit`](https://github.com/Rich-Harris/degit).
 

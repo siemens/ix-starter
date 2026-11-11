@@ -1,8 +1,3 @@
-<!--
-  ~ Copyright (c) Siemens 2018 - 2026
-  ~ SPDX-License-Identifier: MIT
--->
-
 <script setup lang="ts">
 import { useRouter, useRoute } from 'vue-router';
 import { iconHome, iconTextDocument, iconPiechart, iconTable } from '@siemens/ix-icons/icons';

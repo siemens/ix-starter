@@ -1,8 +1,3 @@
-<!--
-  ~ Copyright (c) Siemens 2018 - 2026
-  ~ SPDX-License-Identifier: MIT
--->
-
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
 import { IxContentHeader, IxTypography, IxLinkButton } from '@siemens/ix-vue';
