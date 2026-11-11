@@ -1,4 +1,0 @@
-extends:
-  - '@siemens/stylelint-config-scss/stylelintrc.yml'
-ignoreFiles:
-  - dist/**
