@@ -5,4 +5,5 @@ import { Component } from '@angular/core';
   standalone: true,
   templateUrl: './company-logo.component.html',
 })
-export class CompanyLogoComponent {}
+export class CompanyLogoComponent {
+}
