@@ -3,8 +3,6 @@ import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/
 import { provideRouter, withHashLocation } from '@angular/router';
 import { provideTranslateService } from '@ngx-translate/core';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
-import { provideSiUiState } from '@siemens/element-ng/common';
-import { provideSiDatatableConfig } from '@siemens/element-ng/datatable';
 import {
   provideMissingTranslationHandlerForElement,
   provideNgxTranslateForElement,
@@ -18,11 +16,9 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes, withHashLocation()),
     provideBrowserGlobalErrorListeners(),
     provideNgxTranslateForElement(),
-    provideSiDatatableConfig(),
     provideTranslateService({
       missingTranslationHandler: provideMissingTranslationHandlerForElement(),
     }),
     provideTranslateHttpLoader({ prefix: 'assets/i18n/', suffix: '.json' }),
-    provideSiUiState(),
   ],
 };

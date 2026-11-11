@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+
+import { SettingsService } from './services/settings.service';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +9,10 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.html',
   styleUrl: './app.scss',
   host: {
-    class: 'si-layout-fixed-height',
+    class: 'has-navbar-fixed-top si-layout-fixed-height',
   },
 })
-export class App {}
+export class App {
+  private settingsService = inject(SettingsService);
+  selectedValue = this.settingsService.language;
+}

@@ -2,13 +2,13 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { provideTranslateService } from '@ngx-translate/core';
 import { provideMissingTranslationHandlerForElement } from '@siemens/element-translate-ng/ngx-translate';
-import { page } from 'vitest/browser';
 
-import { GetStarted as TestComponent } from './get-started';
+import { Home as TestComponent } from './home';
 
-describe('GetStarted', () => {
+describe('Home', () => {
   let fixture: ComponentFixture<TestComponent>;
   let component: TestComponent;
+  let element: HTMLElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -24,6 +24,7 @@ describe('GetStarted', () => {
   beforeEach(async () => {
     fixture = TestBed.createComponent(TestComponent);
     component = fixture.componentInstance;
+    element = fixture.nativeElement;
     await fixture.whenStable();
   });
 
@@ -31,9 +32,7 @@ describe('GetStarted', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have a page heading', async () => {
-    await expect
-      .element(page.getByRole('heading', { level: 2 }))
-      .toHaveTextContent('GET-STARTED.HEADING');
+  it('should have a page heading', () => {
+    expect(element.querySelector('h2')?.textContent).toMatch(/HOME\.HEADING/i);
   });
 });

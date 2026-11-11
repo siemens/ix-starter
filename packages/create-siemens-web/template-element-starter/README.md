@@ -41,3 +41,7 @@ contribute code via merge request. All details are listed in our contribution
 guide.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## License
+
+See [LICENSE.md](LICENSE.md).
