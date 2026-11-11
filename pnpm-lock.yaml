@@ -16,10 +16,10 @@ importers:
         version: link:tools/theme-download
       prettier:
         specifier: ^3.3.3
-        version: 3.6.2
+        version: 3.8.1
       turbo:
         specifier: latest
-        version: 2.9.16
+        version: 2.10.12
 
   apps/angular-starter:
     dependencies:
@@ -42,20 +42,20 @@ importers:
         specifier: ^21.2.0
         version: 21.2.16(@angular/common@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/platform-browser@21.2.16(@angular/animations@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1)))(@angular/common@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1)))(rxjs@7.8.2)
       '@siemens/ix':
-        specifier: ^5.1.0
-        version: 5.1.0(@siemens/ix-icons@3.4.0)
+        specifier: ^5.2.1
+        version: 5.2.1(@siemens/ix-icons@3.5.0)
       '@siemens/ix-aggrid':
-        specifier: ^5.0.1
-        version: 5.0.1(@siemens/ix@5.1.0(@siemens/ix-icons@3.4.0))(ag-grid-community@33.3.2)
-      '@siemens/ix-angular':
         specifier: ^5.1.0
-        version: 5.1.0(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/forms@21.2.16(@angular/common@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/platform-browser@21.2.16(@angular/animations@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1)))(@angular/common@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1)))(rxjs@7.8.2))(@siemens/ix-icons@3.4.0)
+        version: 5.1.0(@siemens/ix@5.2.1(@siemens/ix-icons@3.5.0))(ag-grid-community@33.3.2)
+      '@siemens/ix-angular':
+        specifier: ^5.2.1
+        version: 5.2.1(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/forms@21.2.16(@angular/common@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/platform-browser@21.2.16(@angular/animations@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1)))(@angular/common@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1)))(rxjs@7.8.2))(@siemens/ix-icons@3.5.0)
       '@siemens/ix-echarts':
-        specifier: ^4.1.0
-        version: 4.1.0(@siemens/ix@5.1.0(@siemens/ix-icons@3.4.0))(echarts@5.6.0)
+        specifier: ^4.1.1
+        version: 4.1.1(@siemens/ix@5.2.1(@siemens/ix-icons@3.5.0))(echarts@5.6.0)
       '@siemens/ix-icons':
-        specifier: ^3.4.0
-        version: 3.4.0
+        specifier: ^3.5.0
+        version: 3.5.0
       ag-grid-angular:
         specifier: ^33.0.0
         version: 33.3.2(@angular/common@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))
@@ -77,7 +77,7 @@ importers:
     devDependencies:
       '@angular/build':
         specifier: ^21.2.13
-        version: 21.2.14(@angular/compiler-cli@21.2.16(@angular/compiler@21.2.16)(typescript@5.9.3))(@angular/compiler@21.2.16)(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/platform-browser@21.2.16(@angular/animations@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1)))(@angular/common@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1)))(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@types/node@24.13.1)(chokidar@5.0.0)(jiti@2.7.0)(karma@6.4.4)(less@4.4.2)(lightningcss@1.32.0)(postcss@8.5.15)(terser@5.46.0)(tslib@2.8.1)(tsx@4.20.6)(typescript@5.9.3)(vitest@4.1.8)
+        version: 21.2.14(@angular/compiler-cli@21.2.16(@angular/compiler@21.2.16)(typescript@5.9.3))(@angular/compiler@21.2.16)(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/platform-browser@21.2.16(@angular/animations@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1)))(@angular/common@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1)))(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.2)(@types/node@24.13.1)(chokidar@5.0.0)(jiti@2.7.0)(karma@6.4.4)(less@4.4.2)(lightningcss@1.32.0)(postcss@8.5.15)(terser@5.46.0)(tslib@2.8.1)(tsx@4.20.6)(typescript@5.9.3)(vitest@4.1.8)
       '@angular/cli':
         specifier: ^21.2.13
         version: 21.2.14(@types/node@24.13.1)(chokidar@5.0.0)
@@ -85,17 +85,17 @@ importers:
         specifier: ^21.2.0
         version: 21.2.16(@angular/compiler@21.2.16)(typescript@5.9.3)
       '@playwright/test':
-        specifier: ^1.60.0
-        version: 1.60.0
+        specifier: 1.61.1
+        version: 1.61.1
       '@vitest/browser-playwright':
         specifier: ^4.1.8
-        version: 4.1.8(playwright@1.60.0)(vite@8.0.16(@types/node@24.13.1)(esbuild@0.28.0)(jiti@2.7.0)(less@4.4.2)(sass@1.97.3)(terser@5.46.0)(tsx@4.20.6))(vitest@4.1.8)
+        version: 4.1.8(playwright@1.61.1)(vite@8.0.16(@types/node@24.13.1)(esbuild@0.28.0)(jiti@2.7.0)(less@4.4.2)(sass@1.97.3)(terser@5.46.0)(tsx@4.20.6))(vitest@4.1.8)
       jsdom:
         specifier: ^28.0.0
         version: 28.1.0(@noble/hashes@1.8.0)
       prettier:
         specifier: ^3.8.1
-        version: 3.8.4
+        version: 3.8.1
       typescript:
         specifier: ~5.9.2
         version: 5.9.3
@@ -106,20 +106,20 @@ importers:
   apps/react-starter:
     dependencies:
       '@siemens/ix':
-        specifier: ^5.1.0
-        version: 5.1.0(@siemens/ix-icons@3.4.0)
+        specifier: ^5.2.1
+        version: 5.2.1(@siemens/ix-icons@3.5.0)
       '@siemens/ix-aggrid':
-        specifier: ^5.0.1
-        version: 5.0.1(@siemens/ix@5.1.0(@siemens/ix-icons@3.4.0))(ag-grid-community@33.3.2)
-      '@siemens/ix-echarts':
-        specifier: ^4.1.0
-        version: 4.1.0(@siemens/ix@5.1.0(@siemens/ix-icons@3.4.0))(echarts@5.6.0)
-      '@siemens/ix-icons':
-        specifier: ^3.4.0
-        version: 3.4.0
-      '@siemens/ix-react':
         specifier: ^5.1.0
-        version: 5.1.0(@siemens/ix-icons@3.4.0)(@stencil/core@4.36.3)(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+        version: 5.1.0(@siemens/ix@5.2.1(@siemens/ix-icons@3.5.0))(ag-grid-community@33.3.2)
+      '@siemens/ix-echarts':
+        specifier: ^4.1.1
+        version: 4.1.1(@siemens/ix@5.2.1(@siemens/ix-icons@3.5.0))(echarts@5.6.0)
+      '@siemens/ix-icons':
+        specifier: ^3.5.0
+        version: 3.5.0
+      '@siemens/ix-react':
+        specifier: ^5.2.1
+        version: 5.2.1(@siemens/ix-icons@3.5.0)(@stencil/core@4.36.3)(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       ag-grid-community:
         specifier: ^33.0.0
         version: 33.3.2
@@ -140,8 +140,8 @@ importers:
         version: 7.17.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
     devDependencies:
       '@playwright/test':
-        specifier: ^1.60.0
-        version: 1.60.0
+        specifier: 1.61.1
+        version: 1.61.1
       '@types/node':
         specifier: ^22.0.0
         version: 22.19.20
@@ -156,7 +156,7 @@ importers:
         version: 6.0.2(vite@8.0.16(@types/node@22.19.20)(esbuild@0.28.0)(jiti@2.7.0)(less@4.4.2)(sass@1.97.3)(terser@5.46.0)(tsx@4.20.6))
       '@vitest/browser-playwright':
         specifier: ^4.1.8
-        version: 4.1.8(playwright@1.60.0)(vite@8.0.16(@types/node@22.19.20)(esbuild@0.28.0)(jiti@2.7.0)(less@4.4.2)(sass@1.97.3)(terser@5.46.0)(tsx@4.20.6))(vitest@4.1.8)
+        version: 4.1.8(playwright@1.61.1)(vite@8.0.16(@types/node@22.19.20)(esbuild@0.28.0)(jiti@2.7.0)(less@4.4.2)(sass@1.97.3)(terser@5.46.0)(tsx@4.20.6))(vitest@4.1.8)
       typescript:
         specifier: ^6.0.3
         version: 6.0.3
@@ -173,20 +173,20 @@ importers:
   apps/vue-starter:
     dependencies:
       '@siemens/ix':
-        specifier: ^5.1.0
-        version: 5.1.0(@siemens/ix-icons@3.4.0)
+        specifier: ^5.2.1
+        version: 5.2.1(@siemens/ix-icons@3.5.0)
       '@siemens/ix-aggrid':
-        specifier: ^5.0.1
-        version: 5.0.1(@siemens/ix@5.1.0(@siemens/ix-icons@3.4.0))(ag-grid-community@33.3.2)
-      '@siemens/ix-echarts':
-        specifier: ^4.1.0
-        version: 4.1.0(@siemens/ix@5.1.0(@siemens/ix-icons@3.4.0))(echarts@5.6.0)
-      '@siemens/ix-icons':
-        specifier: ^3.4.0
-        version: 3.4.0
-      '@siemens/ix-vue':
         specifier: ^5.1.0
-        version: 5.1.0(@siemens/ix-icons@3.4.0)(@stencil/core@4.36.3)(vue-router@4.6.4(vue@3.5.35(typescript@6.0.3)))(vue@3.5.35(typescript@6.0.3))
+        version: 5.1.0(@siemens/ix@5.2.1(@siemens/ix-icons@3.5.0))(ag-grid-community@33.3.2)
+      '@siemens/ix-echarts':
+        specifier: ^4.1.1
+        version: 4.1.1(@siemens/ix@5.2.1(@siemens/ix-icons@3.5.0))(echarts@5.6.0)
+      '@siemens/ix-icons':
+        specifier: ^3.5.0
+        version: 3.5.0
+      '@siemens/ix-vue':
+        specifier: ^5.2.1
+        version: 5.2.1(@siemens/ix-icons@3.5.0)(@stencil/core@4.36.3)(vue-router@4.6.4(vue@3.5.35(typescript@6.0.3)))(vue@3.5.35(typescript@6.0.3))
       ag-grid-community:
         specifier: ^33.0.0
         version: 33.3.2
@@ -204,8 +204,8 @@ importers:
         version: 4.6.4(vue@3.5.35(typescript@6.0.3))
     devDependencies:
       '@playwright/test':
-        specifier: ^1.60.0
-        version: 1.60.0
+        specifier: 1.61.1
+        version: 1.61.1
       '@types/node':
         specifier: ^24.12.3
         version: 24.13.1
@@ -214,7 +214,7 @@ importers:
         version: 6.0.7(vite@8.0.16(@types/node@24.13.1)(esbuild@0.28.0)(jiti@2.7.0)(less@4.4.2)(sass@1.97.3)(terser@5.46.0)(tsx@4.20.6))(vue@3.5.35(typescript@6.0.3))
       '@vitest/browser-playwright':
         specifier: ^4.1.8
-        version: 4.1.8(playwright@1.60.0)(vite@8.0.16(@types/node@24.13.1)(esbuild@0.28.0)(jiti@2.7.0)(less@4.4.2)(sass@1.97.3)(terser@5.46.0)(tsx@4.20.6))(vitest@4.1.8)
+        version: 4.1.8(playwright@1.61.1)(vite@8.0.16(@types/node@24.13.1)(esbuild@0.28.0)(jiti@2.7.0)(less@4.4.2)(sass@1.97.3)(terser@5.46.0)(tsx@4.20.6))(vitest@4.1.8)
       '@vue/tsconfig':
         specifier: ^0.9.1
         version: 0.9.1(typescript@6.0.3)(vue@3.5.35(typescript@6.0.3))
@@ -613,11 +613,20 @@ packages:
   '@emnapi/core@1.10.0':
     resolution: {integrity: sha512-yq6OkJ4p82CAfPl0u9mQebQHKPJkY7WrIuk205cTYnYe+k2Z8YBh11FrbRG/H6ihirqcacOgl2BIO8oyMQLeXw==}
 
+  '@emnapi/core@1.11.2':
+    resolution: {integrity: sha512-TC8MkTuZUtcTSiFeuC0ksCh9QIJ5+F21MvZ4Wn4ORfYaFJ/0dsiudv5tVkejgwZlwQ39jL9WWDe2lz8x0WglOA==}
+
   '@emnapi/runtime@1.10.0':
     resolution: {integrity: sha512-ewvYlk86xUoGI0zQRNq/mC+16R1QeDlKQy21Ki3oSYXNgLb45GV1P6A0M+/s6nyCuNDqe5VpaY84BzXGwVbwFA==}
 
+  '@emnapi/runtime@1.11.2':
+    resolution: {integrity: sha512-kyOl3X0DuTiT1h2ft8r2fYO8JYtU9a9Xis/zBSiGArNaagCOWx90N1k2wxp18czFDH+OgcWGb5ZP/XMt3dcyPA==}
+
   '@emnapi/wasi-threads@1.2.1':
     resolution: {integrity: sha512-uTII7OYF+/Mes/MrcIOYp5yOtSMLBWSIoLPpcgwipoiKbli6k322tcoFsxoIIxPDqW01SQGAgko4EzZi2BNv2w==}
+
+  '@emnapi/wasi-threads@1.2.2':
+    resolution: {integrity: sha512-c95qOXkHdydNKhscBTebqEC1CVAZpyqOfVfBzQ1qgzyl3gfeldUjIggDbIZgDKsHLgnsM+igH7TJ/eAasaVuMA==}
 
   '@emotion/unitless@0.10.0':
     resolution: {integrity: sha512-dFoMUuQA20zvtVTuxZww6OHoJYgrzfKM1t52mVySDJnMSEa08ruEvdYQbhvyu6soU+NeLVd3yKfTfT0NeV6qGg==}
@@ -1706,6 +1715,12 @@ packages:
       '@emnapi/core': ^1.7.1
       '@emnapi/runtime': ^1.7.1
 
+  '@napi-rs/wasm-runtime@1.1.6':
+    resolution: {integrity: sha512-ZLv/JdUfkvOy9eCnnBaGfiO+XimbjebAeO+MRQqD/B+FR1tnRN0tpKSJHRbE8sFfS6aqsXZ67TQjfwfsxULVbg==}
+    peerDependencies:
+      '@emnapi/core': ^1.7.1
+      '@emnapi/runtime': ^1.7.1
+
   '@noble/ciphers@1.3.0':
     resolution: {integrity: sha512-2I0gnIVPtfnMw9ee9h1dJG7tp81+8Ob3OJb3Mv37rx5L40/b0i7djjCVvGOVqc9AEIQyvyu1i6ypKdFw8R8gQw==}
     engines: {node: ^14.21.3 || >=16}
@@ -1856,8 +1871,8 @@ packages:
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
 
-  '@playwright/test@1.60.0':
-    resolution: {integrity: sha512-O71yZIbAh/PxDMNGns37GHBIfrVkEVyn+AXyIa5dOTfb4/xNvRWV+Vv/NMbNCtODB/pO7vLlF2OTmMVLhmr7Ag==}
+  '@playwright/test@1.61.1':
+    resolution: {integrity: sha512-8nKv6+0RJSL9FE4jYOEGXnPeM/Hg12qZpmqzZjRh3qM0Y7c3z1mrOTfFLids72RDQYVh9WpLEfR5WdpNX4fkig==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -2232,46 +2247,46 @@ packages:
     resolution: {integrity: sha512-rIEdtNTdCCTwuo7B4tMoq5qmbLXdBgmW6Ays1hyno//4OE+HFtvlWZd+hl6KceEyN00IcZ2HRaPnfd71E1JnoA==}
     engines: {node: ^20.19.0 || ^22.12.0 || >=24.0.0, npm: ^6.11.0 || ^7.5.6 || >=8.0.0, yarn: '>= 1.13.0'}
 
-  '@siemens/ix-aggrid@5.0.1':
-    resolution: {integrity: sha512-NuDo+b8i+7zDXF+5rgKsHcuIq8VARexFehkBrDepXwqeNiDai6n3fEwzs0MEafrsTI0bXUtexhLxzmRhOOPfjw==}
+  '@siemens/ix-aggrid@5.1.0':
+    resolution: {integrity: sha512-ApqamOpwYRsm9etJUQeHjInOJFsKrjU9xQI7LxZqQtHxSSfDrwWOp+TzxE1tN1/0xRVXhEccF9d+kPTsSi7OTw==}
     peerDependencies:
       '@siemens/ix': ^5.0.0
       ag-grid-community: ^33 || ^34 || ^35
 
-  '@siemens/ix-angular@5.1.0':
-    resolution: {integrity: sha512-r74Bg3ZP4FdmB+AKAtZqzzGjlMUgKr6xlIe5BULhKbur3Z4qi/JvEnQgCfcGEFbg1BAJrOUUAWQ2pH6ZW5UDqA==}
+  '@siemens/ix-angular@5.2.1':
+    resolution: {integrity: sha512-KeEU71MWu1cxO+ezpzFOKRkZIUx4TP8WOX88szenU9WBxYfpOQ+DeveynU25yo7lVfTYZ82RGUtgauRqQPN6ow==}
     peerDependencies:
       '@angular/core': '>=20.0.0'
       '@angular/forms': '>=20.0.0'
-      '@siemens/ix-icons': ^3.4.0
+      '@siemens/ix-icons': ^3.5.0
 
-  '@siemens/ix-echarts@4.1.0':
-    resolution: {integrity: sha512-hhSw0Era7PiZnUyBEBIDPqcfBVMLEm+eWufpi2TIsqzSvxoEQfS3J59K0kRJ0qBzIfRw2q4hwc9sDxFjZ6tU+g==}
+  '@siemens/ix-echarts@4.1.1':
+    resolution: {integrity: sha512-mIhQ8E9Uz27Rvoa8bQIsB5PbipC9aDR/aq9GRo8AyWMUOVahTvYeyxv+/xZMpnDZ5022wRjxbrCQqxNzqdHX8A==}
     peerDependencies:
       '@siemens/ix': ^5.0.0
       echarts: ^5.0.0 || ^6.0.0
 
-  '@siemens/ix-icons@3.4.0':
-    resolution: {integrity: sha512-T6maRV+DJ1MjT29phC/miwwc8fP/D8LQGNjc0UlBZnFCLaDMrtasQTREQzff99uROUmHw4nt5A65/ZWnW/j9Pg==}
+  '@siemens/ix-icons@3.5.0':
+    resolution: {integrity: sha512-FP/7jnjoTfIvIah5OkJ7nLoXjyNy2rcUClGk29NLd4h/If/lz5liu7AMrCNKV9BTNCWQM8UI1wmoeF8xWz5d+A==}
     engines: {node: '>=22.19.x', pnpm: '>=10.x.x'}
 
-  '@siemens/ix-react@5.1.0':
-    resolution: {integrity: sha512-k/HhSpkytWD/R3Ds8Pt7CZSM4IXgW9GDqsswp0RuBl8t19VF8AfxMYNyhERifq3ByLGnaNRiOgP+Q7x1uOPINg==}
+  '@siemens/ix-react@5.2.1':
+    resolution: {integrity: sha512-89hHHW2ThOcPjcoLLF+2VwDSgrF8EiH0I9QJbTr6qUgOJZtQ85OhnBpR0ckD2x+ubMUS342iBBToQOWq/M/P1Q==}
     peerDependencies:
-      '@siemens/ix-icons': ^3.4.0
+      '@siemens/ix-icons': ^3.5.0
       react: ^18 || ^19
       react-dom: ^18 || ^19
 
-  '@siemens/ix-vue@5.1.0':
-    resolution: {integrity: sha512-ecekWx4GJpkF7vPTTEC2+z19bAX7NoCg4bEN6/kyZxTd4StJVbp72UczQIaNwMuaDGTB8q7i/2zgMUkrPKR/Xw==}
+  '@siemens/ix-vue@5.2.1':
+    resolution: {integrity: sha512-uj26HUC30gnVKPRXCXXPZ2O2H1zYPuWRCzG1vSyOb7d0d14ma60wUUfKB5WZzKUxaVpjlS5UL38cEDfobfYuBw==}
     peerDependencies:
-      '@siemens/ix-icons': ^3.4.0
+      '@siemens/ix-icons': ^3.5.0
       vue: '>=3.2.45'
 
-  '@siemens/ix@5.1.0':
-    resolution: {integrity: sha512-OXceXfvdGP5YmJ7tacBRK7BU8McvbG01E+Ehnu95ZY931yBMX9J3+R+5rhkcZMv8IwsWosmciRsT7BmAd15oqg==}
+  '@siemens/ix@5.2.1':
+    resolution: {integrity: sha512-tEpOi3dmYj84/o/q1dxMCaML1tVoB0lr2EfgTosFopKtEjI4smz0QBdJSjJbnmqAH0LURUBdDJAm6+O04oLd4Q==}
     peerDependencies:
-      '@siemens/ix-icons': ^3.4.0
+      '@siemens/ix-icons': ^3.5.0
 
   '@sigstore/bundle@4.0.0':
     resolution: {integrity: sha512-NwCl5Y0V6Di0NexvkTqdoVfmjTaQwoLM236r89KEojGmq/jMls8S+zb7yOwAPdXvbwfKDlP+lmXgAL4vKSQT+A==}
@@ -2338,38 +2353,41 @@ packages:
     resolution: {integrity: sha512-Y8cK9aggNRsqJVaKUlEYs4s7CvQ1b1ta2DVPyAimb0I2qhzjNk+A+mxvll/klL0RlfuIUei8BF7YWiua4kQqww==}
     engines: {node: ^20.17.0 || >=22.9.0}
 
-  '@turbo/darwin-64@2.9.16':
-    resolution: {integrity: sha512-jLjApWTSNd7JZ5JaLYfelW1ytnGQOvB7ivl+2RD1xQvJTbi8I9gBjzcga7tDZVPyaxpl10YTfJt3BrYXR18KDw==}
+  '@turbo/darwin-64@2.10.12':
+    resolution: {integrity: sha512-9nKgKoF6ZOUsM+or0OtNf+TTJSfGvDNP7ZFv/ZGWVwOSCkumyctQiTeHwB4UNljHTnC41AqylgbunLDHoccNrA==}
     cpu: [x64]
     os: [darwin]
 
-  '@turbo/darwin-arm64@2.9.16':
-    resolution: {integrity: sha512-YPgrn+5HIGzrx0O2a631SV4MBQUe4W/DafMFUuBVgaU32PW9/OTT0ehviF0QSxTXuRJlHvW2eUTemddF5/spmw==}
+  '@turbo/darwin-arm64@2.10.12':
+    resolution: {integrity: sha512-H4Elb1jqTZVeIC9bbcNwjSzemZ6RegoTOVHeuV5Osirt2Z8UguTyisMEkvZjPVZgMeN9J4ERZBFad40tFnkb7w==}
     cpu: [arm64]
     os: [darwin]
 
-  '@turbo/linux-64@2.9.16':
-    resolution: {integrity: sha512-vAEf1H6l26lTpl9FJ/peQo1NUB8RC0sbEJJz5mPcUhHA2bPDup2x3CZPgo/bH8S4cUcBLm4FN3UHd5iUO2RAew==}
+  '@turbo/linux-64@2.10.12':
+    resolution: {integrity: sha512-lr7KIotukvjZwEXiFSYAeOH3BWzjFVBbSzTbv0fuGFsNukYyH0+g1hB5ecqnJkgkYU+KHEMG1edOhnjiKON1wQ==}
     cpu: [x64]
-    os: [linux]
+    os: [android, linux]
 
-  '@turbo/linux-arm64@2.9.16':
-    resolution: {integrity: sha512-xDBLR2PZg4BrQOchfG6svgpv5FCNJ2TOtT2psLdEJcdKo1BH+pnPs9Xj6pvUjgfkHbuvBOfeE4R6tvxMoQKDHQ==}
+  '@turbo/linux-arm64@2.10.12':
+    resolution: {integrity: sha512-f0pZDTtvzB5SuNwuXBaKbZHUCMCukgc8nMlHEuvLmj91Fzec+MEbr3cAvGNor5htEDqZnO6Lxt9N/GPI/77oGA==}
     cpu: [arm64]
-    os: [linux]
+    os: [android, linux]
 
-  '@turbo/windows-64@2.9.16':
-    resolution: {integrity: sha512-NBAJnaUiGdgkSzQwUIdOvkCkcpTSu58G/sBGa0mvBtzfvFOOgrQwepKOOQ8cp6sWM6OcKDNFj2p1dsZA1OWjPg==}
+  '@turbo/windows-64@2.10.12':
+    resolution: {integrity: sha512-SDOueJRjS/QcykWf2KCRtTLmIl5YMKsLbXkXQGhDwcTXvKXZiS5ih5lBl/gkwZIpYFjqA/rAlfMzlAFcVHNe0g==}
     cpu: [x64]
     os: [win32]
 
-  '@turbo/windows-arm64@2.9.16':
-    resolution: {integrity: sha512-Y7SJppD0Z8wjO3Ec0ZGd9KQ4Yv0BMnA8CIowj5Vp+OEVsosXDG2weK6/t1RRLfJmc2Ozrnd6y4DOgQys+mn3WQ==}
+  '@turbo/windows-arm64@2.10.12':
+    resolution: {integrity: sha512-0i0mVUa4kKk+/B3RwEwPMf9CB+T7ul56hn5FFHNA4VUNTOoLBEd6aNf3FaKfCatDNZ6cicCEf6if9QUTVyzzcA==}
     cpu: [arm64]
     os: [win32]
 
   '@tybys/wasm-util@0.10.2':
     resolution: {integrity: sha512-RoBvJ2X0wuKlWFIjrwffGw1IqZHKQqzIchKaadZZfnNpsAYp2mM0h36JtPCjNDAHGgYez/15uMBpfGwchhiMgg==}
+
+  '@tybys/wasm-util@0.10.3':
+    resolution: {integrity: sha512-F3fo1MYrRJYL3zER0OUOmkutjr1Vp23m7OsSgp7nq4SP6OqX6C/56XFIPAl5bt3zaBRjmW7SGz3u/6LwFpYcOg==}
 
   '@types/chai@5.2.2':
     resolution: {integrity: sha512-8kB30R7Hwqf40JPiKhVzodJs2Qc1ZJ5zuT3uzw5Hq/dhNCl3G3l83jfpdI1e20BP348+fV7VIL/+FxaXkqBmWg==}
@@ -3130,6 +3148,7 @@ packages:
   eslint@9.34.0:
     resolution: {integrity: sha512-RNCHRX5EwdrESy3Jc9o8ie8Bog+PeYvvSR8sDGoZxNFTvZ4dlxUB3WzQ3bQMztFrSRODGrLLj8g6OFuGY/aiQg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
     peerDependencies:
       jiti: '*'
@@ -3461,6 +3480,7 @@ packages:
   image-size@0.5.5:
     resolution: {integrity: sha512-6TDAlDPZxUFCv+fuOkIoXT/V/f3Qbq8e37p+YOiYrUv3v9cc3/6x78VdfPgFVaB9dZYeLUfKgHRebpkm/oP2VQ==}
     engines: {node: '>=0.10.0'}
+    deprecated: Please migrate to image-size@2.x
     hasBin: true
 
   immutable@5.1.4:
@@ -4164,6 +4184,10 @@ packages:
     resolution: {integrity: sha512-QP88BAKvMam/3NxH6vj2o21R6MjxZUAd6nlwAS/pnGvN9IVLocLHxGYIzFhg6fUQ+5th6P4dv4eW9jX3DSIj7A==}
     engines: {node: '>=12'}
 
+  picomatch@4.0.5:
+    resolution: {integrity: sha512-RvwwcruNjI1ncT5xRakeyS9Lf8lcItv34KD+aif+VH9kduAyfYBipGh12274xtenIPZ119/R9BdTBa8gAwSh0A==}
+    engines: {node: '>=12'}
+
   pify@4.0.1:
     resolution: {integrity: sha512-uB80kBFb/tfd68bVleG9T5GGsGPjJrLAUpR5PZIrhBnIaRTQRjqdJSsIKkOP6OAIFbj7GOrcudc5pNjZ+geV2g==}
     engines: {node: '>=6'}
@@ -4176,13 +4200,13 @@ packages:
     resolution: {integrity: sha512-wQ0b/W4Fr01qtpHlqSqspcj3EhBvimsdh0KlHhH8HRZnMsEa0ea2fTULOXOS9ccQr3om+GcGRk4e+isrZWV8qQ==}
     engines: {node: '>=16.20.0'}
 
-  playwright-core@1.60.0:
-    resolution: {integrity: sha512-9bW6zvX/m0lEbgTKJ6YppOKx8H3VOPBMOCFh2irXFOT4BbHgrx5hPjwJYLT40Lu+4qtD36qKc/Hn56StUW57IA==}
+  playwright-core@1.61.1:
+    resolution: {integrity: sha512-h7Qlt6m4REp25qvIdvbDtVmD4LqVXfpRxhORv9L0jzETM05p4fuPJ3dKyuSXQxDSbXnmS79HAgi9589lGSpLkg==}
     engines: {node: '>=18'}
     hasBin: true
 
-  playwright@1.60.0:
-    resolution: {integrity: sha512-hheHdokM8cdqCb0lcE3s+zT4t4W+vvjpGxsZlDnikarzx8tSzMebh3UiFtgqwFwnTnjYQcsyMF8ei2mCO/tpeA==}
+  playwright@1.61.1:
+    resolution: {integrity: sha512-DWnY5o3YbLWK4GovuAVwpqL+1VwGNdUGrRr++8j8PtQQzvAVZUIMjKQ90fY689sEJZJBbZVw1rXaOKSTitkzPQ==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -4207,13 +4231,8 @@ packages:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
 
-  prettier@3.6.2:
-    resolution: {integrity: sha512-I7AIg5boAr5R0FFtJ6rCfD+LFsWHp81dolrFD8S79U9tb8Az2nGrJncnMSnys+bpQJfRUzqs9hnA81OAA3hCuQ==}
-    engines: {node: '>=14'}
-    hasBin: true
-
-  prettier@3.8.4:
-    resolution: {integrity: sha512-N2MylSdi48+5N/6S5j+maeHbUSIzzZ5uOcX5Hm4QpV8Dkb1HFjfAKTKX6yNPJQD9AhcT3ifHNB66tWTTJDi11Q==}
+  prettier@3.8.1:
+    resolution: {integrity: sha512-UOnG6LftzbdaHZcKoPFtOcCKztrQ57WkHDeRD9t/PTQtmT0NHSeWWepj6pS0z/N7+08BHFDQVUrfmfMRcZwbMg==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -4412,6 +4431,11 @@ packages:
 
   semver@7.7.4:
     resolution: {integrity: sha512-vFKC2IEtQnVhpT78h1Yp8wzwrf8CM+MzKMHGJZfBtzhZNycRFnXsHk6E5TxIkkMsgNS7mdX3AGB7x2QM2di4lA==}
+    engines: {node: '>=10'}
+    hasBin: true
+
+  semver@7.8.5:
+    resolution: {integrity: sha512-Y7/KDsb8LjooZpwaqGyulO6DQlksgCncchHGk+sZIY4SBvUocMBEFH5Ur1fI4dV+Jvl0w6cjvucaIi40puRioA==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -4679,8 +4703,8 @@ packages:
     resolution: {integrity: sha512-50QV99kCKH5P/Vs4E2Gzp7BopNV+KzTXqWeaxrfu5IQJBOULRsTIS9seSsOVT8ZnGXzCyx55nYWAi4qJzpZKEQ==}
     engines: {node: ^20.17.0 || >=22.9.0}
 
-  turbo@2.9.16:
-    resolution: {integrity: sha512-NqgRQy6j6dPYcdSdv0q1g9QsZg7SWg87RERM8otw/1AtKU2yTFVClOM7cbwKzOonZr/Ek1blTBucw64L9H0Bwg==}
+  turbo@2.10.12:
+    resolution: {integrity: sha512-AswgMPnpOoaVZHrrSBejETzEbuIA69OVGwfkHwfrY0A23VjWXBANzgq9+OymWOHAIArB7D1+1z498WY8fGg1Jw==}
     hasBin: true
 
   type-check@0.4.0:
@@ -5217,7 +5241,7 @@ snapshots:
       tslib: 2.8.1
     optional: true
 
-  '@angular/build@21.2.14(@angular/compiler-cli@21.2.16(@angular/compiler@21.2.16)(typescript@5.9.3))(@angular/compiler@21.2.16)(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/platform-browser@21.2.16(@angular/animations@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1)))(@angular/common@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1)))(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@types/node@24.13.1)(chokidar@5.0.0)(jiti@2.7.0)(karma@6.4.4)(less@4.4.2)(lightningcss@1.32.0)(postcss@8.5.15)(terser@5.46.0)(tslib@2.8.1)(tsx@4.20.6)(typescript@5.9.3)(vitest@4.1.8)':
+  '@angular/build@21.2.14(@angular/compiler-cli@21.2.16(@angular/compiler@21.2.16)(typescript@5.9.3))(@angular/compiler@21.2.16)(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/platform-browser@21.2.16(@angular/animations@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1)))(@angular/common@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1)))(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.2)(@types/node@24.13.1)(chokidar@5.0.0)(jiti@2.7.0)(karma@6.4.4)(less@4.4.2)(lightningcss@1.32.0)(postcss@8.5.15)(terser@5.46.0)(tslib@2.8.1)(tsx@4.20.6)(typescript@5.9.3)(vitest@4.1.8)':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@angular-devkit/architect': 0.2102.14(chokidar@5.0.0)
@@ -5240,7 +5264,7 @@ snapshots:
       parse5-html-rewriting-stream: 8.0.0
       picomatch: 4.0.4
       piscina: 5.1.4
-      rolldown: 1.0.0-rc.4(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)
+      rolldown: 1.0.0-rc.4(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.2)
       sass: 1.97.3
       semver: 7.7.4
       source-map-support: 0.5.21
@@ -5541,12 +5565,28 @@ snapshots:
       tslib: 2.8.1
     optional: true
 
+  '@emnapi/core@1.11.2':
+    dependencies:
+      '@emnapi/wasi-threads': 1.2.2
+      tslib: 2.8.1
+    optional: true
+
   '@emnapi/runtime@1.10.0':
     dependencies:
       tslib: 2.8.1
     optional: true
 
+  '@emnapi/runtime@1.11.2':
+    dependencies:
+      tslib: 2.8.1
+    optional: true
+
   '@emnapi/wasi-threads@1.2.1':
+    dependencies:
+      tslib: 2.8.1
+    optional: true
+
+  '@emnapi/wasi-threads@1.2.2':
     dependencies:
       tslib: 2.8.1
     optional: true
@@ -6256,11 +6296,18 @@ snapshots:
       '@napi-rs/nice-win32-x64-msvc': 1.1.1
     optional: true
 
-  '@napi-rs/wasm-runtime@1.1.4(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)':
+  '@napi-rs/wasm-runtime@1.1.4(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.2)':
+    dependencies:
+      '@emnapi/core': 1.11.2
+      '@emnapi/runtime': 1.11.2
+      '@tybys/wasm-util': 0.10.2
+    optional: true
+
+  '@napi-rs/wasm-runtime@1.1.6(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)':
     dependencies:
       '@emnapi/core': 1.10.0
       '@emnapi/runtime': 1.10.0
-      '@tybys/wasm-util': 0.10.2
+      '@tybys/wasm-util': 0.10.3
     optional: true
 
   '@noble/ciphers@1.3.0': {}
@@ -6283,7 +6330,7 @@ snapshots:
 
   '@npmcli/fs@5.0.0':
     dependencies:
-      semver: 7.7.4
+      semver: 7.8.5
 
   '@npmcli/git@7.0.2':
     dependencies:
@@ -6293,7 +6340,7 @@ snapshots:
       lru-cache: 11.5.1
       npm-pick-manifest: 11.0.3
       proc-log: 6.1.0
-      semver: 7.7.4
+      semver: 7.8.5
       which: 6.0.1
 
   '@npmcli/installed-package-contents@4.0.0':
@@ -6310,7 +6357,7 @@ snapshots:
       hosted-git-info: 9.0.3
       json-parse-even-better-errors: 5.0.0
       proc-log: 6.1.0
-      semver: 7.7.4
+      semver: 7.8.5
       spdx-expression-parse: 4.0.0
 
   '@npmcli/promise-spawn@9.0.1':
@@ -6397,9 +6444,9 @@ snapshots:
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
-  '@playwright/test@1.60.0':
+  '@playwright/test@1.61.1':
     dependencies:
-      playwright: 1.60.0
+      playwright: 1.61.1
 
   '@polka/url@1.0.0-next.29': {}
 
@@ -6469,9 +6516,9 @@ snapshots:
   '@rolldown/binding-openharmony-arm64@1.0.3':
     optional: true
 
-  '@rolldown/binding-wasm32-wasi@1.0.0-rc.4(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)':
+  '@rolldown/binding-wasm32-wasi@1.0.0-rc.4(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.2)':
     dependencies:
-      '@napi-rs/wasm-runtime': 1.1.4(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)
+      '@napi-rs/wasm-runtime': 1.1.4(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.2)
     transitivePeerDependencies:
       - '@emnapi/core'
       - '@emnapi/runtime'
@@ -6481,7 +6528,7 @@ snapshots:
     dependencies:
       '@emnapi/core': 1.10.0
       '@emnapi/runtime': 1.10.0
-      '@napi-rs/wasm-runtime': 1.1.4(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)
+      '@napi-rs/wasm-runtime': 1.1.6(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)
     optional: true
 
   '@rolldown/binding-win32-arm64-msvc@1.0.0-rc.4':
@@ -6607,30 +6654,30 @@ snapshots:
     transitivePeerDependencies:
       - chokidar
 
-  '@siemens/ix-aggrid@5.0.1(@siemens/ix@5.1.0(@siemens/ix-icons@3.4.0))(ag-grid-community@33.3.2)':
+  '@siemens/ix-aggrid@5.1.0(@siemens/ix@5.2.1(@siemens/ix-icons@3.5.0))(ag-grid-community@33.3.2)':
     dependencies:
-      '@siemens/ix': 5.1.0(@siemens/ix-icons@3.4.0)
+      '@siemens/ix': 5.2.1(@siemens/ix-icons@3.5.0)
       ag-grid-community: 33.3.2
 
-  '@siemens/ix-angular@5.1.0(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/forms@21.2.16(@angular/common@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/platform-browser@21.2.16(@angular/animations@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1)))(@angular/common@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1)))(rxjs@7.8.2))(@siemens/ix-icons@3.4.0)':
+  '@siemens/ix-angular@5.2.1(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/forms@21.2.16(@angular/common@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/platform-browser@21.2.16(@angular/animations@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1)))(@angular/common@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1)))(rxjs@7.8.2))(@siemens/ix-icons@3.5.0)':
     dependencies:
       '@angular/core': 21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1)
       '@angular/forms': 21.2.16(@angular/common@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/platform-browser@21.2.16(@angular/animations@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1)))(@angular/common@21.2.16(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@21.2.16(@angular/compiler@21.2.16)(rxjs@7.8.2)(zone.js@0.15.1)))(rxjs@7.8.2)
-      '@siemens/ix': 5.1.0(@siemens/ix-icons@3.4.0)
-      '@siemens/ix-icons': 3.4.0
+      '@siemens/ix': 5.2.1(@siemens/ix-icons@3.5.0)
+      '@siemens/ix-icons': 3.5.0
       tslib: 2.8.1
 
-  '@siemens/ix-echarts@4.1.0(@siemens/ix@5.1.0(@siemens/ix-icons@3.4.0))(echarts@5.6.0)':
+  '@siemens/ix-echarts@4.1.1(@siemens/ix@5.2.1(@siemens/ix-icons@3.5.0))(echarts@5.6.0)':
     dependencies:
-      '@siemens/ix': 5.1.0(@siemens/ix-icons@3.4.0)
+      '@siemens/ix': 5.2.1(@siemens/ix-icons@3.5.0)
       echarts: 5.6.0
 
-  '@siemens/ix-icons@3.4.0': {}
+  '@siemens/ix-icons@3.5.0': {}
 
-  '@siemens/ix-react@5.1.0(@siemens/ix-icons@3.4.0)(@stencil/core@4.36.3)(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)':
+  '@siemens/ix-react@5.2.1(@siemens/ix-icons@3.5.0)(@stencil/core@4.36.3)(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)':
     dependencies:
-      '@siemens/ix': 5.1.0(@siemens/ix-icons@3.4.0)
-      '@siemens/ix-icons': 3.4.0
+      '@siemens/ix': 5.2.1(@siemens/ix-icons@3.5.0)
+      '@siemens/ix-icons': 3.5.0
       '@stencil/react-output-target': 1.5.3(@stencil/core@4.36.3)(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       react: 19.2.7
       react-dom: 19.2.7(react@19.2.7)
@@ -6639,20 +6686,20 @@ snapshots:
       - '@stencil/core'
       - '@types/react'
 
-  '@siemens/ix-vue@5.1.0(@siemens/ix-icons@3.4.0)(@stencil/core@4.36.3)(vue-router@4.6.4(vue@3.5.35(typescript@6.0.3)))(vue@3.5.35(typescript@6.0.3))':
+  '@siemens/ix-vue@5.2.1(@siemens/ix-icons@3.5.0)(@stencil/core@4.36.3)(vue-router@4.6.4(vue@3.5.35(typescript@6.0.3)))(vue@3.5.35(typescript@6.0.3))':
     dependencies:
-      '@siemens/ix': 5.1.0(@siemens/ix-icons@3.4.0)
-      '@siemens/ix-icons': 3.4.0
+      '@siemens/ix': 5.2.1(@siemens/ix-icons@3.5.0)
+      '@siemens/ix-icons': 3.5.0
       '@stencil/vue-output-target': 0.13.2(@stencil/core@4.36.3)(vue-router@4.6.4(vue@3.5.35(typescript@6.0.3)))(vue@3.5.35(typescript@6.0.3))
       vue: 3.5.35(typescript@6.0.3)
     transitivePeerDependencies:
       - '@stencil/core'
       - vue-router
 
-  '@siemens/ix@5.1.0(@siemens/ix-icons@3.4.0)':
+  '@siemens/ix@5.2.1(@siemens/ix-icons@3.5.0)':
     dependencies:
       '@floating-ui/dom': 1.7.4
-      '@siemens/ix-icons': 3.4.0
+      '@siemens/ix-icons': 3.5.0
       animejs: 4.2.2
       luxon: 3.7.2
 
@@ -6736,25 +6783,30 @@ snapshots:
       '@tufjs/canonical-json': 2.0.0
       minimatch: 10.2.5
 
-  '@turbo/darwin-64@2.9.16':
+  '@turbo/darwin-64@2.10.12':
     optional: true
 
-  '@turbo/darwin-arm64@2.9.16':
+  '@turbo/darwin-arm64@2.10.12':
     optional: true
 
-  '@turbo/linux-64@2.9.16':
+  '@turbo/linux-64@2.10.12':
     optional: true
 
-  '@turbo/linux-arm64@2.9.16':
+  '@turbo/linux-arm64@2.10.12':
     optional: true
 
-  '@turbo/windows-64@2.9.16':
+  '@turbo/windows-64@2.10.12':
     optional: true
 
-  '@turbo/windows-arm64@2.9.16':
+  '@turbo/windows-arm64@2.10.12':
     optional: true
 
   '@tybys/wasm-util@0.10.2':
+    dependencies:
+      tslib: 2.8.1
+    optional: true
+
+  '@tybys/wasm-util@0.10.3':
     dependencies:
       tslib: 2.8.1
     optional: true
@@ -6775,13 +6827,13 @@ snapshots:
   '@types/fs-extra@11.0.4':
     dependencies:
       '@types/jsonfile': 6.1.4
-      '@types/node': 22.19.20
+      '@types/node': 24.13.1
 
   '@types/json-schema@7.0.15': {}
 
   '@types/jsonfile@6.1.4':
     dependencies:
-      '@types/node': 22.19.20
+      '@types/node': 24.13.1
 
   '@types/node@22.19.20':
     dependencies:
@@ -6814,11 +6866,11 @@ snapshots:
       vite: 8.0.16(@types/node@24.13.1)(esbuild@0.28.0)(jiti@2.7.0)(less@4.4.2)(sass@1.97.3)(terser@5.46.0)(tsx@4.20.6)
       vue: 3.5.35(typescript@6.0.3)
 
-  '@vitest/browser-playwright@4.1.8(playwright@1.60.0)(vite@8.0.16(@types/node@22.19.20)(esbuild@0.28.0)(jiti@2.7.0)(less@4.4.2)(sass@1.97.3)(terser@5.46.0)(tsx@4.20.6))(vitest@4.1.8)':
+  '@vitest/browser-playwright@4.1.8(playwright@1.61.1)(vite@8.0.16(@types/node@22.19.20)(esbuild@0.28.0)(jiti@2.7.0)(less@4.4.2)(sass@1.97.3)(terser@5.46.0)(tsx@4.20.6))(vitest@4.1.8)':
     dependencies:
       '@vitest/browser': 4.1.8(vite@8.0.16(@types/node@22.19.20)(esbuild@0.28.0)(jiti@2.7.0)(less@4.4.2)(sass@1.97.3)(terser@5.46.0)(tsx@4.20.6))(vitest@4.1.8)
       '@vitest/mocker': 4.1.8(vite@8.0.16(@types/node@22.19.20)(esbuild@0.28.0)(jiti@2.7.0)(less@4.4.2)(sass@1.97.3)(terser@5.46.0)(tsx@4.20.6))
-      playwright: 1.60.0
+      playwright: 1.61.1
       tinyrainbow: 3.1.0
       vitest: 4.1.8(@types/node@22.19.20)(@vitest/browser-playwright@4.1.8)(jsdom@28.1.0(@noble/hashes@1.8.0))(vite@8.0.16(@types/node@22.19.20)(esbuild@0.28.0)(jiti@2.7.0)(less@4.4.2)(sass@1.97.3)(terser@5.46.0)(tsx@4.20.6))
     transitivePeerDependencies:
@@ -6827,11 +6879,11 @@ snapshots:
       - utf-8-validate
       - vite
 
-  '@vitest/browser-playwright@4.1.8(playwright@1.60.0)(vite@8.0.16(@types/node@24.13.1)(esbuild@0.28.0)(jiti@2.7.0)(less@4.4.2)(sass@1.97.3)(terser@5.46.0)(tsx@4.20.6))(vitest@4.1.8)':
+  '@vitest/browser-playwright@4.1.8(playwright@1.61.1)(vite@8.0.16(@types/node@24.13.1)(esbuild@0.28.0)(jiti@2.7.0)(less@4.4.2)(sass@1.97.3)(terser@5.46.0)(tsx@4.20.6))(vitest@4.1.8)':
     dependencies:
       '@vitest/browser': 4.1.8(vite@8.0.16(@types/node@24.13.1)(esbuild@0.28.0)(jiti@2.7.0)(less@4.4.2)(sass@1.97.3)(terser@5.46.0)(tsx@4.20.6))(vitest@4.1.8)
       '@vitest/mocker': 4.1.8(vite@8.0.16(@types/node@24.13.1)(esbuild@0.28.0)(jiti@2.7.0)(less@4.4.2)(sass@1.97.3)(terser@5.46.0)(tsx@4.20.6))
-      playwright: 1.60.0
+      playwright: 1.61.1
       tinyrainbow: 3.1.0
       vitest: 4.1.8(@types/node@24.13.1)(@vitest/browser-playwright@4.1.8)(jsdom@28.1.0(@noble/hashes@1.8.0))(vite@8.0.16(@types/node@24.13.1)(esbuild@0.28.0)(jiti@2.7.0)(less@4.4.2)(sass@1.97.3)(terser@5.46.0)(tsx@4.20.6))
     transitivePeerDependencies:
@@ -6975,7 +7027,7 @@ snapshots:
       alien-signals: 3.2.1
       muggle-string: 0.4.1
       path-browserify: 1.0.1
-      picomatch: 4.0.4
+      picomatch: 4.0.5
 
   '@vue/reactivity@3.5.35':
     dependencies:
@@ -7512,7 +7564,7 @@ snapshots:
       '@one-ini/wasm': 0.1.1
       commander: 10.0.1
       minimatch: 9.0.5
-      semver: 7.7.4
+      semver: 7.8.5
 
   ee-first@1.1.1: {}
 
@@ -7873,9 +7925,9 @@ snapshots:
     optionalDependencies:
       picomatch: 4.0.3
 
-  fdir@6.5.0(picomatch@4.0.4):
+  fdir@6.5.0(picomatch@4.0.5):
     optionalDependencies:
-      picomatch: 4.0.4
+      picomatch: 4.0.5
 
   file-entry-cache@8.0.0:
     dependencies:
@@ -8232,7 +8284,7 @@ snapshots:
       '@babel/parser': 7.29.7
       '@istanbuljs/schema': 0.1.3
       istanbul-lib-coverage: 3.2.2
-      semver: 7.7.4
+      semver: 7.8.5
     transitivePeerDependencies:
       - supports-color
 
@@ -8692,7 +8744,7 @@ snapshots:
       graceful-fs: 4.2.11
       nopt: 9.0.0
       proc-log: 6.1.0
-      semver: 7.7.4
+      semver: 7.8.5
       tar: 7.5.16
       tinyglobby: 0.2.17
       undici: 6.26.0
@@ -8717,7 +8769,7 @@ snapshots:
 
   npm-install-checks@8.0.0:
     dependencies:
-      semver: 7.7.4
+      semver: 7.8.5
 
   npm-normalize-package-bin@5.0.0: {}
 
@@ -8725,7 +8777,7 @@ snapshots:
     dependencies:
       hosted-git-info: 9.0.3
       proc-log: 6.1.0
-      semver: 7.7.4
+      semver: 7.8.5
       validate-npm-package-name: 7.0.2
 
   npm-packlist@10.0.4:
@@ -8738,7 +8790,7 @@ snapshots:
       npm-install-checks: 8.0.0
       npm-normalize-package-bin: 5.0.0
       npm-package-arg: 13.0.2
-      semver: 7.7.4
+      semver: 7.8.5
 
   npm-registry-fetch@19.1.1:
     dependencies:
@@ -8902,6 +8954,8 @@ snapshots:
 
   picomatch@4.0.4: {}
 
+  picomatch@4.0.5: {}
+
   pify@4.0.1:
     optional: true
 
@@ -8911,11 +8965,11 @@ snapshots:
 
   pkce-challenge@5.0.1: {}
 
-  playwright-core@1.60.0: {}
+  playwright-core@1.61.1: {}
 
-  playwright@1.60.0:
+  playwright@1.61.1:
     dependencies:
-      playwright-core: 1.60.0
+      playwright-core: 1.61.1
     optionalDependencies:
       fsevents: 2.3.2
 
@@ -8935,9 +8989,7 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier@3.6.2: {}
-
-  prettier@3.8.4: {}
+  prettier@3.8.1: {}
 
   proc-log@6.1.0: {}
 
@@ -9059,7 +9111,7 @@ snapshots:
       glob: 7.2.3
     optional: true
 
-  rolldown@1.0.0-rc.4(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0):
+  rolldown@1.0.0-rc.4(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.2):
     dependencies:
       '@oxc-project/types': 0.113.0
       '@rolldown/pluginutils': 1.0.0-rc.4
@@ -9074,7 +9126,7 @@ snapshots:
       '@rolldown/binding-linux-x64-gnu': 1.0.0-rc.4
       '@rolldown/binding-linux-x64-musl': 1.0.0-rc.4
       '@rolldown/binding-openharmony-arm64': 1.0.0-rc.4
-      '@rolldown/binding-wasm32-wasi': 1.0.0-rc.4(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)
+      '@rolldown/binding-wasm32-wasi': 1.0.0-rc.4(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.2)
       '@rolldown/binding-win32-arm64-msvc': 1.0.0-rc.4
       '@rolldown/binding-win32-x64-msvc': 1.0.0-rc.4
     transitivePeerDependencies:
@@ -9181,6 +9233,8 @@ snapshots:
   semver@7.7.3: {}
 
   semver@7.7.4: {}
+
+  semver@7.8.5: {}
 
   send@1.2.1:
     dependencies:
@@ -9450,13 +9504,13 @@ snapshots:
 
   tinyglobby@0.2.15:
     dependencies:
-      fdir: 6.5.0(picomatch@4.0.4)
-      picomatch: 4.0.4
+      fdir: 6.5.0(picomatch@4.0.5)
+      picomatch: 4.0.5
 
   tinyglobby@0.2.17:
     dependencies:
-      fdir: 6.5.0(picomatch@4.0.4)
-      picomatch: 4.0.4
+      fdir: 6.5.0(picomatch@4.0.5)
+      picomatch: 4.0.5
 
   tinyrainbow@3.1.0: {}
 
@@ -9510,14 +9564,14 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  turbo@2.9.16:
+  turbo@2.10.12:
     optionalDependencies:
-      '@turbo/darwin-64': 2.9.16
-      '@turbo/darwin-arm64': 2.9.16
-      '@turbo/linux-64': 2.9.16
-      '@turbo/linux-arm64': 2.9.16
-      '@turbo/windows-64': 2.9.16
-      '@turbo/windows-arm64': 2.9.16
+      '@turbo/darwin-64': 2.10.12
+      '@turbo/darwin-arm64': 2.10.12
+      '@turbo/linux-64': 2.10.12
+      '@turbo/linux-arm64': 2.10.12
+      '@turbo/windows-64': 2.10.12
+      '@turbo/windows-arm64': 2.10.12
 
   type-check@0.4.0:
     dependencies:
@@ -9579,8 +9633,8 @@ snapshots:
   vite@7.3.2(@types/node@24.13.1)(jiti@2.7.0)(less@4.4.2)(lightningcss@1.32.0)(sass@1.97.3)(terser@5.46.0)(tsx@4.20.6):
     dependencies:
       esbuild: 0.27.7
-      fdir: 6.5.0(picomatch@4.0.4)
-      picomatch: 4.0.4
+      fdir: 6.5.0(picomatch@4.0.5)
+      picomatch: 4.0.5
       postcss: 8.5.15
       rollup: 4.59.0
       tinyglobby: 0.2.17
@@ -9597,7 +9651,7 @@ snapshots:
   vite@8.0.16(@types/node@22.19.20)(esbuild@0.28.0)(jiti@2.7.0)(less@4.4.2)(sass@1.97.3)(terser@5.46.0)(tsx@4.20.6):
     dependencies:
       lightningcss: 1.32.0
-      picomatch: 4.0.4
+      picomatch: 4.0.5
       postcss: 8.5.15
       rolldown: 1.0.3
       tinyglobby: 0.2.17
@@ -9614,7 +9668,7 @@ snapshots:
   vite@8.0.16(@types/node@24.13.1)(esbuild@0.28.0)(jiti@2.7.0)(less@4.4.2)(sass@1.97.3)(terser@5.46.0)(tsx@4.20.6):
     dependencies:
       lightningcss: 1.32.0
-      picomatch: 4.0.4
+      picomatch: 4.0.5
       postcss: 8.5.15
       rolldown: 1.0.3
       tinyglobby: 0.2.17
@@ -9670,7 +9724,7 @@ snapshots:
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 22.19.20
-      '@vitest/browser-playwright': 4.1.8(playwright@1.60.0)(vite@8.0.16(@types/node@22.19.20)(esbuild@0.28.0)(jiti@2.7.0)(less@4.4.2)(sass@1.97.3)(terser@5.46.0)(tsx@4.20.6))(vitest@4.1.8)
+      '@vitest/browser-playwright': 4.1.8(playwright@1.61.1)(vite@8.0.16(@types/node@22.19.20)(esbuild@0.28.0)(jiti@2.7.0)(less@4.4.2)(sass@1.97.3)(terser@5.46.0)(tsx@4.20.6))(vitest@4.1.8)
       jsdom: 28.1.0(@noble/hashes@1.8.0)
     transitivePeerDependencies:
       - msw
@@ -9699,7 +9753,7 @@ snapshots:
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 24.13.1
-      '@vitest/browser-playwright': 4.1.8(playwright@1.60.0)(vite@8.0.16(@types/node@24.13.1)(esbuild@0.28.0)(jiti@2.7.0)(less@4.4.2)(sass@1.97.3)(terser@5.46.0)(tsx@4.20.6))(vitest@4.1.8)
+      '@vitest/browser-playwright': 4.1.8(playwright@1.61.1)(vite@8.0.16(@types/node@24.13.1)(esbuild@0.28.0)(jiti@2.7.0)(less@4.4.2)(sass@1.97.3)(terser@5.46.0)(tsx@4.20.6))(vitest@4.1.8)
       jsdom: 28.1.0(@noble/hashes@1.8.0)
     transitivePeerDependencies:
       - msw
