@@ -28,7 +28,7 @@
                 "input": "public"
               }
             ],
-            "styles": ["node_modules/@siemens/ix/dist/siemens-ix/siemens-ix.css", "src/styles.css"]
+            "styles": ["@siemens/ix/css/reset.css", "@siemens/ix/css/default.css", "src/styles.css"]
           },
           "configurations": {
             "production": {

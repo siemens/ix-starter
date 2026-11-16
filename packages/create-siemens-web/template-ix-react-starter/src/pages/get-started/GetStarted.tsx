@@ -25,13 +25,25 @@ function GetStarted() {
       </IxTypography>
 
       <div className={styles.navLinks}>
-        <IxLinkButton onClick={() => navigate('/forms')} aria-label="Navigate to Forms page">
+        <IxLinkButton
+          icon="internal"
+          onClick={() => navigate('/forms')}
+          aria-label="Navigate to Forms page"
+        >
           Forms
         </IxLinkButton>
-        <IxLinkButton onClick={() => navigate('/charts')} aria-label="Navigate to Charts page">
+        <IxLinkButton
+          icon="internal"
+          onClick={() => navigate('/charts')}
+          aria-label="Navigate to Charts page"
+        >
           Charts
         </IxLinkButton>
-        <IxLinkButton onClick={() => navigate('/grids')} aria-label="Navigate to Grids page">
+        <IxLinkButton
+          icon="internal"
+          onClick={() => navigate('/grids')}
+          aria-label="Navigate to Grids page"
+        >
           Grids
         </IxLinkButton>
       </div>

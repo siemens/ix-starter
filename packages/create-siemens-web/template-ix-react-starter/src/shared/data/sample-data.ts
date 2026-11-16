@@ -70,10 +70,10 @@ export function buildChartOptions() {
         type: 'cross' as const,
         label: { show: false },
       },
-      backgroundColor: 'var(--theme-color-1)',
-      borderColor: 'var(--theme-color-soft-bdr)',
+      backgroundColor: 'var(--si-sys-color-background-0)',
+      borderColor: 'var(--si-sys-color-border-3)',
       textStyle: {
-        color: 'var(--theme-color-std-text)',
+        color: 'var(--si-sys-color-text-primary)',
       },
       formatter: (params: unknown) => {
         const p = Array.isArray(params) ? params[0] : params;

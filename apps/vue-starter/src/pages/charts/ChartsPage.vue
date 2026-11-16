@@ -110,7 +110,7 @@ onUnmounted(() => {
       This lets you use different chart types in the Siemens Industrial Experience design system.
     </IxTypography>
 
-    <IxTypography id="chart-title" format="label-lg" bold class="chart-title">
+    <IxTypography id="chart-title" format="body-lg" bold class="chart-title">
       Motor vibration analysis
     </IxTypography>
 

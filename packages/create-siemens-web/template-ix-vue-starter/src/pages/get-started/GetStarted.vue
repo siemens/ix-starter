@@ -24,13 +24,22 @@ const router = useRouter();
   </IxTypography>
 
   <div class="nav-links">
-    <IxLinkButton aria-label="Navigate to Forms page" @click.prevent="router.push('/forms')"
+    <IxLinkButton
+      icon="internal"
+      aria-label="Navigate to Forms page"
+      @click.prevent="router.push('/forms')"
       >Forms</IxLinkButton
     >
-    <IxLinkButton aria-label="Navigate to Charts page" @click.prevent="router.push('/charts')"
+    <IxLinkButton
+      icon="internal"
+      aria-label="Navigate to Charts page"
+      @click.prevent="router.push('/charts')"
       >Charts</IxLinkButton
     >
-    <IxLinkButton aria-label="Navigate to Grids page" @click.prevent="router.push('/grids')"
+    <IxLinkButton
+      icon="internal"
+      aria-label="Navigate to Grids page"
+      @click.prevent="router.push('/grids')"
       >Grids</IxLinkButton
     >
   </div>
