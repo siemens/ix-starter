@@ -10,14 +10,14 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@siemens/ix": "^5.2.1",
-    "@siemens/ix-aggrid": "^5.1.0",
-    "@siemens/ix-echarts": "^4.1.1",
-    "@siemens/ix-icons": "^3.5.0",
-    "@siemens/ix-react": "^5.2.1",
+    "@siemens/ix": "0.0.0-beta-20261110140127",
+    "@siemens/ix-aggrid": "0.0.0-beta-20261110140127",
+    "@siemens/ix-echarts": "0.0.0-beta-20261110140127",
+    "@siemens/ix-icons": "0.0.0-beta-20261021072559",
+    "@siemens/ix-react": "0.0.0-beta-20261110140127",
     "ag-grid-community": "^33.0.0",
     "ag-grid-react": "^33.0.0",
-    "echarts": "^5",
+    "echarts": "^6.1.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "react-router-dom": "^7.17.0"

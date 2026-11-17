@@ -17,7 +17,8 @@ import { CanvasRenderer } from 'echarts/renderers';
 import { registerTheme } from '@siemens/ix-echarts';
 import { ModuleRegistry, AllCommunityModule } from 'ag-grid-community';
 
-import '@siemens/ix/dist/siemens-ix/siemens-ix.css';
+import '@siemens/ix/css/reset.css';
+import '@siemens/ix/css/default.css';
 import './styles/global.css';
 
 import App from './App.vue';
