@@ -19,7 +19,7 @@
     "ix-theme-downloader": "workspace:*",
     "prettier": "3.8.1",
     "turbo": "latest",
-    "vitest": "^4.1.10"
+    "vitest": "^4.1.11"
   },
   "packageManager": "pnpm@11.18.0",
   "engines": {
