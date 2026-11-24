@@ -3,7 +3,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-import '@siemens/ix/dist/siemens-ix/siemens-ix.css';
+import '@siemens/ix/css/reset.css';
+import '@siemens/ix/css/default.css';
 import { defineComponent, h, toRaw, type Component, type PropType } from 'vue';
 
 function setIxThemeAttributes() {
@@ -11,7 +12,7 @@ function setIxThemeAttributes() {
     return;
   }
 
-  document.documentElement.setAttribute('data-ix-theme', 'classic');
+  document.documentElement.setAttribute('data-ix-theme', 'community');
   document.documentElement.setAttribute('data-ix-color-schema', 'dark');
 }
 

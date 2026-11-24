@@ -10,14 +10,14 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@siemens/ix": "^5.2.1",
-    "@siemens/ix-aggrid": "^5.1.0",
-    "@siemens/ix-echarts": "^4.1.1",
-    "@siemens/ix-icons": "^3.5.0",
-    "@siemens/ix-vue": "^5.2.1",
+    "@siemens/ix": "^6.0.0",
+    "@siemens/ix-aggrid": "^6.0.0",
+    "@siemens/ix-echarts": "^5.0.0",
+    "@siemens/ix-icons": "^4.0.0",
+    "@siemens/ix-vue": "^6.0.0",
     "ag-grid-community": "^33.0.0",
     "ag-grid-vue3": "^33.0.0",
-    "echarts": "^5.4.1",
+    "echarts": "^6.1.0",
     "vue": "^3.5.0",
     "vue-router": "^4.4.0"
   },
